@@ -86,7 +86,7 @@ const serviceIcons = {
 const serviceBackgrounds = {
   visas: "bg-gradient-to-br from-blue-50 to-blue-100 before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/new-york-3551125_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
   residencia: "bg-gradient-to-br from-blue-50 to-red-50 before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/old-bridge-with-ropes-american-flag.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
-  naturalizacion: "bg-gradient-to-br from-red-50 to-blue-50 before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/skyscraper-3717555_1280 (1).jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
+  naturalizacion: "bg-gradient-to-br from-red-50 to-blue-50 before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/shot-two-american-us-flags-high-rise-building.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
   asilo: "bg-gradient-to-br from-blue-100 to-white before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/brooklyn-bridge-3717553_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
   vawa: "bg-gradient-to-br from-red-50 to-white before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/statue-of-liberty-3551121_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain before:filter before:drop-shadow-md"
 };
@@ -386,7 +386,7 @@ const Services = () => {
         image: {
           data: {
             attributes: {
-              url: "/images/skyscraper-3717555_1280 (1).jpg"
+              url: "/images/shot-two-american-us-flags-high-rise-building.jpg"
             }
           }
         }
@@ -526,7 +526,7 @@ const Services = () => {
                     imageUrl = "/images/old-bridge-with-ropes-american-flag.jpg";
                     break;
                   case 'naturalizacion':
-                    imageUrl = "/images/skyscraper-3717555_1280 (1).jpg";
+                    imageUrl = "/images/shot-two-american-us-flags-high-rise-building.jpg";
                     break;
                   case 'asilo':
                     imageUrl = "/images/brooklyn-bridge-3717553_1280.jpg";
