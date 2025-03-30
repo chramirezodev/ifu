@@ -28,10 +28,10 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
     { label: 'inicio', href: '#inicio', translationKey: 'nav.home' },
     { label: 'prioridad', href: '#prioridad', translationKey: 'nav.priority' },
     { label: 'servicios', href: '#servicios', translationKey: 'nav.services' },
-    { label: 'elegir', href: '#elegir', translationKey: 'nav.choose' },
-    { label: 'preguntas', href: '#preguntas', translationKey: 'nav.questions' },
+    { label: 'por-que-elegirnos', href: '#por-que-elegirnos', translationKey: 'nav.choose' },
+    { label: 'preguntas-frecuentes', href: '#preguntas-frecuentes', translationKey: 'nav.questions' },
     { label: 'testimonios', href: '#testimonios', translationKey: 'nav.testimonials' },
-    { label: 'contactenos', href: '#contactenos', translationKey: 'nav.contact' }
+    { label: 'contacto', href: '#contacto', translationKey: 'nav.contact' }
   ];
 
   useEffect(() => {
