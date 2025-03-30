@@ -1,0 +1,13 @@
+:root {
+  /* Colores principales (bandera EE.UU.) */
+  --azul-bandera: #3C3B6E;     /* Azul oscuro de la bandera */
+  --rojo-bandera: #B22234;     /* Rojo de la bandera */
+  --blanco: #FFFFFF;           /* Blanco */
+  
+  /* Variaciones para uso en UI */
+  --azul-claro: #5C5B9E;       /* Para hover, elementos secundarios */
+  --rojo-claro: #D24254;       /* Para hover, elementos secundarios */
+  --gris-claro: #F5F5F5;       /* Fondos alternativos */
+  --texto-oscuro: #333333;     /* Texto principal */
+  --texto-secundario: #666666; /* Texto secundario */
+} 

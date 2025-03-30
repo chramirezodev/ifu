@@ -1,0 +1,242 @@
+{
+  "welcome": {
+    "title": "Bienvenido a Immigration for US",
+    "description1": "Nos especializamos en brindar servicios integrales de inmigración para ayudarte a alcanzar tus objetivos en Estados Unidos.",
+    "description2": "Nuestro equipo de expertos está aquí para guiarte en cada paso del proceso.",
+    "button": "Conoce Más"
+  },
+  "hero": {
+    "title": "Servicios de Inmigración",
+    "subtitle": "Tu Camino al Éxito en Estados Unidos",
+    "description": "Te ayudamos a alcanzar tus metas migratorias con un servicio profesional y personalizado.",
+    "slogan1": "Tu Camino Hacia el Sueño Americano",
+    "subSlogan1": "Asesoría migratoria profesional y personalizada",
+    "slogan2": "Expertos en Inmigración a Estados Unidos",
+    "subSlogan2": "Más de 10 años de experiencia en trámites migratorios",
+    "slogan3": "Soluciones Migratorias para Toda la Familia",
+    "subSlogan3": "Reunificación familiar, visas y residencia permanente",
+    "slogan4": "Trámites Migratorios con Garantía de Éxito",
+    "subSlogan4": "Maximizamos tus posibilidades de aprobación",
+    "slogan5": "Asistencia Legal Especializada",
+    "subSlogan5": "Te acompañamos en cada paso del proceso",
+    "cta": {
+      "start": "Comenzar Ahora",
+      "services": "Ver Servicios"
+    },
+    "whatsappMessage": "Hola, me gustaría obtener más información sobre sus servicios de inmigración."
+  },
+  "nav": {
+    "home": "Inicio",
+    "priority": "Prioridad",
+    "services": "Servicios",
+    "choose": "Por Qué Elegirnos",
+    "questions": "Preguntas Frecuentes",
+    "testimonials": "Testimonios",
+    "contact": "Contáctenos",
+    "policies": "Políticas",
+    "legal": "Aviso Legal",
+    "aria": {
+      "main": "Navegación principal",
+      "home": "Ir a inicio",
+      "open": "Abrir menú",
+      "close": "Cerrar menú"
+    },
+    "logo": {
+      "alt": "Immigration For US Logo"
+    }
+  },
+  "services": {
+    "title": "Nuestros Servicios",
+    "subtitle": "Soluciones Integrales de Inmigración",
+    "description": "Ofrecemos una amplia gama de servicios migratorios adaptados a tus necesidades",
+    "tourist": {
+      "title": "Visa de Turista",
+      "description": "Asesoramiento completo para obtener visa B1/B2 para turismo o negocios temporales en Estados Unidos.",
+      "whatsappMessage": "Hola, me interesa información sobre Visa de Turista"
+    },
+    "work": {
+      "title": "Visa de Trabajo",
+      "description": "Trámites para visas H-1B, L-1, O-1 y otras categorías de trabajo temporal en Estados Unidos.",
+      "whatsappMessage": "Hola, me interesa información sobre Visa de Trabajo"
+    },
+    "student": {
+      "title": "Visa de Estudiante",
+      "description": "Asesoría para obtener visas F-1 para estudiar en universidades o programas académicos estadounidenses.",
+      "whatsappMessage": "Hola, me interesa información sobre Visa de Estudiante"
+    },
+    "greenCard": {
+      "title": "Green Card",
+      "description": "Procesos para obtener residencia permanente a través de familia, empleo o inversión.",
+      "whatsappMessage": "Hola, me interesa información sobre Green Card"
+    },
+    "citizenship": {
+      "title": "Ciudadanía Americana",
+      "description": "Asistencia en el proceso de naturalización para convertirse en ciudadano estadounidense.",
+      "whatsappMessage": "Hola, me interesa información sobre Ciudadanía Americana"
+    },
+    "asylum": {
+      "title": "Asilo Político",
+      "description": "Apoyo legal para personas que buscan protección en Estados Unidos por persecución en su país de origen.",
+      "whatsappMessage": "Hola, me interesa información sobre Asilo Político"
+    }
+  },
+  "about": {
+    "title": "Sobre Nosotros",
+    "content": "En Immigration For US, somos expertos en servicios migratorios con más de 10 años de experiencia ayudando a personas a conseguir sus objetivos migratorios. Nuestro equipo de asesores especializados entrega un servicio personalizado, eficiente y transparente, guiándote en cada paso del proceso para maximizar tus posibilidades de éxito.",
+    "values": {
+      "personalized": {
+        "title": "Atención Personalizada",
+        "description": "Cada caso es único y recibe atención específica según sus circunstancias particulares."
+      },
+      "experience": {
+        "title": "Experiencia Comprobada",
+        "description": "Amplio historial de casos exitosos en distintas categorías migratorias."
+      },
+      "comprehensive": {
+        "title": "Servicio Integral",
+        "description": "Te acompañamos desde la evaluación inicial hasta la finalización del proceso."
+      },
+      "transparency": {
+        "title": "Transparencia Total",
+        "description": "Información clara sobre costos, tiempos y probabilidades de éxito en tu caso."
+      }
+    }
+  },
+  "priority": {
+    "title": "Tu Prioridad es Nuestra Prioridad",
+    "subtitle": "¿Por Qué Elegirnos?",
+    "description": "Entendemos la importancia de tu proceso migratorio y estamos comprometidos a brindarte el mejor servicio posible."
+  },
+  "process": {
+    "title": "Nuestro Proceso",
+    "subtitle": "Simple y Efectivo",
+    "description": "Seguimos un proceso optimizado para asegurar tu éxito"
+  },
+  "testimonials": {
+    "title": "Testimonios de Clientes",
+    "subtitle": "Lo Que Dicen Nuestros Clientes",
+    "description": "Lee sobre las experiencias de quienes hemos ayudado",
+    "1": {
+      "name": "Carlos Rodríguez",
+      "role": "Visa de Trabajo H-1B",
+      "content": "Immigration For US me ayudó a conseguir mi visa de trabajo de manera eficiente. Su asesoramiento fue fundamental para preparar correctamente mi caso. ¡Muy recomendados!"
+    },
+    "2": {
+      "name": "María González",
+      "role": "Green Card por Matrimonio",
+      "content": "El proceso de Green Card parecía muy complicado, pero con la guía de Immigration For US todo fue mucho más sencillo. Siempre estuvieron disponibles para resolver mis dudas."
+    },
+    "3": {
+      "name": "Juan Pérez",
+      "role": "Ciudadanía Americana",
+      "content": "Después de años con mi residencia, decidí aplicar para la ciudadanía. Immigration For US me acompañó en todo el proceso y hoy ya soy ciudadano americano. ¡Gracias!"
+    }
+  },
+  "blog": {
+    "title": "Recursos de Inmigración",
+    "subtitle": "Artículos útiles sobre procesos migratorios",
+    "posts": {
+      "1": {
+        "title": "Cambios recientes en políticas migratorias de Estados Unidos",
+        "slug": "cambios-recientes-politicas-migratorias",
+        "excerpt": "Conoce las últimas actualizaciones en las políticas migratorias y cómo pueden afectar tu proceso."
+      },
+      "2": {
+        "title": "Cómo prepararte para tu entrevista de visa americana",
+        "slug": "como-prepararte-entrevista-visa-americana",
+        "excerpt": "Consejos prácticos para tener éxito en tu entrevista en el consulado americano."
+      },
+      "3": {
+        "title": "Guía completa sobre la Lotería de Visas (DV Program)",
+        "slug": "guia-completa-loteria-visas",
+        "excerpt": "Todo lo que necesitas saber sobre el Programa de Visas de Diversidad y cómo participar correctamente."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contáctanos",
+    "subtitle": "Ponte en Contacto",
+    "description": "Estamos aquí para ayudarte con tus necesidades migratorias",
+    "email": "cpalisa@immigrationfor-us.com",
+    "phone": "+1 (954) 588 4018",
+    "whatsapp": "+1 (954) 588 4018",
+    "address": "7224 NW 116th Way, Parkland, FL. 33076",
+    "mapUrl": "https://goo.gl/maps/123",
+    "workHours": "Lunes a Viernes 8:00 AM - 6:00 PM ET",
+    "socialMedia": {
+      "facebook": "https://facebook.com/immigrationforus",
+      "instagram": "https://instagram.com/immigrationforus",
+      "twitter": "https://twitter.com/immigrationforus",
+      "linkedin": "https://linkedin.com/company/immigrationforus"
+    },
+    "form": {
+      "name": "Nombre Completo",
+      "email": "Correo Electrónico",
+      "phone": "Número de Teléfono",
+      "message": "Tu Mensaje",
+      "submit": "Enviar Mensaje"
+    }
+  },
+  "meta": {
+    "home": {
+      "title": "Immigration For US - Servicios de Inmigración Profesionales",
+      "description": "Servicios integrales de inmigración para ayudarte a alcanzar tus objetivos en Estados Unidos. Asesoría legal personalizada para todos tus trámites migratorios.",
+      "keywords": "inmigración, visa, green card, ciudadanía americana, asilo político, servicios migratorios, Estados Unidos"
+    }
+  },
+  "legal": {
+    "title": "Aviso Legal",
+    "intro": {
+      "p1": "El acceso a este sitio web implica la condición de usuario y la aceptación y conocimiento de los siguientes términos de uso, por lo que recomendamos su lectura y comprensión antes de utilizar el sitio. Si no está dispuesto a aceptar los Términos y Condiciones de este Acuerdo, por favor no acceda ni utilice este sitio web ni publique ningún contenido.",
+      "p2": "Usted entiende que este sitio web es propiedad de Immigration for US, incluyendo todos los derechos de propiedad intelectual e industrial que se derivan o están incluidos en él, sin que usted tenga derecho a utilizarlos, excepto en los términos establecidos en estos Términos de Uso. Nos reservamos el derecho de denegar o terminar su acceso al Sitio Web a nuestra discreción.",
+      "p3": "La prestación de este sitio web es gratuita y, sobre esta base, no tenemos obligación de servicio de mantenimiento o soporte, por lo que no somos responsables de ningún daño o perjuicio que pueda sufrir como consecuencia de una falla derivada del mantenimiento o actualización del sitio web.",
+      "p4": "El Propietario de este sitio web no asume ninguna responsabilidad como consecuencia directa o indirecta de cualquier acción u omisión que usted realice basándose en la información, servicios u otro material ubicado en este sitio web."
+    },
+    "uso": {
+      "title": "Uso Permitido",
+      "description": "Puede utilizar este sitio web para fines lícitos y de acuerdo con estos Términos de Uso. Se otorga una licencia revocable, intransferible y no exclusiva para ver, imprimir y distribuir contenido para fines personales y no comerciales. No puede copiar, modificar, mostrar, distribuir o vender el contenido de este sitio web sin nuestro consentimiento previo por escrito.",
+      "restrictions": "Además, usted se compromete a no:",
+      "list": [
+        "Utilizar el sitio web de una manera que pueda dañarlo o interferir con su funcionamiento.",
+        "Utilizar procesos automatizados para monitorear, copiar o extraer información.",
+        "Intentar acceder sin autorización al sitio web o su contenido."
+      ]
+    },
+    "privacy": {
+      "title": "Política de Privacidad",
+      "info": {
+        "title": "Información Recopilada",
+        "description": "Podemos recopilar información personal como su nombre, información de contacto y datos demográficos. Esta información se utiliza para:",
+        "uses": [
+          "Mantener un registro de usuarios.",
+          "Procesar pedidos o facturación.",
+          "Enviar información relevante y ofertas especiales."
+        ],
+        "security": "Nos comprometemos a mantener su información segura y no compartirla sin su consentimiento expreso, excepto cuando lo requiera la ley."
+      },
+      "cookies": {
+        "title": "Uso de Cookies",
+        "description": "Nuestro sitio web utiliza cookies para mejorar la experiencia del usuario. Puede aceptar o rechazar el uso de cookies desde la configuración de su navegador."
+      },
+      "emails": {
+        "title": "Correos Electrónicos y Comunicaciones",
+        "description": "Enviaremos correos electrónicos solo si proporciona su dirección y acepta recibir comunicaciones. Puede darse de baja en cualquier momento siguiendo las instrucciones incluidas en cada mensaje."
+      },
+      "thirdParty": {
+        "title": "Divulgación a Terceros",
+        "description": "No compartimos su información personal con terceros sin su autorización, excepto en casos necesarios para el cumplimiento de la ley o la protección de nuestros derechos."
+      }
+    },
+    "contact": {
+      "title": "Contacto",
+      "intro": "Para cualquier pregunta sobre nuestras políticas, puede contactarnos a través de:",
+      "whatsapp": "WhatsApp: +1 (954) 588 4018",
+      "email": "Correo: cpalisa@immigrationfor-us.com",
+      "location": "Ubicación: 7224 NW 116th Way, Parkland, FL. 33076",
+      "hours": "Horario de Atención: Lunes a Viernes de 8 am a 6 pm ET."
+    },
+    "footer": {
+      "update": "Nos reservamos el derecho de modificar estas políticas en cualquier momento. Recomendamos revisar esta página periódicamente para mantenerse informado de cualquier actualización."
+    }
+  }
+} 

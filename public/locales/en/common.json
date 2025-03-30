@@ -1,0 +1,134 @@
+{
+  "welcome": {
+    "title": "Welcome to Immigration for US",
+    "description1": "We specialize in providing comprehensive immigration services to help you achieve your goals in the United States.",
+    "description2": "Our team of experts is here to guide you every step of the way.",
+    "button": "Learn More"
+  },
+  "hero": {
+    "title": "Immigration Services",
+    "subtitle": "Your Path to Success in the United States",
+    "description": "We help you achieve your immigration goals with professional and personalized service.",
+    "slogan1": "Your Path to the American Dream",
+    "subSlogan1": "Professional and personalized immigration advice",
+    "slogan2": "Experts in U.S. Immigration",
+    "subSlogan2": "Over 10 years of experience in immigration procedures",
+    "slogan3": "Immigration Solutions for the Whole Family",
+    "subSlogan3": "Family reunification, visas, and permanent residency",
+    "slogan4": "Immigration Procedures with Success Guarantee",
+    "subSlogan4": "We maximize your chances of approval",
+    "slogan5": "Specialized Legal Assistance",
+    "subSlogan5": "We accompany you every step of the way",
+    "cta": {
+      "start": "Get Started",
+      "services": "View Services"
+    }
+  },
+  "nav": {
+    "home": "Home",
+    "priority": "Priority",
+    "services": "Services",
+    "choose": "Why Choose Us",
+    "questions": "FAQ",
+    "testimonials": "Testimonials",
+    "contact": "Contact Us",
+    "policies": "Policies",
+    "legal": "Legal Notice",
+    "aria": {
+      "main": "Main navigation",
+      "home": "Go to home",
+      "open": "Open menu",
+      "close": "Close menu"
+    },
+    "logo": {
+      "alt": "Immigration For US Logo"
+    }
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Comprehensive Immigration Solutions",
+    "description": "We offer a wide range of immigration services tailored to your needs"
+  },
+  "priority": {
+    "title": "Your Priority is Our Priority",
+    "subtitle": "Why Choose Us?",
+    "description": "We understand the importance of your immigration process and are committed to providing you with the best possible service."
+  },
+  "process": {
+    "title": "Our Process",
+    "subtitle": "Simple and Effective",
+    "description": "We follow an optimized process to ensure your success"
+  },
+  "testimonials": {
+    "title": "Client Testimonials",
+    "subtitle": "What Our Clients Say",
+    "description": "Read about the experiences of those we've helped"
+  },
+  "contact": {
+    "title": "Contact Us",
+    "subtitle": "Get in Touch",
+    "description": "We're here to help with your immigration needs",
+    "form": {
+      "name": "Full Name",
+      "email": "Email Address",
+      "phone": "Phone Number",
+      "message": "Your Message",
+      "submit": "Send Message"
+    }
+  },
+  "legal": {
+    "title": "Legal Notice",
+    "intro": {
+      "p1": "Access to this website implies the condition of user and acceptance and knowledge of the following terms of use, so we recommend reading and understanding them before using the site. If you are not willing to accept the Terms and Conditions of this Agreement, please do not access or use this website or post any content.",
+      "p2": "You understand that this website is owned by Immigration for US, including all intellectual and industrial property rights that derive from or are included in it, without you having the right to use them, except under the terms established in these Terms of Use. We reserve the right to deny or terminate your access to the Website at our discretion.",
+      "p3": "The provision of this website is free and, on this basis, we have no maintenance or support service obligation, so we are not responsible for any damage or harm you may suffer as a result of a failure arising from the maintenance or updating of the website.",
+      "p4": "The Owner of this website assumes no responsibility as a direct or indirect consequence of any action or omission that you make based on the information, services, or other material located on this website."
+    },
+    "uso": {
+      "title": "Permitted Use",
+      "description": "You may use this website for lawful purposes and in accordance with these Terms of Use. A revocable, non-transferable, and non-exclusive license is granted to view, print, and distribute content for personal and non-commercial purposes. You may not copy, modify, display, distribute, or sell the content of this website without our prior written consent.",
+      "restrictions": "Additionally, you agree not to:",
+      "list": [
+        "Use the website in a way that could damage or interfere with its operation.",
+        "Use automated processes to monitor, copy, or extract information.",
+        "Attempt to access the website or its content without authorization."
+      ]
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "info": {
+        "title": "Information Collected",
+        "description": "We may collect personal information such as your name, contact information, and demographic data. This information is used to:",
+        "uses": [
+          "Maintain a user record.",
+          "Process orders or billing.",
+          "Send relevant information and special offers."
+        ],
+        "security": "We are committed to keeping your information secure and not sharing it without your express consent, except when required by law."
+      },
+      "cookies": {
+        "title": "Use of Cookies",
+        "description": "Our website uses cookies to improve the user experience. You can accept or reject the use of cookies from your browser settings."
+      },
+      "emails": {
+        "title": "Emails and Communications",
+        "description": "We will only send emails if you provide your address and agree to receive communications. You can unsubscribe at any time by following the instructions included in each message."
+      },
+      "thirdParty": {
+        "title": "Third-Party Disclosure",
+        "description": "We do not share your personal information with third parties without your authorization, except in cases necessary for law compliance or the protection of our rights."
+      }
+    },
+    "contact": {
+      "title": "Contact",
+      "intro": "For any questions about our policies, you can contact us through:",
+      "whatsapp": "WhatsApp: +1 (954) 588 4018",
+      "email": "Email: cpalisa@immigrationfor-us.com",
+      "location": "Location: 7224 NW 116th Way, Parkland, FL. 33076",
+      "hours": "Business Hours: Monday to Friday from 8 am to 6 pm ET."
+    },
+    "footer": {
+      "update": "We reserve the right to modify these policies at any time. We recommend reviewing this page periodically to stay informed of any updates."
+    }
+  }
+} 

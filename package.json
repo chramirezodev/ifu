@@ -1,0 +1,40 @@
+{
+  "name": "immigration-for-us",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@formatjs/intl-localematcher": "^0.6.1",
+    "@hookform/resolvers": "^4.1.3",
+    "@types/negotiator": "^0.6.3",
+    "@types/nodemailer": "^6.4.17",
+    "@types/qs": "^6.9.18",
+    "@types/react": "^18.2.48",
+    "@types/react-dom": "^18.2.18",
+    "framer-motion": "^10.18.0",
+    "i18next": "^24.2.3",
+    "negotiator": "^1.0.0",
+    "next": "14.0.4",
+    "next-i18next": "^15.4.2",
+    "nodemailer": "^6.10.0",
+    "qs": "^6.14.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.55.0",
+    "react-i18next": "^15.4.1",
+    "typescript": "^5.3.3",
+    "zod": "^3.24.2"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.16",
+    "@types/node": "^20.11.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.33",
+    "tailwindcss": "^3.4.1"
+  }
+}
