@@ -386,6 +386,9 @@ const Services = () => {
   // Si no hay datos de la API, usar datos predeterminados
   const displayServices = (!loading && services?.length > 0) ? services : defaultServices;
 
+  // Debug - Verificar cantidad de servicios
+  console.log(`Renderizando ${displayServices.length} servicios:`, displayServices.map(s => s.attributes.title));
+
   return (
     <section id="servicios" className="py-24 bg-gray-50 relative overflow-hidden">
       {/* Elementos decorativos americanos */}
@@ -464,7 +467,7 @@ const Services = () => {
             <p>Ha ocurrido un error al cargar los servicios. Por favor, intenta nuevamente más tarde.</p>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
             {displayServices.map((service) => {
               const { title, description, expandedDescription, slug } = service.attributes;
               const imageData = service.attributes.image?.data?.attributes;

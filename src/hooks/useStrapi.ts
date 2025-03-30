@@ -95,30 +95,83 @@ export const useServices = () => {
           {
             id: 1,
             attributes: {
-              title: 'Visa de Turista',
-              description: 'Asistencia completa para obtener tu visa de turista.',
-              expandedDescription: 'Te ayudamos con todo el proceso de solicitud de visa de turista, incluyendo preparación de documentos y asesoría personalizada.',
-              slug: 'visa-turista'
+              title: "Acompañamiento en solicitudes de visa",
+              description: "Te ayudamos con visas de trabajo, estudiantiles y familiares, asegurándonos de que tu solicitud cumpla con todos los requisitos.",
+              expandedDescription: "Ya sea que necesites una visa de trabajo, estudiantil o familiar, te ayudaremos a completar tu solicitud correctamente. Te asistiremos en la recopilación de los documentos necesarios, en el llenado de los formularios requeridos y en su presentación de manera que aumenten tus probabilidades de éxito.",
+              slug: "visas",
+              image: {
+                data: {
+                  attributes: {
+                    url: "/images/statue-of-liberty-267948_1280.jpg"
+                  }
+                }
+              }
             }
           },
           {
             id: 2,
             attributes: {
-              title: 'Residencia Permanente',
-              description: 'Proceso de residencia permanente en Estados Unidos.',
-              expandedDescription: 'Guía completa para obtener tu residencia permanente, incluyendo todos los trámites necesarios y seguimiento de tu caso.',
-              slug: 'residencia-permanente'
+              title: "Asistencia con la residencia permanente (Green Card)",
+              description: "Te guiamos en cada paso para que obtengas tu residencia sin complicaciones.",
+              expandedDescription: "Obtener la residencia permanente en los EE. UU. es un proceso largo y, en ocasiones, complicado. Como paralegal especializado en inmigración, te ayudaremos a completar tu solicitud de Green Card, asegurándonos de que todos los formularios estén correctamente llenados y presentados, y que cuentes con la documentación adecuada.",
+              slug: "residencia",
+              image: {
+                data: {
+                  attributes: {
+                    url: "/images/america-1068986_1280.jpg"
+                  }
+                }
+              }
             }
           },
           {
             id: 3,
             attributes: {
-              title: 'Ciudadanía',
-              description: 'Proceso de naturalización y ciudadanía.',
-              expandedDescription: 'Te acompañamos en todo el proceso de naturalización, desde la aplicación hasta la preparación para el examen de ciudadanía.',
-              slug: 'ciudadania'
+              title: "Naturalización",
+              description: "Prepárate con nosotros para convertirte en ciudadano/a estadounidense.",
+              expandedDescription: "Si ya tienes la residencia permanente y estás listo para dar el siguiente paso, te ayudaremos a completar el proceso de naturalización para convertirte en ciudadano/a estadounidense. Te apoyaremos en la preparación de tu solicitud, en la recopilación de los documentos necesarios y en la preparación para la entrevista de ciudadanía.",
+              slug: "naturalizacion",
+              image: {
+                data: {
+                  attributes: {
+                    url: "/images/statue-of-liberty-992552_1280.jpg"
+                  }
+                }
+              }
             }
           },
+          {
+            id: 4,
+            attributes: {
+              title: "Consultas sobre asilo afirmativo",
+              description: "Te orientamos en el proceso de solicitud para que tu caso esté bien documentado.",
+              expandedDescription: "Si buscas asilo o protección en los EE. UU., te ayudaremos a comprender los requisitos del proceso y a completar las solicitudes pertinentes. Juntos nos aseguraremos de que tu solicitud esté correctamente presentada y respaldada con la información adecuada.",
+              slug: "asilo",
+              image: {
+                data: {
+                  attributes: {
+                    url: "/images/brooklyn-bridge-3717553_1280.jpg"
+                  }
+                }
+              }
+            }
+          },
+          {
+            id: 5,
+            attributes: {
+              title: "Visa VAWA (Violence Against Women Act)",
+              description: "Protegemos tu derecho a permanecer en EE.UU. si has sido víctima de abuso.",
+              expandedDescription: "Es un recurso legal en los Estados Unidos diseñado para proteger a personas que han sido víctimas de abuso por parte de su cónyuge, padre/madre o hijo ciudadano estadounidense o residente legal. Este programa ofrece la oportunidad de solicitar protección y regularizar su estatus migratorio de manera independiente, sin necesidad de que el agresor participe en el proceso.",
+              slug: "vawa",
+              image: {
+                data: {
+                  attributes: {
+                    url: "/images/statue-of-liberty-3551121_1280.jpg"
+                  }
+                }
+              }
+            }
+          }
         ]);
       } finally {
         setLoading(false);
