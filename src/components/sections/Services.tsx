@@ -69,8 +69,10 @@ const serviceIcons = {
     <div className="relative">
       <svg className="h-14 w-14 text-usa-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        <path d="M12 6v2M12 16h.01" />
+        <rect x="7" y="9" width="10" height="5" rx="1" />
       </svg>
-      <div className="absolute -top-1 -right-1 bg-usa-blue rounded-full p-1 w-6 h-6 flex items-center justify-center shadow-lg">
+      <div className="absolute -top-1 -right-1 bg-usa-red rounded-full p-1 w-6 h-6 flex items-center justify-center shadow-lg">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" className="w-3 h-3">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 14l6-6" />
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 14V8h-6" />
@@ -86,7 +88,7 @@ const serviceBackgrounds = {
   residencia: "bg-gradient-to-br from-blue-50 to-red-50 before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/america-1068986_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
   naturalizacion: "bg-gradient-to-br from-red-50 to-blue-50 before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/statue-of-liberty-992552_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
   asilo: "bg-gradient-to-br from-blue-100 to-white before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/brooklyn-bridge-3717553_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
-  vawa: "bg-gradient-to-br from-red-50 to-white before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/statue-of-liberty-3551121_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain"
+  vawa: "bg-gradient-to-br from-red-50 to-white before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/statue-of-liberty-3551121_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain before:filter before:drop-shadow-md"
 };
 
 interface ServiceCardProps {
@@ -366,9 +368,9 @@ const Services = () => {
     {
       id: 5,
       attributes: {
-        title: "VAWA y otras peticiones",
-        description: "Asesoría especializada para casos de protección según la Ley de Violencia contra la Mujer y otras situaciones similares.",
-        expandedDescription: "La Ley de Violencia contra la Mujer (VAWA) permite a ciertos inmigrantes, víctimas de abuso, solicitar estatus legal por su cuenta. Te asesoraremos sobre los requisitos y te ayudaremos a presentar tu petición de manera adecuada, asegurándonos de proteger tu privacidad y seguridad en cada paso del proceso.",
+        title: "Visa VAWA (Violence Against Women Act)",
+        description: "Protegemos tu derecho a permanecer en EE.UU. si has sido víctima de abuso.",
+        expandedDescription: "Es un recurso legal en los Estados Unidos diseñado para proteger a personas que han sido víctimas de abuso por parte de su cónyuge, padre/madre o hijo ciudadano estadounidense o residente legal. Este programa ofrece la oportunidad de solicitar protección y regularizar su estatus migratorio de manera independiente, sin necesidad de que el agresor participe en el proceso.",
         slug: "vawa",
         image: {
           data: {
@@ -440,7 +442,16 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Te ofrecemos servicios especializados para todas tus necesidades migratorias
+            Te Acompañamos en tu Proceso Migratorio
+          </motion.p>
+          <motion.p 
+            className="text-lg text-gray-600 max-w-4xl mx-auto mt-4"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            Sabemos lo desafiante que puede ser un trámite de inmigración. Por eso en Immigration For Us, ofrecemos acompañamiento en la preparación y presentación de documentos migratorios ante el USCIS para una amplia variedad de trámites migratorios en los Estados Unidos. Ya sea para una visa de trabajo, estudio o residencia, estamos aquí para guiarte en cada paso del proceso. Te garantizamos que nuestro equipo de expertos te brindará un servicio confiable y personalizado, asegurando que tu solicitud cumpla con los requisitos establecidos.
           </motion.p>
         </motion.div>
 
@@ -477,7 +488,7 @@ const Services = () => {
           </div>
         )}
         
-        {/* Sección de contacto rápido */}
+        {/* Sección de contacto rápido y aviso legal */}
         <motion.div 
           className="mt-16 text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -485,8 +496,11 @@ const Services = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <p className="text-lg text-gray-600 mb-6">
+          <p className="text-lg text-gray-600 mb-4">
             ¿No encuentras el servicio que necesitas? Contáctanos para una consulta personalizada.
+          </p>
+          <p className="text-sm text-gray-500 italic mb-6 max-w-3xl mx-auto">
+            Nota: Como paralegales, nuestro rol es preparar y presentar los documentos ante el USCIS. No ofrecemos asesoría legal ni representación en audiencias o casos complejos.
           </p>
           <motion.a
             href="#contacto"
