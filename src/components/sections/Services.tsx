@@ -84,9 +84,9 @@ const serviceIcons = {
 
 // Backgrounds temáticos para cada servicio (mantendremos esto para cuando no haya imagen)
 const serviceBackgrounds = {
-  visas: "bg-gradient-to-br from-blue-50 to-blue-100 before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/statue-of-liberty-267948_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
-  residencia: "bg-gradient-to-br from-blue-50 to-red-50 before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/america-1068986_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
-  naturalizacion: "bg-gradient-to-br from-red-50 to-blue-50 before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/statue-of-liberty-992552_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
+  visas: "bg-gradient-to-br from-blue-50 to-blue-100 before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/new-york-3551125_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
+  residencia: "bg-gradient-to-br from-blue-50 to-red-50 before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/old-bridge-with-ropes-american-flag.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
+  naturalizacion: "bg-gradient-to-br from-red-50 to-blue-50 before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/skyscraper-3717555_1280 (1).jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
   asilo: "bg-gradient-to-br from-blue-100 to-white before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/brooklyn-bridge-3717553_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
   vawa: "bg-gradient-to-br from-red-50 to-white before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/statue-of-liberty-3551121_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain before:filter before:drop-shadow-md"
 };
@@ -221,8 +221,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               <path d="M12 2L14.2 7.4H20L15.1 11.4L16.5 17L12 13.8L7.5 17L8.9 11.4L4 7.4H9.8L12 2Z" />
             </svg>
           </motion.div>
-          
-          <motion.div 
+
+        <motion.div 
             className="absolute bottom-4 right-4 opacity-70"
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 0.7, x: 0 }}
@@ -323,7 +323,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             </svg>
           </motion.a>
         </div>
-      </div>
+                      </div>
       
       {/* Indicator line at the top - colors of American flag */}
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-usa-blue via-white to-usa-red transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
@@ -333,9 +333,9 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         <div className="w-4 h-4 bg-usa-red relative">
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="w-2 h-2 bg-white transform rotate-45"></div>
-          </div>
-        </div>
-      </div>
+                    </div>
+                  </div>
+                </div>
     </motion.div>
   );
 };
@@ -354,7 +354,7 @@ const Services = () => {
         image: {
           data: {
             attributes: {
-              url: "/images/statue-of-liberty-267948_1280.jpg"
+              url: "/images/new-york-3551125_1280.jpg"
             }
           }
         }
@@ -370,7 +370,7 @@ const Services = () => {
         image: {
           data: {
             attributes: {
-              url: "/images/america-1068986_1280.jpg"
+              url: "/images/old-bridge-with-ropes-american-flag.jpg"
             }
           }
         }
@@ -386,7 +386,7 @@ const Services = () => {
         image: {
           data: {
             attributes: {
-              url: "/images/statue-of-liberty-992552_1280.jpg"
+              url: "/images/skyscraper-3717555_1280 (1).jpg"
             }
           }
         }
@@ -458,7 +458,7 @@ const Services = () => {
       </motion.div>
       
       <div className="container mx-auto px-4 relative z-10">
-        <motion.div 
+                    <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -504,11 +504,11 @@ const Services = () => {
         {loading ? (
           <div className="flex justify-center items-center py-20">
             <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-usa-blue"></div>
-          </div>
+                        </div>
         ) : error ? (
           <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg max-w-2xl mx-auto">
             <p>Ha ocurrido un error al cargar los servicios. Por favor, intenta nuevamente más tarde.</p>
-          </div>
+                        </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
             {displayServices.map((service) => {
@@ -520,13 +520,13 @@ const Services = () => {
               if (!imageUrl || imageUrl === '') {
                 switch (slug) {
                   case 'visas':
-                    imageUrl = "/images/statue-of-liberty-267948_1280.jpg";
+                    imageUrl = "/images/new-york-3551125_1280.jpg";
                     break;
                   case 'residencia':
-                    imageUrl = "/images/america-1068986_1280.jpg";
+                    imageUrl = "/images/old-bridge-with-ropes-american-flag.jpg";
                     break;
                   case 'naturalizacion':
-                    imageUrl = "/images/statue-of-liberty-992552_1280.jpg";
+                    imageUrl = "/images/skyscraper-3717555_1280 (1).jpg";
                     break;
                   case 'asilo':
                     imageUrl = "/images/brooklyn-bridge-3717553_1280.jpg";
@@ -560,7 +560,7 @@ const Services = () => {
                 />
               );
             })}
-          </div>
+                      </div>
         )}
         
         {/* Sección de contacto rápido y aviso legal */}
