@@ -9,6 +9,7 @@ interface TestimonialType {
   text: string;
   avatar?: string;
   rating: number;
+  gender?: 'male' | 'female';
 }
 
 const testimonialsData: TestimonialType[] = [
@@ -17,45 +18,57 @@ const testimonialsData: TestimonialType[] = [
     name: 'Pedro Gonzales',
     role: 'Visa de Trabajo H-1B',
     text: 'Immigration For Us me ayudó a completar todos los formularios correctamente para mi visa de trabajo. El proceso fue mucho más sencillo de lo que esperaba gracias a su guía.',
-    avatar: '/images/testimonials/avatar-1.jpg',
-    rating: 5
+    avatar: '/images/testimonials/avatar-male.png',
+    rating: 5,
+    gender: 'male'
   },
   {
     id: 2,
     name: 'Ana María López',
     role: 'Trámite de Residencia',
     text: 'Después de varios intentos fallidos por mi cuenta, decidí buscar ayuda profesional. Gracias a Immigration For US logré obtener mi residencia permanente. Su equipo es increíblemente detallista y conocedor.',
-    avatar: '/images/testimonials/avatar-2.jpg',
-    rating: 5
+    avatar: '/images/testimonials/avatar-female.png',
+    rating: 5,
+    gender: 'female'
   },
   {
     id: 3,
     name: 'Miguel Rodriguez',
     role: 'Naturalización',
     text: 'El proceso de naturalización puede ser abrumador con tantos documentos y requisitos. Con Immigration For US, cada paso estuvo claramente explicado. Ahora soy ciudadano estadounidense y no podría estar más feliz.',
-    avatar: '/images/testimonials/avatar-3.jpg',
-    rating: 4
+    avatar: '/images/testimonials/avatar-male.png',
+    rating: 4,
+    gender: 'male'
   },
   {
     id: 4,
     name: 'Carmen Ruiz',
     role: 'Visa de Prometido K-1',
     text: 'Cuando mi prometido y yo decidimos casarnos, no sabíamos por dónde empezar con todo el papeleo. Immigration For US fue recomendado por un amigo y definitivamente superaron nuestras expectativas. ¡Altamente recomendado!',
-    avatar: '/images/testimonials/avatar-4.jpg',
-    rating: 5
+    avatar: '/images/testimonials/avatar-female.png',
+    rating: 5,
+    gender: 'female'
   },
   {
     id: 5,
     name: 'Javier Martínez',
     role: 'DACA Renovación',
     text: 'He renovado mi DACA tres veces con Immigration For US. Siempre son profesionales, responden rápidamente y me han ayudado a mantener mi estatus sin problemas.',
-    avatar: '/images/testimonials/avatar-5.jpg',
-    rating: 5
+    avatar: '/images/testimonials/avatar-male.png',
+    rating: 5,
+    gender: 'male'
   }
 ];
 
 const TestimonialCard: React.FC<{ testimonial: TestimonialType; index: number; isActive: boolean }> = ({ testimonial, index, isActive }) => {
-  const defaultAvatar = '/images/testimonials/default-avatar.jpg';
+  const getDefaultAvatar = () => {
+    if (testimonial.gender === 'female') {
+      return '/images/testimonials/avatar-female.png';
+    }
+    return '/images/testimonials/avatar-male.png';
+  };
+
+  const avatarSrc = testimonial.avatar || getDefaultAvatar();
 
   return (
     <motion.div
@@ -74,7 +87,6 @@ const TestimonialCard: React.FC<{ testimonial: TestimonialType; index: number; i
       }}
       whileHover={{ scale: isActive ? 1.02 : 0.92, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1)" }}
     >
-      {/* Efecto de brillo en las tarjetas activas */}
       {isActive && (
         <motion.div 
           className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0"
@@ -91,16 +103,13 @@ const TestimonialCard: React.FC<{ testimonial: TestimonialType; index: number; i
         />
       )}
 
-      {/* Comillas decorativas */}
       <div className="absolute top-4 right-4 text-gray-200 opacity-40">
         <svg width="60" height="60" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M11.3 5.8C10.9 5.3 10.3 5 9.7 5H9.3C8.2 5 7.1 5.4 6.2 6.2C5.3 6.9 4.5 7.9 4.2 9.1C4 9.7 3.8 10.3 3.7 11C3.5 11.6 3.5 12.3 3.5 12.9C3.4 13.5 3.5 14.1 3.5 14.7C3.5 15.3 3.6 15.9 3.7 16.5C3.8 17.1 3.9 17.7 4 18.3C4.2 18.9 4.3 19.4 4.5 20H8.3C8.5 19.4 8.7 18.8 8.8 18.2C9 17.6 9.1 17 9.2 16.4C9.3 15.8 9.3 15.2 9.4 14.6C9.4 14 9.3 13.5 9.3 12.9C9.3 12.3 9.1 11.7 9 11.1C8.9 10.5 8.5 10 8.1 9.5H10C10.5 9.5 11 9.3 11.4 9C11.9 8.7 12.2 8.2 12.2 7.7V7.3C12.4 6.8 12 6.2 11.3 5.8ZM20.4 5.8C20 5.3 19.4 5 18.8 5H18.4C17.3 5 16.2 5.4 15.3 6.2C14.4 6.9 13.6 7.9 13.3 9.1C13.1 9.7 12.9 10.3 12.8 11C12.6 11.6 12.6 12.3 12.6 12.9C12.5 13.5 12.6 14.1 12.6 14.7C12.6 15.3 12.7 15.9 12.8 16.5C12.9 17.1 13 17.7 13.1 18.3C13.3 18.9 13.4 19.4 13.6 20H17.4C17.6 19.4 17.8 18.8 17.9 18.2C18.1 17.6 18.2 17 18.3 16.4C18.4 15.8 18.4 15.2 18.5 14.6C18.5 14 18.4 13.5 18.4 12.9C18.4 12.3 18.2 11.7 18.1 11.1C18 10.5 17.6 10 17.2 9.5H19.1C19.6 9.5 20.1 9.3 20.5 9C21 8.7 21.3 8.2 21.3 7.7V7.3C21.4 6.8 21 6.2 20.4 5.8Z" />
         </svg>
       </div>
 
-      {/* Contenido del testimonio */}
       <div className="flex flex-col md:flex-row gap-6 md:items-center">
-        {/* Avatar con animación */}
         <motion.div 
           className="relative shrink-0"
           whileHover={{ scale: 1.1 }}
@@ -108,15 +117,20 @@ const TestimonialCard: React.FC<{ testimonial: TestimonialType; index: number; i
         >
           <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-usa-blue/20 shadow-md">
             <Image 
-              src={testimonial.avatar || defaultAvatar}
+              src={avatarSrc}
               alt={testimonial.name}
-              fill
+              width={80}
+              height={80}
               className="object-cover"
-              sizes="80px"
+              onError={(e) => {
+                const imgElement = e.currentTarget as HTMLImageElement;
+                imgElement.src = testimonial.gender === 'female' 
+                  ? '/images/testimonials/avatar-female.png' 
+                  : '/images/testimonials/avatar-male.png';
+              }}
             />
           </div>
           
-          {/* Indicador de verificación con animación */}
           <motion.div 
             className="absolute -right-1 -bottom-1 bg-usa-blue rounded-full p-1 shadow-lg"
             initial={{ scale: 0 }}
@@ -129,10 +143,8 @@ const TestimonialCard: React.FC<{ testimonial: TestimonialType; index: number; i
           </motion.div>
         </motion.div>
         
-        {/* Información y testimonio */}
         <div className="flex-1">
           <div className="flex items-center gap-2 mb-1">
-            {/* Estrellas de calificación con animación */}
             <div className="flex">
               {[...Array(5)].map((_, i) => (
                 <motion.svg 
@@ -178,7 +190,6 @@ const TestimonialCard: React.FC<{ testimonial: TestimonialType; index: number; i
         </div>
       </div>
       
-      {/* Borde decorativo inferior con animación */}
       <motion.div 
         className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-usa-blue via-red-500 to-usa-red"
         initial={{ width: '0%' }}
@@ -193,27 +204,22 @@ const Testimonials = () => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAutoplay, setIsAutoplay] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
-  const visibleItems = 3; // Para móviles será 1, para desktop 3
+  const visibleItems = 3;
   const totalTestimonials = testimonialsData.length;
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Hook para detectar si estamos en el lado del cliente y manejar el tamaño de la ventana
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
     };
     
-    // Verificar inicialmente
     handleResize();
     
-    // Agregar listener para cambios de tamaño
     window.addEventListener('resize', handleResize);
     
-    // Limpiar listener
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  // Auto-rotación de testimonios
   useEffect(() => {
     let interval: NodeJS.Timeout;
     
@@ -228,28 +234,23 @@ const Testimonials = () => {
     };
   }, [isAutoplay, totalTestimonials]);
 
-  // Pausar el autoplay cuando el usuario interactúa
   const handleManualChange = (index: number) => {
     setActiveIndex(index);
     setIsAutoplay(false);
     
-    // Reanudar el autoplay después de 10 segundos de inactividad
     setTimeout(() => setIsAutoplay(true), 10000);
   };
 
-  // Navegar a la siguiente diapositiva
   const handleNext = () => {
     handleManualChange((activeIndex + 1) % totalTestimonials);
   };
 
-  // Navegar a la diapositiva anterior
   const handlePrev = () => {
     handleManualChange((activeIndex - 1 + totalTestimonials) % totalTestimonials);
   };
 
   return (
     <section id="testimonios" className="py-24 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
-      {/* Elementos decorativos animados */}
       <motion.div 
         className="absolute top-0 left-0 w-64 h-64 bg-usa-blue/5 rounded-full -translate-x-1/2 -translate-y-1/2"
         animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.7, 0.5] }}
@@ -301,10 +302,8 @@ const Testimonials = () => {
             Estas son algunas de las experiencias compartidas por nuestros clientes.
           </motion.p>
         </motion.div>
-
-        {/* Carrusel de testimonios */}
+        
         <div className="relative" ref={containerRef}>
-          {/* Botones de navegación */}
           <div className="absolute top-1/2 left-0 right-0 flex justify-between items-center -translate-y-1/2 z-20 px-4 md:px-8">
             <motion.button
               onClick={handlePrev}
@@ -328,12 +327,10 @@ const Testimonials = () => {
               </svg>
             </motion.button>
           </div>
-
-          {/* Testimonios */}
+          
           <div className="relative px-8 overflow-hidden py-12">
             <div className="flex flex-col md:flex-row gap-8 justify-center">
               {testimonialsData.map((testimonial, index) => {
-                // Determinar si debe mostrarse
                 const isVisible = isMobile 
                   ? index === activeIndex
                   : (index >= activeIndex && index < activeIndex + visibleItems) ||
@@ -352,25 +349,23 @@ const Testimonials = () => {
               })}
             </div>
           </div>
-
-          {/* Indicadores de navegación */}
+          
           <div className="flex justify-center items-center gap-2 mt-8">
             {testimonialsData.map((_, index) => (
               <motion.button
-                key={index}
+                  key={index}
                 onClick={() => handleManualChange(index)}
                 className={`h-3 rounded-full transition-all duration-300 focus:outline-none ${
                   activeIndex === index ? 'bg-usa-blue w-8' : 'bg-gray-300 w-3 hover:bg-gray-400'
                 }`}
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
-                aria-label={`Ver testimonio ${index + 1}`}
-              />
-            ))}
-          </div>
+                  aria-label={`Ver testimonio ${index + 1}`}
+                />
+              ))}
+            </div>
         </div>
 
-        {/* CTA */}
         <motion.div 
           className="text-center mt-16 max-w-2xl mx-auto bg-white p-8 rounded-xl shadow-lg relative overflow-hidden"
           initial={{ opacity: 0, y: 30 }}
@@ -378,7 +373,6 @@ const Testimonials = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
         >
-          {/* Efecto de destello */}
           <motion.div 
             className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0"
             animate={{ 
@@ -408,7 +402,6 @@ const Testimonials = () => {
             Contáctanos ahora
           </motion.a>
           
-          {/* Borde decorativo inferior */}
           <motion.div 
             className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-usa-red via-blue-500 to-usa-blue"
             initial={{ width: '0%' }}
