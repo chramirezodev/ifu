@@ -82,13 +82,47 @@ const serviceIcons = {
   )
 };
 
-// Backgrounds temáticos para cada servicio
+// Backgrounds temáticos para cada servicio (mantendremos esto para cuando no haya imagen)
 const serviceBackgrounds = {
   visas: "bg-gradient-to-br from-blue-50 to-blue-100 before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/statue-of-liberty-267948_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
   residencia: "bg-gradient-to-br from-blue-50 to-red-50 before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/america-1068986_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
   naturalizacion: "bg-gradient-to-br from-red-50 to-blue-50 before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/statue-of-liberty-992552_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
   asilo: "bg-gradient-to-br from-blue-100 to-white before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/brooklyn-bridge-3717553_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
   vawa: "bg-gradient-to-br from-red-50 to-white before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/statue-of-liberty-3551121_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain before:filter before:drop-shadow-md"
+};
+
+// Estilos específicos para cada servicio
+const serviceStyles = {
+  visas: {
+    ringColor: "ring-blue-300",
+    shadowColor: "shadow-blue-100",
+    hoverColor: "hover:shadow-blue-200/30",
+    overlayGradient: "bg-gradient-to-t from-black/70 via-blue-900/20 to-transparent"
+  },
+  residencia: {
+    ringColor: "ring-green-300",
+    shadowColor: "shadow-green-100",
+    hoverColor: "hover:shadow-green-200/30",
+    overlayGradient: "bg-gradient-to-t from-black/70 via-green-900/20 to-transparent"
+  },
+  naturalizacion: {
+    ringColor: "ring-usa-red/30",
+    shadowColor: "shadow-usa-red/10",
+    hoverColor: "hover:shadow-usa-red/30",
+    overlayGradient: "bg-gradient-to-t from-black/70 via-usa-red/20 to-transparent"
+  },
+  asilo: {
+    ringColor: "ring-indigo-300",
+    shadowColor: "shadow-indigo-100",
+    hoverColor: "hover:shadow-indigo-200/30",
+    overlayGradient: "bg-gradient-to-t from-black/70 via-indigo-900/20 to-transparent"
+  },
+  vawa: {
+    ringColor: "ring-purple-300",
+    shadowColor: "shadow-purple-100",
+    hoverColor: "hover:shadow-purple-200/30",
+    overlayGradient: "bg-gradient-to-t from-black/70 via-purple-900/20 to-transparent"
+  }
 };
 
 interface ServiceCardProps {
@@ -114,6 +148,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   // Seleccionar el fondo adecuado según el slug del servicio
   const backgroundClass = serviceBackgrounds[slug as keyof typeof serviceBackgrounds] || 
     "bg-gradient-to-br from-usa-blue/10 to-usa-blue/30";
+    
+  // Obtener estilos específicos para este servicio
+  const styles = serviceStyles[slug as keyof typeof serviceStyles] || {
+    ringColor: "ring-usa-blue/30",
+    shadowColor: "shadow-usa-blue/10",
+    hoverColor: "hover:shadow-usa-blue/30",
+    overlayGradient: "bg-gradient-to-t from-black/70 via-black/30 to-transparent"
+  };
 
   return (
     <motion.div
@@ -121,7 +163,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
       transition={{ duration: 0.6 }}
-      className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-500 flex flex-col relative group"
+      className={`bg-white rounded-xl ${styles.shadowColor} shadow-lg overflow-hidden ${styles.hoverColor} hover:shadow-xl transition-all duration-500 flex flex-col relative group ring-1 ${styles.ringColor} ring-opacity-20`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -135,25 +177,26 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             className={`object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
             priority={false}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+          {/* Overlay con gradiente para mejor legibilidad */}
+          <div className={`absolute inset-0 ${styles.overlayGradient}`} />
+          
+          {/* Cinta estilo USA */}
+          <div className="absolute top-5 -right-10 rotate-45 bg-usa-red text-white px-10 py-1 shadow-md text-xs font-bold tracking-wider z-10">
+            USA
+          </div>
           
           {/* Estrella decorativa en la esquina superior izquierda */}
-          <div className="absolute top-2 left-2 text-usa-red">
-            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+          <div className="absolute top-3 left-3 text-usa-red">
+            <svg className="w-6 h-6 drop-shadow-lg" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2L14.2 7.4H20L15.1 11.4L16.5 17L12 13.8L7.5 17L8.9 11.4L4 7.4H9.8L12 2Z" />
             </svg>
           </div>
           
           {/* Estrella decorativa en la esquina inferior derecha */}
-          <div className="absolute bottom-2 right-2 text-usa-blue/70">
-            <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+          <div className="absolute bottom-3 right-3 text-usa-blue/90">
+            <svg className="w-6 h-6 drop-shadow-lg" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2L14.2 7.4H20L15.1 11.4L16.5 17L12 13.8L7.5 17L8.9 11.4L4 7.4H9.8L12 2Z" />
             </svg>
-          </div>
-          
-          {/* Cinta USA en la esquina superior derecha */}
-          <div className="absolute top-6 -right-8 rotate-45 bg-usa-red text-white px-8 py-1 shadow-md text-xs font-bold tracking-wider z-10">
-            USA
           </div>
         </div>
       ) : (
@@ -174,7 +217,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             whileInView={{ opacity: 0.7, x: 0 }}
             transition={{ delay: 0.2, duration: 0.5 }}
           >
-            <svg className="w-10 h-10 text-usa-red" viewBox="0 0 24 24" fill="currentColor">
+            <svg className="w-10 h-10 text-usa-red drop-shadow-lg" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2L14.2 7.4H20L15.1 11.4L16.5 17L12 13.8L7.5 17L8.9 11.4L4 7.4H9.8L12 2Z" />
             </svg>
           </motion.div>
@@ -185,13 +228,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             whileInView={{ opacity: 0.7, x: 0 }}
             transition={{ delay: 0.3, duration: 0.5 }}
           >
-            <svg className="w-10 h-10 text-usa-blue" viewBox="0 0 24 24" fill="currentColor">
+            <svg className="w-10 h-10 text-usa-blue drop-shadow-lg" viewBox="0 0 24 24" fill="currentColor">
               <path d="M12 2L14.2 7.4H20L15.1 11.4L16.5 17L12 13.8L7.5 17L8.9 11.4L4 7.4H9.8L12 2Z" />
             </svg>
           </motion.div>
           
-          {/* Cinta USA en la esquina superior derecha */}
-          <div className="absolute top-6 -right-8 rotate-45 bg-usa-red text-white px-8 py-1 shadow-md text-xs font-bold tracking-wider z-10">
+          {/* Cinta USA */}
+          <div className="absolute top-5 -right-10 rotate-45 bg-usa-red text-white px-10 py-1 shadow-md text-xs font-bold tracking-wider z-10">
             USA
           </div>
         </div>
@@ -471,7 +514,36 @@ const Services = () => {
             {displayServices.map((service) => {
               const { title, description, expandedDescription, slug } = service.attributes;
               const imageData = service.attributes.image?.data?.attributes;
-              const image = imageData ? getStrapiMedia(imageData.url) : undefined;
+              
+              // Asignamos la imagen correcta según el slug si no hay imagen asignada
+              let imageUrl = imageData?.url || '';
+              if (!imageUrl || imageUrl === '') {
+                switch (slug) {
+                  case 'visas':
+                    imageUrl = "/images/statue-of-liberty-267948_1280.jpg";
+                    break;
+                  case 'residencia':
+                    imageUrl = "/images/america-1068986_1280.jpg";
+                    break;
+                  case 'naturalizacion':
+                    imageUrl = "/images/statue-of-liberty-992552_1280.jpg";
+                    break;
+                  case 'asilo':
+                    imageUrl = "/images/brooklyn-bridge-3717553_1280.jpg";
+                    break;
+                  case 'vawa':
+                    imageUrl = "/images/statue-of-liberty-3551121_1280.jpg";
+                    break;
+                  default:
+                    imageUrl = "/images/new-york-3551125_1280.jpg"; // Imagen por defecto
+                }
+              }
+              
+              // Si la URL ya comienza con /images/, no necesitamos procesarla
+              const image = imageUrl.startsWith('/images/') ? imageUrl : getStrapiMedia(imageUrl);
+              
+              // Log de depuración
+              console.log(`Servicio ${slug}:`, { imageUrl, finalImageUrl: image });
               
               // Usar el icono correspondiente al slug
               const icon = serviceIcons[slug as keyof typeof serviceIcons];
