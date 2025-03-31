@@ -102,7 +102,7 @@ export const useServices = () => {
               image: {
                 data: {
                   attributes: {
-                    url: "/images/statue-of-liberty-267948_1280.jpg"
+                    url: "/images/new-york-3551125_1280.jpg"
                   }
                 }
               }
@@ -166,7 +166,7 @@ export const useServices = () => {
               image: {
                 data: {
                   attributes: {
-                    url: "/images/statue-of-liberty-3551121_1280.jpg"
+                    url: "/images/shot-two-american-us-flags-high-rise-building.jpg"
                   }
                 }
               }

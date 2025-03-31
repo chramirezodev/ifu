@@ -185,7 +185,7 @@ const WhyChooseUs = () => {
             <div className="relative h-80 lg:h-auto overflow-hidden">
               <div className="absolute inset-0 bg-usa-blue/80 mix-blend-multiply" />
               <Image 
-                src="/images/connect-20333_1920.jpg" 
+                src="/images/hands-3331229_1920.jpg" 
                 alt="Equipo de Immigration For US" 
                 fill
                 className="object-cover"

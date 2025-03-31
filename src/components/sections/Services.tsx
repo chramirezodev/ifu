@@ -183,7 +183,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               
               // Redirigir a una imagen de la Estatua de la Libertad según el slug
               if (slug === 'visas') {
-                imgElement.src = "/images/statue-of-liberty-267948_1280.jpg";
+                imgElement.src = "/images/new-york-3551125_1280.jpg";
               } else if (slug === 'residencia') {
                 imgElement.src = "/images/statue-of-liberty-1758290_1280.jpg";
               } else if (slug === 'naturalizacion') {
@@ -193,7 +193,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               } else if (slug === 'vawa') {
                 imgElement.src = "/images/statue-of-liberty-3551121_1280.jpg";
               } else {
-                imgElement.src = "/images/statue-of-liberty-267948_1280.jpg";
+                imgElement.src = "/images/new-york-3551125_1280.jpg";
               }
             }}
           />
@@ -374,7 +374,7 @@ const Services = () => {
         image: {
           data: {
             attributes: {
-              url: "/images/statue-of-liberty-267948_1280.jpg"
+              url: "/images/new-york-3551125_1280.jpg"
             }
           }
         }
@@ -390,7 +390,7 @@ const Services = () => {
         image: {
           data: {
             attributes: {
-              url: "/images/statue-of-liberty-1758290_1280.jpg"
+              url: "/images/skyscraper-3717555_1280 (1).jpg"
             }
           }
         }
@@ -542,10 +542,10 @@ const Services = () => {
               // Forzar las imágenes de la Estatua de la Libertad para los servicios específicos
               switch (slug) {
                 case 'visas':
-                  imageUrl = "/images/statue-of-liberty-267948_1280.jpg";
+                  imageUrl = "/images/new-york-3551125_1280.jpg";
                   break;
                 case 'residencia':
-                  imageUrl = "/images/statue-of-liberty-1758290_1280.jpg";
+                  imageUrl = "/images/skyscraper-3717555_1280 (1).jpg";
                   break;
                 case 'naturalizacion':
                   imageUrl = "/images/statue-of-liberty-992552_1280.jpg";
@@ -554,7 +554,7 @@ const Services = () => {
                   imageUrl = "/images/brooklyn-bridge-3717553_1280.jpg";
                   break;
                 case 'vawa':
-                  imageUrl = "/images/statue-of-liberty-3551121_1280.jpg";
+                  imageUrl = "/images/shot-two-american-us-flags-high-rise-building.jpg";
                   break;
                 default:
                   imageUrl = "/images/statue-of-liberty-267948_1280.jpg"; // Imagen por defecto

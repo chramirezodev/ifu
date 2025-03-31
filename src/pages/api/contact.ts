@@ -2,79 +2,81 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import nodemailer from 'nodemailer';
 import { validateRecaptcha } from '../../lib/recaptcha';
 
+type ResponseData = {
+  message: string;
+  success: boolean;
+  error?: string;
+};
+
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse<ResponseData>
 ) {
   if (req.method !== 'POST') {
-    return res.status(405).json({ error: 'Método no permitido' });
+    res.status(405).json({ message: 'Method not allowed', success: false });
+    return;
   }
 
-  const { name, email, phone, service, message, recaptchaToken } = req.body;
+  const { name, email, phone, subject, message, service, recipient } = req.body;
 
   // Validar campos requeridos
   if (!name || !email || !phone || !message) {
-    return res.status(400).json({ error: 'Todos los campos son requeridos' });
+    return res.status(400).json({ 
+      message: 'Faltan campos requeridos', 
+      success: false,
+      error: 'Todos los campos son obligatorios'
+    });
   }
   
   // Validar reCAPTCHA para prevenir spam
   if (process.env.NODE_ENV === 'production') {
-    const recaptchaValid = await validateRecaptcha(recaptchaToken);
+    const recaptchaValid = await validateRecaptcha(req.body.recaptchaToken);
     if (!recaptchaValid) {
-      return res.status(400).json({ error: 'Verificación reCAPTCHA fallida' });
+      return res.status(400).json({ 
+        message: 'Verificación reCAPTCHA fallida', 
+        success: false,
+        error: 'Verificación reCAPTCHA fallida'
+      });
     }
   }
 
-  // Configurar el transporte de correo
+  // Configuración del transporte de correo
+  // NOTA: Se debe configurar con las credenciales correctas en producción
   const transporter = nodemailer.createTransport({
-    host: process.env.EMAIL_SERVER,
-    port: Number(process.env.EMAIL_PORT),
-    secure: process.env.EMAIL_SECURE === 'true',
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
     auth: {
-      user: process.env.EMAIL_USER,
-      pass: process.env.EMAIL_PASSWORD,
+      user: process.env.EMAIL_USER || recipient, // Usa la variable de entorno o el email del recipiente
+      pass: process.env.EMAIL_PASSWORD, // Debe ser una contraseña de aplicación de Google
     },
   });
 
   try {
-    // Enviar correo al administrador
-    await transporter.sendMail({
-      from: process.env.EMAIL_FROM,
-      to: process.env.EMAIL_TO,
-      subject: `Nuevo contacto de ${name}`,
+    // Construir correo electrónico
+    const mailOptions = {
+      from: process.env.EMAIL_USER || recipient,
+      to: recipient,
+      subject: `Nuevo contacto desde Immigration For US: ${subject}`,
       html: `
         <h1>Nuevo mensaje de contacto</h1>
         <p><strong>Nombre:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Teléfono:</strong> ${phone}</p>
-        <p><strong>Servicio:</strong> ${service || 'No especificado'}</p>
-        <p><strong>Mensaje:</strong></p>
-        <p>${message}</p>
+        <p><strong>Asunto:</strong> ${subject}</p>
+        ${service ? `<p><strong>Servicio:</strong> ${service}</p>` : ''}
+        <h2>Mensaje:</h2>
+        <p>${message.replace(/\n/g, '<br>')}</p>
       `,
-    });
+    };
 
-    // Enviar correo de confirmación al usuario
-    await transporter.sendMail({
-      from: process.env.EMAIL_FROM,
-      to: email,
-      subject: 'Hemos recibido tu mensaje - Immigration For US',
-      html: `
-        <h1>¡Gracias por contactarnos!</h1>
-        <p>Hola ${name},</p>
-        <p>Hemos recibido tu mensaje y nos pondremos en contacto contigo lo antes posible.</p>
-        <p>Mientras tanto, puedes contactarnos directamente a través de:</p>
-        <ul>
-          <li>Teléfono: +1 (954) 588 4018</li>
-          <li>Email: cpalisa@immigrationfor-us.com</li>
-          <li>WhatsApp: +1 (954) 588 4018</li>
-        </ul>
-        <p>Saludos cordiales,<br>El equipo de Immigration For US</p>
-      `,
-    });
+    // Enviar correo
+    const info = await transporter.sendMail(mailOptions);
 
-    return res.status(200).json({ message: 'Mensaje enviado correctamente' });
+    console.log('Message sent: %s', info.messageId);
+    res.status(200).json({ message: 'Mensaje enviado correctamente', success: true });
   } catch (error) {
-    console.error('Error al enviar el correo:', error);
-    return res.status(500).json({ error: 'Error al enviar el mensaje' });
+    console.error('Error sending email:', error);
+    res.status(500).json({ message: 'Error al enviar el mensaje', success: false });
   }
 } 

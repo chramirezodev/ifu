@@ -87,12 +87,18 @@ const Contact = () => {
     setSubmitError(null);
 
     try {
-      // Aquí iría la lógica de envío del formulario
-      // Simulando un envío exitoso
-      await new Promise(resolve => setTimeout(resolve, 1500));
+      // Enviar datos del formulario a API endpoint
+      const response = await axios.post('/api/contact', {
+        ...data,
+        recipient: contactInfo.email
+      });
       
-      setSubmitSuccess(true);
-      reset();
+      if (response.status === 200) {
+        setSubmitSuccess(true);
+        reset();
+      } else {
+        throw new Error('Error en el envío del formulario');
+      }
     } catch (error) {
       console.error('Error sending message:', error);
       setSubmitError('Hubo un problema al enviar tu mensaje. Por favor, intenta nuevamente.');
@@ -101,7 +107,7 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
-
+  
   return (
     <section id="contacto" className="pt-24 pb-16 bg-white relative overflow-hidden">
       {/* Elementos decorativos */}
@@ -133,15 +139,15 @@ const Contact = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           />
-          <motion.p 
+            <motion.p 
             className="text-xl text-gray-600 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+              viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
-          >
+            >
             Estamos aquí para ayudarte con tu proceso migratorio. No dudes en contactarnos para resolver tus dudas o agendar una consulta.
-          </motion.p>
+            </motion.p>
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -166,8 +172,8 @@ const Contact = () => {
                 title="Ubicación de Immigration For US"
               />
               <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_10px_rgba(0,0,0,0.1)]"></div>
-            </div>
-
+        </div>
+        
             {/* Métodos de contacto */}
             <div className="p-8">
               <h3 className="text-2xl font-bold mb-6 text-gray-900">Información de Contacto</h3>
@@ -240,7 +246,7 @@ const Contact = () => {
           </motion.div>
 
           {/* Formulario de contacto */}
-          <motion.div 
+          <motion.div
             className="bg-white rounded-2xl shadow-xl p-8 relative overflow-hidden"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -283,12 +289,12 @@ const Contact = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.2 }}
                 >
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
                     Correo electrónico
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
                     className={`w-full px-4 py-3 rounded-lg border ${errors.email ? 'border-red-500' : 'border-gray-300'} focus:border-usa-blue focus:ring-2 focus:ring-usa-blue/20 transition-colors`}
                     placeholder="tu@email.com"
                     {...register('email', { 
@@ -303,8 +309,8 @@ const Contact = () => {
                     <p className="mt-1 text-sm text-red-600">{errors.email.message}</p>
                   )}
                 </motion.div>
-              </div>
-              
+                  </div>
+                  
               {/* Campos de teléfono y asunto */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 <motion.div
@@ -313,12 +319,12 @@ const Contact = () => {
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: 0.3 }}
                 >
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
                     Teléfono
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
                     className={`w-full px-4 py-3 rounded-lg border ${errors.phone ? 'border-red-500' : 'border-gray-300'} focus:border-usa-blue focus:ring-2 focus:ring-usa-blue/20 transition-colors`}
                     placeholder="(123) 456-7890"
                     {...register('phone', { required: 'Este campo es obligatorio' })}
@@ -348,8 +354,8 @@ const Contact = () => {
                     <p className="mt-1 text-sm text-red-600">{errors.subject.message}</p>
                   )}
                 </motion.div>
-              </div>
-              
+                </div>
+                
               {/* Campo de mensaje */}
               <motion.div
                 initial={{ opacity: 0, y: 10 }}
@@ -357,11 +363,11 @@ const Contact = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.4, delay: 0.5 }}
               >
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
+                  <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
                   Mensaje
-                </label>
-                <textarea
-                  id="message"
+                  </label>
+                  <textarea
+                    id="message"
                   rows={5}
                   className={`w-full px-4 py-3 rounded-lg border ${errors.message ? 'border-red-500' : 'border-gray-300'} focus:border-usa-blue focus:ring-2 focus:ring-usa-blue/20 transition-colors`}
                   placeholder="Describe tu consulta o deja tu mensaje aquí..."
@@ -421,7 +427,7 @@ const Contact = () => {
                       <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                      </svg>
+                        </svg>
                       Enviando...
                     </>
                   ) : (
@@ -429,7 +435,7 @@ const Contact = () => {
                       Enviar mensaje
                       <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                      </svg>
+                        </svg>
                     </>
                   )}
                 </motion.button>

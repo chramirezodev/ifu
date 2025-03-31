@@ -1,8 +1,8 @@
 // Información de contacto de la empresa
 export const contactInfo = {
   email: "cpalisa@immigrationfor-us.com",
-  phone: "+1 (954) 588 4018",
-  whatsapp: "+1 (954) 588 4018",
+  phone: "+1 (954) 588-4018",
+  whatsapp: "+1 (954) 588-4018",
   whatsappNumber: "19545884018", // Sin + y sin espacios para enlaces de WhatsApp
   address: "7224 NW 116th Way, Parkland, FL. 33076",
   googleMapsUrl: "https://goo.gl/maps/rHcRMW1xEhNXp5FS7",
