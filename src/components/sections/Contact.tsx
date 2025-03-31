@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useForm } from 'react-hook-form';
-import axios from 'axios';
 import { contactInfo } from '@/constants';
 
 interface ContactFormInputs {
@@ -87,13 +86,18 @@ const Contact = () => {
     setSubmitError(null);
 
     try {
-      // Enviar datos del formulario a API endpoint
-      const response = await axios.post('/api/contact', {
-        ...data,
-        recipient: contactInfo.email
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...data,
+          recipient: contactInfo.email
+        }),
       });
       
-      if (response.status === 200) {
+      if (response.ok) {
         setSubmitSuccess(true);
         reset();
       } else {
