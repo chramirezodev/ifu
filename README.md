@@ -1,120 +1,124 @@
-# Immigration For US - Sitio Web
+# Immigration For US
 
-Sitio web oficial para Immigration For US, un servicio especializado en asesoría migratoria a Estados Unidos.
+Proyecto de sitio web para servicios de inmigración.
 
-## Requisitos previos
+## Configuración del Proyecto
 
-- Node.js 18.0 o superior
-- NPM o Yarn
+### Instalación
 
-## Instalación local
-
-1. Clonar el repositorio:
+1. Clonar el repositorio
    ```bash
-   git clone https://github.com/TU_USUARIO/NOMBRE_DEL_REPOSITORIO.git
-   cd NOMBRE_DEL_REPOSITORIO
+   git clone https://github.com/tu-usuario/immigration-for-us.git
+   cd immigration-for-us
    ```
 
-2. Instalar dependencias:
+2. Instalar dependencias de la aplicación principal
    ```bash
    npm install
-   # o
-   yarn install
    ```
 
-3. Crear archivo `.env.local` con las variables de entorno necesarias:
+3. Instalar dependencias del CMS
+   ```bash
+   cd cms
+   npm install
+   cd ..
    ```
-   EMAIL_USER=cpalisa@immigrationfor-us.com
-   EMAIL_PASSWORD=tu-contraseña-de-aplicación
-   NEXT_PUBLIC_SITE_URL=http://localhost:3000
-   ```
-   
-   > Nota: Para Gmail, debes usar una "contraseña de aplicación" en lugar de tu contraseña normal. 
-   > [Aprende cómo crear una contraseña de aplicación para Gmail](https://support.google.com/accounts/answer/185833?hl=es)
 
-4. Ejecutar en modo desarrollo:
+### Configuración de Variables de Entorno
+
+1. Crea un archivo `.env.local` en la raíz del proyecto con el siguiente contenido:
+   ```
+   NEXT_PUBLIC_API_URL=http://localhost:1337
+   ```
+
+2. Para el CMS, asegúrate de configurar las siguientes variables de entorno en producción:
+   ```
+   ADMIN_JWT_SECRET=tu-token-seguro
+   API_TOKEN_SALT=tu-salt-seguro
+   APP_KEYS=tu-key1,tu-key2
+   TRANSFER_TOKEN_SALT=tu-transfer-salt-seguro
+   DATABASE_CLIENT=sqlite
+   ```
+
+### Desarrollo Local
+
+1. Iniciar el CMS en modo desarrollo
+   ```bash
+   cd cms
+   npm run develop
+   # Disponible en http://localhost:1337/admin
+   ```
+
+2. En otra terminal, iniciar la aplicación Next.js
    ```bash
    npm run dev
-   # o
-   yarn dev
+   # Disponible en http://localhost:3000
    ```
 
-5. Acceder a `http://localhost:3000` para ver el sitio.
+## Despliegue en Vercel
 
-## Despliegue en producción
+Para desplegar este proyecto en Vercel, sigue estos pasos:
 
-### Preparación para el despliegue
+1. Crea una cuenta en [Vercel](https://vercel.com) si no tienes una.
 
-1. Construir la aplicación para producción:
+2. Instala Vercel CLI (opcional, pero útil)
    ```bash
-   npm run build
-   # o
-   yarn build
+   npm i -g vercel
    ```
 
-2. Asegurarse de que la aplicación funciona correctamente:
+3. **Configuración antes del despliegue:**
+   
+   a. Asegúrate de que tu `vercel.json` esté correctamente configurado
+   
+   b. En el dashboard de Vercel, después de conectar tu repositorio, configura las siguientes variables de entorno:
+      - `ADMIN_JWT_SECRET` - Un token seguro para la autenticación del admin
+      - `API_TOKEN_SALT` - Salt para generar tokens de API
+      - `APP_KEYS` - Claves de aplicación separadas por comas
+      - `TRANSFER_TOKEN_SALT` - Salt para tokens de transferencia
+      - `DATABASE_CLIENT` - Cliente de base de datos (sqlite, postgres, etc.)
+      - Si usas Postgres u otra base de datos en producción:
+        - `DATABASE_URL` - URL de conexión a la base de datos
+
+4. **Opciones de despliegue:**
+
+   **A. Usando la interfaz web de Vercel:**
+   - Importa tu repositorio de GitHub
+   - Configura el proyecto (las variables de entorno mencionadas arriba)
+   - Despliega
+
+   **B. Usando Vercel CLI:**
    ```bash
-   npm run start
-   # o
-   yarn start
+   vercel login
+   vercel
+   # Sigue las instrucciones en pantalla
    ```
 
-### Opciones de hosting
+5. **Después del primer despliegue:**
+   - Configura un dominio personalizado si lo deseas
+   - Verifica que tanto la aplicación Next.js como el CMS Strapi funcionen correctamente
 
-#### 1. Vercel (Recomendado)
+### Notas importantes sobre el despliegue
 
-La forma más sencilla de desplegar esta aplicación Next.js es utilizando [Vercel](https://vercel.com), la plataforma de los creadores de Next.js:
+- **Base de datos en producción:** Para entornos de producción, es recomendable usar una base de datos externa como PostgreSQL en lugar de SQLite.
+- **Archivos multimedia:** Configura un proveedor de almacenamiento como AWS S3 para manejar los archivos subidos en producción.
+- **Permisos de CORS:** Asegúrate de que los CORS estén correctamente configurados en el CMS para permitir solicitudes desde tu dominio.
 
-1. Crear una cuenta en Vercel
-2. Importar tu repositorio Git
-3. Configurar las variables de entorno en la interfaz de Vercel:
-   - `EMAIL_USER`
-   - `EMAIL_PASSWORD`
-   - `NEXT_PUBLIC_SITE_URL`
-4. Desplegar
+## Estructura del Proyecto
 
-#### 2. Netlify
+```
+immigration-for-us/
+├── cms/                  # CMS Strapi
+├── public/               # Archivos estáticos de Next.js
+├── src/                  # Código fuente de la aplicación Next.js
+│   ├── components/       # Componentes React
+│   ├── pages/            # Páginas de Next.js
+│   └── styles/           # Estilos CSS/SCSS
+├── .env.local            # Variables de entorno locales
+├── next.config.js        # Configuración de Next.js
+├── package.json          # Dependencias y scripts
+└── vercel.json           # Configuración de despliegue en Vercel
+```
 
-También puedes utilizar [Netlify](https://netlify.com):
+## Licencia
 
-1. Crear una cuenta en Netlify
-2. Importar tu repositorio Git
-3. Configurar las variables de entorno en la interfaz de Netlify
-4. Definir el comando de construcción: `npm run build`
-5. Definir el directorio de publicación: `out`
-
-#### 3. Hosting tradicional (cPanel, etc.)
-
-1. Construir la aplicación:
-   ```bash
-   npm run build
-   # o 
-   yarn build
-   ```
-2. Exportar a HTML estático (opcional para algunos casos):
-   ```bash
-   next export
-   ```
-3. Subir los archivos de la carpeta `out` (si usaste `next export`) o `.next` a tu servidor
-4. Configurar el servidor para servir los archivos
-
-## Configuración de dominio
-
-1. Comprar un dominio (si aún no lo tienes)
-2. Configurar los registros DNS para que apunten a tu hosting
-3. Configurar HTTPS para garantizar la seguridad del sitio
-
-## Mantenimiento
-
-Para mantener el sitio actualizado:
-
-1. Realiza cambios en tu repositorio local
-2. Prueba los cambios localmente
-3. Haz commit y sube los cambios a GitHub
-4. Si estás utilizando Vercel o Netlify, el despliegue se realizará automáticamente
-
-## Contacto
-
-Para soporte técnico, contacta a:
-- Email: cpalisa@immigrationfor-us.com
-- WhatsApp: +1 (954) 588-4018 
+[MIT](https://choosealicense.com/licenses/mit/) 

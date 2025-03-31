@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "buildCommand": "npm run build",
+  "installCommand": "npm install",
   "builds": [
     {
       "src": "package.json",
@@ -12,16 +14,16 @@
   ],
   "routes": [
     {
-      "src": "/cms/(.*)",
-      "dest": "/cms/$1"
+      "src": "/api/cms/(.*)",
+      "dest": "cms/src/index.js"
     },
     {
-      "src": "/uploads/(.*)",
-      "dest": "/cms/public/uploads/$1"
+      "src": "/admin",
+      "dest": "cms/src/admin/index.html"
     },
     {
-      "src": "/api/(.*)",
-      "dest": "/cms/api/$1"
+      "src": "/admin/(.*)",
+      "dest": "cms/src/admin/$1"
     },
     {
       "src": "/(.*)",
@@ -29,9 +31,7 @@
     }
   ],
   "env": {
-    "HOST": "0.0.0.0",
-    "PORT": "1337",
-    "DATABASE_CLIENT": "sqlite"
-  },
-  "ignoreCommand": "grep -q \"cms\" package.json"
+    "NODE_ENV": "production",
+    "NEXT_PUBLIC_API_URL": "https://$VERCEL_URL/api/cms"
+  }
 } 
