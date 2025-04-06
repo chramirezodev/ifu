@@ -25,13 +25,13 @@
     }
   },
   "nav": {
-    "home": "Home",
-    "priority": "Priority",
-    "services": "Services",
-    "choose": "Why Choose Us",
-    "questions": "FAQ",
-    "testimonials": "Testimonials",
-    "contact": "Contact Us",
+    "home": "HOME",
+    "about": "ABOUT US",
+    "services": "SERVICES",
+    "choose": "WHY CHOOSE US",
+    "questions": "QUESTIONS",
+    "testimonials": "TESTIMONIALS",
+    "contact": "CONTACT US",
     "policies": "Policies",
     "legal": "Legal Notice",
     "aria": {

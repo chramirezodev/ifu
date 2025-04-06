@@ -26,13 +26,13 @@
     "whatsappMessage": "Hola, me gustaría obtener más información sobre sus servicios de inmigración."
   },
   "nav": {
-    "home": "Inicio",
-    "priority": "Prioridad",
-    "services": "Servicios",
-    "choose": "Por Qué Elegirnos",
-    "questions": "Preguntas Frecuentes",
-    "testimonials": "Testimonios",
-    "contact": "Contáctenos",
+    "home": "INICIO",
+    "about": "NOSOTROS",
+    "services": "SERVICIOS",
+    "choose": "POR QUÉ ELEGIRNOS",
+    "questions": "PREGUNTAS",
+    "testimonials": "TESTIMONIOS",
+    "contact": "CONTÁCTENOS",
     "policies": "Políticas",
     "legal": "Aviso Legal",
     "aria": {
