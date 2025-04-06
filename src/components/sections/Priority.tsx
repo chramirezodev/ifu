@@ -35,7 +35,7 @@ const Priority = () => {
   ];
 
   return (
-    <section id="nuestra-prioridad" className="py-24 bg-white relative overflow-hidden">
+    <section id="nosotros" className="py-24 bg-white relative overflow-hidden">
       {/* Elementos decorativos */}
       <div className="absolute top-0 right-0 w-1/3 h-96 bg-gradient-to-b from-usa-red/5 to-transparent rounded-bl-full -translate-y-1/4"></div>
       <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-usa-blue/5 rounded-full"></div>
@@ -106,7 +106,7 @@ const Priority = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              Nuestra Prioridad: Tu Tranquilidad
+              Nosotros
             </motion.h2>
             
             <motion.div 

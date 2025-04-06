@@ -119,7 +119,7 @@ const ReasonCard: React.FC<ReasonCardProps> = ({ icon, title, description, expan
 
 const WhyChooseUs = () => {
   return (
-    <section id="por-que-elegirnos" className="py-24 bg-gray-50 relative overflow-hidden">
+    <section id="por-que-elegirnos" className="py-24 bg-white relative overflow-hidden">
       {/* Elementos decorativos */}
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-usa-blue/5 rounded-bl-full -translate-y-1/4 translate-x-1/4" />
       <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-usa-red/5 rounded-tr-full translate-y-1/4 -translate-x-1/4" />

@@ -78,7 +78,7 @@ const FAQ = () => {
   ];
 
   return (
-    <section id="preguntas-frecuentes" className="py-20 bg-gray-50 relative overflow-hidden">
+    <section id="preguntas-frecuentes" className="py-20 bg-white relative overflow-hidden">
       {/* Elementos decorativos */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-usa-blue/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-usa-red/5 rounded-full translate-x-1/3 translate-y-1/3"></div>
@@ -98,7 +98,7 @@ const FAQ = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Preguntas Frecuentes (FAQ)
+            Preguntas
           </motion.h2>
           <motion.div 
             className="w-24 h-1 bg-usa-blue mx-auto mb-6"

@@ -33,7 +33,7 @@ export default function About({ title, content, image, values = [] }: AboutProps
   const imageUrl = image ? urlForImage(image).width(600).height(800).url() : '/images/default-about.jpg';
 
   return (
-    <section id="nosotros" className="py-20 bg-gray-50">
+    <section id="nosotros" className="py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <motion.h2 

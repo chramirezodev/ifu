@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
 
   const navigation: NavItem[] = [
     { label: 'inicio', href: '#inicio', translationKey: 'nav.home' },
-    { label: 'prioridad', href: '#prioridad', translationKey: 'nav.priority' },
+    { label: 'nosotros', href: '#nosotros', translationKey: 'nav.about' },
     { label: 'servicios', href: '#servicios', translationKey: 'nav.services' },
     { label: 'por-que-elegirnos', href: '#por-que-elegirnos', translationKey: 'nav.choose' },
     { label: 'preguntas-frecuentes', href: '#preguntas-frecuentes', translationKey: 'nav.questions' },

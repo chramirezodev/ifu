@@ -250,7 +250,7 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonios" className="py-24 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+    <section id="testimonios" className="py-24 bg-white relative overflow-hidden">
       <motion.div 
         className="absolute top-0 left-0 w-64 h-64 bg-usa-blue/5 rounded-full -translate-x-1/2 -translate-y-1/2"
         animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.7, 0.5] }}
