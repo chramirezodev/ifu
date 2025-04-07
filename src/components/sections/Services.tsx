@@ -79,6 +79,20 @@ const serviceIcons = {
         </svg>
       </div>
     </div>
+  ),
+  'visa-u': (
+    <div className="relative">
+      <svg className="h-14 w-14 text-usa-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" />
+        <path d="M12 6v2M12 16h.01" />
+        <path d="M9 12h6" />
+      </svg>
+      <div className="absolute -top-1 -right-1 bg-usa-red rounded-full p-1 w-6 h-6 flex items-center justify-center shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" className="w-3 h-3">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+        </svg>
+      </div>
+    </div>
   )
 };
 
@@ -88,7 +102,8 @@ const serviceBackgrounds = {
   residencia: "bg-gradient-to-br from-blue-50 to-red-50 before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/old-bridge-with-ropes-american-flag.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
   naturalizacion: "bg-gradient-to-br from-red-50 to-blue-50 before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/shot-two-american-us-flags-high-rise-building.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
   asilo: "bg-gradient-to-br from-blue-100 to-white before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/brooklyn-bridge-3717553_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain",
-  vawa: "bg-gradient-to-br from-red-50 to-white before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/statue-of-liberty-3551121_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain before:filter before:drop-shadow-md"
+  vawa: "bg-gradient-to-br from-red-50 to-white before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/statue-of-liberty-3551121_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain before:filter before:drop-shadow-md",
+  'visa-u': "bg-gradient-to-br from-red-50 to-blue-50 before:content-[''] before:absolute before:inset-0 before:bg-[url('/images/statue-of-liberty-992552_1280.jpg')] before:opacity-5 before:bg-center before:bg-no-repeat before:bg-contain"
 };
 
 // Estilos específicos para cada servicio
@@ -118,6 +133,12 @@ const serviceStyles = {
     overlayGradient: "bg-gradient-to-t from-black/70 via-indigo-900/20 to-transparent"
   },
   vawa: {
+    ringColor: "ring-purple-300",
+    shadowColor: "shadow-purple-100",
+    hoverColor: "hover:shadow-purple-200/30",
+    overlayGradient: "bg-gradient-to-t from-black/70 via-purple-900/20 to-transparent"
+  },
+  'visa-u': {
     ringColor: "ring-purple-300",
     shadowColor: "shadow-purple-100",
     hoverColor: "hover:shadow-purple-200/30",
@@ -368,8 +389,8 @@ const Services = () => {
       id: 1,
       attributes: {
         title: "Acompañamiento en solicitudes de visa",
-        description: "Te ayudamos con visas de trabajo, estudiantiles y familiares, asegurándonos de que tu solicitud cumpla con todos los requisitos.",
-        expandedDescription: "Ya sea que necesites una visa de trabajo, estudiantil o familiar, te ayudaremos a completar tu solicitud correctamente. Te asistiremos en la recopilación de los documentos necesarios, en el llenado de los formularios requeridos y en su presentación de manera que aumenten tus probabilidades de éxito.",
+        description: "Te brindamos apoyo con visas estudiantiles y familiares, garantizando que tu solicitud cumpla con todos los requisitos necesarios.",
+        expandedDescription: "Ya sea que necesites una visa estudiantil o familiar, te ayudaremos a completar tu solicitud correctamente. Te asistiremos en la recopilación de los documentos necesarios, en el llenado de los formularios requeridos y en su presentación de manera que aumenten tus probabilidades de éxito.",
         slug: "visas",
         image: {
           data: {
@@ -439,6 +460,22 @@ const Services = () => {
           data: {
             attributes: {
               url: "/images/statue-of-liberty-3551121_1280.jpg"
+            }
+          }
+        }
+      }
+    },
+    {
+      id: 6,
+      attributes: {
+        title: "Visa U (Nonimmigrant Visa for Victims of Crimes)",
+        description: "Protegemos tu derecho a permanecer en EE.UU. si has sido víctima de un crimen.",
+        expandedDescription: "Es un recurso legal en los Estados Unidos diseñado para proteger a personas que han sido víctimas de delitos graves, como abuso físico, violencia doméstica, tráfico humano, entre otros. Este programa te permite solicitar protección y regularizar tu estatus migratorio si cooperas con las autoridades en la investigación o enjuiciamiento del delito cometido en tu contra.",
+        slug: "visa-u",
+        image: {
+          data: {
+            attributes: {
+              url: "/images/statue-of-liberty-992552_1280.jpg"
             }
           }
         }
