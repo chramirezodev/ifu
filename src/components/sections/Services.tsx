@@ -220,25 +220,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           />
           {/* Overlay con gradiente para mejor legibilidad */}
           <div className={`absolute inset-0 ${styles.overlayGradient}`} />
-          
-          {/* Cinta estilo USA */}
-          <div className="absolute top-5 -right-10 rotate-45 bg-usa-red text-white px-10 py-1 shadow-md text-xs font-bold tracking-wider z-10">
-            USA
-          </div>
-          
-          {/* Estrella decorativa en la esquina superior izquierda */}
-          <div className="absolute top-3 left-3 text-usa-red">
-            <svg className="w-6 h-6 drop-shadow-lg" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2L14.2 7.4H20L15.1 11.4L16.5 17L12 13.8L7.5 17L8.9 11.4L4 7.4H9.8L12 2Z" />
-            </svg>
-          </div>
-          
-          {/* Estrella decorativa en la esquina inferior derecha */}
-          <div className="absolute bottom-3 right-3 text-usa-blue/90">
-            <svg className="w-6 h-6 drop-shadow-lg" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2L14.2 7.4H20L15.1 11.4L16.5 17L12 13.8L7.5 17L8.9 11.4L4 7.4H9.8L12 2Z" />
-            </svg>
-          </div>
         </div>
       ) : (
         <div className={`relative h-52 w-full overflow-hidden ${backgroundClass} flex items-center justify-center`}>
@@ -250,34 +231,6 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
           >
             {icon}
           </motion.div>
-          
-          {/* Elementos decorativos patrióticos */}
-          <motion.div 
-            className="absolute top-4 left-4 opacity-70"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 0.7, x: 0 }}
-            transition={{ delay: 0.2, duration: 0.5 }}
-          >
-            <svg className="w-10 h-10 text-usa-red drop-shadow-lg" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2L14.2 7.4H20L15.1 11.4L16.5 17L12 13.8L7.5 17L8.9 11.4L4 7.4H9.8L12 2Z" />
-            </svg>
-          </motion.div>
-
-        <motion.div 
-            className="absolute bottom-4 right-4 opacity-70"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 0.7, x: 0 }}
-            transition={{ delay: 0.3, duration: 0.5 }}
-          >
-            <svg className="w-10 h-10 text-usa-blue drop-shadow-lg" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2L14.2 7.4H20L15.1 11.4L16.5 17L12 13.8L7.5 17L8.9 11.4L4 7.4H9.8L12 2Z" />
-            </svg>
-          </motion.div>
-          
-          {/* Cinta USA */}
-          <div className="absolute top-5 -right-10 rotate-45 bg-usa-red text-white px-10 py-1 shadow-md text-xs font-bold tracking-wider z-10">
-            USA
-          </div>
         </div>
       )}
 
