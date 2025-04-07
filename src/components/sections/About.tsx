@@ -1,15 +1,13 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { urlForImage } from '@/lib/sanity/client';
 
 interface AboutProps {
   title: string;
-  content: any; // Portable Text
-  image?: any; // Sanity image
-  values?: Array<{ title: string; description: string; icon?: string }>;
+  content: string;
+  values?: Array<{ title: string; description: string }>;
 }
 
-export default function About() {
+export default function About({ title, content, values = [] }: AboutProps) {
   return (
     <section id="nosotros" className="py-16 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4">
@@ -40,13 +38,20 @@ export default function About() {
 
           {/* Columna de texto */}
           <div className="space-y-6">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Sobre Nosotros</h2>
-            <p className="text-lg text-gray-600 mb-6">
-              En Immigration For US, nos dedicamos a hacer realidad tus sueños de inmigración. 
-              Con más de 5 años de experiencia, hemos ayudado a cientos de personas a navegar 
-              exitosamente por el complejo sistema migratorio de los Estados Unidos.
-            </p>
-            {/* ... resto del contenido ... */}
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">{title}</h2>
+            <p className="text-lg text-gray-600 mb-6">{content}</p>
+            
+            {/* Valores */}
+            {values && values.length > 0 && (
+              <div className="grid grid-cols-1 gap-6">
+                {values.map((value, index) => (
+                  <div key={index} className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <h3 className="text-xl font-semibold text-usa-blue mb-2">{value.title}</h3>
+                    <p className="text-gray-600">{value.description}</p>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </div>
