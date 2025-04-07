@@ -77,109 +77,93 @@ const Footer: React.FC = () => {
   
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="container mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo y descripción */}
-          <div className="space-y-4">
-            <Link href="/" className="inline-block">
-              <Image
-                src="/images/Logos/white_logo_transparent_background.png"
-                alt="Immigration For US"
-                width={180}
-                height={45}
-                className="h-10 w-auto"
-              />
-            </Link>
-            <p className="text-gray-400">
-              Transformamos tus sueños migratorios en realidad con experiencia y dedicación.
+          <div className="col-span-1 md:col-span-2">
+            <Image 
+              src="/images/logo.png"
+              alt="Immigration For Us Logo"
+              width={200}
+              height={60}
+              className="mb-4"
+            />
+            <p className="text-gray-400 mb-4">
+              Unidos por tus sueños, comprometidos con tu futuro
             </p>
           </div>
 
           {/* Enlaces rápidos */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Enlaces rápidos</h3>
+            <h3 className="text-white font-semibold mb-4">Enlaces rápidos</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#servicios" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/servicios" className="text-gray-400 hover:text-white transition-colors">
                   Servicios
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#proceso" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/proceso" className="text-gray-400 hover:text-white transition-colors">
                   Proceso
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#testimonios" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/testimonios" className="text-gray-400 hover:text-white transition-colors">
                   Testimonios
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#contacto" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/contacto" className="text-gray-400 hover:text-white transition-colors">
                   Contacto
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
 
           {/* Servicios */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Servicios</h3>
+            <h3 className="text-white font-semibold mb-4">Servicios</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#servicios" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/servicios#visa-turista" className="text-gray-400 hover:text-white transition-colors">
                   Visa de Turista
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#servicios" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/servicios#residencia" className="text-gray-400 hover:text-white transition-colors">
                   Residencia Permanente
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#servicios" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/servicios#ciudadania" className="text-gray-400 hover:text-white transition-colors">
                   Ciudadanía
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#servicios" className="text-gray-400 hover:text-white transition-colors">
+                <Link href="/servicios#daca" className="text-gray-400 hover:text-white transition-colors">
                   DACA
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contacto */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Contacto</h3>
-            <ul className="space-y-2">
-              <li className="flex items-center text-gray-400">
-                <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                +1 (954) 588 4018
-              </li>
-              <li className="flex items-center text-gray-400">
-                <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                cpalisa@immigrationfor-us.com
-              </li>
-              <li className="flex items-center text-gray-400">
-                <svg className="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-                7224 NW 116th Way<br />
-                Parkland, FL. 33076
+                </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Derechos de autor */}
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-          <p>© {currentYear} Immigration For US. Todos los derechos reservados.</p>
+        {/* Línea divisoria */}
+        <hr className="border-gray-800 my-8" />
+
+        {/* Pie de página */}
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <p className="text-gray-400 text-sm mb-4 md:mb-0">
+            © {new Date().getFullYear()} Immigration For Us. Todos los derechos reservados.
+          </p>
+          <div className="flex space-x-4">
+            <Link href="/politicas" className="text-gray-400 hover:text-white text-sm transition-colors">
+              Políticas de Uso y Privacidad
+            </Link>
+            <Link href="/aviso-legal" className="text-gray-400 hover:text-white text-sm transition-colors">
+              Aviso Legal
+            </Link>
+          </div>
         </div>
       </div>
     </footer>
