@@ -9,106 +9,44 @@ interface AboutProps {
   values?: Array<{ title: string; description: string; icon?: string }>;
 }
 
-export default function About({ title, content, image, values = [] }: AboutProps) {
-  // Animaciones
-  const fadeIn = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { 
-      opacity: 1, 
-      y: 0,
-      transition: { duration: 0.6 }
-    }
-  };
-  
-  const staggerContainer = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
-  
-  const imageUrl = image ? urlForImage(image).width(600).height(800).url() : '/images/default-about.jpg';
-
+export default function About() {
   return (
-    <section id="nosotros" className="py-20 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <motion.h2 
-            className="text-3xl md:text-4xl font-bold text-usa-blue mb-4"
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            {title}
-          </motion.h2>
-        </div>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Imagen */}
-          <motion.div 
-            className="relative h-[400px] lg:h-[600px] rounded-lg overflow-hidden shadow-lg"
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-          >
-            <Image 
-              src={imageUrl}
-              alt="Sobre Immigration For US"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-usa-blue-dark/50 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 w-full p-6">
-              <div className="flex items-center space-x-2 text-white">
-                <span className="h-1 w-10 bg-usa-red"></span>
-                <span className="text-xl font-medium">Immigration For US</span>
+    <section id="nosotros" className="py-16 bg-white relative overflow-hidden">
+      <div className="container mx-auto px-4">
+        <div className="grid md:grid-cols-2 gap-12 items-center">
+          {/* Columna de imagen */}
+          <div className="relative">
+            <div className="relative aspect-square">
+              <Image
+                src="/images/hands-3331229_1920.jpg"
+                alt="Trabajando juntos por tu futuro"
+                fill
+                className="object-cover rounded-lg shadow-xl"
+              />
+              
+              {/* Badge de años de experiencia */}
+              <div className="absolute -top-4 -right-4 bg-usa-red text-white p-4 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 z-10">
+                <div className="text-3xl md:text-4xl font-extrabold">+5</div>
+                <div className="text-sm font-medium">Años de<br/>experiencia</div>
               </div>
-              <h3 className="text-2xl font-bold text-white mt-2">Servicios de Inmigración Profesional</h3>
+
+              {/* Círculo de dedicación */}
+              <div className="absolute -bottom-12 -left-12 bg-white rounded-full p-8 shadow-2xl w-56 h-56 flex flex-col items-center justify-center transform hover:scale-105 transition-all duration-300 z-10">
+                <div className="text-5xl md:text-6xl font-bold text-usa-blue mb-2">100%</div>
+                <div className="text-gray-700 font-medium text-lg text-center">Dedicación</div>
+              </div>
             </div>
-          </motion.div>
-          
-          {/* Contenido */}
-          <div>
-            <motion.div 
-              className="prose prose-lg max-w-none prose-headings:text-usa-blue prose-a:text-usa-red"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.7 }}
-              dangerouslySetInnerHTML={{ __html: content }}
-            />
-            
-            {/* Valores */}
-            {values && values.length > 0 && (
-              <motion.div 
-                className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6"
-                variants={staggerContainer}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-              >
-                {values.map((value, index) => (
-                  <motion.div 
-                    key={index}
-                    className="bg-white p-6 rounded-lg shadow-sm border border-gray-100"
-                    variants={fadeIn}
-                  >
-                    <div className="flex items-center mb-4">
-                      <div className="bg-usa-blue-light/20 p-4 rounded-xl mr-4 transform hover:scale-105 transition-transform duration-300">
-                        <div className="text-usa-blue font-extrabold text-3xl md:text-4xl">+5</div>
-                      </div>
-                      <h3 className="font-bold text-xl md:text-2xl text-usa-blue-dark">Años de experiencia</h3>
-                    </div>
-                    <p className="text-gray-600">{value.description}</p>
-                  </motion.div>
-                ))}
-              </motion.div>
-            )}
+          </div>
+
+          {/* Columna de texto */}
+          <div className="space-y-6">
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Sobre Nosotros</h2>
+            <p className="text-lg text-gray-600 mb-6">
+              En Immigration For US, nos dedicamos a hacer realidad tus sueños de inmigración. 
+              Con más de 5 años de experiencia, hemos ayudado a cientos de personas a navegar 
+              exitosamente por el complejo sistema migratorio de los Estados Unidos.
+            </p>
+            {/* ... resto del contenido ... */}
           </div>
         </div>
       </div>
