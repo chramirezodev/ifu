@@ -298,7 +298,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Nos enorgullece haber ayudado a miles de personas a alcanzar sus metas migratorias. 
+            Nos enorgullece haber ayudado a muchas personas a alcanzar sus metas migratorias. 
             Estas son algunas de las experiencias compartidas por nuestros clientes.
           </motion.p>
         </motion.div>
