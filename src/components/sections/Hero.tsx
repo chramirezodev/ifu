@@ -141,7 +141,7 @@ const Hero: React.FC = () => {
             whileHover={{ scale: 1.05, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
             whileTap={{ scale: 0.98 }}
           >
-            Comenzar Ahora
+            {t('hero.cta.start')}
           </motion.a>
           <motion.a
             href="#servicios"
@@ -149,7 +149,7 @@ const Hero: React.FC = () => {
             whileHover={{ scale: 1.05, boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)" }}
             whileTap={{ scale: 0.98 }}
           >
-            Ver Servicios
+            {t('hero.cta.services')}
           </motion.a>
         </motion.div>
 
