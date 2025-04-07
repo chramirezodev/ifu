@@ -35,7 +35,7 @@ const News = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Mantente informado sobre las últimas actualizaciones y noticias del Servicio de Ciudadanía e Inmigración de Estados Unidos
+            Mantente informado sobre las últimas actualizaciones y noticias del Servicio de Ciudadanía e Inmigración de Estados Unidos (USCIS)
           </motion.p>
         </motion.div>
 
