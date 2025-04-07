@@ -54,11 +54,12 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="/images/logo.svg"
+              src="/images/Logos/logo_transparent_background.png"
               alt={t('nav.logo.alt')}
               width={180}
               height={50}
               className="h-12 w-auto"
+              priority
             />
           </Link>
 
