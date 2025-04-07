@@ -99,10 +99,10 @@ export default function About({ title, content, image, values = [] }: AboutProps
                     variants={fadeIn}
                   >
                     <div className="flex items-center mb-4">
-                      <div className="bg-usa-blue-light/10 p-3 rounded-full mr-4">
-                        <div className="text-usa-blue font-bold text-xl">+10</div>
+                      <div className="bg-usa-blue-light/20 p-4 rounded-xl mr-4 transform hover:scale-105 transition-transform duration-300">
+                        <div className="text-usa-blue font-extrabold text-3xl md:text-4xl">+5</div>
                       </div>
-                      <h3 className="font-bold text-lg text-usa-blue-dark">Años de experiencia</h3>
+                      <h3 className="font-bold text-xl md:text-2xl text-usa-blue-dark">Años de experiencia</h3>
                     </div>
                     <p className="text-gray-600">{value.description}</p>
                   </motion.div>
