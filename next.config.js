@@ -1,11 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  i18n: {
-    defaultLocale: 'es',
-    locales: ['es', 'en'],
-    localeDetection: false,
-  },
   images: {
     remotePatterns: [
       {
@@ -28,9 +23,6 @@ const nextConfig = {
     // Esto es para ignorar errores de ESLint para implementar correctamente en Vercel
     // NO lo recomendaría en otros casos
     ignoreDuringBuilds: true,
-  },
-  experimental: {
-    // Características experimentales si son necesarias
   },
   // Excluir las carpetas del CMS del build
   webpack: (config, { isServer }) => {
