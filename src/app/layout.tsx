@@ -1,5 +1,4 @@
 import { Inter } from 'next/font/google';
-import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,6 +14,22 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
+      <head>
+        <style jsx global>{`
+          :root {
+            --usa-red: #B22234;
+            --usa-blue: #3C3B6E;
+            --usa-white: #FFFFFF;
+          }
+          .text-usa-red { color: var(--usa-red); }
+          .text-usa-blue { color: var(--usa-blue); }
+          .bg-usa-red { background-color: var(--usa-red); }
+          .bg-usa-blue { background-color: var(--usa-blue); }
+          .bg-usa-white { background-color: var(--usa-white); }
+          .border-usa-red { border-color: var(--usa-red); }
+          .border-usa-blue { border-color: var(--usa-blue); }
+        `}</style>
+      </head>
       <body className={inter.className}>
         <div className="flex flex-col min-h-screen">
           <header className="bg-white shadow-md">
