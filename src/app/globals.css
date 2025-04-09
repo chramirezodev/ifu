@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: white;
+}
+
+/* Variables personalizadas para colores de USA */
+:root {
+  --usa-red: #B22234;
+  --usa-blue: #3C3B6E;
+  --usa-white: #FFFFFF;
+}
+
+/* Clases de utilidad para colores personalizados */
+.text-usa-red {
+  color: var(--usa-red);
+}
+
+.text-usa-blue {
+  color: var(--usa-blue);
+}
+
+.bg-usa-red {
+  background-color: var(--usa-red);
+}
+
+.bg-usa-blue {
+  background-color: var(--usa-blue);
+}
+
+.bg-usa-white {
+  background-color: var(--usa-white);
+}
+
+.border-usa-red {
+  border-color: var(--usa-red);
+}
+
+.border-usa-blue {
+  border-color: var(--usa-blue);
+} 
