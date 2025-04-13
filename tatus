@@ -1,0 +1,203 @@
+[33mcommit 7d0f38bb2498d367045d37bb9c4214cff8b26f38[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Sat Apr 12 18:38:16 2025 -0500
+
+    feat: mejora el tamaño y diseño de los números estadísticos - Hace los números más grandes e imponentes en las secciones About y Priority
+
+[33mcommit 7a63d83b7ae289048c78f41cb8d4241a1dc9b584[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Sat Apr 12 18:04:04 2025 -0500
+
+    fix: resuelve conflicto de rutas y problemas de compilación - Separa metadatos y estilos globales, convierte layout en Client Component
+
+[33mcommit f178660ece251f368fb964550d1ccedac7599847[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Tue Apr 8 20:07:03 2025 -0500
+
+    Fix: Corregidos problemas con build en Vercel
+
+[33mcommit ba54583768c2bedc2e27bcd97abfa334c42516f6[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Tue Apr 8 19:42:34 2025 -0500
+
+    Fix: Migración completa a App Router de Next.js - Añadida directiva use client - Creados archivos faltantes
+
+[33mcommit d6b9ebf2ae540e28bcfff7179af15a0497637315[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Tue Apr 8 18:37:00 2025 -0500
+
+    Fix: Eliminado directorio pages y configuración actualizada para usar App Router
+
+[33mcommit bba6ddcf2ba88dfed7c24a7569676efdb5b94253[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Sun Apr 6 22:09:14 2025 -0500
+
+    Fix: Eliminado pages/index.tsx para resolver conflicto con app/page.tsx
+
+[33mcommit 9b36181eca031b5c20c7ee5c757780319b61057c[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Sun Apr 6 21:46:55 2025 -0500
+
+    Fix: Forzar nueva compilación y limpiar caché
+
+[33mcommit e27e6b60cb83e2411254ec7f1e3e1c4119015838[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Sun Apr 6 21:40:07 2025 -0500
+
+    Añadida sección de noticias USCIS y actualizado footer
+
+[33mcommit 01ae20c0262645a294bc6d3a4e04fa4fda629b3d[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Sun Apr 6 21:30:12 2025 -0500
+
+    Fix: Actualizada sección de contacto - Eliminada dirección y ajustados textos
+
+[33mcommit 66c1c19de262a65677510bcb7a376fd3d7b02f46[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Sun Apr 6 21:23:27 2025 -0500
+
+    Fix: Ajustado texto en sección de testimonios
+
+[33mcommit 80bd747a91ea8522598201249b7139ca0e7ea2e1[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Sun Apr 6 21:12:27 2025 -0500
+
+    Fix: Corregido nombre de la empresa y textos en sección Por Qué Elegirnos
+
+[33mcommit 8c08a9538c99a1fb7d9d24f730cce546539d0d97[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Sun Apr 6 20:50:50 2025 -0500
+
+    Eliminados elementos decorativos USA de las tarjetas de servicios
+
+[33mcommit 931d1cb3b2881ed7fbe8bc00e7bffd7625529016[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Sun Apr 6 20:11:17 2025 -0500
+
+    Añadido servicio de Visa U con estilos e iconos
+
+[33mcommit c22be53937c29d3c0b58bb9445de5513e39fd8fb[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Sun Apr 6 19:58:46 2025 -0500
+
+    Fix: Actualizado componente About para manejar props correctamente
+
+[33mcommit 02605af6f2b70d236f6ae80836385c920051556f[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Sun Apr 6 19:54:23 2025 -0500
+
+    Rediseño sección About: - Círculo de dedicación más grande - Mejor posicionamiento de elementos - Imagen actualizada
+
+[33mcommit 0c7ce12f032531ca16ef05bac3d8bea27f1c4c0d[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Sun Apr 6 19:48:15 2025 -0500
+
+    Mejora visual: +5 años de experiencia más grande e imponente - Texto aumentado a text-3xl/4xl - Añadido efecto hover - Mejorado contraste visual
+
+[33mcommit 270311a9082011cb0d4d995cbcb63479ccd32723[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Sun Apr 6 19:43:32 2025 -0500
+
+    Actualización: - Textos de botones del hero - Años de experiencia en About
+
+[33mcommit 8ed502a1904c9f9326b2f4b52197384fca8afb92[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Sun Apr 6 19:04:20 2025 -0500
+
+    Correcciones: - Actualizada ruta del logo - Actualizados textos de botones en el hero
+
+[33mcommit b8b899e48e3cdebc609c1a7393ca20e1cd5168ae[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Sun Apr 6 18:56:43 2025 -0500
+
+    Actualización del menú de navegación: - Fondo blanco permanente - Secciones actualizadas - Traducciones mejoradas
+
+[33mcommit ea5ac75b771bd0ee765ce98ea154d9de31a1961a[m
+Author: Tu Nombre <tu.email@ejemplo.com>
+Date:   Sun Apr 6 15:02:26 2025 -0500
+
+    Ajustes de diseño solicitados por el cliente: - Fondos cambiados a blanco - Sección Prioridad renombrada a Nosotros - FAQ simplificado a Preguntas
+
+[33mcommit 42e81d549a7e994444d32c425ff226871d27e744[m
+Author: Carlos Ramirez <tu-email@ejemplo.com>
+Date:   Mon Mar 31 00:33:24 2025 -0500
+
+    Reemplazado axios por fetch en el componente Contact
+
+[33mcommit c1626159a686ce386ed2815bffbe6886da3ec903[m
+Author: Carlos Ramirez <tu-email@ejemplo.com>
+Date:   Mon Mar 31 00:25:44 2025 -0500
+
+    Instalado axios para componente Contact
+
+[33mcommit 7b086ad3f2bcf87568061ca6850acbeec7d4fad5[m
+Author: Carlos Ramirez <tu-email@ejemplo.com>
+Date:   Mon Mar 31 00:19:55 2025 -0500
+
+    Corregido error phoneNumber undefined en WhatsAppButton
+
+[33mcommit 0b2316eb775c6374bdc3412d4127744ef8125b85[m
+Author: Carlos Ramirez <tu-email@ejemplo.com>
+Date:   Sun Mar 30 23:08:48 2025 -0500
+
+    Configuración completa para despliegue en Vercel
+
+[33mcommit a3e38b95ae02f19b2e0a21771cf76fb1008a11c6[m
+Author: Carlos Ramirez <tu-email@ejemplo.com>
+Date:   Sun Mar 30 23:00:38 2025 -0500
+
+    Configurar entorno para CMS y web en conjunto
+
+[33mcommit 0bc59841785d6d15b4dcaa208d6df5dad8681f26[m
+Author: Carlos Ramirez <tu-email@ejemplo.com>
+Date:   Sun Mar 30 18:40:19 2025 -0500
+
+    Añadidos avatares por género en sección de testimonios
+
+[33mcommit 5b563621bc0d3d84ba84cf7574aa3af6ad943c09[m
+Author: Carlos Ramirez <tu-email@ejemplo.com>
+Date:   Sun Mar 30 17:32:46 2025 -0500
+
+    Forzando imágenes de la Estatua de la Libertad en servicios y mejorando manejo de errores
+
+[33mcommit 2308f319650983c283468f7ccd08a02623c74077[m
+Author: Carlos Ramirez <tu-email@ejemplo.com>
+Date:   Sun Mar 30 17:20:43 2025 -0500
+
+    Corregidas las rutas de imágenes para asegurar su correcta visualización
+
+[33mcommit 5e3d79d3b9c6db3734ab4203a20f02fee62768cb[m
+Author: Carlos Ramirez <tu-email@ejemplo.com>
+Date:   Sun Mar 30 17:02:15 2025 -0500
+
+    Actualizado imágenes de servicios: nuevas imágenes para Visas, Residencia y Naturalización
+
+[33mcommit 9aa906f71049f4f493e47b04d7cb5da8a88e06aa[m
+Author: Carlos Ramirez <tu-email@ejemplo.com>
+Date:   Sun Mar 30 16:40:31 2025 -0500
+
+    Mejoradas las tarjetas de servicios con imágenes reales y efectos visuales distintivos
+
+[33mcommit 284d167e0c5d91a3baa376e12b69000cef614681[m
+Author: Carlos Ramirez <tu-email@ejemplo.com>
+Date:   Sun Mar 30 16:23:29 2025 -0500
+
+    Corregido problema con servicios: ahora se muestran los 5 servicios completos
+
+[33mcommit 45447087ac2fe3ae0ced6daed1dd9361b8a23740[m
+Author: Carlos Ramirez <tu-email@ejemplo.com>
+Date:   Sun Mar 30 16:16:12 2025 -0500
+
+    Actualizado texto completo de Nuestros Servicios con los 5 servicios correctos
+
+[33mcommit 326611137f35fb0a8f1623ca725492b2d632119e[m
+Author: Carlos Ramirez <tu-email@ejemplo.com>
+Date:   Sun Mar 30 16:10:32 2025 -0500
+
+    Mejoras de diseño: Elementos visuales americanos y animaciones refinadas
+
+[33mcommit 1a8c65bac59f0be099e49c1d1ba66210018027a1[m
+Author: Carlos Ramirez <tu-email@ejemplo.com>
+Date:   Sun Mar 30 12:31:06 2025 -0500
+
+    Primer commit: Proyecto IFU - Immigration For US

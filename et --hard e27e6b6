@@ -1,0 +1,32 @@
+[33mf178660[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m Fix: Corregidos problemas con build en Vercel
+[33mba54583[m Fix: Migración completa a App Router de Next.js - Añadida directiva use client - Creados archivos faltantes
+[33md6b9ebf[m Fix: Eliminado directorio pages y configuración actualizada para usar App Router
+[33mbba6ddc[m Fix: Eliminado pages/index.tsx para resolver conflicto con app/page.tsx
+[33m9b36181[m Fix: Forzar nueva compilación y limpiar caché
+[33me27e6b6[m Añadida sección de noticias USCIS y actualizado footer
+[33m01ae20c[m Fix: Actualizada sección de contacto - Eliminada dirección y ajustados textos
+[33m66c1c19[m Fix: Ajustado texto en sección de testimonios
+[33m80bd747[m Fix: Corregido nombre de la empresa y textos en sección Por Qué Elegirnos
+[33m8c08a95[m Eliminados elementos decorativos USA de las tarjetas de servicios
+[33m931d1cb[m Añadido servicio de Visa U con estilos e iconos
+[33mc22be53[m Fix: Actualizado componente About para manejar props correctamente
+[33m02605af[m Rediseño sección About: - Círculo de dedicación más grande - Mejor posicionamiento de elementos - Imagen actualizada
+[33m0c7ce12[m Mejora visual: +5 años de experiencia más grande e imponente - Texto aumentado a text-3xl/4xl - Añadido efecto hover - Mejorado contraste visual
+[33m270311a[m Actualización: - Textos de botones del hero - Años de experiencia en About
+[33m8ed502a[m Correcciones: - Actualizada ruta del logo - Actualizados textos de botones en el hero
+[33mb8b899e[m Actualización del menú de navegación: - Fondo blanco permanente - Secciones actualizadas - Traducciones mejoradas
+[33mea5ac75[m Ajustes de diseño solicitados por el cliente: - Fondos cambiados a blanco - Sección Prioridad renombrada a Nosotros - FAQ simplificado a Preguntas
+[33m42e81d5[m Reemplazado axios por fetch en el componente Contact
+[33mc162615[m Instalado axios para componente Contact
+[33m7b086ad[m Corregido error phoneNumber undefined en WhatsAppButton
+[33m0b2316e[m Configuración completa para despliegue en Vercel
+[33ma3e38b9[m Configurar entorno para CMS y web en conjunto
+[33m0bc5984[m Añadidos avatares por género en sección de testimonios
+[33m5b56362[m Forzando imágenes de la Estatua de la Libertad en servicios y mejorando manejo de errores
+[33m2308f31[m Corregidas las rutas de imágenes para asegurar su correcta visualización
+[33m5e3d79d[m Actualizado imágenes de servicios: nuevas imágenes para Visas, Residencia y Naturalización
+[33m9aa906f[m Mejoradas las tarjetas de servicios con imágenes reales y efectos visuales distintivos
+[33m284d167[m Corregido problema con servicios: ahora se muestran los 5 servicios completos
+[33m4544708[m Actualizado texto completo de Nuestros Servicios con los 5 servicios correctos
+[33m3266111[m Mejoras de diseño: Elementos visuales americanos y animaciones refinadas
+[33m1a8c65b[m Primer commit: Proyecto IFU - Immigration For US
