@@ -1,11 +1,16 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import dynamic from 'next/dynamic';
 
 interface AboutProps {
   title: string;
   content: string;
   values?: Array<{ title: string; description: string }>;
 }
+
+const DynamicBadges = dynamic(() => Promise.resolve(({ children }: { children: React.ReactNode }) => <>{children}</>), {
+  ssr: false,
+});
 
 export default function About({ title, content, values = [] }: AboutProps) {
   return (
@@ -22,17 +27,19 @@ export default function About({ title, content, values = [] }: AboutProps) {
                 className="object-cover rounded-lg shadow-xl"
               />
               
-              {/* Badge de años de experiencia */}
-              <div className="absolute -top-4 -right-4 bg-usa-red text-white p-4 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 z-10">
-                <div className="text-3xl md:text-4xl font-extrabold">+5</div>
-                <div className="text-sm font-medium">Años de<br/>experiencia</div>
-              </div>
+              <DynamicBadges>
+                {/* Badge de años de experiencia */}
+                <div className="absolute -top-4 -right-4 bg-usa-red text-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 z-10">
+                  <div className="text-4xl md:text-5xl font-extrabold">+5</div>
+                  <div className="text-sm font-medium">Años de<br/>experiencia</div>
+                </div>
 
-              {/* Círculo de dedicación */}
-              <div className="absolute -bottom-12 -left-12 bg-white rounded-full p-8 shadow-2xl w-56 h-56 flex flex-col items-center justify-center transform hover:scale-105 transition-all duration-300 z-10">
-                <div className="text-5xl md:text-6xl font-bold text-usa-blue mb-2">100%</div>
-                <div className="text-gray-700 font-medium text-lg text-center">Dedicación</div>
-              </div>
+                {/* Círculo de dedicación */}
+                <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 bg-white rounded-full p-8 shadow-2xl w-64 h-64 flex flex-col items-center justify-center transform hover:scale-105 transition-all duration-300 z-10">
+                  <div className="text-6xl md:text-7xl font-bold text-usa-blue mb-2">100%</div>
+                  <div className="text-gray-700 font-medium text-xl text-center">Dedicación</div>
+                </div>
+              </DynamicBadges>
             </div>
           </div>
 
