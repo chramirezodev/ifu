@@ -96,7 +96,7 @@ export const useServices = () => {
             id: 1,
             attributes: {
               title: "Acompañamiento en solicitudes de visa",
-              description: "Te ayudamos con visas de trabajo, estudiantiles y familiares, asegurándonos de que tu solicitud cumpla con todos los requisitos.",
+              description: "Te brindamos apoyo con visas estudiantiles y familiares, garantizando que tu solicitud cumpla con todos los requisitos necesarios.",
               expandedDescription: "Ya sea que necesites una visa de trabajo, estudiantil o familiar, te ayudaremos a completar tu solicitud correctamente. Te asistiremos en la recopilación de los documentos necesarios, en el llenado de los formularios requeridos y en su presentación de manera que aumenten tus probabilidades de éxito.",
               slug: "visas",
               image: {
@@ -163,6 +163,22 @@ export const useServices = () => {
               description: "Protegemos tu derecho a permanecer en EE.UU. si has sido víctima de abuso.",
               expandedDescription: "Es un recurso legal en los Estados Unidos diseñado para proteger a personas que han sido víctimas de abuso por parte de su cónyuge, padre/madre o hijo ciudadano estadounidense o residente legal. Este programa ofrece la oportunidad de solicitar protección y regularizar su estatus migratorio de manera independiente, sin necesidad de que el agresor participe en el proceso.",
               slug: "vawa",
+              image: {
+                data: {
+                  attributes: {
+                    url: "/images/shot-two-american-us-flags-high-rise-building.jpg"
+                  }
+                }
+              }
+            }
+          },
+          {
+            id: 6,
+            attributes: {
+              title: "Visa U (Nonimmigrant Visa for Victims of Crimes - Visa de No Inmigrante para Víctimas de Crímenes)",
+              description: "Protegemos tu derecho a permanecer en EE.UU. si has sido víctima de un crimen.",
+              expandedDescription: "Es un recurso legal en los Estados Unidos diseñado para proteger a personas que han sido víctimas de delitos graves, como abuso físico, violencia doméstica, tráfico humano, entre otros. Este programa te permite solicitar protección y regularizar tu estatus migratorio si cooperas con las autoridades en la investigación o enjuiciamiento del delito cometido en tu contra.",
+              slug: "visa-u",
               image: {
                 data: {
                   attributes: {

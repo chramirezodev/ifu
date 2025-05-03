@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --usa-red: #DC2626;
+  --usa-blue: #1E40AF;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+} 

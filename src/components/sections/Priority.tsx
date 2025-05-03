@@ -35,7 +35,7 @@ const Priority = () => {
   ];
 
   return (
-    <section id="nosotros" className="py-24 bg-white relative overflow-hidden">
+    <section id="priority" className="py-24 bg-white relative overflow-hidden">
       {/* Elementos decorativos */}
       <div className="absolute top-0 right-0 w-1/3 h-96 bg-gradient-to-b from-usa-red/5 to-transparent rounded-bl-full -translate-y-1/4"></div>
       <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-usa-blue/5 rounded-full"></div>
@@ -53,11 +53,12 @@ const Priority = () => {
             <div className="relative w-full max-w-md mx-auto lg:mx-0">
               <div className="aspect-w-4 aspect-h-3 relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image 
-                  src="/images/connect-20333_1920.jpg" 
-                  alt="Nuestra prioridad es tu tranquilidad" 
-                  width={600}
-                  height={450}
-                  className="object-cover w-full h-full"
+                  src="/images/priority.jpg"
+                  alt="Priority"
+                  width={500}
+                  height={300}
+                  className="rounded-lg shadow-lg"
+                  loading="eager"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-usa-blue/40 to-transparent mix-blend-multiply"></div>
               </div>
@@ -106,7 +107,7 @@ const Priority = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.6 }}
             >
-              Nosotros
+              Prioridad
             </motion.h2>
             
             <motion.div 
@@ -116,24 +117,6 @@ const Priority = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             />
-            
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-8 space-y-4 text-lg text-gray-700"
-            >
-              <p>
-                Somos inmigrantes y conocemos los desafíos que se presentan al establecerse en este país.
-                Por eso, te acompañamos en cada paso del proceso para que tú y tu familia tengan la mejor
-                orientación y respaldo.
-              </p>
-              <p>
-                Nuestro objetivo es brindarte la tranquilidad de que tu caso está siendo manejado por
-                profesionales que entienden tu situación y se preocupan por tu éxito.
-              </p>
-            </motion.div>
             
             {/* Características con animación */}
             <div className="space-y-4">

@@ -35,12 +35,14 @@ const contactMethods = [
 
 const Contact = () => {
   const [isMounted, setIsMounted] = useState(false);
+  const [isClient, setIsClient] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState<boolean | null>(null);
   const [submitError, setSubmitError] = useState<string | null>(null);
   const { register, handleSubmit, reset, formState: { errors } } = useForm<ContactFormInputs>();
 
   useEffect(() => {
+    setIsClient(true);
     setIsMounted(true);
   }, []);
 
@@ -76,8 +78,8 @@ const Contact = () => {
     }
   };
 
-  if (!isMounted) {
-    return null;
+  if (!isClient) {
+    return null; // Renderizado inicial en servidor
   }
 
   return (
@@ -126,21 +128,6 @@ const Contact = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
           >
-            {/* Mapa embebido */}
-            <div className="h-64 w-full bg-gray-200 relative">
-              <iframe 
-                src={`https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3581.971342687913!2d-80.1350047!3d26.1312066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d902d86a301a15%3A0xd3ce86aa2ed6ac7a!2s2200%20N%20Federal%20Hwy%2C%20Boca%20Raton%2C%20FL%2033431%2C%20EE.%20UU.!5e0!3m2!1ses!2sar!4v1657561487018!5m2!1ses!2sar`}
-                width="100%" 
-                height="100%" 
-                style={{ border: 0 }} 
-                allowFullScreen 
-                loading="lazy" 
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Ubicación de Immigration For US"
-              />
-              <div className="absolute inset-0 pointer-events-none shadow-[inset_0_0_10px_rgba(0,0,0,0.1)]"></div>
-            </div>
-            
             {/* Métodos de contacto */}
             <div className="p-8">
               <h3 className="text-2xl font-bold mb-6 text-gray-900">Información de Contacto</h3>

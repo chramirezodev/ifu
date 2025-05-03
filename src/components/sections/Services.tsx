@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useServices } from '@/hooks/useStrapi';
 import { getStrapiMedia } from '@/lib/strapi';
 import Image from 'next/image';
+import { useTranslation } from 'next-i18next';
 
 // Iconos mejorados con símbolos americanos "stencil style"
 const serviceIcons = {
@@ -196,7 +197,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className={`object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
-            priority={true}
+            loading="eager"
             onError={(e) => {
               // Si hay un error al cargar la imagen, usar un valor por defecto
               console.error(`Error cargando imagen para ${slug}:`, e);
@@ -335,6 +336,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 };
 
 const Services = () => {
+  const { t } = useTranslation('common');
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
   const { services, loading, error } = useServices();
 
   const defaultServices = [
@@ -442,6 +450,10 @@ const Services = () => {
   // Debug - Verificar cantidad de servicios
   console.log(`Renderizando ${displayServices.length} servicios:`, displayServices.map(s => s.attributes.title));
 
+  if (!isClient) {
+    return null; // Prevent server-side flash
+  }
+
   return (
     <section id="servicios" className="py-24 bg-gray-50 relative overflow-hidden">
       {/* Elementos decorativos americanos */}
@@ -507,7 +519,8 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-            Sabemos lo desafiante que puede ser un trámite de inmigración. Por eso en Immigration For Us, ofrecemos acompañamiento en la preparación y presentación de documentos migratorios ante el USCIS para una amplia variedad de trámites migratorios en los Estados Unidos. Ya sea para una visa de trabajo, estudio o residencia, estamos aquí para guiarte en cada paso del proceso. Te garantizamos que nuestro equipo de expertos te brindará un servicio confiable y personalizado, asegurando que tu solicitud cumpla con los requisitos establecidos.
+            Sabemos lo desafiante que puede ser un trámite de inmigración. Por eso en Immigration For US, ofrecemos acompañamiento en la preparación y presentación de documentos migratorios ante el USCIS para una amplia variedad de trámites migratorios en los Estados Unidos; estamos aquí para guiarte en cada paso del proceso. Te garantizamos que nuestro equipo de expertos te brindará un servicio confiable y personalizado, asegurando que tu solicitud cumpla con los requisitos establecidos
+
           </motion.p>
         </motion.div>
 

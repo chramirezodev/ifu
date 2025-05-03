@@ -183,14 +183,14 @@ const WhyChooseUs = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2">
             {/* Imagen */}
             <div className="relative h-80 lg:h-auto overflow-hidden">
-              <div className="absolute inset-0 bg-usa-blue/80 mix-blend-multiply" />
+              <div className="absolute inset-0 bg-usa-blue/90 mix-blend-multiply" />
               <Image 
-                src="/images/hands-3331229_1920.jpg" 
+                src="/images/hands-3331229_1920_.jpg" 
                 alt="Equipo de Immigration For US" 
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                priority={false}
+                loading="eager"
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="p-8 text-center">

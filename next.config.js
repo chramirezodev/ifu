@@ -16,6 +16,7 @@ const nextConfig = {
       },
     ],
     domains: ['localhost'],
+    unoptimized: true,
   },
   typescript: {
     // !! ADVERTENCIA !!

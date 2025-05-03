@@ -13,6 +13,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const router = useRouter();
   const { i18n } = useTranslation();
   const [activeSection, setActiveSection] = useState('inicio');
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     // Asegurarse de que el idioma esté sincronizado con la URL
@@ -57,11 +58,15 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header activeSection={activeSection} />
       <main className="flex-grow pt-20">
-        {children}
+        {mounted ? children : null}
       </main>
       <Footer />
       <WhatsAppButton phoneNumber="+19545884018" />

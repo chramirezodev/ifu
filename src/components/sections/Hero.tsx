@@ -89,7 +89,7 @@ const Hero: React.FC = () => {
             alt={slides[currentSlide].slogan}
             fill
             className="object-cover"
-            priority={true}
+            loading="eager"
           />
           {/* Overlay con gradiente */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
@@ -111,7 +111,6 @@ const Hero: React.FC = () => {
               {slides[currentSlide].slogan}
             </motion.h1>
           </AnimatePresence>
-          
           {/* Texto fijo que no cambia entre slides */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -174,4 +173,4 @@ const Hero: React.FC = () => {
   );
 };
 
-export default Hero; 
+export default Hero;

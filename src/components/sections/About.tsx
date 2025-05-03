@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
+import React, { useEffect, useState } from 'react';
 
 interface AboutProps {
   title: string;
@@ -13,6 +14,9 @@ const DynamicBadges = dynamic(() => Promise.resolve(({ children }: { children: R
 });
 
 export default function About({ title, content, values = [] }: AboutProps) {
+  const [isClient, setIsClient] = useState(false);
+  useEffect(() => { setIsClient(true); }, []);
+  if (!isClient) return null;
   return (
     <section id="nosotros" className="py-16 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4">
@@ -21,10 +25,12 @@ export default function About({ title, content, values = [] }: AboutProps) {
           <div className="relative">
             <div className="relative aspect-square">
               <Image
-                src="/images/hands-3331229_1920.jpg"
-                alt="Trabajando juntos por tu futuro"
-                fill
-                className="object-cover rounded-lg shadow-xl"
+                src="/images/connect-20333_1920.jpg"
+                alt={title}
+                width={500}
+                height={300}
+                className="object-cover w-full h-full rounded-lg"
+                loading="eager"
               />
               
               <DynamicBadges>
