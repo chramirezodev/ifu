@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Layout from '../components/layout/Layout';
 import { motion } from 'framer-motion';
+import nodemailer from 'nodemailer';
 
 interface FormData {
   name: string;
@@ -9,6 +10,33 @@ interface FormData {
   service: string;
   message: string;
 }
+
+// Configurar el transportador de correo electrónico
+const transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASSWORD
+  }
+});
+
+// Función para enviar el correo electrónico
+const sendEmail = async (formData: FormData) => {
+  const mailOptions = {
+    from: process.env.EMAIL_USER,
+    to: 'cpalisa@immigrationfor-us.com',
+    subject: `Nuevo mensaje de contacto de ${formData.name}`,
+    text: `
+      Nombre: ${formData.name}
+      Correo electrónico: ${formData.email}
+      Teléfono: ${formData.phone}
+      Servicio de interés: ${formData.service}
+      Mensaje: ${formData.message}
+    `
+  };
+
+  await transporter.sendMail(mailOptions);
+};
 
 const ContactoPage = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -35,8 +63,7 @@ const ContactoPage = () => {
     setIsSubmitting(true);
     
     try {
-      // Aquí iría la lógica para enviar el formulario
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulación
+      await sendEmail(formData);
       setSubmitStatus('success');
     } catch (error) {
       setSubmitStatus('error');
@@ -44,6 +71,10 @@ const ContactoPage = () => {
       setIsSubmitting(false);
     }
   };
+
+  // Incluir el número de WhatsApp y el mensaje de bienvenida
+  const whatsappNumber = '+1 (954) 588-4018';
+  const welcomeMessage = '¡Hola! Gracias por contactar a Immigration For US. ¿En qué podemos ayudarte hoy?';
 
   return (
     <Layout>
@@ -197,8 +228,8 @@ const ContactoPage = () => {
                     </div>
                     <div className="ml-4">
                       <p className="text-lg font-medium">Teléfono</p>
-                      <a href="tel:+19545884018" className="text-gray-600 hover:text-usa-blue">
-                        +1 (954) 588 4018
+                      <a href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(welcomeMessage)}`} className="text-usa-blue underline">
+                        {whatsappNumber}
                       </a>
                     </div>
                   </div>
