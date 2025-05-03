@@ -66,7 +66,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     <div className="min-h-screen flex flex-col">
       <Header activeSection={activeSection} />
       <main className="flex-grow pt-20">
-        {mounted ? children : null}
+        {children}
       </main>
       <Footer />
       <WhatsAppButton phoneNumber="+19545884018" />

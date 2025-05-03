@@ -48,7 +48,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
             transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
           >
             <div className="px-6 pb-6">
-              <p className="text-gray-600 leading-relaxed">{answer}</p>
+              <p className="text-gray-600 leading-relaxed text-justify">{answer}</p>
             </div>
           </motion.div>
         )}
@@ -83,7 +83,7 @@ const FAQ = () => {
       <div className="absolute top-0 left-0 w-64 h-64 bg-usa-blue/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-usa-red/5 rounded-full translate-x-1/3 translate-y-1/3"></div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 max-w-6xl relative z-10">
         <motion.div 
           className="text-center mb-12"
           initial={{ opacity: 0, y: 30 }}

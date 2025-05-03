@@ -89,7 +89,7 @@ const Contact = () => {
       <div className="absolute -top-12 -left-12 w-64 h-64 rounded-full bg-usa-blue/5 blur-3xl" />
       <div className="absolute -bottom-24 -right-24 w-80 h-80 rounded-full bg-usa-red/5 blur-3xl" />
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 max-w-6xl relative z-10">
         <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}

@@ -1,108 +1,43 @@
 import React from 'react';
-import { GetStaticProps } from 'next';
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { useTranslation } from 'next-i18next';
-import Layout from '@/components/layout/Layout';
-import { motion } from 'framer-motion';
+import Head from 'next/head';
 
-const AvisoLegal = () => {
-  const { t } = useTranslation('common');
-
-  // Helper function to safely render arrays from translations
-  const renderList = (key: string): string[] => {
-    try {
-      const translation = t(key, { returnObjects: true }) as unknown;
-      if (Array.isArray(translation) && translation.every(item => typeof item === 'string')) {
-        return translation as string[];
-      }
-      console.warn(`Translation for key ${key} is not a string array:`, translation);
-      return [];
-    } catch (error) {
-      console.error(`Error rendering list for key ${key}:`, error);
-      return [];
-    }
-  };
-
-  return (
-    <Layout>
-      <div className="pt-24 pb-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-4xl mx-auto"
-          >
-            <h1 className="text-3xl md:text-4xl font-bold text-usa-blue mb-8">{t('legal.title')}</h1>
-            
-            <div className="prose prose-lg max-w-none">
-              <section className="mb-8">
-                <p className="text-gray-700">{t('legal.intro.p1')}</p>
-                <p className="text-gray-700 mt-4">{t('legal.intro.p2')}</p>
-                <p className="text-gray-700 mt-4">{t('legal.intro.p3')}</p>
-                <p className="text-gray-700 mt-4">{t('legal.intro.p4')}</p>
-              </section>
-
-              <section className="mb-8">
-                <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('legal.uso.title')}</h2>
-                <p className="text-gray-700">{t('legal.uso.description')}</p>
-                <p className="text-gray-700 mt-4">{t('legal.uso.restrictions')}</p>
-                <ul className="list-decimal pl-6 mt-2 text-gray-700">
-                  {renderList('legal.uso.list').map((item, index) => (
-                    <li key={index} className="mb-2">{item}</li>
-                  ))}
+const AvisoLegal = () => (
+  <>
+    <Head>
+      <title>Aviso Legal | Immigration For US</title>
+      <meta name="description" content="Aviso legal y condiciones de uso del sitio web de Immigration For US." />
+    </Head>
+    <main className="py-16 bg-white min-h-screen">
+      <div className="container mx-auto px-4 max-w-3xl">
+        <h1 className="text-3xl font-bold mb-6 text-usa-blue">AVISO LEGAL</h1>
+        <p className="mb-4">El acceso a este sitio web implica la condición de usuario y la aceptación y conocimiento de las siguientes condiciones de uso, por lo que recomendamos leerlas y comprenderlas antes de hacer uso del sitio. En caso de que no esté dispuesto a aceptar los Términos y Condiciones del presente Acuerdo, le rogamos que no acceda ni utilice esta página web ni publique ningún contenido.</p>
+        <p className="mb-4">Usted entiende que este sitio web es propiedad de Immigration for US, incluyendo todos los derechos de propiedad intelectual e industrial que se deriven de o se incluyan en la misma, sin que usted tenga ningún derecho a utilizarlos, salvo en los términos establecidos en las presentes Condiciones de Uso. Nos reservamos el derecho de negar o poner fin a su acceso al Sitio Web a nuestra discreción.</p>
+        <p className="mb-4">La puesta a disposición de esta página web es gratuita y, sobre esta base, no tenemos ninguna obligación de mantenimiento o de servicio de soporte, por lo que no nos hacemos responsables de cualquier perjuicio o daño que usted pueda sufrir como consecuencia de un fallo derivado del mantenimiento o actualización de la página web.</p>
+        <p className="mb-4">El Propietario de esta página web no asume responsabilidad alguna como consecuencia directa o indirecta de cualquier acción u omisión que usted lleve a cabo tomando como base la información, los servicios u otro material localizado en esta página web.</p>
+        <hr className="my-8" />
+        <h2 className="text-2xl font-semibold mb-4 text-usa-blue">Uso Permitido</h2>
+        <p className="mb-4">Usted podrá hacer uso de esta página web con propósitos lícitos y de acuerdo con las presentes Condiciones de Uso. Se concede una licencia revocable, intransferible y no exclusiva para ver, imprimir y distribuir el contenido con fines personales y no comerciales. No podrá copiar, modificar, exhibir, distribuir o vender el contenido de esta web sin nuestro consentimiento previo y por escrito.</p>
+        <p className="mb-4">Adicionalmente, usted se compromete a no:</p>
+        <ul className="list-disc pl-6 mb-4">
+          <li>Utilizar la web de manera que pueda dañarla o interferir con su funcionamiento.</li>
+          <li>Usar procesos automáticos para monitorear, copiar o extraer información.</li>
+          <li>Intentar obtener acceso no autorizado al sitio web o su contenido.</li>
                 </ul>
-              </section>
-
-              <section className="mb-8">
-                <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('legal.privacy.title')}</h2>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">{t('legal.privacy.info.title')}</h3>
-                <p className="text-gray-700">{t('legal.privacy.info.description')}</p>
-                <ul className="list-disc pl-6 mt-2 text-gray-700">
-                  {renderList('legal.privacy.info.uses').map((item, index) => (
-                    <li key={index} className="mb-2">{item}</li>
-                  ))}
+        <hr className="my-8" />
+        <h2 className="text-2xl font-semibold mb-4 text-usa-blue">Política de Privacidad</h2>
+        <p className="mb-4">Consulte nuestra <a href="/politicas" className="text-usa-blue underline">Política de Uso y Privacidad</a> para conocer cómo recopilamos, usamos y protegemos su información personal.</p>
+        <hr className="my-8" />
+        <h2 className="text-2xl font-semibold mb-4 text-usa-blue">Contacto</h2>
+        <ul className="mb-4">
+          <li>WhatsApp: <a href="https://wa.me/19545884018" className="text-usa-blue underline">+1 (954) 588 4018</a></li>
+          <li>Email: <a href="mailto:cpalisa@immigrationfor-us.com" className="text-usa-blue underline">cpalisa@immigrationfor-us.com</a></li>
+          <li>Ubicación: 7224 NW 116th Way, Parkland, FL. 33076</li>
+          <li>Horario de atención: Lunes a Viernes de 8 am a 6 pm ET.</li>
                 </ul>
-                <p className="text-gray-700 mt-4">{t('legal.privacy.info.security')}</p>
-
-                <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">{t('legal.privacy.cookies.title')}</h3>
-                <p className="text-gray-700">{t('legal.privacy.cookies.description')}</p>
-
-                <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">{t('legal.privacy.emails.title')}</h3>
-                <p className="text-gray-700">{t('legal.privacy.emails.description')}</p>
-
-                <h3 className="text-xl font-semibold text-gray-800 mt-6 mb-3">{t('legal.privacy.thirdParty.title')}</h3>
-                <p className="text-gray-700">{t('legal.privacy.thirdParty.description')}</p>
-              </section>
-
-              <section className="mb-8">
-                <h2 className="text-2xl font-semibold text-gray-900 mb-4">{t('legal.contact.title')}</h2>
-                <p className="text-gray-700">{t('legal.contact.intro')}</p>
-                <ul className="list-disc pl-6 mt-2 text-gray-700">
-                  <li className="mb-2">{t('legal.contact.whatsapp')}</li>
-                  <li className="mb-2">{t('legal.contact.email')}</li>
-                  <li className="mb-2">{t('legal.contact.location')}</li>
-                  <li className="mb-2">{t('legal.contact.hours')}</li>
-                </ul>
-              </section>
-
-              <div className="mt-12 p-4 bg-gray-50 rounded-lg border border-gray-200">
-                <p className="text-sm text-gray-600">{t('legal.footer.update')}</p>
-              </div>
-            </div>
-          </motion.div>
-        </div>
+        <p className="text-sm text-gray-500">Nos reservamos el derecho de modificar este aviso legal en cualquier momento. Recomendamos revisar periódicamente esta página para estar al tanto de cualquier actualización.</p>
       </div>
-    </Layout>
-  );
-};
-
-export const getStaticProps: GetStaticProps = async ({ locale }) => {
-  return {
-    props: {
-      ...(await serverSideTranslations(locale ?? 'es', ['common'])),
-    },
-  };
-};
+    </main>
+  </>
+);
 
 export default AvisoLegal; 

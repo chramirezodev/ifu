@@ -77,13 +77,25 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
               </Link>
             ))}
             
-            {/* Language Toggle */}
-            <button
-              onClick={toggleLanguage}
-              className="ml-4 px-3 py-1 rounded-md text-sm font-medium text-gray-900 hover:text-usa-blue transition-colors duration-200"
-            >
-              {i18n.language === 'es' ? 'EN' : 'ES'}
-            </button>
+            {/* Language Selector Mejorado */}
+            <div className="flex items-center space-x-2 ml-4">
+              <Link href={router.asPath.replace(/^\/en/, '')} locale="es" legacyBehavior>
+                <a
+                  className={`flex items-center px-2 py-1 rounded-md text-sm font-medium transition-colors duration-200 ${i18n.language === 'es' ? 'bg-usa-blue text-white' : 'text-gray-900 hover:text-usa-blue'}`}
+                  aria-current={i18n.language === 'es' ? 'page' : undefined}
+                >
+                  <span role="img" aria-label="Español" className="mr-1">🇪🇸</span> ES
+                </a>
+              </Link>
+              <Link href={`/en${router.asPath === '/' ? '' : router.asPath}`} locale="en" legacyBehavior>
+                <a
+                  className={`flex items-center px-2 py-1 rounded-md text-sm font-medium transition-colors duration-200 ${i18n.language === 'en' ? 'bg-usa-blue text-white' : 'text-gray-900 hover:text-usa-blue'}`}
+                  aria-current={i18n.language === 'en' ? 'page' : undefined}
+                >
+                  <span role="img" aria-label="English" className="mr-1">🇺🇸</span> EN
+                </a>
+              </Link>
+            </div>
           </div>
 
           {/* Mobile menu button */}
@@ -141,16 +153,27 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                     {t(item.translationKey)}
                   </Link>
                 ))}
-                {/* Language Toggle in Mobile Menu */}
-                <button
-                  onClick={() => {
-                    toggleLanguage();
-                    setIsMenuOpen(false);
-                  }}
-                  className="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:text-usa-blue transition-colors duration-200"
-                >
-                  {i18n.language === 'es' ? 'English' : 'Español'}
-                </button>
+                {/* Language Selector Mejorado en menú móvil */}
+                <div className="flex space-x-2 mt-2">
+                  <Link href={router.asPath.replace(/^\/en/, '')} locale="es" legacyBehavior>
+                    <a
+                      className={`flex items-center px-2 py-1 rounded-md text-base font-medium transition-colors duration-200 ${i18n.language === 'es' ? 'bg-usa-blue text-white' : 'text-gray-900 hover:text-usa-blue'}`}
+                      aria-current={i18n.language === 'es' ? 'page' : undefined}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <span role="img" aria-label="Español" className="mr-1">🇪🇸</span> ES
+                    </a>
+                  </Link>
+                  <Link href={`/en${router.asPath === '/' ? '' : router.asPath}`} locale="en" legacyBehavior>
+                    <a
+                      className={`flex items-center px-2 py-1 rounded-md text-base font-medium transition-colors duration-200 ${i18n.language === 'en' ? 'bg-usa-blue text-white' : 'text-gray-900 hover:text-usa-blue'}`}
+                      aria-current={i18n.language === 'en' ? 'page' : undefined}
+                      onClick={() => setIsMenuOpen(false)}
+                    >
+                      <span role="img" aria-label="English" className="mr-1">🇺🇸</span> EN
+                    </a>
+                  </Link>
+                </div>
               </div>
             </motion.div>
           )}

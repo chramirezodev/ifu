@@ -4,7 +4,7 @@ import ServiceCard from '../components/ServiceCard';
 import { useServices, useExpandableTexts } from '../hooks/useStrapi';
 
 const ServiciosPage = () => {
-  const { data: services, loading: servicesLoading } = useServices();
+  const { services, loading: servicesLoading } = useServices();
   const { data: expandableTexts, loading: textsLoading } = useExpandableTexts('services');
 
   return (
@@ -35,11 +35,10 @@ const ServiciosPage = () => {
                   title={service.attributes.title}
                   description={service.attributes.description || service.attributes.shortDescription}
                   icon={service.attributes.icon?.data?.attributes?.url}
-                  expandableText={
-                    expandableTexts?.find(
-                      (text: any) => text.attributes.identifier === service.attributes.identifier
-                    )?.attributes
-                  }
+                  expandableText={{
+                    title: service.attributes?.title || '',
+                    expandedText: service.attributes?.expandedText || ''
+                  }}
                 />
               ))}
           </div>

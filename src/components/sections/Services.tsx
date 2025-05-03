@@ -455,33 +455,13 @@ const Services = () => {
   }
 
   return (
-    <section id="servicios" className="py-24 bg-gray-50 relative overflow-hidden">
-      {/* Elementos decorativos americanos */}
-      <div className="absolute top-0 left-0 w-full h-16 bg-gradient-to-b from-white to-transparent opacity-70"></div>
-      <div className="absolute -top-8 -left-8 w-24 h-24 bg-usa-red/10 rounded-full"></div>
-      <div className="absolute top-12 right-12 w-32 h-32 bg-usa-blue/10 rounded-full"></div>
-      <motion.div 
-        className="absolute bottom-20 left-20 text-usa-red opacity-10"
-        animate={{ rotate: 360 }}
-        transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
-      >
-        <svg className="w-40 h-40" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2L14.2 7.4H20L15.1 11.4L16.5 17L12 13.8L7.5 17L8.9 11.4L4 7.4H9.8L12 2Z" />
-        </svg>
-      </motion.div>
-      <motion.div 
-        className="absolute -bottom-10 right-10 text-usa-blue opacity-10"
-        animate={{ rotate: -360 }}
-        transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
-      >
-        <svg className="w-48 h-48" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M12 2L14.2 7.4H20L15.1 11.4L16.5 17L12 13.8L7.5 17L8.9 11.4L4 7.4H9.8L12 2Z" />
-        </svg>
-      </motion.div>
-      
-      <div className="container mx-auto px-4 relative z-10">
-                    <motion.div
-          className="text-center mb-16"
+    <section id="servicios" className="py-24 bg-white relative overflow-hidden">
+      {/* Elementos decorativos */}
+      <div className="absolute top-0 left-0 w-64 h-64 bg-usa-blue/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-usa-red/5 rounded-full translate-x-1/3 translate-y-1/3"></div>
+      <div className="container mx-auto px-4 max-w-6xl relative z-10">
+        <motion.div 
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -497,30 +477,20 @@ const Services = () => {
             Nuestros Servicios
           </motion.h2>
           <motion.div 
-            className="w-24 h-1 bg-gradient-to-r from-usa-blue via-white to-usa-red mx-auto mb-6"
+            className="w-24 h-1 bg-usa-blue mx-auto mb-6"
             initial={{ width: 0 }}
             whileInView={{ width: 96 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           />
           <motion.p 
-            className="text-xl text-gray-600 max-w-3xl mx-auto"
+            className="text-xl text-gray-600 max-w-4xl mx-auto text-justify"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Te Acompañamos en tu Proceso Migratorio
-          </motion.p>
-          <motion.p 
-            className="text-lg text-gray-600 max-w-4xl mx-auto mt-4"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.3 }}
-          >
-            Sabemos lo desafiante que puede ser un trámite de inmigración. Por eso en Immigration For US, ofrecemos acompañamiento en la preparación y presentación de documentos migratorios ante el USCIS para una amplia variedad de trámites migratorios en los Estados Unidos; estamos aquí para guiarte en cada paso del proceso. Te garantizamos que nuestro equipo de expertos te brindará un servicio confiable y personalizado, asegurando que tu solicitud cumpla con los requisitos establecidos
-
+            Te acompañamos en tu proceso migratorio. Sabemos lo desafiante que puede ser un trámite de inmigración. Por eso en Immigration For US, ofrecemos acompañamiento en la preparación y presentación de documentos migratorios ante el USCIS para una amplia variedad de trámites migratorios en los Estados Unidos; estamos aquí para guiarte en cada paso del proceso. Te garantizamos que nuestro equipo de expertos te brindará un servicio confiable y personalizado, asegurando que tu solicitud cumpla con los requisitos establecidos.
           </motion.p>
         </motion.div>
 

@@ -40,7 +40,7 @@ const Priority = () => {
       <div className="absolute top-0 right-0 w-1/3 h-96 bg-gradient-to-b from-usa-red/5 to-transparent rounded-bl-full -translate-y-1/4"></div>
       <div className="absolute -bottom-20 -left-20 w-80 h-80 bg-usa-blue/5 rounded-full"></div>
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 max-w-6xl relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           {/* Imagen con efectos */}
           <motion.div 

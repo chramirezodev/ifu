@@ -124,7 +124,7 @@ const WhyChooseUs = () => {
       <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-usa-blue/5 rounded-bl-full -translate-y-1/4 translate-x-1/4" />
       <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-usa-red/5 rounded-tr-full translate-y-1/4 -translate-x-1/4" />
       
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 max-w-6xl relative z-10">
         <motion.div 
           className="text-center mb-16"
           initial={{ opacity: 0, y: 30 }}
@@ -206,11 +206,11 @@ const WhyChooseUs = () => {
             <div className="p-8 lg:p-12">
               <h3 className="text-2xl font-bold mb-6 text-gray-900">Nos encargamos de acompañarte en cada paso</h3>
               <div className="space-y-4 mb-8">
-                <p className="text-gray-600">
+                <p className="text-gray-600 text-justify">
                   En <strong>Immigration For Us</strong>, entendemos lo importante que es para ti y tu familia 
                   contar con un apoyo profesional en cada etapa de tu proceso migratorio.
                 </p>
-                <p className="text-gray-600">
+                <p className="text-gray-600 text-justify">
                   Nuestro compromiso no es solo preparar documentos, sino brindarte la tranquilidad 
                   de que tu caso está en manos expertas, guiándote paso a paso con claridad y eficiencia.
                 </p>

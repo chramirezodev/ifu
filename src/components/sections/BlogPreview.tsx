@@ -1,8 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { formatDistanceToNow } from 'date-fns';
-import { es } from 'date-fns/locale';
 
 interface BlogPost {
   title: string;
@@ -16,6 +14,10 @@ interface BlogPreviewProps {
   subtitle: string;
   posts: BlogPost[];
 }
+
+const formatDate = (date: string) => {
+  return `Publicado el ${new Date(date).toLocaleDateString()}`;
+};
 
 export default function BlogPreview({ title, subtitle, posts }: BlogPreviewProps) {
   return (
@@ -62,10 +64,7 @@ export default function BlogPreview({ title, subtitle, posts }: BlogPreviewProps
                   </p>
                   <div className="flex items-center justify-between text-sm text-gray-500">
                     <span>
-                      {formatDistanceToNow(new Date(post.publishedAt), {
-                        addSuffix: true,
-                        locale: es
-                      })}
+                      {formatDate(post.publishedAt)}
                     </span>
                     <span className="text-usa-blue hover:text-usa-blue-dark transition-colors duration-200">
                       Leer más →

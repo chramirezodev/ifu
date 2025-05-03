@@ -1,5 +1,6 @@
-import { createClient } from 'next-sanity';
-import imageUrlBuilder from '@sanity/image-url';
+// Eliminar las importaciones de next-sanity y @sanity/image-url
+// import { createClient } from 'next-sanity';
+// import imageUrlBuilder from '@sanity/image-url';
 
 export const clientConfig = {
   projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || 'tu-project-id',
@@ -9,13 +10,22 @@ export const clientConfig = {
   token: process.env.SANITY_API_TOKEN || '',
 };
 
+// Reemplazar la lógica de creación del cliente con una función simple
+const createClient = () => {
+  return {
+    fetch: async (query: string) => {
+      return [];
+    },
+    imageUrlBuilder: {
+      image: (source: any) => {
+        return '';
+      }
+    }
+  };
+};
+
 // Cliente para consultas del lado del cliente
-export const client = createClient({
-  projectId: clientConfig.projectId,
-  dataset: clientConfig.dataset,
-  apiVersion: clientConfig.apiVersion,
-  useCdn: clientConfig.useCdn,
-});
+const client = createClient();
 
 // Cliente para el servidor (con token para operaciones privadas)
 export const serverClient = createClient({
@@ -27,7 +37,7 @@ export const serverClient = createClient({
 });
 
 // Configuración para trabajar con imágenes
-const builder = imageUrlBuilder(client);
+const builder = client.imageUrlBuilder;
 export const urlForImage = (source: any) => {
   return builder.image(source);
 };

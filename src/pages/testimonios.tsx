@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import { useTestimonials } from '../hooks/useStrapi';
 
 const TestimoniosPage = () => {
-  const { data: testimonials, loading: testimonialsLoading } = useTestimonials();
+  const { testimonials, loading: testimonialsLoading } = useTestimonials();
 
   const container = {
     hidden: { opacity: 0 },

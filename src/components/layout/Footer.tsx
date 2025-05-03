@@ -77,12 +77,12 @@ const Footer: React.FC = () => {
   
   return (
     <footer className="bg-gray-900 text-white">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-6xl">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Logo y descripción */}
           <div className="col-span-1 md:col-span-2">
             <Image 
-              src="/images/logo.png"
+              src="/images/Logos/logo.png"
               alt="Immigration For Us Logo"
               width={200}
               height={60}

@@ -19,7 +19,7 @@ export default function About({ title, content, values = [] }: AboutProps) {
   if (!isClient) return null;
   return (
     <section id="nosotros" className="py-16 bg-white relative overflow-hidden">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-6xl">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           {/* Columna de imagen */}
           <div className="relative">
@@ -52,7 +52,7 @@ export default function About({ title, content, values = [] }: AboutProps) {
           {/* Columna de texto */}
           <div className="space-y-6">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">{title}</h2>
-            <p className="text-lg text-gray-600 mb-6">{content}</p>
+            <p className="text-lg text-gray-600 mb-6 text-justify">{content}</p>
             
             {/* Valores */}
             {values && values.length > 0 && (

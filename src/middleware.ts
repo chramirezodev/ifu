@@ -4,6 +4,9 @@ import type { NextRequest } from 'next/server';
 const locales = ['es', 'en'];
 const defaultLocale = 'es';
 
+// Rutas legales que deben ser accesibles sin prefijo de idioma
+const legalRoutes = ['/politicas', '/aviso-legal'];
+
 export function middleware(request: NextRequest) {
   // Obtener la cookie de idioma si existe
   const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value;
@@ -18,6 +21,11 @@ export function middleware(request: NextRequest) {
   const pathnameHasLocale = locales.some(
     (loc) => pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`
   );
+
+  // Permitir acceso directo a rutas legales sin redirección
+  if (legalRoutes.includes(pathname)) {
+    return NextResponse.next();
+  }
 
   // Si no hay locale en la URL, redirigir al locale de la cookie o al predeterminado
   if (!pathnameHasLocale) {
