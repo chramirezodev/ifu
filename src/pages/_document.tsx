@@ -4,7 +4,6 @@ export default function Document() {
   return (
     <Html lang="es">
       <Head>
-        <title>Immigration For US - Preparadores de formas de inmigración</title>
         <meta name="description" content="Servicios profesionales de inmigración en Estados Unidos" />
         <link rel="icon" href="/favicon.ico" />
         <meta charSet="utf-8" />

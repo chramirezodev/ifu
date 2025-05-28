@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Layout from '../components/layout/Layout';
 import { motion } from 'framer-motion';
-import nodemailer from 'nodemailer';
 
 interface FormData {
   name: string;
@@ -10,33 +9,6 @@ interface FormData {
   service: string;
   message: string;
 }
-
-// Configurar el transportador de correo electrónico
-const transporter = nodemailer.createTransport({
-  service: 'gmail',
-  auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASSWORD
-  }
-});
-
-// Función para enviar el correo electrónico
-const sendEmail = async (formData: FormData) => {
-  const mailOptions = {
-    from: process.env.EMAIL_USER,
-    to: 'cpalisa@immigrationfor-us.com',
-    subject: `Nuevo mensaje de contacto de ${formData.name}`,
-    text: `
-      Nombre: ${formData.name}
-      Correo electrónico: ${formData.email}
-      Teléfono: ${formData.phone}
-      Servicio de interés: ${formData.service}
-      Mensaje: ${formData.message}
-    `
-  };
-
-  await transporter.sendMail(mailOptions);
-};
 
 const ContactoPage = () => {
   const [formData, setFormData] = useState<FormData>({
@@ -61,10 +33,20 @@ const ContactoPage = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     try {
-      await sendEmail(formData);
-      setSubmitStatus('success');
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      if (response.ok) {
+        setSubmitStatus('success');
+      } else {
+        setSubmitStatus('error');
+      }
     } catch (error) {
       setSubmitStatus('error');
     } finally {

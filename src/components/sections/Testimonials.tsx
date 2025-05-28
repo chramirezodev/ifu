@@ -282,7 +282,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Lo Que Dicen Nuestros Clientes
+            Lo Que dicen Nuestros Clientes
           </motion.h2>
           <motion.div 
             className="w-24 h-1 bg-usa-blue mx-auto mb-6"

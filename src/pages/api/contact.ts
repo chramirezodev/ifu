@@ -13,21 +13,16 @@ export default async function handler(
   res: NextApiResponse<ResponseData>
 ) {
   if (req.method !== 'POST') {
-    res.status(405).json({ message: 'Method not allowed', success: false });
+    res.status(405).json({ message: 'Método no permitido' });
     return;
   }
 
-  const { name, email, phone, subject, message, service, recipient } = req.body;
+  const { name, email, phone, service, message } = req.body;
 
-  // Validar campos requeridos
-  if (!name || !email || !phone || !message) {
-    return res.status(400).json({ 
-      message: 'Faltan campos requeridos', 
-      success: false,
-      error: 'Todos los campos son obligatorios'
-    });
+  if (!name || !email || !message) {
+    return res.status(400).json({ message: 'Faltan campos obligatorios' });
   }
-  
+
   // Validar reCAPTCHA para prevenir spam
   if (process.env.NODE_ENV === 'production') {
     const recaptchaValid = await validateRecaptcha(req.body.recaptchaToken);
@@ -40,43 +35,24 @@ export default async function handler(
     }
   }
 
-  // Configuración del transporte de correo
-  // NOTA: Se debe configurar con las credenciales correctas en producción
-  const transporter = nodemailer.createTransport({
-    host: 'smtp.gmail.com',
-    port: 587,
-    secure: false,
-    auth: {
-      user: process.env.EMAIL_USER || recipient, // Usa la variable de entorno o el email del recipiente
-      pass: process.env.EMAIL_PASSWORD, // Debe ser una contraseña de aplicación de Google
-    },
-  });
-
   try {
-    // Construir correo electrónico
-    const mailOptions = {
-      from: process.env.EMAIL_USER || recipient,
-      to: recipient,
-      subject: `Nuevo contacto desde Immigration For US: ${subject}`,
-      html: `
-        <h1>Nuevo mensaje de contacto</h1>
-        <p><strong>Nombre:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Teléfono:</strong> ${phone}</p>
-        <p><strong>Asunto:</strong> ${subject}</p>
-        ${service ? `<p><strong>Servicio:</strong> ${service}</p>` : ''}
-        <h2>Mensaje:</h2>
-        <p>${message.replace(/\n/g, '<br>')}</p>
-      `,
-    };
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASSWORD,
+      },
+    });
 
-    // Enviar correo
-    const info = await transporter.sendMail(mailOptions);
+    await transporter.sendMail({
+      from: process.env.EMAIL_USER,
+      to: 'cpalisa@immigrationfor-us.com',
+      subject: `Nuevo mensaje de contacto de ${name}`,
+      text: `\nNombre: ${name}\nCorreo electrónico: ${email}\nTeléfono: ${phone}\nServicio de interés: ${service}\nMensaje: ${message}\n`,
+    });
 
-    console.log('Message sent: %s', info.messageId);
-    res.status(200).json({ message: 'Mensaje enviado correctamente', success: true });
+    return res.status(200).json({ message: 'Correo enviado correctamente' });
   } catch (error) {
-    console.error('Error sending email:', error);
-    res.status(500).json({ message: 'Error al enviar el mensaje', success: false });
+    return res.status(500).json({ message: 'Error al enviar el correo' });
   }
 } 

@@ -25,27 +25,13 @@ export default function About({ title, content, values = [] }: AboutProps) {
           <div className="relative">
             <div className="relative aspect-square">
               <Image
-                src="/images/connect-20333_1920.jpg"
+                src="/images/nosotros.png"
                 alt={title}
                 width={500}
                 height={300}
                 className="object-cover w-full h-full rounded-lg"
                 loading="eager"
               />
-              
-              <DynamicBadges>
-                {/* Badge de años de experiencia */}
-                <div className="absolute -top-4 -right-4 bg-usa-red text-white p-6 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-300 z-10">
-                  <div className="text-4xl md:text-5xl font-extrabold">+5</div>
-                  <div className="text-sm font-medium">Años de<br/>experiencia</div>
-                </div>
-
-                {/* Círculo de dedicación */}
-                <div className="absolute -bottom-16 left-1/2 -translate-x-1/2 bg-white rounded-full p-8 shadow-2xl w-64 h-64 flex flex-col items-center justify-center transform hover:scale-105 transition-all duration-300 z-10">
-                  <div className="text-6xl md:text-7xl font-bold text-usa-blue mb-2">100%</div>
-                  <div className="text-gray-700 font-medium text-xl text-center">Dedicación</div>
-                </div>
-              </DynamicBadges>
             </div>
           </div>
 
@@ -53,6 +39,19 @@ export default function About({ title, content, values = [] }: AboutProps) {
           <div className="space-y-6">
             <h2 className="text-4xl font-bold text-gray-900 mb-6">{title}</h2>
             <p className="text-lg text-gray-600 mb-6 text-justify">{content}</p>
+            {/* Destacados */}
+            <div className="flex flex-row gap-6 mb-4">
+              <div className="flex items-center gap-2 bg-gray-100 rounded-lg px-4 py-2 shadow-sm">
+                <svg className="w-6 h-6 text-usa-red" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 17.75l-6.172 3.245 1.179-6.873L2 9.755l6.908-1.004L12 2.5l3.092 6.251L22 9.755l-5.007 4.367 1.179 6.873z" /></svg>
+                <span className="font-bold text-lg text-gray-800">+5</span>
+                <span className="text-sm text-gray-600">Años de experiencia</span>
+              </div>
+              <div className="flex items-center gap-2 bg-gray-100 rounded-lg px-4 py-2 shadow-sm">
+                <svg className="w-6 h-6 text-usa-blue" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" /></svg>
+                <span className="font-bold text-lg text-gray-800">100%</span>
+                <span className="text-sm text-gray-600">Dedicación</span>
+              </div>
+            </div>
             
             {/* Valores */}
             {values && values.length > 0 && (

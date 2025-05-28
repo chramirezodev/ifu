@@ -6,7 +6,7 @@
 [33me27e6b6[m Añadida sección de noticias USCIS y actualizado footer
 [33m01ae20c[m Fix: Actualizada sección de contacto - Eliminada dirección y ajustados textos
 [33m66c1c19[m Fix: Ajustado texto en sección de testimonios
-[33m80bd747[m Fix: Corregido nombre de la empresa y textos en sección Por Qué Elegirnos
+[33m80bd747[m Fix: Corregido nombre de la empresa y textos en sección Por qué Elegirnos
 [33m8c08a95[m Eliminados elementos decorativos USA de las tarjetas de servicios
 [33m931d1cb[m Añadido servicio de Visa U con estilos e iconos
 [33mc22be53[m Fix: Actualizado componente About para manejar props correctamente

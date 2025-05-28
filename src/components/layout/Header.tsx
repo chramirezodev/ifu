@@ -77,24 +77,23 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
               </Link>
             ))}
             
-            {/* Language Selector Mejorado */}
+            {/* Selector de idioma simplificado */}
             <div className="flex items-center space-x-2 ml-4">
-              <Link href={router.asPath.replace(/^\/en/, '')} locale="es" legacyBehavior>
-                <a
-                  className={`flex items-center px-2 py-1 rounded-md text-sm font-medium transition-colors duration-200 ${i18n.language === 'es' ? 'bg-usa-blue text-white' : 'text-gray-900 hover:text-usa-blue'}`}
-                  aria-current={i18n.language === 'es' ? 'page' : undefined}
-                >
-                  <span role="img" aria-label="Español" className="mr-1">🇪🇸</span> ES
-                </a>
-              </Link>
-              <Link href={`/en${router.asPath === '/' ? '' : router.asPath}`} locale="en" legacyBehavior>
-                <a
-                  className={`flex items-center px-2 py-1 rounded-md text-sm font-medium transition-colors duration-200 ${i18n.language === 'en' ? 'bg-usa-blue text-white' : 'text-gray-900 hover:text-usa-blue'}`}
-                  aria-current={i18n.language === 'en' ? 'page' : undefined}
-                >
-                  <span role="img" aria-label="English" className="mr-1">🇺🇸</span> EN
-                </a>
-              </Link>
+              <button
+                onClick={() => i18n.changeLanguage('es')}
+                className={`text-sm font-medium transition-colors duration-200 ${i18n.language === 'es' ? 'text-usa-blue font-bold' : 'text-gray-500 hover:text-usa-blue'}`}
+                aria-label="Cambiar a español"
+              >
+                ES
+              </button>
+              <span className="text-gray-300">|</span>
+              <button
+                onClick={() => i18n.changeLanguage('en')}
+                className={`text-sm font-medium transition-colors duration-200 ${i18n.language === 'en' ? 'text-usa-blue font-bold' : 'text-gray-500 hover:text-usa-blue'}`}
+                aria-label="Change to English"
+              >
+                EN
+              </button>
             </div>
           </div>
 
@@ -153,26 +152,23 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                     {t(item.translationKey)}
                   </Link>
                 ))}
-                {/* Language Selector Mejorado en menú móvil */}
-                <div className="flex space-x-2 mt-2">
-                  <Link href={router.asPath.replace(/^\/en/, '')} locale="es" legacyBehavior>
-                    <a
-                      className={`flex items-center px-2 py-1 rounded-md text-base font-medium transition-colors duration-200 ${i18n.language === 'es' ? 'bg-usa-blue text-white' : 'text-gray-900 hover:text-usa-blue'}`}
-                      aria-current={i18n.language === 'es' ? 'page' : undefined}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <span role="img" aria-label="Español" className="mr-1">🇪🇸</span> ES
-                    </a>
-                  </Link>
-                  <Link href={`/en${router.asPath === '/' ? '' : router.asPath}`} locale="en" legacyBehavior>
-                    <a
-                      className={`flex items-center px-2 py-1 rounded-md text-base font-medium transition-colors duration-200 ${i18n.language === 'en' ? 'bg-usa-blue text-white' : 'text-gray-900 hover:text-usa-blue'}`}
-                      aria-current={i18n.language === 'en' ? 'page' : undefined}
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      <span role="img" aria-label="English" className="mr-1">🇺🇸</span> EN
-                    </a>
-                  </Link>
+                {/* Selector de idioma simplificado en menú móvil */}
+                <div className="flex items-center space-x-2 mt-2">
+                  <button
+                    onClick={() => i18n.changeLanguage('es')}
+                    className={`text-base font-medium transition-colors duration-200 ${i18n.language === 'es' ? 'text-usa-blue font-bold' : 'text-gray-500 hover:text-usa-blue'}`}
+                    aria-label="Cambiar a español"
+                  >
+                    ES
+                  </button>
+                  <span className="text-gray-300">|</span>
+                  <button
+                    onClick={() => i18n.changeLanguage('en')}
+                    className={`text-base font-medium transition-colors duration-200 ${i18n.language === 'en' ? 'text-usa-blue font-bold' : 'text-gray-500 hover:text-usa-blue'}`}
+                    aria-label="Change to English"
+                  >
+                    EN
+                  </button>
                 </div>
               </div>
             </motion.div>

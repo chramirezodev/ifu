@@ -39,7 +39,7 @@ const reasons = [
     ),
     title: 'Servicio Personalizado',
     description: 'Adaptamos nuestros servicios a las necesidades específicas de cada cliente.',
-    expandedDescription: 'Cada caso es único y lo tratamos con el cuidado que merece. En Immigration For Us, nos aseguramos de tratar cada solicitud con la atención y el detalle que requiere, adaptándonos a las necesidades específicas de cada cliente.'
+    expandedDescription: 'Cada caso es único y lo tratamos con el cuidado que merece. En Immigration For US, nos aseguramos de tratar cada solicitud con la atención y el detalle que requiere, adaptándonos a las necesidades específicas de cada cliente.'
   },
   {
     icon: (
@@ -139,7 +139,7 @@ const WhyChooseUs = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            ¿Por Qué Elegirnos?
+            ¿Por qué Elegirnos?
           </motion.h2>
           <motion.div 
             className="w-24 h-1 bg-usa-blue mx-auto mb-6"

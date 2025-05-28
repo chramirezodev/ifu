@@ -128,8 +128,8 @@ export const useServices = () => {
             id: 3,
             attributes: {
               title: "Naturalización",
-              description: "Prepárate con nosotros para convertirte en ciudadano/a estadounidense.",
-              expandedDescription: "Si ya tienes la residencia permanente y estás listo para dar el siguiente paso, te ayudaremos a completar el proceso de naturalización para convertirte en ciudadano/a estadounidense. Te apoyaremos en la preparación de tu solicitud, en la recopilación de los documentos necesarios y en la preparación para la entrevista de ciudadanía.",
+              description: "Prepárate con nosotros para convertirte en ciudadano/a americano/a.",
+              expandedDescription: "Si ya tienes la residencia permanente y estás listo para dar el siguiente paso, te ayudaremos a completar el proceso de naturalización para convertirte en ciudadano/a americano/a. Te apoyaremos en la preparación de tu solicitud, en la recopilación de los documentos necesarios y en la preparación para la entrevista de ciudadanía.",
               slug: "naturalizacion",
               image: {
                 data: {
