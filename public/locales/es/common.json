@@ -1,6 +1,6 @@
 {
   "welcome": {
-    "title": "Bienvenido a Immigration for US",
+    "title": "Bienvenido a Immigration For US",
     "description1": "Nos especializamos en brindar servicios integrales de inmigración para ayudarte a alcanzar tus objetivos en Estados Unidos.",
     "description2": "Nuestro equipo de expertos está aquí para guiarte en cada paso del proceso.",
     "button": "Conoce Más"
@@ -105,7 +105,7 @@
   },
   "priority": {
     "title": "Tu Prioridad es Nuestra Prioridad",
-    "subtitle": "¿Por qué Elegirnos?",
+    "subtitle": "¿Por qué elegirnos?",
     "description": "Entendemos la importancia de tu proceso migratorio y estamos comprometidos a brindarte el mejor servicio posible."
   },
   "process": {
@@ -115,7 +115,7 @@
   },
   "testimonials": {
     "title": "Testimonios de Clientes",
-    "subtitle": "Lo Que dicen Nuestros Clientes",
+    "subtitle": "Lo que dicen Nuestros Clientes",
     "description": "Lee sobre las experiencias de quienes hemos ayudado",
     "1": {
       "name": "Carlos Rodríguez",
@@ -161,14 +161,10 @@
     "email": "cpalisa@immigrationfor-us.com",
     "phone": "+1 (954) 588 4018",
     "whatsapp": "+1 (954) 588 4018",
-    "address": "7224 NW 116th Way, Parkland, FL. 33076",
     "mapUrl": "https://goo.gl/maps/123",
     "workHours": "Lunes a Viernes 8:00 AM - 6:00 PM ET",
     "socialMedia": {
-      "facebook": "https://facebook.com/immigrationforus",
       "instagram": "https://instagram.com/immigrationforus",
-      "twitter": "https://twitter.com/immigrationforus",
-      "linkedin": "https://linkedin.com/company/immigrationforus"
     },
     "form": {
       "name": "Nombre Completo",

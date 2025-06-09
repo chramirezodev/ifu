@@ -21,38 +21,75 @@ export default function Home() {
   const [loadingNews, setLoadingNews] = useState(true);
   const [errorNews, setErrorNews] = useState('');
   const [isClient, setIsClient] = useState(false);
+  const [lastUpdated, setLastUpdated] = useState<string | null>(null);
+  const [isFallback, setIsFallback] = useState(false);
 
   const fallbackNews = [
     {
       title: 'USCIS actualiza guía sobre residencia condicional basada en familia',
       link: 'https://www.uscis.gov/newsroom/alerts/uscis-updates-guidance-on-family-based-conditional-permanent-residence',
-      contentSnippet: 'USCIS ha actualizado su guía para aclarar los requisitos y procesos para residentes condicionales basados en familia.'
+      contentSnippet: 'USCIS ha actualizado su guía para aclarar los requisitos y procesos para residentes condicionales basados en familia.',
+      pubDate: new Date().toISOString()
     },
     {
       title: 'USCIS anuncia beneficiarios de subvenciones de integración',
       link: 'https://www.uscis.gov/newsroom/news-releases/uscis-announces-citizenship-and-integration-grant-recipients',
-      contentSnippet: 'Se han otorgado subvenciones a organizaciones que ayudan a inmigrantes a integrarse y obtener la ciudadanía estadounidense.'
+      contentSnippet: 'Se han otorgado subvenciones a organizaciones que ayudan a inmigrantes a integrarse y obtener la ciudadanía estadounidense.',
+      pubDate: new Date().toISOString()
     },
     {
       title: "USCIS expande herramienta 'My Progress' al Formulario I-485",
       link: 'https://www.uscis.gov/newsroom/news-releases/uscis-expands-my-progress-to-form-i-485',
-      contentSnippet: "La herramienta 'My Progress' ahora está disponible para quienes presentan el Formulario I-485, facilitando el seguimiento del proceso."
+      contentSnippet: "La herramienta 'My Progress' ahora está disponible para quienes presentan el Formulario I-485, facilitando el seguimiento del proceso.",
+      pubDate: new Date().toISOString()
     }
   ];
 
   useEffect(() => {
-    fetch('/api/uscis-news')
-      .then(res => res.json())
-      .then(data => {
-        console.log('Noticias USCIS:', data);
+    const fetchNews = async () => {
+      try {
+        // Intentar obtener noticias del localStorage primero
+        const cachedNews = localStorage.getItem('uscisNews');
+        const cachedTimestamp = localStorage.getItem('uscisNewsTimestamp');
+        
+        if (cachedNews && cachedTimestamp) {
+          const timestamp = parseInt(cachedTimestamp);
+          const now = Date.now();
+          // Si el caché tiene menos de 12 horas, usarlo
+          if (now - timestamp < 12 * 60 * 60 * 1000) {
+            const parsedNews = JSON.parse(cachedNews);
+            setNews(parsedNews.news);
+            setLastUpdated(parsedNews.lastUpdated);
+            setLoadingNews(false);
+            return;
+          }
+        }
+
+        // Si no hay caché válido, hacer la petición
+        const response = await fetch('/api/uscis-news');
+        const data = await response.json();
+        
+        if (data.error) {
+          throw new Error(data.error);
+        }
+
         setNews(data.news || []);
-        setLoadingNews(false);
-      })
-      .catch((err) => {
+        setLastUpdated(data.lastUpdated);
+        setIsFallback(data.isFallback || false);
+
+        // Guardar en localStorage
+        localStorage.setItem('uscisNews', JSON.stringify(data));
+        localStorage.setItem('uscisNewsTimestamp', Date.now().toString());
+      } catch (err) {
         console.error('Error cargando noticias:', err);
         setErrorNews('No se pudieron cargar las noticias.');
+        setNews(fallbackNews);
+      } finally {
         setLoadingNews(false);
-      });
+      }
+    };
+
+    fetchNews();
   }, []);
 
   useEffect(() => { setIsClient(true); }, []);
@@ -104,24 +141,38 @@ export default function Home() {
                 ) : errorNews ? (
                   <div className="text-red-500 py-8">{errorNews}</div>
                 ) : (
-                  <div className="grid md:grid-cols-3 gap-6 mb-8">
-                    {(news.length > 0 ? news : fallbackNews).map((item, idx) => (
-                      <a key={idx} href={item.link} target="_blank" rel="noopener noreferrer" className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all text-left flex flex-col justify-between">
-                        <h3 className="font-semibold text-lg text-usa-blue mb-2">{item.title}</h3>
-                        <p className="text-gray-600 text-sm mb-4">{item.contentSnippet}</p>
-                        <span className="text-xs text-gray-400 mt-auto">Ver noticia en USCIS</span>
-                      </a>
-                    ))}
-                  </div>
+                  <>
+                    <div className="grid md:grid-cols-3 gap-6 mb-8">
+                      {(news.length > 0 ? news : fallbackNews).map((item, idx) => (
+                        <a key={idx} href={item.link} target="_blank" rel="noopener noreferrer" className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all text-left flex flex-col justify-between">
+                          <h3 className="font-semibold text-lg text-usa-blue mb-2">{item.title}</h3>
+                          <p className="text-gray-600 text-sm mb-4">{item.contentSnippet}</p>
+                          <span className="text-xs text-gray-400 mt-auto">Ver noticia en USCIS</span>
+                        </a>
+                      ))}
+                    </div>
+                    {lastUpdated && (
+                      <p className="text-sm text-gray-500 mb-4">
+                        Última actualización: {new Date(lastUpdated).toLocaleString('es-ES', {
+                          year: 'numeric',
+                          month: 'long',
+                          day: 'numeric',
+                          hour: '2-digit',
+                          minute: '2-digit'
+                        })}
+                        {isFallback && ' (datos en caché)'}
+                      </p>
+                    )}
+                    <a
+                      href="https://www.uscis.gov/newsroom"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block bg-usa-blue text-white px-8 py-3 rounded-lg font-semibold hover:bg-usa-blue-dark transition-colors duration-200 shadow-md mt-4"
+                    >
+                      Ver todas las noticias de USCIS
+                    </a>
+                  </>
                 )}
-                <a
-                  href="https://www.uscis.gov/newsroom"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block bg-usa-blue text-white px-8 py-3 rounded-lg font-semibold hover:bg-usa-blue-dark transition-colors duration-200 shadow-md mt-4"
-                >
-                  Ver todas las noticias de USCIS
-                </a>
               </div>
             </section>
           )}

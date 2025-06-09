@@ -139,7 +139,7 @@ const WhyChooseUs = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            ¿Por qué Elegirnos?
+            ¿Por qué elegirnos?
           </motion.h2>
           <motion.div 
             className="w-24 h-1 bg-usa-blue mx-auto mb-6"
@@ -194,7 +194,7 @@ const WhyChooseUs = () => {
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="p-8 text-center">
-                  <h3 className="text-3xl font-bold text-white mb-4">Tu Éxito es Nuestra Misión</h3>
+                  <h3 className="text-3xl font-bold text-white mb-4">TU ÉXITO ES NUESTRA MISIÓN</h3>
                   <p className="text-white/90 text-lg">
                     Más que un servicio, ofrecemos un acompañamiento integral en cada paso de tu proceso migratorio.
                   </p>
@@ -207,7 +207,7 @@ const WhyChooseUs = () => {
               <h3 className="text-2xl font-bold mb-6 text-gray-900">Nos encargamos de acompañarte en cada paso</h3>
               <div className="space-y-4 mb-8">
                 <p className="text-gray-600 text-justify">
-                  En <strong>Immigration For Us</strong>, entendemos lo importante que es para ti y tu familia 
+                  En <strong>Immigration For US</strong>, entendemos lo importante que es para ti y tu familia 
                   contar con un apoyo profesional en cada etapa de tu proceso migratorio.
                 </p>
                 <p className="text-gray-600 text-justify">

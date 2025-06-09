@@ -17,7 +17,7 @@ const testimonialsData: TestimonialType[] = [
     id: 1,
     name: 'Pedro Gonzales',
     role: 'Visa de Trabajo H-1B',
-    text: 'Immigration For Us me ayudó a completar todos los formularios correctamente para mi visa de trabajo. El proceso fue mucho más sencillo de lo que esperaba gracias a su guía.',
+    text: 'Immigration For US me ayudó a completar todos los formularios correctamente para mi visa de trabajo. El proceso fue mucho más sencillo de lo que esperaba gracias a su guía.',
     avatar: '/images/testimonials/avatar-male.png',
     rating: 5,
     gender: 'male'
@@ -282,7 +282,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Lo Que dicen Nuestros Clientes
+            Lo que dicen Nuestros Clientes
           </motion.h2>
           <motion.div 
             className="w-24 h-1 bg-usa-blue mx-auto mb-6"

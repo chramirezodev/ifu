@@ -46,7 +46,6 @@ const OnPageSEO = ({
       "closes": "17:00"
     },
     "sameAs": [
-      "https://www.facebook.com/immigrationforus",
       "https://www.instagram.com/immigrationforus"
     ],
     "serviceType": ["Immigration Services", "Visa Application", "Citizenship", "Green Card"],

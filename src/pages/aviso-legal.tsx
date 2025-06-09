@@ -31,7 +31,6 @@ const AvisoLegal = () => (
         <ul className="mb-4">
           <li>WhatsApp: <a href="https://wa.me/19545884018" className="text-usa-blue underline">+1 (954) 588 4018</a></li>
           <li>Email: <a href="mailto:cpalisa@immigrationfor-us.com" className="text-usa-blue underline">cpalisa@immigrationfor-us.com</a></li>
-          <li>Ubicación: 7224 NW 116th Way, Parkland, FL. 33076</li>
           <li>Horario de atención: Lunes a Viernes de 8 am a 6 pm ET.</li>
                 </ul>
         <p className="text-sm text-gray-500">Nos reservamos el derecho de modificar este aviso legal en cualquier momento. Recomendamos revisar periódicamente esta página para estar al tanto de cualquier actualización.</p>
