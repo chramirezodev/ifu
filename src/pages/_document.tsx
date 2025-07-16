@@ -7,7 +7,7 @@ export default function Document() {
         <meta name="description" content="Servicios profesionales de inmigración en Estados Unidos" />
         <link rel="icon" href="/favicon.ico" />
         <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        {/* Removed viewport meta tag from _document.tsx - should be in _app.tsx instead */}
         <meta name="theme-color" content="#3C3B6E" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

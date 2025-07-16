@@ -58,7 +58,7 @@ const Priority = () => {
                   width={500}
                   height={300}
                   className="rounded-lg shadow-lg"
-                  loading="eager"
+                  priority
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-usa-blue/40 to-transparent mix-blend-multiply"></div>
               </div>

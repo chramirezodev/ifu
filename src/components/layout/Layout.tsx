@@ -62,6 +62,20 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     setMounted(true);
   }, []);
 
+  // Renderizar contenido básico si no está montado
+  if (!mounted) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Header activeSection="inicio" />
+        <main className="flex-grow pt-20">
+          {children}
+        </main>
+        <Footer />
+        <WhatsAppButton phoneNumber="+19545884018" />
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header activeSection={activeSection} />

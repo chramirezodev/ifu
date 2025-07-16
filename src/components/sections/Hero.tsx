@@ -66,7 +66,42 @@ const Hero: React.FC = () => {
   }, []);
 
   if (!isClient) {
-    return null;
+    return (
+      <section id="inicio" className="relative h-screen flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="/images/hero/slide1.jpg"
+            alt="Immigration For US"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-black/50" />
+        </div>
+        <div className="relative z-10 text-center text-white px-4">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6">
+            Tu Camino al Éxito en Estados Unidos
+          </h1>
+          <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
+            Te ayudamos a alcanzar tus metas migratorias con un servicio profesional y personalizado.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="#contacto"
+              className="bg-usa-blue hover:bg-usa-blue-dark text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-300"
+            >
+              CONTÁCTANOS
+            </a>
+            <a
+              href="#servicios"
+              className="bg-transparent border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-300"
+            >
+              NUESTROS SERVICIOS
+            </a>
+          </div>
+        </div>
+      </section>
+    );
   }
 
   return (
@@ -89,7 +124,7 @@ const Hero: React.FC = () => {
             alt={slides[currentSlide].slogan}
             fill
             className="object-cover"
-            loading="eager"
+            priority
           />
           {/* Overlay con gradiente */}
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />

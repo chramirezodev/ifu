@@ -197,7 +197,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className={`object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
-            loading="eager"
+                            priority
             onError={(e) => {
               // Si hay un error al cargar la imagen, usar un valor por defecto
               console.error(`Error cargando imagen para ${slug}:`, e);
@@ -451,7 +451,35 @@ const Services = () => {
   console.log(`Renderizando ${displayServices.length} servicios:`, displayServices.map(s => s.attributes.title));
 
   if (!isClient) {
-    return null; // Prevent server-side flash
+    return (
+      <section id="servicios" className="py-24 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 max-w-6xl relative z-10">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4 text-gray-900">
+              Nuestros Servicios
+            </h2>
+            <div className="w-24 h-1 bg-usa-blue mx-auto mb-6" />
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Soluciones Integrales de Inmigración
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
+            {defaultServices.map((service, index) => (
+              <div key={service.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div className="p-6">
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                    {service.attributes.title}
+                  </h3>
+                  <p className="text-gray-600">
+                    {service.attributes.description}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    );
   }
 
   return (

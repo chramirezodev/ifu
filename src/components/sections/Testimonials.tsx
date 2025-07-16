@@ -10,53 +10,69 @@ interface TestimonialType {
   avatar?: string;
   rating: number;
   gender?: 'male' | 'female';
+  location?: string;
 }
 
 const testimonialsData: TestimonialType[] = [
   {
     id: 1,
-    name: 'Pedro Gonzales',
-    role: 'Visa de Trabajo H-1B',
-    text: 'Immigration For US me ayudó a completar todos los formularios correctamente para mi visa de trabajo. El proceso fue mucho más sencillo de lo que esperaba gracias a su guía.',
-    avatar: '/images/testimonials/avatar-male.png',
+    name: 'Mónica A.',
+    role: 'Solicitud de Asilo',
+    text: 'Gracias a Immigration For Us, pude completar mi solicitud de asilo de manera rápida y precisa. El equipo me apoyó en cada paso del proceso y me dio la tranquilidad de que todo estaba bien preparado. Lo logramos. Son los mejores.',
+    avatar: '/images/testimonials/avatar-female.png',
     rating: 5,
-    gender: 'male'
+    gender: 'female',
+    location: 'Orlando, FL'
   },
   {
     id: 2,
-    name: 'Ana María López',
-    role: 'Trámite de Residencia',
-    text: 'Después de varios intentos fallidos por mi cuenta, decidí buscar ayuda profesional. Gracias a Immigration For US logré obtener mi residencia permanente. Su equipo es increíblemente detallista y conocedor.',
-    avatar: '/images/testimonials/avatar-female.png',
+    name: 'Javier F.',
+    role: 'Solicitud de Residencia',
+    text: 'El equipo de Immigration For Us hizo todo el proceso de mi solicitud de residencia mucho más sencillo. Estuvieron siempre atentos a mis dudas y se aseguraron de que todo estuviera en orden antes de enviarlo al USCIS.',
+    avatar: '/images/testimonials/avatar-male.png',
     rating: 5,
-    gender: 'female'
+    gender: 'male',
+    location: 'Miami, FL'
   },
   {
     id: 3,
-    name: 'Miguel Rodriguez',
-    role: 'Naturalización',
-    text: 'El proceso de naturalización puede ser abrumador con tantos documentos y requisitos. Con Immigration For US, cada paso estuvo claramente explicado. Ahora soy ciudadano estadounidense y no podría estar más feliz.',
+    name: 'Wilson Z.',
+    role: 'Green Card',
+    text: 'Gracias a Immigration For Us pude obtener mi Green Card sin problemas. El proceso era confuso para mí, pero me ayudaron a reunir todos los documentos y a llenar los formularios correctamente. ¡Los recomiendo!',
     avatar: '/images/testimonials/avatar-male.png',
-    rating: 4,
-    gender: 'male'
+    rating: 5,
+    gender: 'male',
+    location: 'West Palm Beach, FL'
   },
   {
     id: 4,
-    name: 'Carmen Ruiz',
-    role: 'Visa de Prometido K-1',
-    text: 'Cuando mi prometido y yo decidimos casarnos, no sabíamos por dónde empezar con todo el papeleo. Immigration For US fue recomendado por un amigo y definitivamente superaron nuestras expectativas. ¡Altamente recomendado!',
+    name: 'María S.',
+    role: 'Residencia Permanente',
+    text: 'Mi familia y yo estábamos muy preocupados por el proceso de residencia, pero Carolina nos guió en cada paso. Gracias a su apoyo, ahora somos residentes permanentes.',
     avatar: '/images/testimonials/avatar-female.png',
     rating: 5,
-    gender: 'female'
+    gender: 'female',
+    location: 'Boca Ratón, FL'
   },
   {
     id: 5,
-    name: 'Javier Martínez',
-    role: 'DACA Renovación',
-    text: 'He renovado mi DACA tres veces con Immigration For US. Siempre son profesionales, responden rápidamente y me han ayudado a mantener mi estatus sin problemas.',
-    avatar: '/images/testimonials/avatar-male.png',
+    name: 'Sandra A.',
+    role: 'Trámites Familiares',
+    text: 'Después de meses de incertidumbre y papeleo complicado, con tramites de mis familiares, encontré todo el apoyo y la orientación que necesitaba con Immigration for Us y su equipo. Me brindaron confianza, seriedad, organización y cumplimiento. Valió la pena confiar en ellos y su profesionalismo. Gracias infinitas, los seguiré recomendado 100%',
+    avatar: '/images/testimonials/avatar-female.png',
     rating: 5,
-    gender: 'male'
+    gender: 'female',
+    location: 'Hallandale Beach, FL'
+  },
+  {
+    id: 6,
+    name: 'Natalia V.',
+    role: 'Asesoría de Inmigración',
+    text: 'Quiero expresar mi más sincera recomendación para Carolina Palisa y Roger por su excepcional servicio de asesoría en inmigración. Desde el primer contacto, demostraron un profundo conocimiento, profesionalismo y un genuino interés en ayudarme a encontrar la mejor solución para mi situación. Lo que más valoro es su paciencia y claridad al explicar cada paso del proceso, eliminando cualquier incertidumbre y brindándome la tranquilidad de estar en las mejores manos. Su compromiso y eficiencia hicieron que todo el trámite fuera mucho más sencillo y sin contratiempos.',
+    avatar: '/images/testimonials/avatar-female.png',
+    rating: 5,
+    gender: 'female',
+    location: 'Lincolnton, NC'
   }
 ];
 
@@ -72,7 +88,7 @@ const TestimonialCard: React.FC<{ testimonial: TestimonialType; index: number; i
 
   return (
     <motion.div
-      className={`bg-white rounded-xl shadow-xl overflow-hidden relative p-6 md:p-8 transition-all duration-500 ${isActive ? 'opacity-100 scale-100 z-10' : 'opacity-50 scale-90 z-0'}`}
+      className={`bg-white rounded-xl shadow-xl overflow-hidden relative p-6 md:p-8 transition-all duration-500 flex flex-col ${isActive ? 'opacity-100 scale-100 z-10' : 'opacity-50 scale-90 z-0'}`}
       initial={{ opacity: 0, y: 50 }}
       animate={{ 
         opacity: isActive ? 1 : 0.5, 
@@ -109,7 +125,7 @@ const TestimonialCard: React.FC<{ testimonial: TestimonialType; index: number; i
         </svg>
       </div>
 
-      <div className="flex flex-col md:flex-row gap-6 md:items-center">
+      <div className="flex flex-col md:flex-row gap-6 md:items-start">
         <motion.div 
           className="relative shrink-0"
           whileHover={{ scale: 1.1 }}
@@ -143,8 +159,8 @@ const TestimonialCard: React.FC<{ testimonial: TestimonialType; index: number; i
           </motion.div>
         </motion.div>
         
-        <div className="flex-1">
-          <div className="flex items-center gap-2 mb-1">
+        <div className="flex-1 flex flex-col">
+          <div className="flex items-center gap-2 mb-3">
             <div className="flex">
               {[...Array(5)].map((_, i) => (
                 <motion.svg 
@@ -171,7 +187,7 @@ const TestimonialCard: React.FC<{ testimonial: TestimonialType; index: number; i
           </div>
           
           <motion.p 
-            className="text-gray-600 italic mb-4 text-base text-justify"
+            className="text-gray-600 italic mb-4 text-base text-justify leading-relaxed"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
@@ -183,9 +199,13 @@ const TestimonialCard: React.FC<{ testimonial: TestimonialType; index: number; i
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
+            className="mt-auto"
           >
             <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
             <p className="text-usa-blue text-sm">{testimonial.role}</p>
+            {testimonial.location && (
+              <p className="text-gray-500 text-xs mt-1">{testimonial.location}</p>
+            )}
           </motion.div>
         </div>
       </div>
@@ -282,7 +302,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Lo que dicen Nuestros Clientes
+            Testimonios
           </motion.h2>
           <motion.div 
             className="w-24 h-1 bg-usa-blue mx-auto mb-6"
@@ -298,8 +318,7 @@ const Testimonials = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Nos enorgullece haber ayudado a muchas personas a alcanzar sus metas migratorias. 
-            Estas son algunas de las experiencias compartidas por nuestros clientes.
+            EXPERIENCIAS QUE INSPIRAN, CONFIANZA QUE SE GANA
           </motion.p>
         </motion.div>
         
@@ -329,7 +348,7 @@ const Testimonials = () => {
           </div>
           
           <div className="relative px-8 overflow-hidden py-12">
-            <div className="flex flex-col md:flex-row gap-8 justify-center">
+            <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch">
               {testimonialsData.map((testimonial, index) => {
                 const isVisible = isMobile 
                   ? index === activeIndex
@@ -339,12 +358,13 @@ const Testimonials = () => {
                 if (!isVisible) return null;
                 
                 return (
-                  <TestimonialCard 
-                    key={testimonial.id} 
-                    testimonial={testimonial}
-                    index={index}
-                    isActive={index === activeIndex}
-                  />
+                  <div key={testimonial.id} className="flex-1">
+                    <TestimonialCard 
+                      testimonial={testimonial}
+                      index={index}
+                      isActive={index === activeIndex}
+                    />
+                  </div>
                 );
               })}
             </div>

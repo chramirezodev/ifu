@@ -16,7 +16,6 @@ const DynamicBadges = dynamic(() => Promise.resolve(({ children }: { children: R
 export default function About({ title, content, values = [] }: AboutProps) {
   const [isClient, setIsClient] = useState(false);
   useEffect(() => { setIsClient(true); }, []);
-  if (!isClient) return null;
   return (
     <section id="nosotros" className="py-16 bg-white relative overflow-hidden">
       <div className="container mx-auto px-4 max-w-6xl">
@@ -30,7 +29,7 @@ export default function About({ title, content, values = [] }: AboutProps) {
                 width={500}
                 height={300}
                 className="object-cover w-full h-full rounded-lg"
-                loading="eager"
+                priority
               />
             </div>
           </div>

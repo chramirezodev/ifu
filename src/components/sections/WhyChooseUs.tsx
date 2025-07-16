@@ -190,7 +190,7 @@ const WhyChooseUs = () => {
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                loading="eager"
+                priority
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="p-8 text-center">

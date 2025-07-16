@@ -20,7 +20,6 @@ export default function Home() {
   const [news, setNews] = useState<{ title: string; link: string; pubDate: string; contentSnippet: string }[]>([]);
   const [loadingNews, setLoadingNews] = useState(true);
   const [errorNews, setErrorNews] = useState('');
-  const [isClient, setIsClient] = useState(false);
   const [lastUpdated, setLastUpdated] = useState<string | null>(null);
   const [isFallback, setIsFallback] = useState(false);
 
@@ -48,6 +47,13 @@ export default function Home() {
   useEffect(() => {
     const fetchNews = async () => {
       try {
+        // Verificar si estamos en el cliente antes de acceder a localStorage
+        if (typeof window === 'undefined') {
+          setNews(fallbackNews);
+          setLoadingNews(false);
+          return;
+        }
+
         // Intentar obtener noticias del localStorage primero
         const cachedNews = localStorage.getItem('uscisNews');
         const cachedTimestamp = localStorage.getItem('uscisNewsTimestamp');
@@ -92,8 +98,6 @@ export default function Home() {
     fetchNews();
   }, []);
 
-  useEffect(() => { setIsClient(true); }, []);
-
   return (
     <>
       <Head>
@@ -131,51 +135,49 @@ export default function Home() {
           <Testimonials />
           <Contact />
           {/* Sección de Noticias de USCIS tipo tarjetas */}
-          {isClient && (
-            <section className="py-12 bg-gray-50 mt-8">
-              <div className="container mx-auto px-4 max-w-4xl text-center">
-                <h2 className="text-3xl font-bold text-usa-blue mb-4">Noticias de Inmigración</h2>
-                <p className="text-lg text-gray-700 mb-8">Mantente informado con las últimas noticias oficiales de USCIS.</p>
-                {loadingNews ? (
-                  <div className="text-gray-500 py-8">Cargando noticias...</div>
-                ) : errorNews ? (
-                  <div className="text-red-500 py-8">{errorNews}</div>
-                ) : (
-                  <>
-                    <div className="grid md:grid-cols-3 gap-6 mb-8">
-                      {(news.length > 0 ? news : fallbackNews).map((item, idx) => (
-                        <a key={idx} href={item.link} target="_blank" rel="noopener noreferrer" className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all text-left flex flex-col justify-between">
-                          <h3 className="font-semibold text-lg text-usa-blue mb-2">{item.title}</h3>
-                          <p className="text-gray-600 text-sm mb-4">{item.contentSnippet}</p>
-                          <span className="text-xs text-gray-400 mt-auto">Ver noticia en USCIS</span>
-                        </a>
-                      ))}
-                    </div>
-                    {lastUpdated && (
-                      <p className="text-sm text-gray-500 mb-4">
-                        Última actualización: {new Date(lastUpdated).toLocaleString('es-ES', {
-                          year: 'numeric',
-                          month: 'long',
-                          day: 'numeric',
-                          hour: '2-digit',
-                          minute: '2-digit'
-                        })}
-                        {isFallback && ' (datos en caché)'}
-                      </p>
-                    )}
-                    <a
-                      href="https://www.uscis.gov/newsroom"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block bg-usa-blue text-white px-8 py-3 rounded-lg font-semibold hover:bg-usa-blue-dark transition-colors duration-200 shadow-md mt-4"
-                    >
-                      Ver todas las noticias de USCIS
-                    </a>
-                  </>
-                )}
-              </div>
-            </section>
-          )}
+          <section className="py-12 bg-gray-50 mt-8">
+            <div className="container mx-auto px-4 max-w-4xl text-center">
+              <h2 className="text-3xl font-bold text-usa-blue mb-4">Noticias de Inmigración</h2>
+              <p className="text-lg text-gray-700 mb-8">Mantente informado con las últimas noticias oficiales de USCIS.</p>
+              {loadingNews ? (
+                <div className="text-gray-500 py-8">Cargando noticias...</div>
+              ) : errorNews ? (
+                <div className="text-red-500 py-8">{errorNews}</div>
+              ) : (
+                <>
+                  <div className="grid md:grid-cols-3 gap-6 mb-8">
+                    {(news.length > 0 ? news : fallbackNews).map((item, idx) => (
+                      <a key={idx} href={item.link} target="_blank" rel="noopener noreferrer" className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all text-left flex flex-col justify-between">
+                        <h3 className="font-semibold text-lg text-usa-blue mb-2">{item.title}</h3>
+                        <p className="text-gray-600 text-sm mb-4">{item.contentSnippet}</p>
+                        <span className="text-xs text-gray-400 mt-auto">Ver noticia en USCIS</span>
+                      </a>
+                    ))}
+                  </div>
+                  {lastUpdated && (
+                    <p className="text-sm text-gray-500 mb-4">
+                      Última actualización: {new Date(lastUpdated).toLocaleString('es-ES', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric',
+                        hour: '2-digit',
+                        minute: '2-digit'
+                      })}
+                      {isFallback && ' (datos en caché)'}
+                    </p>
+                  )}
+                  <a
+                    href="https://www.uscis.gov/newsroom"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block bg-usa-blue text-white px-8 py-3 rounded-lg font-semibold hover:bg-usa-blue-dark transition-colors duration-200 shadow-md mt-4"
+                  >
+                    Ver todas las noticias de USCIS
+                  </a>
+                </>
+              )}
+            </div>
+          </section>
           {/* Nota legal después de noticias */}
           <div className="container mx-auto px-4 max-w-4xl py-8">
             <p className="italic text-gray-400 text-base text-center">

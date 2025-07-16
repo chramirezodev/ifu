@@ -9,7 +9,7 @@ i18n
   .use(initReactI18next)
   .init({
     fallbackLng: 'es',
-    debug: process.env.NODE_ENV === 'development',
+    debug: false, // Cambiar a false para producción
     interpolation: {
       escapeValue: false,
     },
@@ -18,6 +18,11 @@ i18n
     },
     ns: ['common'],
     defaultNS: 'common',
+    load: 'currentOnly',
+    preload: ['es', 'en'],
+    react: {
+      useSuspense: false,
+    },
   });
 
 export default i18n; 

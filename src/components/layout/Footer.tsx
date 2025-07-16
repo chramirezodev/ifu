@@ -22,23 +22,25 @@ const Footer: React.FC = () => {
   // Obtener el año actual para el copyright
   const currentYear = new Date().getFullYear();
   
-  // Enlaces rápidos
+  // Enlaces rápidos - mismo orden que el menú del header
   const quickLinks = [
-    { label: 'Inicio', href: '#hero' },
-    { label: 'Servicios', href: '#servicios' },
+    { label: 'Inicio', href: '#inicio' },
     { label: 'Nosotros', href: '#nosotros' },
-    { label: 'Proceso', href: '#proceso' },
+    { label: 'Servicios', href: '#servicios' },
+    { label: 'Por qué Elegirnos', href: '#por-que-elegirnos' },
+    { label: 'Preguntas Frecuentes', href: '#preguntas-frecuentes' },
     { label: 'Testimonios', href: '#testimonios' },
     { label: 'Contacto', href: '#contacto' }
   ];
   
   // Servicios principales
   const mainServices = [
-    { label: 'Visa de Turista', href: '#servicios' },
+    { label: 'Visas', href: '#servicios' },
     { label: 'Green Card', href: '#servicios' },
-    { label: 'Ciudadanía', href: '#servicios' },
-    { label: 'DACA', href: '#servicios' },
-    { label: 'Permisos de Trabajo', href: '#servicios' }
+    { label: 'Naturalización', href: '#servicios' },
+    { label: 'Asilo Afirmativo', href: '#servicios' },
+    { label: 'VAWA', href: '#servicios' },
+    { label: 'Visa U', href: '#servicios' }
   ];
   
   // Renderizar ícono de red social según la plataforma
@@ -80,10 +82,11 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-white font-semibold mb-4">Enlaces rápidos</h3>
             <ul className="space-y-2">
-              <li><Link href="/#hero" className="text-gray-400 hover:text-white transition-colors">Inicio</Link></li>
-              <li><Link href="/#servicios" className="text-gray-400 hover:text-white transition-colors">Servicios</Link></li>
+              <li><Link href="/#inicio" className="text-gray-400 hover:text-white transition-colors">Inicio</Link></li>
               <li><Link href="/#nosotros" className="text-gray-400 hover:text-white transition-colors">Nosotros</Link></li>
-              <li><Link href="/#proceso" className="text-gray-400 hover:text-white transition-colors">Proceso</Link></li>
+              <li><Link href="/#servicios" className="text-gray-400 hover:text-white transition-colors">Servicios</Link></li>
+              <li><Link href="/#por-que-elegirnos" className="text-gray-400 hover:text-white transition-colors">Por qué elegirnos</Link></li>
+              <li><Link href="/#preguntas-frecuentes" className="text-gray-400 hover:text-white transition-colors">Preguntas</Link></li>
               <li><Link href="/#testimonios" className="text-gray-400 hover:text-white transition-colors">Testimonios</Link></li>
               <li><Link href="/#contacto" className="text-gray-400 hover:text-white transition-colors">Contacto</Link></li>
             </ul>
@@ -93,12 +96,12 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-white font-semibold mb-4">Servicios</h3>
             <ul className="space-y-2">
-              <li><Link href="/servicios#visa-turista" className="text-gray-400 hover:text-white transition-colors">Visa de Turista</Link></li>
-              <li><Link href="/servicios#residencia" className="text-gray-400 hover:text-white transition-colors">Residencia Permanente</Link></li>
-              <li><Link href="/servicios#ciudadania" className="text-gray-400 hover:text-white transition-colors">Ciudadanía</Link></li>
-              <li><Link href="/servicios#daca" className="text-gray-400 hover:text-white transition-colors">DACA</Link></li>
-              <li><Link href="/servicios#trabajo" className="text-gray-400 hover:text-white transition-colors">Permiso de Trabajo</Link></li>
-              <li><Link href="/servicios#asilo" className="text-gray-400 hover:text-white transition-colors">Asilo</Link></li>
+              <li><Link href="/#servicios" className="text-gray-400 hover:text-white transition-colors">Visas</Link></li>
+              <li><Link href="/#servicios" className="text-gray-400 hover:text-white transition-colors">Green Card</Link></li>
+              <li><Link href="/#servicios" className="text-gray-400 hover:text-white transition-colors">Naturalización</Link></li>
+              <li><Link href="/#servicios" className="text-gray-400 hover:text-white transition-colors">Asilo Afirmativo</Link></li>
+              <li><Link href="/#servicios" className="text-gray-400 hover:text-white transition-colors">VAWA</Link></li>
+              <li><Link href="/#servicios" className="text-gray-400 hover:text-white transition-colors">Visa U</Link></li>
             </ul>
           </div>
 
