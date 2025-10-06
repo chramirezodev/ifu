@@ -105,7 +105,11 @@ export default function Home() {
         <meta name="description" content="Servicios profesionales de inmigración en Estados Unidos" />
       </Head>
       <Layout>
-        {/* <SEO /> */}
+        <SEO 
+          title="Immigration For US - Preparadores de formas de inmigración en Estados Unidos"
+          description="Servicios profesionales de inmigración en Estados Unidos. Ayudamos con visas, residencia permanente, ciudadanía americana, asilo político y más. Preparadores de formas certificados."
+          keywords="inmigración, visa, green card, ciudadanía americana, asilo político, servicios migratorios, Estados Unidos, preparadores de formas, USCIS, residencia permanente, naturalización"
+        />
         <main className="flex min-h-screen flex-col items-center justify-between">
           <Hero />
           <Welcome />

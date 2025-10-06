@@ -186,11 +186,11 @@ const WhyChooseUs = () => {
               <div className="absolute inset-0 bg-usa-blue/90 mix-blend-multiply" />
               <Image 
                 src="/images/hands-3331229_1920_.jpg" 
-                alt="Equipo de Immigration For US" 
+                alt="Equipo profesional de Immigration For US trabajando juntos para ayudarte con tu proceso migratorio" 
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
-                priority
+                loading="lazy"
               />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="p-8 text-center">

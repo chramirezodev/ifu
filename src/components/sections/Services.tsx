@@ -193,11 +193,11 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         <div className="relative h-52 w-full overflow-hidden">
           <Image
             src={image}
-            alt={title}
+            alt={`${title} - Servicio de inmigración profesional en Estados Unidos`}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className={`object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
-                            priority
+            loading="lazy"
             onError={(e) => {
               // Si hay un error al cargar la imagen, usar un valor por defecto
               console.error(`Error cargando imagen para ${slug}:`, e);

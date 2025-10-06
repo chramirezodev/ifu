@@ -121,7 +121,7 @@ const Hero: React.FC = () => {
         >
           <Image
             src={slides[currentSlide].image}
-            alt={slides[currentSlide].slogan}
+            alt={`${slides[currentSlide].slogan} - Servicios de inmigración profesional en Estados Unidos`}
             fill
             className="object-cover"
             priority

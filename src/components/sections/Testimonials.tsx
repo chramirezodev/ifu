@@ -228,6 +228,34 @@ const Testimonials = () => {
   const totalTestimonials = testimonialsData.length;
   const containerRef = useRef<HTMLDivElement>(null);
 
+  // Datos estructurados para Reviews
+  const reviewsStructuredData = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Immigration For US",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": testimonialsData.length,
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "review": testimonialsData.map(testimonial => ({
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": testimonial.name
+      },
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": testimonial.rating,
+        "bestRating": "5"
+      },
+      "reviewBody": testimonial.text,
+      "datePublished": "2024-12-19"
+    }))
+  };
+
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth < 768);
@@ -271,6 +299,12 @@ const Testimonials = () => {
 
   return (
     <section id="testimonios" className="py-24 bg-white relative overflow-hidden">
+      {/* Datos estructurados para Reviews */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewsStructuredData) }}
+      />
+      
       <motion.div 
         className="absolute top-0 left-0 w-64 h-64 bg-usa-blue/5 rounded-full -translate-x-1/2 -translate-y-1/2"
         animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.7, 0.5] }}

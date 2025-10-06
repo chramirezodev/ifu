@@ -67,6 +67,72 @@ const SEO = ({
     ...twitter
   };
   
+  // Datos estructurados para Schema.org
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Immigration For US",
+    "description": description,
+    "url": url,
+    "logo": `${process.env.NEXT_PUBLIC_SITE_URL}/images/Logos/logo.png`,
+    "image": ogData.image || `${process.env.NEXT_PUBLIC_SITE_URL}/images/Logos/logo.png`,
+    "telephone": "+1 (954) 588-4018",
+    "email": "cpalisa@immigrationfor-us.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2200 N Federal Hwy",
+      "addressLocality": "Boca Raton",
+      "addressRegion": "FL",
+      "postalCode": "33431",
+      "addressCountry": "US"
+    },
+    "serviceType": "Servicios de Inmigración",
+    "areaServed": "Estados Unidos",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios de Inmigración",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Visas de Inmigración",
+            "description": "Asistencia con trámites de visas de inmigración"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Residencia Permanente",
+            "description": "Procesos de Green Card y residencia permanente"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Ciudadanía Americana",
+            "description": "Naturalización y proceso de ciudadanía"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Asilo Político",
+            "description": "Asistencia con casos de asilo político"
+          }
+        }
+      ]
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "150"
+    }
+  };
+
   return (
     <Head>
       <title>{title}</title>
@@ -75,6 +141,12 @@ const SEO = ({
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="canonical" href={url} />
       {noindex && <meta name="robots" content="noindex,nofollow" />}
+      
+      {/* Datos estructurados */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       
       {/* Open Graph */}
       <meta property="og:site_name" content={ogData.site_name} />

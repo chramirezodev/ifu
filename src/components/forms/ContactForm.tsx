@@ -1,52 +1,112 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import { trackEvent, trackFormSubmission } from '@/components/common/GoogleAnalytics';
 
 const schema = z.object({
   name: z.string().min(2, 'El nombre debe tener al menos 2 caracteres'),
   email: z.string().email('Ingrese un correo electrónico válido'),
-  phone: z.string().regex(/^\+?[1-9]\d{1,14}$/, 'Ingrese un número de teléfono válido'),
+  phone: z.string().min(10, 'Ingrese un número de teléfono válido'),
   service: z.string().optional(),
   message: z.string().min(10, 'El mensaje debe tener al menos 10 caracteres'),
+  recaptchaToken: z.string().optional(),
 });
 
 type FormData = z.infer<typeof schema>;
 
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (callback: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+    };
+  }
+}
+
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
+  const [recaptchaLoaded, setRecaptchaLoaded] = useState(false);
 
   const {
     register,
     handleSubmit,
     reset,
+    setValue,
     formState: { errors },
   } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
+
+  useEffect(() => {
+    // Cargar reCAPTCHA
+    const script = document.createElement('script');
+    script.src = `https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`;
+    script.async = true;
+    script.defer = true;
+    script.onload = () => setRecaptchaLoaded(true);
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
+
+  const executeRecaptcha = async (): Promise<string> => {
+    return new Promise((resolve) => {
+      window.grecaptcha.ready(async () => {
+        const token = await window.grecaptcha.execute(
+          process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
+          { action: 'contact_form' }
+        );
+        resolve(token);
+      });
+    });
+  };
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
     try {
+      // Ejecutar reCAPTCHA si está disponible
+      let recaptchaToken = '';
+      if (recaptchaLoaded && process.env.NODE_ENV === 'production') {
+        recaptchaToken = await executeRecaptcha();
+      }
+
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          ...data,
+          recaptchaToken,
+        }),
       });
 
       if (!response.ok) {
-        throw new Error('Error al enviar el formulario');
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Error al enviar el formulario');
       }
 
       setSubmitStatus('success');
       reset();
+      
+      // Track successful form submission
+      trackFormSubmission('contact_form', true);
+      trackEvent('form_submit', 'engagement', 'contact_form_success');
+      
     } catch (error) {
       setSubmitStatus('error');
+      console.error('Error submitting form:', error);
+      
+      // Track form submission error
+      trackFormSubmission('contact_form', false);
+      trackEvent('form_submit', 'engagement', 'contact_form_error');
+      
     } finally {
       setIsSubmitting(false);
     }
@@ -164,7 +224,9 @@ const ContactForm = () => {
 
         {submitStatus === 'error' && (
           <div className="text-center p-4 bg-red-50 text-red-700 rounded-lg">
-            Hubo un error al enviar el mensaje. Por favor, intenta nuevamente.
+            <p className="font-medium">Error al enviar el mensaje</p>
+            <p className="text-sm mt-1">Por favor, verifica que todos los campos estén completos y vuelve a intentar.</p>
+            <p className="text-xs mt-2">Si el problema persiste, contáctanos directamente por teléfono.</p>
           </div>
         )}
       </form>

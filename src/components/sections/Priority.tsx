@@ -54,11 +54,11 @@ const Priority = () => {
               <div className="aspect-w-4 aspect-h-3 relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image 
                   src="/images/priority.jpg"
-                  alt="Priority"
+                  alt="Servicios prioritarios de inmigración - Immigration For US"
                   width={500}
                   height={300}
                   className="rounded-lg shadow-lg"
-                  priority
+                  loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-tr from-usa-blue/40 to-transparent mix-blend-multiply"></div>
               </div>

@@ -68,11 +68,11 @@ export default function About({ title, content, values = [] }: AboutProps) {
             <div className="relative aspect-square">
               <Image
                 src="/images/nosotros.png"
-                alt={title}
+                alt="Equipo profesional de Immigration For US - Servicios de inmigración en Estados Unidos"
                 width={500}
                 height={300}
                 className="object-cover w-full h-full rounded-xl shadow-xl"
-                priority
+                loading="lazy"
               />
             </div>
           </motion.div>
