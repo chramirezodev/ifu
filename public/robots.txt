@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-# Sitemap
+# Sitemap — preview en dominio IFU actual; migrar a mardinilawfirm.com al go-live
 Sitemap: https://immigrationfor-us.com/sitemap.xml
 
 # Disallow admin and private areas
@@ -14,7 +14,6 @@ Disallow: /login
 Allow: /
 Allow: /contacto
 Allow: /servicios
-Allow: /testimonios
 Allow: /aviso-legal
 Allow: /politicas
 

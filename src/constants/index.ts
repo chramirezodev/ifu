@@ -1,28 +1,29 @@
-import { EmailIcon, PhoneIcon, ClockIcon, FacebookIcon, InstagramIcon, WhatsAppIcon } from '../components/icons';
+import { EmailIcon, PhoneIcon, ClockIcon, WhatsAppIcon } from '../components/icons';
 
-// Información de contacto de la empresa
+// Información de contacto — Mardini Law Firm
 export const contactInfo = {
-  email: 'cpalisa@immigrationfor-us.com',
-  phone: '+1 (954) 588-4018',
-  whatsapp: '+1 (954) 588-4018',
-  whatsappNumber: '19545884018',
-  whatsappAutoMessage: '¡Hola! Gracias por ponerte en contacto con Immigration for US. Hemos recibido tu mensaje y muy pronto uno de nuestros asesores se comunicará contigo. Si tu consulta es urgente, también puedes escribirnos al correo cpalisa@immigrationfor-us.com o llamarnos al (954) 588-4018.',
-  address: '2200 N Federal Hwy, Boca Raton, FL 33431',
-  googleMapsUrl: 'https://goo.gl/maps/YourActualMapLink',
-  mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3581.971342687913!2d-80.1350047!3d26.1312066!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d902d86a301a15%3A0xd3ce86aa2ed6ac7a!2s2200%20N%20Federal%20Hwy%2C%20Boca%20Raton%2C%20FL%2033431%2C%20EE.%20UU.!5e0!3m2!1ses!2sar!4v1657561487018!5m2!1ses!2sar',
+  email: 'info@mardinilawfirm.com',
+  phone: '+1 (754) 234-4284',
+  whatsapp: '+1 (754) 234-4284',
+  whatsappNumber: '17542344284',
+  whatsappAutoMessage: '¡Hola! Gracias por contactar a Mardini Law Firm. Hemos recibido tu mensaje y muy pronto un miembro de nuestro equipo se comunicará contigo. Si tu consulta es urgente, también puedes escribirnos a info@mardinilawfirm.com o llamarnos al (754) 234-4284.',
+  address: '7224 NW 116th Way, Parkland, FL 33076',
+  website: 'https://immigrationfor-us.com',
+  googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=7224+NW+116th+Way,+Parkland,+FL+33076',
+  mapUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3576.8!2d-80.24!3d26.31!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9080e0e0e0e0e%3A0x0!2s7224%20NW%20116th%20Way%2C%20Parkland%2C%20FL%2033076!5e0!3m2!1ses!2sus!4v1700000000000!5m2!1ses!2sus',
   workHours: 'Lunes a Viernes: 9:00 AM - 5:00 PM',
   methods: [
     {
       icon: EmailIcon,
       title: 'Email',
-      info: 'cpalisa@immigrationfor-us.com',
-      link: 'mailto:cpalisa@immigrationfor-us.com'
+      info: 'info@mardinilawfirm.com',
+      link: 'mailto:info@mardinilawfirm.com'
     },
     {
       icon: PhoneIcon,
       title: 'Teléfono',
-      info: '+1 (954) 588-4018',
-      link: 'tel:+19545884018'
+      info: '+1 (754) 234-4284',
+      link: 'tel:+17542344284'
     },
     {
       icon: ClockIcon,
@@ -33,17 +34,19 @@ export const contactInfo = {
   ],
   socialMedia: [
     {
-      icon: InstagramIcon,
-      link: 'https://www.instagram.com/immigration.for.us'
-    },
-    {
       icon: WhatsAppIcon,
-      link: 'https://wa.me/19545884018'
+      link: 'https://wa.me/17542344284'
     }
   ]
 };
 
-// Redes sociales
 export const socialMedia = {
-  instagram: "https://www.instagram.com/immigration.for.us"
-}; 
+  whatsapp: 'https://wa.me/17542344284'
+};
+
+export const firmInfo = {
+  name: 'Mardini Law Firm',
+  founder: 'Roger Mardini, Esq.',
+  tagline: 'Immigration Attorneys',
+  slogan: 'Representación legal confiable • Soluciones efectivas • Tu futuro, nuestra prioridad'
+};

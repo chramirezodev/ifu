@@ -71,7 +71,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           {children}
         </main>
         <Footer />
-        <WhatsAppButton phoneNumber="+19545884018" />
+        <WhatsAppButton phoneNumber="+17542344284" />
       </div>
     );
   }
@@ -83,7 +83,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
       </main>
       <Footer />
-      <WhatsAppButton phoneNumber="+19545884018" />
+      <WhatsAppButton phoneNumber="+17542344284" />
     </div>
   );
 };

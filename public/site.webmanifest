@@ -1,11 +1,11 @@
 {
-  "name": "Immigration For US - Servicios de Inmigración",
-  "short_name": "IFU",
-  "description": "Servicios profesionales de inmigración en Estados Unidos. Ayudamos con visas, residencia permanente, ciudadanía americana y más.",
+  "name": "Mardini Law Firm — Immigration Attorneys",
+  "short_name": "Mardini",
+  "description": "Firma de abogados de inmigración. Representación legal ante USCIS, EOIR y BIA.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#3C3B6E",
+  "theme_color": "#0D1B3D",
   "orientation": "portrait-primary",
   "icons": [
     {
@@ -34,7 +34,7 @@
       "type": "image/png"
     }
   ],
-  "categories": ["business", "productivity", "lifestyle"],
+  "categories": ["business", "legal"],
   "lang": "es",
   "dir": "ltr"
 }

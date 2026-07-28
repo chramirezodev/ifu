@@ -5,7 +5,7 @@ export default function Login() {
   return (
     <>
       <Head>
-        <title>Iniciar sesión | Immigration For US</title>
+        <title>Iniciar sesión | Mardini Law Firm</title>
       </Head>
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50">
         <div className="bg-white p-8 rounded-lg shadow-lg max-w-sm w-full">

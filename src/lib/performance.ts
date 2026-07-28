@@ -5,7 +5,7 @@ export const preloadCriticalResources = () => {
     // Preload fuentes críticas
     const link = document.createElement('link');
     link.rel = 'preload';
-    link.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap';
+    link.href = 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Cinzel:wght@400;600;700&display=swap';
     link.as = 'style';
     document.head.appendChild(link);
 

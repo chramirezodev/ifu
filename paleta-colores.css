@@ -1,13 +1,15 @@
 :root {
-  /* Colores principales (bandera EE.UU.) */
-  --azul-bandera: #3C3B6E;     /* Azul oscuro de la bandera */
-  --rojo-bandera: #B22234;     /* Rojo de la bandera */
-  --blanco: #FFFFFF;           /* Blanco */
-  
+  /* Colores principales — Mardini Law Firm */
+  --azul-bandera: #0D1B3D;     /* Azul marino de marca */
+  --rojo-bandera: #A6A6A6;     /* Gris plateado de marca */
+  --blanco: #FFFFFF;
+  --brand-navy: #0D1B3D;
+  --brand-silver: #A6A6A6;
+
   /* Variaciones para uso en UI */
-  --azul-claro: #5C5B9E;       /* Para hover, elementos secundarios */
-  --rojo-claro: #D24254;       /* Para hover, elementos secundarios */
-  --gris-claro: #F5F5F5;       /* Fondos alternativos */
-  --texto-oscuro: #333333;     /* Texto principal */
-  --texto-secundario: #666666; /* Texto secundario */
-} 
+  --azul-claro: #1A2F5C;
+  --rojo-claro: #C0C0C0;
+  --gris-claro: #F5F5F5;
+  --texto-oscuro: #333333;
+  --texto-secundario: #666666;
+}

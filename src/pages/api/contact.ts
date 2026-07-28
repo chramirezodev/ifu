@@ -91,7 +91,7 @@ export default async function handler(
     // Enviar email principal
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
-      to: 'cpalisa@immigrationfor-us.com',
+      to: 'info@mardinilawfirm.com',
       cc: 'carlos.ramirez16031@gmail.com',
       subject: `Nuevo mensaje de contacto de ${sanitizedName}`,
       text: `
@@ -116,7 +116,7 @@ Mensaje: ${sanitizedMessage}
     await transporter.sendMail({
       from: process.env.EMAIL_USER,
       to: sanitizedEmail,
-      subject: 'Confirmación de recepción - Immigration For US',
+      subject: 'Confirmación de recepción - Mardini Law Firm',
       text: `
 Estimado/a ${sanitizedName},
 
@@ -129,23 +129,23 @@ Mensaje: ${sanitizedMessage}
 Gracias por contactarnos.
 
 Atentamente,
-El equipo de Immigration For US
+Mardini Law Firm
       `,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #3C3B6E;">Confirmación de recepción</h2>
+          <h2 style="color: #0D1B3D;">Confirmación de recepción</h2>
           <p>Estimado/a <strong>${sanitizedName}</strong>,</p>
           <p>Hemos recibido su mensaje y nos pondremos en contacto con usted en las próximas 24 horas.</p>
           
           <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <h3 style="color: #3C3B6E; margin-top: 0;">Resumen de su consulta:</h3>
+            <h3 style="color: #0D1B3D; margin-top: 0;">Resumen de su consulta:</h3>
             <p><strong>Servicio de interés:</strong> ${sanitizedService || 'No especificado'}</p>
             <p><strong>Mensaje:</strong></p>
             <p style="background-color: white; padding: 15px; border-radius: 4px;">${sanitizedMessage.replace(/\n/g, '<br>')}</p>
           </div>
           
           <p>Gracias por contactarnos.</p>
-          <p>Atentamente,<br><strong>El equipo de Immigration For US</strong></p>
+          <p>Atentamente,<br><strong>Mardini Law Firm</strong></p>
         </div>
       `,
     });

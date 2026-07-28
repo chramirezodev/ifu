@@ -2,10 +2,10 @@ import Head from 'next/head';
 import Script from 'next/script';
 
 const OnPageSEO = ({
-  title = 'Servicios Profesionales de Inmigración | Immigration For US',
-  description = 'Asistencia experta en trámites migratorios, visas, ciudadanía y más. Soluciones personalizadas para tu situación migratoria en Estados Unidos.',
-  canonicalUrl = process.env.NEXT_PUBLIC_SITE_URL,
-  ogImage = '/images/immigration-services-og.jpg',
+  title = 'Abogados de Inmigración | Mardini Law Firm',
+  description = 'Representación legal estratégica en inmigración ante USCIS, EOIR y BIA. Roger Mardini, Esq.',
+  canonicalUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://immigrationfor-us.com',
+  ogImage = '/images/Logos/mardini-logo.jpeg',
   jsonLd = null,
   structuredData = null
 }) => {
@@ -13,19 +13,19 @@ const OnPageSEO = ({
   const defaultStructuredData = {
     "@context": "https://schema.org",
     "@type": "LegalService",
-    "name": "Immigration For US",
+    "name": "Mardini Law Firm",
     "description": description,
     "url": canonicalUrl,
-    "logo": `${canonicalUrl}/images/logo.png`,
+    "logo": `${canonicalUrl}/images/Logos/mardini-logo.jpeg`,
     "image": [`${canonicalUrl}${ogImage}`],
     "priceRange": "$$",
-    "telephone": "+1-XXX-XXX-XXXX",
+    "telephone": "+1-754-234-4284",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "XXX Street Address",
-      "addressLocality": "City",
-      "addressRegion": "State",
-      "postalCode": "ZIP",
+      "streetAddress": "7224 NW 116th Way",
+      "addressLocality": "Parkland",
+      "addressRegion": "FL",
+      "postalCode": "33076",
       "addressCountry": "US"
     },
     "geo": {
@@ -80,7 +80,7 @@ const OnPageSEO = ({
         <meta property="og:description" content={description} />
         <meta property="og:image" content={`${canonicalUrl}${ogImage}`} />
         <meta property="og:locale" content="es_ES" />
-        <meta property="og:site_name" content="Immigration For US" />
+        <meta property="og:site_name" content="Mardini Law Firm" />
         
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />

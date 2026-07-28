@@ -77,17 +77,15 @@ const News = () => {
           </a>
         </motion.div>
 
-        {/* Nota legal */}
         <motion.div 
-          className="mt-12 text-center text-gray-500 text-sm max-w-3xl mx-auto"
+          className="mt-12 text-center text-gray-600 text-sm max-w-3xl mx-auto"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <p className="italic">
-            Nota: Como paralegales, nuestro rol es preparar y presentar los documentos ante el USCIS. 
-            No ofrecemos asesoría legal ni representación en audiencias o casos complejos.
+          <p>
+            ¿Necesitas orientación sobre tu caso? Contáctanos y agenda una consulta con nuestro equipo legal.
           </p>
         </motion.div>
       </div>

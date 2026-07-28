@@ -54,7 +54,7 @@ const Priority = () => {
               <div className="aspect-w-4 aspect-h-3 relative rounded-2xl overflow-hidden shadow-2xl">
                 <Image 
                   src="/images/priority.jpg"
-                  alt="Servicios prioritarios de inmigración - Immigration For US"
+                  alt="Servicios prioritarios de inmigración - Mardini Law Firm"
                   width={500}
                   height={300}
                   className="rounded-lg shadow-lg"

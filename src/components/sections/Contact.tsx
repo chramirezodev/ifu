@@ -15,19 +15,19 @@ const contactMethods = [
   {
     icon: EmailIcon,
     title: 'Email',
-    info: 'cpalisa@immigrationfor-us.com',
-    link: 'mailto:cpalisa@immigrationfor-us.com'
+    info: contactInfo.email,
+    link: `mailto:${contactInfo.email}`
   },
   {
     icon: PhoneIcon,
     title: 'Atención al Cliente',
-    info: '+1 (954) 588-4018',
-    link: 'tel:+19545884018'
+    info: contactInfo.phone,
+    link: `tel:+${contactInfo.whatsappNumber}`
   },
   {
     icon: ClockIcon,
     title: 'Horario de atención',
-    info: 'Lunes a Viernes: 9am - 5pm',
+    info: contactInfo.workHours,
   }
 ];
 
@@ -165,8 +165,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Email</h4>
-                      <a href="mailto:cpalisa@immigrationfor-us.com" className="text-gray-600 hover:text-usa-blue transition-colors">
-                        cpalisa@immigrationfor-us.com
+                      <a href={`mailto:${contactInfo.email}`} className="text-gray-600 hover:text-usa-blue transition-colors">
+                        {contactInfo.email}
                       </a>
                     </div>
                   </div>
@@ -176,8 +176,8 @@ const Contact = () => {
                     </div>
                     <div>
                       <h4 className="font-semibold text-gray-900">Atención al Cliente</h4>
-                      <a href="tel:+19545884018" className="text-gray-600 hover:text-usa-blue transition-colors">
-                        +1 (954) 588-4018
+                      <a href={`tel:+${contactInfo.whatsappNumber}`} className="text-gray-600 hover:text-usa-blue transition-colors">
+                        {contactInfo.phone}
                       </a>
                     </div>
                   </div>
@@ -188,8 +188,27 @@ const Contact = () => {
                     <div>
                       <h4 className="font-semibold text-gray-900">Horario de atención</h4>
                       <span className="text-gray-600">
-                        Lunes a Viernes: 9am - 5pm
+                        {contactInfo.workHours}
                       </span>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="bg-usa-blue/10 rounded-full p-3 text-usa-blue">
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-gray-900">Dirección</h4>
+                      <a
+                        href={contactInfo.googleMapsUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-600 hover:text-usa-blue transition-colors"
+                      >
+                        {contactInfo.address}
+                      </a>
                     </div>
                   </div>
                 </div>

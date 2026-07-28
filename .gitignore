@@ -36,4 +36,9 @@ next-env.d.ts
 
 # embedded repositories
 /cms/
-/immigration-for-us/ 
+/immigration-for-us/
+
+# backups
+/backup_local/
+/backup_ifu_pre_mardini/
+ 

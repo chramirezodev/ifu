@@ -4,17 +4,17 @@ import Head from 'next/head';
 const HomeEn = () => (
   <>
     <Head>
-      <title>Immigration For US | Professional Immigration Services</title>
-      <meta name="description" content="Professional immigration document preparation and support for the United States. We help you achieve your dreams." />
+      <title>Mardini Law Firm | Immigration Attorneys</title>
+      <meta name="description" content="Mardini Law Firm provides immigration legal representation in the United States. Led by Roger Mardini, Esq." />
     </Head>
     <main className="py-16 bg-white min-h-screen">
       <div className="container mx-auto px-4 max-w-3xl">
-        <h1 className="text-3xl font-bold mb-6 text-usa-blue">Welcome to Immigration For US</h1>
-        <p className="mb-4">We are a team of paralegals specialized in immigration, with extensive experience in preparing and submitting immigration documents to USCIS. We are dedicated to helping people like you achieve their dream of a new life in the United States.</p>
-        <p className="mb-4">Founded in 2021, our company aims to offer professional and reliable service in preparing and submitting documents to USCIS. We ensure that all documentation is correct, complete, and meets the required standards. While we do not provide legal advice or representation, our commitment is to ensure your immigration process runs smoothly.</p>
+        <h1 className="text-3xl font-bold mb-6 text-usa-blue">Welcome to Mardini Law Firm</h1>
+        <p className="mb-4">Led by Roger Mardini, Esq., Mardini Law Firm provides immigration legal representation to help you achieve your goals in the United States. We are dedicated to guiding clients through complex immigration matters with clarity and care.</p>
+        <p className="mb-4">Our firm offers professional legal counsel for visas, permanent residency, naturalization, asylum, and related immigration matters. We work to ensure your case is properly prepared and that you understand each step of the process.</p>
       </div>
     </main>
   </>
 );
 
-export default HomeEn; 
+export default HomeEn;

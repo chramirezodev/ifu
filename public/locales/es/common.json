@@ -1,8 +1,8 @@
 {
   "welcome": {
-    "title": "Bienvenido a Immigration For US",
-    "description1": "Nos especializamos en brindar servicios integrales de inmigración para ayudarte a alcanzar tus objetivos en Estados Unidos.",
-    "description2": "Nuestro equipo de expertos está aquí para guiarte en cada paso del proceso.",
+    "title": "Bienvenido a Mardini Law Firm",
+    "description1": "Dirigido por Roger Mardini, Esq., Mardini Law Firm brinda representación legal en inmigración para ayudarte a alcanzar tus objetivos en Estados Unidos.",
+    "description2": "Nuestro equipo legal te acompaña en cada paso del proceso con asesoría profesional y personalizada.",
     "button": "Conoce Más"
   },
   "hero": {
@@ -20,7 +20,7 @@
     "slogan5": "Asistencia Legal Especializada",
     "subSlogan5": "Te acompañamos en cada paso del proceso",
     "cta": {
-      "start": "CONTÁCTANOS",
+      "start": "HABLA CON UN ABOGADO",
       "services": "NUESTROS SERVICIOS"
     },
     "whatsappMessage": "Hola, me gustaría obtener más información sobre sus servicios de inmigración."
@@ -42,7 +42,7 @@
       "close": "Cerrar menú"
     },
     "logo": {
-      "alt": "Immigration For US Logo"
+      "alt": "Mardini Law Firm Logo"
     }
   },
   "services": {
@@ -120,17 +120,17 @@
     "1": {
       "name": "Carlos Rodríguez",
       "role": "Visa de Trabajo H-1B",
-      "content": "Immigration For US me ayudó a conseguir mi visa de trabajo de manera eficiente. Su asesoramiento fue fundamental para preparar correctamente mi caso. ¡Muy recomendados!"
+      "content": "Mardini Law Firm me ayudó a conseguir mi visa de trabajo de manera eficiente. Su asesoramiento fue fundamental para preparar correctamente mi caso. ¡Muy recomendados!"
     },
     "2": {
       "name": "María González",
       "role": "Green Card por Matrimonio",
-      "content": "El proceso de Green Card parecía muy complicado, pero con la guía de Immigration For US todo fue mucho más sencillo. Siempre estuvieron disponibles para resolver mis dudas."
+      "content": "El proceso de Green Card parecía muy complicado, pero con la guía de Mardini Law Firm todo fue mucho más sencillo. Siempre estuvieron disponibles para resolver mis dudas."
     },
     "3": {
       "name": "Juan Pérez",
       "role": "Ciudadanía Americana",
-      "content": "Después de años con mi residencia, decidí aplicar para la ciudadanía. Immigration For US me acompañó en todo el proceso y hoy ya soy ciudadano americano. ¡Gracias!"
+      "content": "Después de años con mi residencia, decidí aplicar para la ciudadanía. Mardini Law Firm me acompañó en todo el proceso y hoy ya soy ciudadano americano. ¡Gracias!"
     }
   },
   "blog": {
@@ -158,9 +158,9 @@
     "title": "Contáctanos",
     "subtitle": "Ponte en Contacto",
     "description": "Estamos aquí para ayudarte con tus necesidades migratorias",
-    "email": "cpalisa@immigrationfor-us.com",
-    "phone": "+1 (954) 588 4018",
-    "whatsapp": "+1 (954) 588 4018",
+    "email": "info@mardinilawfirm.com",
+    "phone": "+1 (754) 234-4284",
+    "whatsapp": "+1 (754) 234-4284",
     "mapUrl": "https://goo.gl/maps/123",
     "workHours": "Lunes a Viernes 8:00 AM - 6:00 PM ET",
     "socialMedia": {
@@ -176,7 +176,7 @@
   },
   "meta": {
     "home": {
-      "title": "Immigration For US - Servicios de Inmigración Profesionales",
+      "title": "Mardini Law Firm - Servicios de Inmigración Profesionales",
       "description": "Servicios integrales de inmigración para ayudarte a alcanzar tus objetivos en Estados Unidos. Asesoría legal personalizada para todos tus trámites migratorios.",
       "keywords": "inmigración, visa, green card, ciudadanía americana, asilo político, servicios migratorios, Estados Unidos"
     }
@@ -185,7 +185,7 @@
     "title": "Aviso Legal",
     "intro": {
       "p1": "El acceso a este sitio web implica la condición de usuario y la aceptación y conocimiento de los siguientes términos de uso, por lo que recomendamos su lectura y comprensión antes de utilizar el sitio. Si no está dispuesto a aceptar los Términos y Condiciones de este Acuerdo, por favor no acceda ni utilice este sitio web ni publique ningún contenido.",
-      "p2": "Usted entiende que este sitio web es propiedad de Immigration for US, incluyendo todos los derechos de propiedad intelectual e industrial que se derivan o están incluidos en él, sin que usted tenga derecho a utilizarlos, excepto en los términos establecidos en estos Términos de Uso. Nos reservamos el derecho de denegar o terminar su acceso al Sitio Web a nuestra discreción.",
+      "p2": "Usted entiende que este sitio web es propiedad de Mardini Law Firm, incluyendo todos los derechos de propiedad intelectual e industrial que se derivan o están incluidos en él, sin que usted tenga derecho a utilizarlos, excepto en los términos establecidos en estos Términos de Uso. Nos reservamos el derecho de denegar o terminar su acceso al Sitio Web a nuestra discreción.",
       "p3": "La prestación de este sitio web es gratuita y, sobre esta base, no tenemos obligación de servicio de mantenimiento o soporte, por lo que no somos responsables de ningún daño o perjuicio que pueda sufrir como consecuencia de una falla derivada del mantenimiento o actualización del sitio web.",
       "p4": "El Propietario de este sitio web no asume ninguna responsabilidad como consecuencia directa o indirecta de cualquier acción u omisión que usted realice basándose en la información, servicios u otro material ubicado en este sitio web."
     },
@@ -227,9 +227,9 @@
     "contact": {
       "title": "Contacto",
       "intro": "Para cualquier pregunta sobre nuestras políticas, puede contactarnos a través de:",
-      "whatsapp": "WhatsApp: +1 (954) 588 4018",
-      "email": "Correo: cpalisa@immigrationfor-us.com",
-      "location": "Ubicación: 7224 NW 116th Way, Parkland, FL. 33076",
+      "whatsapp": "WhatsApp: +1 (754) 234-4284",
+      "email": "Correo: info@mardinilawfirm.com",
+      "location": "Ubicación: 7224 NW 116th Way, Parkland, FL 33076",
       "hours": "Horario de Atención: Lunes a Viernes de 8 am a 6 pm ET."
     },
     "footer": {

@@ -4,13 +4,13 @@ import Head from 'next/head';
 const PoliciesEn = () => (
   <>
     <Head>
-      <title>Terms of Use and Privacy Policy | Immigration For US</title>
-      <meta name="description" content="Read our terms of use and privacy policy. Immigration For US protects your information and explains how we use your data." />
+      <title>Terms of Use and Privacy Policy | Mardini Law Firm</title>
+      <meta name="description" content="Read our terms of use and privacy policy. Mardini Law Firm protects your information and explains how we use your data." />
     </Head>
     <main className="py-16 bg-white min-h-screen">
       <div className="container mx-auto px-4 max-w-3xl">
         <h1 className="text-3xl font-bold mb-6 text-usa-blue">Terms of Use and Privacy Policy</h1>
-        <p className="mb-4">At Immigration For US, we are committed to protecting your privacy. For more details about how we use your data, please see our <a href="/en/aviso-legal" className="text-usa-blue underline">LEGAL NOTICE</a>.</p>
+        <p className="mb-4">At Mardini Law Firm, we are committed to protecting your privacy. For more details about how we use your data, please see our <a href="/en/aviso-legal" className="text-usa-blue underline">LEGAL NOTICE</a>.</p>
         <p className="mb-4">We reserve the right to modify these policies at any time. We recommend reviewing this information periodically to stay informed of any updates.</p>
         <hr className="my-8" />
         <h2 className="text-2xl font-semibold mb-4 text-usa-blue">Privacy Policy</h2>
@@ -30,9 +30,9 @@ const PoliciesEn = () => (
         <p className="mb-4">We do not share your personal information with third parties without your authorization, except when necessary to comply with the law or protect our rights.</p>
         <h3 className="text-xl font-semibold mb-2">Contact</h3>
         <ul className="mb-4">
-          <li>WhatsApp: <a href="https://wa.me/19545884018" className="text-usa-blue underline">+1 (954) 588 4018</a></li>
-          <li>Email: <a href="mailto:cpalisa@immigrationfor-us.com" className="text-usa-blue underline">cpalisa@immigrationfor-us.com</a></li>
-          <li>Location: 7224 NW 116th Way, Parkland, FL. 33076</li>
+          <li>WhatsApp: <a href="https://wa.me/17542344284" className="text-usa-blue underline">+1 (754) 234-4284</a></li>
+          <li>Email: <a href="mailto:info@mardinilawfirm.com" className="text-usa-blue underline">info@mardinilawfirm.com</a></li>
+          <li>Location: 7224 NW 116th Way, Parkland, FL 33076</li>
           <li>Business hours: Monday to Friday, 8 am to 6 pm ET.</li>
         </ul>
         <p className="text-sm text-gray-500">We reserve the right to modify these policies at any time. We recommend reviewing this page periodically to stay informed of any updates.</p>
@@ -41,4 +41,4 @@ const PoliciesEn = () => (
   </>
 );
 
-export default PoliciesEn; 
+export default PoliciesEn;

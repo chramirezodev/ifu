@@ -4,8 +4,8 @@ import Head from 'next/head';
 const ServicesEn = () => (
   <>
     <Head>
-      <title>Our Services | Immigration For US</title>
-      <meta name="description" content="Discover our immigration services for the United States. We guide you through every step of your process." />
+      <title>Our Services | Mardini Law Firm</title>
+      <meta name="description" content="Discover our immigration legal services for the United States. We guide you through every step of your process." />
     </Head>
     <main className="py-16 bg-white min-h-screen">
       <div className="container mx-auto px-4 max-w-3xl">
@@ -18,10 +18,10 @@ const ServicesEn = () => (
           <li>VAWA Visa</li>
           <li>U Visa</li>
         </ul>
-        <p className="mb-4">We accompany you in your immigration process. At Immigration For US, we offer support in preparing and submitting immigration documents to USCIS for a wide variety of procedures in the United States. We guarantee that our team will provide you with reliable and personalized service, ensuring your application meets all requirements.</p>
+        <p className="mb-4">We accompany you in your immigration process. At Mardini Law Firm, we provide legal representation and counsel for a wide variety of immigration matters before USCIS and related agencies. Our attorneys deliver reliable, personalized service to help ensure your case is properly prepared and presented.</p>
       </div>
     </main>
   </>
 );
 
-export default ServicesEn; 
+export default ServicesEn;

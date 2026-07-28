@@ -232,7 +232,7 @@ const Testimonials = () => {
   const reviewsStructuredData = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Immigration For US",
+    "name": "Mardini Law Firm",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.8",

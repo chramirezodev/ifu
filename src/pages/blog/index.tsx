@@ -27,7 +27,7 @@ const blogPosts: BlogPost[] = [
     excerpt: 'Todo lo que necesitas saber sobre el proceso de residencia permanente en Estados Unidos, incluyendo los pasos, documentos y tiempos de espera.',
     content: '',
     publishedAt: '2024-12-15',
-    author: 'Carolina Palisa',
+    author: 'Roger Mardini, Esq.',
     category: 'Residencia Permanente',
     readTime: '8 min',
     image: '/images/blog/green-card-guide.jpg',
@@ -39,7 +39,7 @@ const blogPosts: BlogPost[] = [
     excerpt: 'Descubre los diferentes tipos de visas de trabajo disponibles y cuál es la mejor opción para tu situación profesional.',
     content: '',
     publishedAt: '2024-12-10',
-    author: 'Carolina Palisa',
+    author: 'Roger Mardini, Esq.',
     category: 'Visas de Trabajo',
     readTime: '6 min',
     image: '/images/blog/work-visas.jpg',
@@ -51,7 +51,7 @@ const blogPosts: BlogPost[] = [
     excerpt: 'Conoce los requisitos y pasos para convertirte en ciudadano estadounidense a través del proceso de naturalización.',
     content: '',
     publishedAt: '2024-12-05',
-    author: 'Carolina Palisa',
+    author: 'Roger Mardini, Esq.',
     category: 'Ciudadanía',
     readTime: '10 min',
     image: '/images/blog/naturalization.jpg',
@@ -63,7 +63,7 @@ const blogPosts: BlogPost[] = [
     excerpt: 'Información esencial sobre el proceso de asilo político, requisitos y consejos para una solicitud exitosa.',
     content: '',
     publishedAt: '2024-11-28',
-    author: 'Carolina Palisa',
+    author: 'Roger Mardini, Esq.',
     category: 'Asilo',
     readTime: '7 min',
     image: '/images/blog/asylum.jpg',
@@ -75,7 +75,7 @@ const blogPosts: BlogPost[] = [
     excerpt: 'Aprende cómo patrocinar a familiares para que obtengan la residencia permanente en Estados Unidos.',
     content: '',
     publishedAt: '2024-11-20',
-    author: 'Carolina Palisa',
+    author: 'Roger Mardini, Esq.',
     category: 'Reunificación Familiar',
     readTime: '9 min',
     image: '/images/blog/family-reunion.jpg',
@@ -87,7 +87,7 @@ const blogPosts: BlogPost[] = [
     excerpt: 'Evita estos errores frecuentes que pueden retrasar o rechazar tu solicitud de inmigración.',
     content: '',
     publishedAt: '2024-11-15',
-    author: 'Carolina Palisa',
+    author: 'Roger Mardini, Esq.',
     category: 'Consejos',
     readTime: '5 min',
     image: '/images/blog/common-mistakes.jpg',
@@ -124,12 +124,12 @@ export default function BlogIndex() {
   const blogStructuredData = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "name": "Blog de Inmigración - Immigration For US",
+    "name": "Blog de Inmigración - Mardini Law Firm",
     "description": "Artículos informativos sobre procesos migratorios en Estados Unidos",
     "url": `${process.env.NEXT_PUBLIC_SITE_URL}/blog`,
     "author": {
       "@type": "Organization",
-      "name": "Immigration For US"
+      "name": "Mardini Law Firm"
     },
     "blogPost": blogPosts.map(post => ({
       "@type": "BlogPosting",
@@ -143,7 +143,7 @@ export default function BlogIndex() {
       },
       "publisher": {
         "@type": "Organization",
-        "name": "Immigration For US"
+        "name": "Mardini Law Firm"
       }
     }))
   };
@@ -151,7 +151,7 @@ export default function BlogIndex() {
   return (
     <>
       <SEO 
-        title="Blog de Inmigración - Immigration For US"
+        title="Blog de Inmigración - Mardini Law Firm"
         description="Artículos informativos sobre procesos migratorios, visas, residencia permanente y ciudadanía en Estados Unidos. Guías paso a paso y consejos de expertos."
         keywords="blog inmigración, guías inmigración, procesos migratorios, visas, residencia permanente, ciudadanía americana"
       />
@@ -270,7 +270,7 @@ export default function BlogIndex() {
                 href="/contacto"
                 className="bg-white text-usa-blue px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors duration-300 inline-block"
               >
-                Consulta Gratuita
+                Agenda una Consulta
               </Link>
             </div>
           </section>

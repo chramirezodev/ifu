@@ -12,27 +12,27 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    slogan: "Tu sueño, nuestra misión.",
+    slogan: "Representación legal confiable.",
     image: "/images/hero/slide1.jpg"
   },
   {
     id: 2,
-    slogan: "Unidos por tus sueños, comprometidos con tu futuro.",
+    slogan: "Tu futuro, nuestra prioridad.",
     image: "/images/hero/slide2.jpg"
   },
   {
     id: 3,
-    slogan: "Transformamos trámites en oportunidades.",
+    slogan: "Soluciones legales efectivas.",
     image: "/images/hero/slide3.jpg"
   },
   {
     id: 4,
-    slogan: "Porque tu historia merece un nuevo comienzo.",
+    slogan: "Defensa sólida en cada etapa.",
     image: "/images/hero/slide4.jpg"
   },
   {
     id: 5,
-    slogan: "Legaliza tu futuro con confianza.",
+    slogan: "Abogados de inmigración a tu lado.",
     image: "/images/hero/slide5.jpg"
   }
 ];
@@ -71,7 +71,7 @@ const Hero: React.FC = () => {
         <div className="absolute inset-0">
           <Image
             src="/images/hero/slide1.jpg"
-            alt="Immigration For US"
+            alt="Mardini Law Firm"
             fill
             className="object-cover"
             priority
@@ -80,17 +80,17 @@ const Hero: React.FC = () => {
         </div>
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            Tu Camino al Éxito en Estados Unidos
+            Mardini Law Firm
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
-            Te ayudamos a alcanzar tus metas migratorias con un servicio profesional y personalizado.
+            Representación legal estratégica en inmigración ante USCIS, EOIR y BIA.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="#contacto"
               className="bg-usa-blue hover:bg-usa-blue-dark text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-300"
             >
-              CONTÁCTANOS
+              HABLA CON UN ABOGADO
             </a>
             <a
               href="#servicios"
@@ -121,7 +121,7 @@ const Hero: React.FC = () => {
         >
           <Image
             src={slides[currentSlide].image}
-            alt={`${slides[currentSlide].slogan} - Servicios de inmigración profesional en Estados Unidos`}
+            alt={`${slides[currentSlide].slogan} - Mardini Law Firm, abogados de inmigración`}
             fill
             className="object-cover"
             priority
@@ -154,10 +154,10 @@ const Hero: React.FC = () => {
             className="mb-8"
           >
             <p className="text-xl md:text-2xl mb-2 text-shadow-md font-light">
-              Sabemos que el proceso migratorio puede ser abrumador. Pero no estás solo.
+              Enfrentar un proceso migratorio puede generar incertidumbre, pero no tienes que hacerlo solo.
             </p>
             <p className="text-xl md:text-2xl text-shadow-md font-light">
-              En Immigration For US, te acompañamos en cada paso para que tu camino hacia una nueva vida en Estados Unidos sea más sencillo y seguro.
+              En Mardini Law Firm encontrarás representación legal estratégica, comunicación clara y un acompañamiento cercano en cada etapa.
             </p>
           </motion.div>
         </div>

@@ -27,8 +27,6 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
     { label: 'nosotros', href: '#nosotros', translationKey: 'nav.about' },
     { label: 'servicios', href: '#servicios', translationKey: 'nav.services' },
     { label: 'por-que-elegirnos', href: '#por-que-elegirnos', translationKey: 'nav.choose' },
-    { label: 'preguntas', href: '#preguntas-frecuentes', translationKey: 'nav.questions' },
-    { label: 'testimonios', href: '#testimonios', translationKey: 'nav.testimonials' },
     { label: 'contactenos', href: '#contacto', translationKey: 'nav.contact' }
   ];
 
@@ -54,11 +52,11 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="/images/Logos/logo_transparent_background.png"
+              src="/images/Logos/mardini-logo.jpeg"
               alt={t('nav.logo.alt')}
-              width={180}
-              height={50}
-              className="h-12 w-auto"
+              width={200}
+              height={60}
+              className="h-14 w-auto"
               priority
             />
           </Link>

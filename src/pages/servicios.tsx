@@ -17,7 +17,7 @@ const ServiciosPage = () => {
               Nuestros Servicios Migratorios
             </h1>
             <p className="text-xl mb-8">
-              Ofrecemos soluciones integrales para todos tus trámites migratorios en Estados Unidos.
+              Ofrecemos representación legal estratégica para tus casos de inmigración en Estados Unidos.
               Conoce nuestros servicios y encuentra la opción que mejor se adapte a tus necesidades.
             </p>
           </div>

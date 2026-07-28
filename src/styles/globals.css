@@ -8,7 +8,7 @@
   }
 
   body {
-    @apply text-gray-900 bg-white;
+    @apply text-gray-900 bg-white font-sans;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -26,7 +26,7 @@
   }
 
   .btn-secondary {
-    @apply bg-usa-red text-white hover:bg-usa-red-dark;
+    @apply bg-brand-silver text-brand-navy hover:bg-usa-red-dark hover:text-white;
   }
 
   .btn-outline {
@@ -40,12 +40,13 @@
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-usa-blue to-usa-red;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-navy to-brand-silver;
   }
 }
 
-/* Colores personalizados de WhatsApp */
 :root {
   --whatsapp-green: #25D366;
   --whatsapp-dark: #128C7E;
-} 
+  --brand-navy: #0D1B3D;
+  --brand-silver: #A6A6A6;
+}

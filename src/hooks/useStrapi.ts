@@ -113,7 +113,7 @@ export const useServices = () => {
             attributes: {
               title: "Asistencia con la residencia permanente (Green Card)",
               description: "Te guiamos en cada paso para que obtengas tu residencia sin complicaciones.",
-              expandedDescription: "Obtener la residencia permanente en los EE. UU. es un proceso largo y, en ocasiones, complicado. Como paralegal especializado en inmigración, te ayudaremos a completar tu solicitud de Green Card, asegurándonos de que todos los formularios estén correctamente llenados y presentados, y que cuentes con la documentación adecuada.",
+              expandedDescription: "Obtener la residencia permanente en los EE. UU. es un proceso largo y, en ocasiones, complicado. En Mardini Law Firm te brindamos representación legal para tu solicitud de Green Card, asegurándonos de que todos los formularios estén correctamente llenados y presentados, y que cuentes con la documentación adecuada.",
               slug: "residencia",
               image: {
                 data: {

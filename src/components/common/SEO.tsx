@@ -2,12 +2,12 @@ import Head from 'next/head';
 import { useRouter } from 'next/router';
 
 const defaultMetaTags = {
-  siteName: 'IFU - Servicios de Inmigración',
-  title: 'Servicios Profesionales de Inmigración en Estados Unidos',
-  description: 'Asistencia experta en trámites migratorios, visas, ciudadanía y más. Nuestro equipo profesional te ayuda en todo el proceso.',
-  keywords: 'inmigración, visa, green card, ciudadanía americana, asilo político, servicios migratorios, Estados Unidos',
-  image: '/images/ifu-opengraph.jpg', // Imagen predeterminada para compartir
-  twitterHandle: '@ifu_inmigracion',
+  siteName: 'Mardini Law Firm',
+  title: 'Mardini Law Firm — Abogados de Inmigración en Estados Unidos',
+  description: 'Representación legal estratégica en inmigración ante USCIS, EOIR y BIA. Roger Mardini, Esq. — Immigration Attorneys en Parkland, Florida.',
+  keywords: 'abogado inmigración, immigration attorney, USCIS, EOIR, BIA, green card, naturalización, asilo, VAWA, visa U, Mardini Law Firm, Florida',
+  image: '/images/Logos/mardini-logo.jpeg',
+  twitterHandle: '@mardinilawfirm',
   locale: 'es_ES'
 };
 
@@ -46,19 +46,19 @@ const SEO = ({
   noindex = false
 }: SEOProps) => {
   const router = useRouter();
-  const url = `${process.env.NEXT_PUBLIC_SITE_URL}${router.asPath}`;
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://immigrationfor-us.com';
+  const url = `${baseUrl}${router.asPath}`;
   
-  // Merge OpenGraph data with defaults
   const ogData: OpenGraphData = {
     site_name: defaultMetaTags.siteName,
     title,
     description,
     url,
     type: 'website',
+    image: `${baseUrl}${defaultMetaTags.image}`,
     ...openGraph
   };
   
-  // Merge Twitter data with defaults
   const twitterData: TwitterData = {
     card: 'summary_large_image',
     site: defaultMetaTags.twitterHandle,
@@ -67,27 +67,31 @@ const SEO = ({
     ...twitter
   };
   
-  // Datos estructurados para Schema.org
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Immigration For US",
+    "@type": "LegalService",
+    "name": "Mardini Law Firm",
     "description": description,
-    "url": url,
-    "logo": `${process.env.NEXT_PUBLIC_SITE_URL}/images/Logos/logo.png`,
-    "image": ogData.image || `${process.env.NEXT_PUBLIC_SITE_URL}/images/Logos/logo.png`,
-    "telephone": "+1 (954) 588-4018",
-    "email": "cpalisa@immigrationfor-us.com",
+    "url": baseUrl,
+    "logo": `${baseUrl}/images/Logos/mardini-logo.jpeg`,
+    "image": ogData.image || `${baseUrl}/images/Logos/mardini-logo.jpeg`,
+    "telephone": "+1-754-234-4284",
+    "email": "info@mardinilawfirm.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "2200 N Federal Hwy",
-      "addressLocality": "Boca Raton",
+      "streetAddress": "7224 NW 116th Way",
+      "addressLocality": "Parkland",
       "addressRegion": "FL",
-      "postalCode": "33431",
+      "postalCode": "33076",
       "addressCountry": "US"
     },
-    "serviceType": "Servicios de Inmigración",
-    "areaServed": "Estados Unidos",
+    "founder": {
+      "@type": "Person",
+      "name": "Roger Mardini",
+      "jobTitle": "Attorney at Law"
+    },
+    "serviceType": "Immigration Law",
+    "areaServed": "United States",
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Servicios de Inmigración",
@@ -96,8 +100,8 @@ const SEO = ({
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Visas de Inmigración",
-            "description": "Asistencia con trámites de visas de inmigración"
+            "name": "Representación en Solicitudes de Visa",
+            "description": "Representación legal en solicitudes de visa ante autoridades migratorias"
           }
         },
         {
@@ -105,31 +109,26 @@ const SEO = ({
           "itemOffered": {
             "@type": "Service",
             "name": "Residencia Permanente",
-            "description": "Procesos de Green Card y residencia permanente"
+            "description": "Representación en procesos de Green Card"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Ciudadanía Americana",
-            "description": "Naturalización y proceso de ciudadanía"
+            "name": "Naturalización y Ciudadanía",
+            "description": "Representación legal en naturalización"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Asilo Político",
-            "description": "Asistencia con casos de asilo político"
+            "name": "Asilo Afirmativo y Defensivo",
+            "description": "Representación en asilo ante USCIS y EOIR"
           }
         }
       ]
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "150"
     }
   };
 
@@ -142,13 +141,11 @@ const SEO = ({
       <link rel="canonical" href={url} />
       {noindex && <meta name="robots" content="noindex,nofollow" />}
       
-      {/* Datos estructurados */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       
-      {/* Open Graph */}
       <meta property="og:site_name" content={ogData.site_name} />
       <meta property="og:title" content={ogData.title} />
       <meta property="og:description" content={ogData.description} />
@@ -157,14 +154,12 @@ const SEO = ({
       {ogData.image && <meta property="og:image" content={ogData.image} />}
       <meta property="og:locale" content={defaultMetaTags.locale} />
       
-      {/* Twitter */}
       <meta name="twitter:card" content={twitterData.card} />
       <meta name="twitter:site" content={twitterData.site} />
       <meta name="twitter:title" content={twitterData.title} />
       <meta name="twitter:description" content={twitterData.description} />
       {twitterData.image && <meta name="twitter:image" content={twitterData.image} />}
       
-      {/* Favicon */}
       <link rel="icon" href="/favicon.ico" />
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -174,4 +169,4 @@ const SEO = ({
   );
 };
 
-export default SEO; 
+export default SEO;

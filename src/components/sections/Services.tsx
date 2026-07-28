@@ -66,6 +66,18 @@ const serviceIcons = {
       </div>
     </div>
   ),
+  'asilo-defensivo': (
+    <div className="relative">
+      <svg className="h-14 w-14 text-usa-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+      <div className="absolute -top-1 -right-1 bg-usa-red rounded-full p-1 w-6 h-6 flex items-center justify-center shadow-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="white" className="w-3 h-3">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+        </svg>
+      </div>
+    </div>
+  ),
   vawa: (
     <div className="relative">
       <svg className="h-14 w-14 text-usa-blue" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -349,9 +361,9 @@ const Services = () => {
     {
       id: 1,
       attributes: {
-        title: "Acompañamiento en solicitudes de visa",
-        description: "Te brindamos apoyo con visas estudiantiles y familiares, garantizando que tu solicitud cumpla con todos los requisitos necesarios.",
-        expandedDescription: "Ya sea que necesites una visa estudiantil o familiar, te ayudaremos a completar tu solicitud correctamente. Te asistiremos en la recopilación de los documentos necesarios, en el llenado de los formularios requeridos y en su presentación de manera que aumenten tus probabilidades de éxito.",
+        title: "Representación en Solicitudes de Visa",
+        description: "Brindamos representación legal en una amplia variedad de solicitudes de visa, evaluando tu caso y desarrollando la estrategia más adecuada para alcanzar tus objetivos migratorios.",
+        expandedDescription: "Cada categoría de visa tiene requisitos y desafíos específicos. En Mardini Law Firm analizamos tu situación, te asesoramos sobre la mejor alternativa disponible y preparamos una estrategia legal sólida para presentar tu solicitud ante las autoridades migratorias.",
         slug: "visas",
         image: {
           data: {
@@ -365,9 +377,9 @@ const Services = () => {
     {
       id: 2,
       attributes: {
-        title: "Asistencia con la residencia permanente (Green Card)",
-        description: "Te guiamos en cada paso para que obtengas tu residencia sin complicaciones.",
-        expandedDescription: "Obtener la residencia permanente en los EE. UU. es un proceso largo y, en ocasiones, complicado. Como paralegal especializado en inmigración, te ayudaremos a completar tu solicitud de Green Card, asegurándonos de que todos los formularios estén correctamente llenados y presentados, y que cuentes con la documentación adecuada.",
+        title: "Residencia Permanente (Green Card)",
+        description: "Te representamos en el proceso para obtener la residencia permanente, protegiendo tus intereses desde la evaluación inicial hasta la decisión final.",
+        expandedDescription: "Obtener la residencia permanente puede ser uno de los pasos más importantes de tu proyecto de vida. Evaluamos tu elegibilidad, preparamos tu caso y te representamos durante todo el proceso para que avances con seguridad y confianza.",
         slug: "residencia",
         image: {
           data: {
@@ -381,9 +393,9 @@ const Services = () => {
     {
       id: 3,
       attributes: {
-        title: "Naturalización",
-        description: "Prepárate con nosotros para convertirte en ciudadano/a americano/a.",
-        expandedDescription: "Si ya tienes la residencia permanente y estás listo para dar el siguiente paso, te ayudaremos a completar el proceso de naturalización para convertirte en ciudadano/a americano/a. Te apoyaremos en la preparación de tu solicitud, en la recopilación de los documentos necesarios y en la preparación para la entrevista de ciudadanía.",
+        title: "Naturalización y Ciudadanía",
+        description: "Da el siguiente paso hacia la ciudadanía estadounidense con la representación y orientación de un abogado de inmigración.",
+        expandedDescription: "Convertirse en ciudadano de los Estados Unidos implica mucho más que presentar una solicitud. Revisamos tu historial migratorio, verificamos que cumplas con los requisitos legales y te preparamos para la entrevista y el examen de naturalización.",
         slug: "naturalizacion",
         image: {
           data: {
@@ -397,9 +409,9 @@ const Services = () => {
     {
       id: 4,
       attributes: {
-        title: "Consultas sobre asilo afirmativo",
-        description: "Te orientamos en el proceso de solicitud para que tu caso esté bien documentado.",
-        expandedDescription: "Si buscas asilo o protección en los EE. UU., te ayudaremos a comprender los requisitos del proceso y a completar las solicitudes pertinentes. Juntos nos aseguraremos de que tu solicitud esté correctamente presentada y respaldada con la información adecuada.",
+        title: "Asilo Afirmativo",
+        description: "Representamos a personas que buscan protección en los Estados Unidos mediante solicitudes de asilo afirmativo ante USCIS.",
+        expandedDescription: "Cada caso de asilo es único. En Mardini Law Firm analizamos los hechos, evaluamos la viabilidad jurídica de la solicitud y desarrollamos una estrategia sólida para presentar tu caso. Te representamos durante todo el proceso, preparando la evidencia y los argumentos necesarios para proteger tus derechos y buscar la protección que ofrece la ley estadounidense.",
         slug: "asilo",
         image: {
           data: {
@@ -413,9 +425,25 @@ const Services = () => {
     {
       id: 5,
       attributes: {
-        title: "Visa VAWA (Violence Against Women Act)",
-        description: "Protegemos tu derecho a permanecer en EE.UU. si has sido víctima de abuso.",
-        expandedDescription: "Es un recurso legal en los Estados Unidos diseñado para proteger a personas que han sido víctimas de abuso por parte de su cónyuge, padre/madre o hijo ciudadano estadounidense o residente legal. Este programa ofrece la oportunidad de solicitar protección y regularizar su estatus migratorio de manera independiente, sin necesidad de que el agresor participe en el proceso.",
+        title: "Asilo Defensivo",
+        description: "Representación legal en solicitudes de asilo presentadas ante las Cortes de Inmigración como defensa en procesos de deportación.",
+        expandedDescription: "Cuando una persona enfrenta un proceso de remoción, contar con una defensa legal sólida puede marcar la diferencia. Representamos a nuestros clientes ante los Jueces de Inmigración (EOIR), preparando cada caso con una estrategia integral, evidencia bien documentada y argumentos jurídicos enfocados en obtener la protección migratoria disponible bajo la ley.",
+        slug: "asilo-defensivo",
+        image: {
+          data: {
+            attributes: {
+              url: "/images/statue-of-liberty-267948_1280.jpg"
+            }
+          }
+        }
+      }
+    },
+    {
+      id: 6,
+      attributes: {
+        title: "Visa VAWA",
+        description: "Representación legal para víctimas de abuso que pueden calificar para beneficios migratorios bajo la Ley de Violencia contra la Mujer (VAWA).",
+        expandedDescription: "La ley permite que determinadas víctimas de abuso soliciten beneficios migratorios sin depender de su agresor. En Mardini Law Firm manejamos estos casos con absoluta confidencialidad, sensibilidad y compromiso, brindando representación legal personalizada para proteger tus derechos y ayudarte a construir un futuro seguro en los Estados Unidos.",
         slug: "vawa",
         image: {
           data: {
@@ -427,11 +455,11 @@ const Services = () => {
       }
     },
     {
-      id: 6,
+      id: 7,
       attributes: {
-        title: "Visa U (Nonimmigrant Visa for Victims of Crimes)",
-        description: "Protegemos tu derecho a permanecer en EE.UU. si has sido víctima de un crimen.",
-        expandedDescription: "Es un recurso legal en los Estados Unidos diseñado para proteger a personas que han sido víctimas de delitos graves, como abuso físico, violencia doméstica, tráfico humano, entre otros. Este programa te permite solicitar protección y regularizar tu estatus migratorio si cooperas con las autoridades en la investigación o enjuiciamiento del delito cometido en tu contra.",
+        title: "Visa U",
+        description: "Representación legal para víctimas de determinados delitos que pueden calificar para protección migratoria en los Estados Unidos.",
+        expandedDescription: "La Visa U está dirigida a personas que han sido víctimas de ciertos delitos y han colaborado, o están dispuestas a colaborar, con las autoridades en la investigación o el procesamiento del delito. Evaluamos cuidadosamente tu caso, reunimos la evidencia necesaria y te representamos durante todo el proceso para buscar la protección migratoria que contempla la ley.",
         slug: "visa-u",
         image: {
           data: {
@@ -518,7 +546,7 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            Te acompañamos en tu proceso migratorio. Sabemos lo desafiante que puede ser un trámite de inmigración. Por eso en Immigration For US, ofrecemos acompañamiento en la preparación y presentación de documentos migratorios ante el USCIS para una amplia variedad de trámites migratorios en los Estados Unidos; estamos aquí para guiarte en cada paso del proceso. Te garantizamos que nuestro equipo de expertos te brindará un servicio confiable y personalizado, asegurando que tu solicitud cumpla con los requisitos establecidos.
+            En Mardini Law Firm, entendemos que cada caso de inmigración representa el futuro de una persona o de una familia. Por eso brindamos representación legal estratégica, personalizada y comprometida en cada etapa del proceso migratorio. Representamos a nuestros clientes ante el Servicio de Ciudadanía e Inmigración de los Estados Unidos (USCIS), las Cortes de Inmigración (EOIR) y la Junta de Apelaciones de Inmigración (BIA), ofreciendo soluciones legales adaptadas a las necesidades de cada caso. Nuestro compromiso es proteger tus derechos, mantenerte informado y trabajar contigo para alcanzar la mejor solución migratoria posible.
           </motion.p>
         </motion.div>
 
@@ -553,6 +581,9 @@ const Services = () => {
                   break;
                 case 'asilo':
                   imageUrl = "/images/brooklyn-bridge-3717553_1280.jpg";
+                  break;
+                case 'asilo-defensivo':
+                  imageUrl = "/images/statue-of-liberty-267948_1280.jpg";
                   break;
                 case 'vawa':
                   imageUrl = "/images/shot-two-american-us-flags-high-rise-building.jpg";
@@ -593,11 +624,8 @@ const Services = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <p className="text-lg text-gray-600 mb-4">
-            ¿No encuentras el servicio que necesitas? Contáctanos para una consulta personalizada.
-          </p>
-          <p className="text-sm text-gray-500 italic mb-6 max-w-3xl mx-auto">
-            Nota: Como paralegales, nuestro rol es preparar y presentar los documentos ante el USCIS. No ofrecemos asesoría legal ni representación en audiencias o casos complejos.
+          <p className="text-lg text-gray-600 mb-4 max-w-3xl mx-auto">
+            Estamos aquí para ayudarte. En Mardini Law Firm entendemos que las decisiones migratorias pueden cambiar el futuro de una persona y su familia. Permítenos evaluar tu caso y brindarte una estrategia legal diseñada para proteger tus derechos y alcanzar tus objetivos.
           </p>
           <motion.a
             href="#contacto"
@@ -605,7 +633,7 @@ const Services = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.98 }}
           >
-            <span>Consulta Gratuita</span>
+            <span>Agenda una Consulta</span>
             <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
             </svg>

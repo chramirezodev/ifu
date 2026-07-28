@@ -59,8 +59,8 @@ const ContactoPage = () => {
   return (
     <>
       <Head>
-        <title>Contacto | Immigration For US</title>
-        <meta name="description" content="Contacta con Immigration For US para tu proceso migratorio. Estamos aquí para ayudarte." />
+        <title>Contacto | Mardini Law Firm</title>
+        <meta name="description" content="Contacta con Mardini Law Firm para tu proceso migratorio. Estamos aquí para ayudarte." />
       </Head>
       <Layout>
         {/* Hero Section */}

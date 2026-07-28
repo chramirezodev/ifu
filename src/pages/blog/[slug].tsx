@@ -72,7 +72,7 @@ const blogPosts: BlogPost[] = [
       </ul>
     `,
     publishedAt: '2024-12-15',
-    author: 'Carolina Palisa',
+    author: 'Roger Mardini, Esq.',
     category: 'Residencia Permanente',
     readTime: '8 min',
     image: '/images/blog/green-card-guide.jpg',
@@ -102,7 +102,7 @@ export default function BlogPost({ post }: { post: BlogPost }) {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "Immigration For US",
+      "name": "Mardini Law Firm",
       "logo": {
         "@type": "ImageObject",
         "url": `${process.env.NEXT_PUBLIC_SITE_URL}/images/Logos/logo.png`
@@ -202,7 +202,7 @@ export default function BlogPost({ post }: { post: BlogPost }) {
                 href="/contacto"
                 className="bg-white text-usa-blue px-8 py-3 rounded-lg font-bold hover:bg-gray-100 transition-colors duration-300 inline-block"
               >
-                Consulta Gratuita
+                Agenda una Consulta
               </Link>
             </div>
           </section>

@@ -1,8 +1,8 @@
 {
   "welcome": {
-    "title": "Welcome to Immigration for US",
-    "description1": "We specialize in providing comprehensive immigration services to help you achieve your goals in the United States.",
-    "description2": "Our team of experts is here to guide you every step of the way.",
+    "title": "Welcome to Mardini Law Firm",
+    "description1": "Led by Roger Mardini, Esq., Mardini Law Firm provides immigration legal representation to help you achieve your goals in the United States.",
+    "description2": "Our legal team guides you every step of the way with professional, personalized counsel.",
     "button": "Learn More"
   },
   "hero": {
@@ -20,7 +20,7 @@
     "slogan5": "Specialized Legal Assistance",
     "subSlogan5": "We accompany you every step of the way",
     "cta": {
-      "start": "CONTACT US",
+      "start": "SPEAK WITH AN ATTORNEY",
       "services": "OUR SERVICES"
     }
   },
@@ -41,7 +41,7 @@
       "close": "Close menu"
     },
     "logo": {
-      "alt": "Immigration For US Logo"
+      "alt": "Mardini Law Firm Logo"
     }
   },
   "services": {
@@ -68,6 +68,9 @@
     "title": "Contact Us",
     "subtitle": "Get in Touch",
     "description": "We're here to help with your immigration needs",
+    "email": "info@mardinilawfirm.com",
+    "phone": "+1 (754) 234-4284",
+    "whatsapp": "+1 (754) 234-4284",
     "form": {
       "name": "Full Name",
       "email": "Email Address",
@@ -80,7 +83,7 @@
     "title": "Legal Notice",
     "intro": {
       "p1": "Access to this website implies the condition of user and acceptance and knowledge of the following terms of use, so we recommend reading and understanding them before using the site. If you are not willing to accept the Terms and Conditions of this Agreement, please do not access or use this website or post any content.",
-      "p2": "You understand that this website is owned by Immigration for US, including all intellectual and industrial property rights that derive from or are included in it, without you having the right to use them, except under the terms established in these Terms of Use. We reserve the right to deny or terminate your access to the Website at our discretion.",
+      "p2": "You understand that this website is owned by Mardini Law Firm, including all intellectual and industrial property rights that derive from or are included in it, without you having the right to use them, except under the terms established in these Terms of Use. We reserve the right to deny or terminate your access to the Website at our discretion.",
       "p3": "The provision of this website is free and, on this basis, we have no maintenance or support service obligation, so we are not responsible for any damage or harm you may suffer as a result of a failure arising from the maintenance or updating of the website.",
       "p4": "The Owner of this website assumes no responsibility as a direct or indirect consequence of any action or omission that you make based on the information, services, or other material located on this website."
     },
@@ -122,9 +125,9 @@
     "contact": {
       "title": "Contact",
       "intro": "For any questions about our policies, you can contact us through:",
-      "whatsapp": "WhatsApp: +1 (954) 588 4018",
-      "email": "Email: cpalisa@immigrationfor-us.com",
-      "location": "Location: 7224 NW 116th Way, Parkland, FL. 33076",
+      "whatsapp": "WhatsApp: +1 (754) 234-4284",
+      "email": "Email: info@mardinilawfirm.com",
+      "location": "Location: 7224 NW 116th Way, Parkland, FL 33076",
       "hours": "Business Hours: Monday to Friday from 8 am to 6 pm ET."
     },
     "footer": {

@@ -7,31 +7,39 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Tokens legacy (valores Mardini) para no romper clases existentes
         'usa-blue': {
-          DEFAULT: '#3C3B6E',
-          light: '#5C5B9E',
-          dark: '#2C2B5E',
+          DEFAULT: '#0D1B3D',
+          light: '#1A2F5C',
+          dark: '#081229',
         },
         'usa-red': {
-          DEFAULT: '#B22234',
-          light: '#D24254',
-          dark: '#921224',
+          DEFAULT: '#A6A6A6',
+          light: '#C0C0C0',
+          dark: '#8A8A8A',
         },
         'usa-white': '#FFFFFF',
-        
-        // Variantes y tonos adicionales
-        'usa-blue-light': '#4E4D8C',
-        'usa-blue-dark': '#2A2950',
-        'usa-red-light': '#D84254',
-        'usa-red-dark': '#8C1A28',
-        
-        // Colores para Whatsapp
+        'usa-blue-light': '#1A2F5C',
+        'usa-blue-dark': '#081229',
+        'usa-red-light': '#C0C0C0',
+        'usa-red-dark': '#8A8A8A',
+        // Tokens de marca Mardini
+        'brand-navy': {
+          DEFAULT: '#0D1B3D',
+          light: '#1A2F5C',
+          dark: '#081229',
+        },
+        'brand-silver': {
+          DEFAULT: '#A6A6A6',
+          light: '#C0C0C0',
+          dark: '#8A8A8A',
+        },
         'whatsapp-green': '#25D366',
         'whatsapp-dark': '#1A9247',
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        serif: ['Merriweather', 'Georgia', 'serif'],
+        sans: ['Montserrat', 'system-ui', 'sans-serif'],
+        serif: ['Cinzel', 'Georgia', 'serif'],
       },
       backgroundImage: {
         'hero-pattern': "url('/images/usa-flag-bg.jpg')",
@@ -56,4 +64,4 @@ module.exports = {
   plugins: [
     require('@tailwindcss/typography'),
   ],
-} 
+}
