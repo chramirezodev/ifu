@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { contactInfo } from '@/constants';
+import { contactInfo, footerServices, firmInfo } from '@/constants';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -11,17 +11,17 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 max-w-6xl py-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
           <div className="flex flex-col justify-start items-start">
-            <div className="bg-white rounded-md p-2 mb-4">
+            <div className="bg-white rounded-md p-3 mb-4">
               <Image 
                 src="/images/Logos/mardini-logo.jpeg"
                 alt="Mardini Law Firm Logo"
-                width={160}
-                height={60}
-                className="w-auto h-14"
+                width={200}
+                height={80}
+                className="w-auto h-16 object-contain"
               />
             </div>
             <p className="text-gray-300 mb-2 font-semibold text-sm">
-              Representación legal confiable · Soluciones efectivas · Tu futuro, nuestra prioridad
+              {firmInfo.slogan}
             </p>
             <p className="text-brand-silver text-sm">Immigration Attorneys</p>
           </div>
@@ -33,6 +33,16 @@ const Footer: React.FC = () => {
               <li><Link href="/#nosotros" className="text-gray-300 hover:text-white transition-colors">Nosotros</Link></li>
               <li><Link href="/#servicios" className="text-gray-300 hover:text-white transition-colors">Servicios</Link></li>
               <li><Link href="/#por-que-elegirnos" className="text-gray-300 hover:text-white transition-colors">Por qué elegirnos</Link></li>
+              <li>
+                <a
+                  href={contactInfo.paymentUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-white transition-colors"
+                >
+                  Paga Aquí
+                </a>
+              </li>
               <li><Link href="/#contacto" className="text-gray-300 hover:text-white transition-colors">Contacto</Link></li>
             </ul>
           </div>
@@ -40,13 +50,13 @@ const Footer: React.FC = () => {
           <div>
             <h3 className="text-white font-semibold mb-4">Servicios</h3>
             <ul className="space-y-2">
-              <li><Link href="/#servicios" className="text-gray-300 hover:text-white transition-colors">Visas</Link></li>
-              <li><Link href="/#servicios" className="text-gray-300 hover:text-white transition-colors">Green Card</Link></li>
-              <li><Link href="/#servicios" className="text-gray-300 hover:text-white transition-colors">Naturalización</Link></li>
-              <li><Link href="/#servicios" className="text-gray-300 hover:text-white transition-colors">Asilo Afirmativo</Link></li>
-              <li><Link href="/#servicios" className="text-gray-300 hover:text-white transition-colors">Asilo Defensivo</Link></li>
-              <li><Link href="/#servicios" className="text-gray-300 hover:text-white transition-colors">VAWA</Link></li>
-              <li><Link href="/#servicios" className="text-gray-300 hover:text-white transition-colors">Visa U</Link></li>
+              {footerServices.map((service) => (
+                <li key={service}>
+                  <Link href="/#servicios" className="text-gray-300 hover:text-white transition-colors text-sm">
+                    {service}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 

@@ -12,28 +12,23 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    slogan: "Representación legal confiable.",
+    slogan: "Defensa sólida en cada etapa.",
     image: "/images/hero/slide1.jpg"
   },
   {
     id: 2,
-    slogan: "Tu futuro, nuestra prioridad.",
+    slogan: "Su futuro, nuestra prioridad.",
     image: "/images/hero/slide2.jpg"
   },
   {
     id: 3,
-    slogan: "Soluciones legales efectivas.",
+    slogan: "En inmigración, cada día cuenta.",
     image: "/images/hero/slide3.jpg"
   },
   {
     id: 4,
-    slogan: "Defensa sólida en cada etapa.",
+    slogan: "Confianza y respaldo legal para su caso.",
     image: "/images/hero/slide4.jpg"
-  },
-  {
-    id: 5,
-    slogan: "Abogados de inmigración a tu lado.",
-    image: "/images/hero/slide5.jpg"
   }
 ];
 
@@ -49,7 +44,6 @@ const Hero: React.FC = () => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
     }, 5000);
 
-    // Parallax effect on mouse move
     const handleMouseMove = (e: MouseEvent) => {
       const { clientX, clientY } = e;
       const x = (window.innerWidth / 2 - clientX) / 50;
@@ -76,14 +70,14 @@ const Hero: React.FC = () => {
             className="object-cover"
             priority
           />
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-black/40" />
         </div>
         <div className="relative z-10 text-center text-white px-4">
           <h1 className="text-5xl md:text-7xl font-bold mb-6">
-            Mardini Law Firm
+            Defensa sólida en cada etapa.
           </h1>
           <p className="text-xl md:text-2xl mb-8 max-w-4xl mx-auto">
-            Representación legal estratégica en inmigración ante USCIS, EOIR y BIA.
+            Sabemos que un proceso migratorio puede cambiar su futuro y el de su familia. Por eso, cada decisión importa.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -106,7 +100,6 @@ const Hero: React.FC = () => {
 
   return (
     <section id="inicio" className="relative h-screen w-full overflow-hidden">
-      {/* Carrusel de imágenes */}
       <AnimatePresence mode="wait">
         <motion.div
           key={currentSlide}
@@ -126,18 +119,16 @@ const Hero: React.FC = () => {
             className="object-cover"
             priority
           />
-          {/* Overlay con gradiente */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-black/35 to-black/55" />
         </motion.div>
       </AnimatePresence>
 
-      {/* Contenido */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-white px-4">
         <div className="text-center max-w-4xl mx-auto mb-6">
           <AnimatePresence mode="wait">
             <motion.h1 
               key={currentSlide}
-              className="text-5xl md:text-7xl font-bold mb-6 text-shadow-lg"
+              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-shadow-lg"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
@@ -146,23 +137,18 @@ const Hero: React.FC = () => {
               {slides[currentSlide].slogan}
             </motion.h1>
           </AnimatePresence>
-          {/* Texto fijo que no cambia entre slides */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             className="mb-8"
           >
-            <p className="text-xl md:text-2xl mb-2 text-shadow-md font-light">
-              Enfrentar un proceso migratorio puede generar incertidumbre, pero no tienes que hacerlo solo.
-            </p>
-            <p className="text-xl md:text-2xl text-shadow-md font-light">
-              En Mardini Law Firm encontrarás representación legal estratégica, comunicación clara y un acompañamiento cercano en cada etapa.
+            <p className="text-lg md:text-xl lg:text-2xl text-shadow-md font-light leading-relaxed">
+              Sabemos que un proceso migratorio puede cambiar su futuro y el de su familia. Por eso, cada decisión importa. En Mardini Law Firm ofrecemos atención personalizada, comunicación clara y el respaldo legal que usted necesita durante todo su proceso.
             </p>
           </motion.div>
         </div>
 
-        {/* Botones fijos con animación */}
         <motion.div 
           className="flex flex-col sm:flex-row gap-5 mt-6"
           initial={{ opacity: 0, y: 20 }}
@@ -187,7 +173,6 @@ const Hero: React.FC = () => {
           </motion.a>
         </motion.div>
 
-        {/* Indicadores del carrusel */}
         <div className="absolute bottom-10 left-0 right-0 flex justify-center gap-3">
           {slides.map((slide, index) => (
             <motion.button

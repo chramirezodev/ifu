@@ -7,6 +7,8 @@ export const contactInfo = {
   whatsapp: '+1 (754) 234-4284',
   whatsappNumber: '17542344284',
   whatsappAutoMessage: '¡Hola! Gracias por contactar a Mardini Law Firm. Hemos recibido tu mensaje y muy pronto un miembro de nuestro equipo se comunicará contigo. Si tu consulta es urgente, también puedes escribirnos a info@mardinilawfirm.com o llamarnos al (754) 234-4284.',
+  consultationWhatsAppMessage: 'Hola, me gustaría agendar una consulta con Mardini Law Firm.',
+  paymentUrl: process.env.NEXT_PUBLIC_PAYMENT_URL || 'https://secure.lawpay.com/pages/mardinilawfirm/operating',
   address: '7224 NW 116th Way, Parkland, FL 33076',
   website: 'https://immigrationfor-us.com',
   googleMapsUrl: 'https://www.google.com/maps/search/?api=1&query=7224+NW+116th+Way,+Parkland,+FL+33076',
@@ -48,5 +50,17 @@ export const firmInfo = {
   name: 'Mardini Law Firm',
   founder: 'Roger Mardini, Esq.',
   tagline: 'Immigration Attorneys',
-  slogan: 'Representación legal confiable • Soluciones efectivas • Tu futuro, nuestra prioridad'
+  slogan: 'Su futuro, nuestra prioridad'
 };
+
+export const footerServices = [
+  'Representación ante la Corte de Inmigración',
+  'Asilo Defensivo y Afirmativo',
+  'Residencia Permanente / Green Card',
+  'Visas y Procesos Migratorios',
+  'VAWA',
+  'Visa U',
+  'Ciudadanía y Naturalización',
+  'Apelaciones y Mociones',
+  'Fianzas de Inmigración / Immigration Bonds'
+];

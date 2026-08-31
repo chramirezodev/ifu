@@ -19,7 +19,7 @@ const reasons = [
     ),
     title: 'Experiencia en Litigio y Procesos Migratorios',
     description: 'Experiencia representando clientes ante USCIS, las Cortes de Inmigración (EOIR) y la Junta de Apelaciones de Inmigración (BIA).',
-    expandedDescription: 'Nuestra práctica abarca una amplia variedad de asuntos migratorios, desde solicitudes de beneficios ante USCIS hasta la representación en procesos de remoción, apelaciones y otros procedimientos complejos. Esa experiencia nos permite abordar cada caso con preparación y criterio jurídico.'
+    expandedDescription: 'La práctica incluye distintos asuntos migratorios, desde solicitudes ante USCIS hasta representación en procesos de remoción, asilo y apelaciones. Cada caso se prepara cuidadosamente, teniendo en cuenta los hechos, la documentación y las opciones legales disponibles.'
   },
   {
     icon: (
@@ -29,7 +29,7 @@ const reasons = [
     ),
     title: 'Atención Personalizada',
     description: 'Creemos que una buena representación comienza con una comunicación clara y accesible.',
-    expandedDescription: 'Nos tomamos el tiempo para escuchar tu historia, responder tus inquietudes y mantenerte informado sobre el avance de tu caso. Queremos que comprendas cada etapa del proceso y tomes decisiones con tranquilidad y confianza.'
+    expandedDescription: 'Cada caso y cada historia son diferentes. Nos tomamos el tiempo para conocer su situación, responder sus preguntas y mantenerlo informado sobre el avance de su caso. Una comunicación clara es fundamental para que usted comprenda el proceso y las decisiones que debe tomar.'
   },
   {
     icon: (
@@ -38,8 +38,8 @@ const reasons = [
       </svg>
     ),
     title: 'Compromiso',
-    description: 'Tu caso recibe la dedicación, el tiempo y la atención que merece.',
-    expandedDescription: 'Entendemos que detrás de cada expediente hay una persona, una familia y un proyecto de vida. Por eso asumimos cada representación con profesionalismo, ética y un compromiso genuino de buscar la mejor solución legal para nuestros clientes.'
+    description: 'Su caso recibe la dedicación, el tiempo y la atención que merece.',
+    expandedDescription: 'Detrás de cada caso hay una persona, una familia y decisiones que pueden tener un impacto importante en su futuro. Por eso, asumimos cada representación con seriedad, dedicación y responsabilidad, brindando a cada cliente la atención que su caso merece.'
   }
 ];
 
@@ -164,8 +164,7 @@ const WhyChooseUs = () => {
           transition={{ duration: 0.7 }}
         >
           <div className="grid grid-cols-1 lg:grid-cols-2">
-            <div className="relative h-80 lg:h-auto overflow-hidden">
-              <div className="absolute inset-0 bg-usa-blue/90 mix-blend-multiply" />
+            <div className="relative h-80 lg:h-auto overflow-hidden bg-slate-100">
               <Image 
                 src="/images/hands-3331229_1920_.jpg" 
                 alt="Equipo de Mardini Law Firm comprometido con tu defensa migratoria" 
@@ -174,10 +173,11 @@ const WhyChooseUs = () => {
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 loading="lazy"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/55 via-brand-navy/25 to-transparent" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="p-8 text-center">
-                  <h3 className="text-3xl font-bold text-white mb-4">TU FUTURO MERECE UNA DEFENSA SÓLIDA</h3>
-                  <p className="text-white/90 text-lg">
+                  <h3 className="text-3xl font-bold text-white mb-4 drop-shadow-md">TU FUTURO MERECE UNA DEFENSA SÓLIDA</h3>
+                  <p className="text-white text-lg drop-shadow-sm">
                     Profesionalismo, preparación y dedicación en cada representación.
                   </p>
                 </div>
