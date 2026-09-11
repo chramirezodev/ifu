@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
   const { t } = useTranslation('common');
 
   return (
-    <section id="inicio" className="relative min-h-screen w-full overflow-hidden flex items-center justify-center">
+    <section id="inicio" className="relative min-h-screen w-full overflow-hidden flex items-start justify-center">
       {/* Banner fijo: skyline Miami del cliente */}
       <div className="absolute inset-0">
         <Image
@@ -19,11 +19,11 @@ const Hero: React.FC = () => {
           sizes="100vw"
         />
         {/* Veladura suave para legibilidad del logo navy sobre el cielo */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/25 via-transparent to-brand-navy/35" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/30 via-white/10 to-brand-navy/35" />
       </div>
 
-      <div className="relative z-10 w-full px-4 py-28 md:py-32 flex flex-col items-center justify-center text-center">
-        {/* Lockup de marca según mockup del cliente */}
+      {/* Contenido más arriba para que el slogan quede sobre el cielo claro */}
+      <div className="relative z-10 w-full px-4 pt-10 md:pt-14 lg:pt-16 pb-24 flex flex-col items-center text-center">
         <motion.div
           className="flex flex-col items-center"
           initial={{ opacity: 0, y: 18 }}
@@ -54,14 +54,13 @@ const Hero: React.FC = () => {
             <span className="flex-1 h-px bg-brand-navy/80" />
           </div>
 
-          <p className="mt-4 md:mt-5 font-sans text-brand-navy text-sm sm:text-base md:text-lg tracking-[0.22em] uppercase">
+          <p className="mt-5 md:mt-6 font-sans text-brand-navy text-base sm:text-lg md:text-xl lg:text-2xl tracking-[0.2em] uppercase drop-shadow-sm">
             Su futuro, <span className="font-bold">nuestra prioridad</span>
           </p>
         </motion.div>
 
-        {/* CTAs del mockup */}
         <motion.div
-          className="mt-10 md:mt-12 flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="mt-12 md:mt-16 lg:mt-20 flex flex-col sm:flex-row items-center justify-center gap-4"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}

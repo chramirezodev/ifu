@@ -44,14 +44,14 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-24">
+        <div className="flex justify-between items-center h-28 md:h-32">
           <Link href="/" className="flex-shrink-0" aria-label={t('nav.aria.home')}>
             <Image
               src="/images/Logos/mardini-logo.jpeg"
               alt={t('nav.logo.alt')}
-              width={320}
-              height={100}
-              className="h-[4.5rem] md:h-20 w-auto object-contain"
+              width={420}
+              height={140}
+              className="h-24 md:h-28 w-auto object-contain"
               priority
             />
           </Link>
