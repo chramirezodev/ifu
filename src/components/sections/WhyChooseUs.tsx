@@ -166,14 +166,14 @@ const WhyChooseUs = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2">
             <div className="relative h-80 lg:h-auto overflow-hidden bg-slate-100">
               <Image 
-                src="/images/hands-3331229_1920_.jpg" 
-                alt="Equipo de Mardini Law Firm comprometido con tu defensa migratoria" 
+                src="/images/hero/slide2.jpg" 
+                alt="Equipo de Mardini Law Firm comprometido con su defensa migratoria" 
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 loading="lazy"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/55 via-brand-navy/25 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-navy/50 via-brand-navy/20 to-transparent" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="p-8 text-center">
                   <h3 className="text-3xl font-bold text-white mb-4 drop-shadow-md">TU FUTURO MERECE UNA DEFENSA SÓLIDA</h3>

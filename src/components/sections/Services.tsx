@@ -209,24 +209,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             className={`object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
             loading="lazy"
             onError={(e) => {
-              // Si hay un error al cargar la imagen, usar un valor por defecto
-              console.error(`Error cargando imagen para ${slug}:`, e);
               const imgElement = e.currentTarget as HTMLImageElement;
-              
-              // Redirigir a una imagen de la Estatua de la Libertad según el slug
-              if (slug === 'visas') {
-                imgElement.src = "/images/new-york-3551125_1280.jpg";
-              } else if (slug === 'residencia') {
-                imgElement.src = "/images/statue-of-liberty-1758290_1280.jpg";
-              } else if (slug === 'naturalizacion') {
-                imgElement.src = "/images/statue-of-liberty-992552_1280.jpg";
-              } else if (slug === 'asilo') {
-                imgElement.src = "/images/brooklyn-bridge-3717553_1280.jpg";
-              } else if (slug === 'vawa') {
-                imgElement.src = "/images/statue-of-liberty-3551121_1280.jpg";
-              } else {
-                imgElement.src = "/images/new-york-3551125_1280.jpg";
-              }
+              imgElement.src = "/images/statue-of-liberty-1758290_1280.jpg";
             }}
           />
           {/* Overlay con gradiente para mejor legibilidad */}
@@ -411,7 +395,7 @@ const Services = () => {
         image: {
           data: {
             attributes: {
-              url: "/images/statue-of-liberty-992552_1280.jpg"
+              url: "/images/america-1068986_1280.jpg"
             }
           }
         }
@@ -427,7 +411,7 @@ const Services = () => {
         image: {
           data: {
             attributes: {
-              url: "/images/statue-of-liberty-3551121_1280.jpg"
+              url: "/images/shot-two-american-us-flags-high-rise-building.jpg"
             }
           }
         }
@@ -443,7 +427,7 @@ const Services = () => {
         image: {
           data: {
             attributes: {
-              url: "/images/statue-of-liberty-992552_1280.jpg"
+              url: "/images/statue-of-liberty-3551121_1280.jpg"
             }
           }
         }
@@ -459,7 +443,7 @@ const Services = () => {
         image: {
           data: {
             attributes: {
-              url: "/images/new-york-3551125_1280.jpg"
+              url: "/images/writing-1149962_1920.jpg"
             }
           }
         }
@@ -475,7 +459,7 @@ const Services = () => {
         image: {
           data: {
             attributes: {
-              url: "/images/new-york-3551125_1280.jpg"
+              url: "/images/luggage-1149289.jpg"
             }
           }
         }
@@ -491,7 +475,7 @@ const Services = () => {
         image: {
           data: {
             attributes: {
-              url: "/images/shot-two-american-us-flags-high-rise-building.jpg"
+              url: "/images/old-bridge-with-ropes-american-flag.jpg"
             }
           }
         }
@@ -499,7 +483,19 @@ const Services = () => {
     }
   ];
 
-  // Preferir siempre el catálogo local actualizado del PPT (Strapi queda como fallback futuro)
+  const serviceImageBySlug: Record<string, string> = {
+    'corte-inmigracion': '/images/statue-of-liberty-267948_1280.jpg',
+    asilo: '/images/brooklyn-bridge-3717553_1280.jpg',
+    residencia: '/images/skyscraper-3717555_1280 (1).jpg',
+    naturalizacion: '/images/america-1068986_1280.jpg',
+    vawa: '/images/shot-two-american-us-flags-high-rise-building.jpg',
+    'visa-u': '/images/statue-of-liberty-3551121_1280.jpg',
+    apelaciones: '/images/writing-1149962_1920.jpg',
+    visas: '/images/luggage-1149289.jpg',
+    fianzas: '/images/old-bridge-with-ropes-american-flag.jpg',
+  };
+
+  // Catálogo de servicios según el PPT del cliente
   const displayServices = defaultServices;
 
   if (!isClient) {
@@ -577,37 +573,10 @@ const Services = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
           {displayServices.map((service) => {
               const { title, description, expandedDescription, slug } = service.attributes;
-              const imageData = service.attributes.image?.data?.attributes;
-              
-              let imageUrl = imageData?.url || '';
-
-              switch (slug) {
-                case 'visas':
-                case 'apelaciones':
-                  imageUrl = "/images/new-york-3551125_1280.jpg";
-                  break;
-                case 'residencia':
-                  imageUrl = "/images/skyscraper-3717555_1280 (1).jpg";
-                  break;
-                case 'naturalizacion':
-                  imageUrl = "/images/statue-of-liberty-992552_1280.jpg";
-                  break;
-                case 'asilo':
-                  imageUrl = "/images/brooklyn-bridge-3717553_1280.jpg";
-                  break;
-                case 'corte-inmigracion':
-                  imageUrl = "/images/statue-of-liberty-267948_1280.jpg";
-                  break;
-                case 'vawa':
-                  imageUrl = "/images/shot-two-american-us-flags-high-rise-building.jpg";
-                  break;
-                case 'fianzas':
-                  imageUrl = "/images/old-bridge-with-ropes-american-flag.jpg";
-                  break;
-                default:
-                  imageUrl = "/images/statue-of-liberty-267948_1280.jpg";
-              }
-
+              const imageUrl =
+                serviceImageBySlug[slug] ||
+                service.attributes.image?.data?.attributes?.url ||
+                '/images/statue-of-liberty-1758290_1280.jpg';
               const image = imageUrl.startsWith('/images/') ? imageUrl : getStrapiMedia(imageUrl);
               const icon = serviceIcons[slug as keyof typeof serviceIcons];
               

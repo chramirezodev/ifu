@@ -49,9 +49,9 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             <Image
               src="/images/Logos/mardini-logo.jpeg"
               alt={t('nav.logo.alt')}
-              width={280}
-              height={90}
-              className="h-16 md:h-20 w-auto object-contain"
+              width={320}
+              height={100}
+              className="h-[4.5rem] md:h-20 w-auto object-contain"
               priority
             />
           </Link>
