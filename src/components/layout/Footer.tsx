@@ -11,13 +11,13 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 max-w-6xl py-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
           <div className="flex flex-col justify-start items-start">
-            <div className="bg-white rounded-md p-3 mb-4">
+            <div className="bg-white rounded-md p-3 mb-4 w-full max-w-[280px]">
               <Image 
-                src="/images/Logos/mardini-logo.jpeg"
+                src="/images/Logos/mardini-logo.png"
                 alt="Mardini Law Firm Logo"
-                width={200}
-                height={80}
-                className="w-auto h-16 object-contain"
+                width={1024}
+                height={341}
+                className="w-full h-auto object-contain"
               />
             </div>
             <p className="text-gray-300 mb-2 font-semibold text-sm">

@@ -6,7 +6,7 @@ const defaultMetaTags = {
   title: 'Mardini Law Firm — Abogados de Inmigración en Estados Unidos',
   description: 'Representación legal estratégica en inmigración ante USCIS, EOIR y BIA. Roger Mardini, Esq. — Immigration Attorneys en Parkland, Florida.',
   keywords: 'abogado inmigración, immigration attorney, USCIS, EOIR, BIA, green card, naturalización, asilo, VAWA, visa U, Mardini Law Firm, Florida',
-  image: '/images/Logos/mardini-logo.jpeg',
+  image: '/images/Logos/mardini-logo.png',
   twitterHandle: '@mardinilawfirm',
   locale: 'es_ES'
 };
@@ -73,8 +73,8 @@ const SEO = ({
     "name": "Mardini Law Firm",
     "description": description,
     "url": baseUrl,
-    "logo": `${baseUrl}/images/Logos/mardini-logo.jpeg`,
-    "image": ogData.image || `${baseUrl}/images/Logos/mardini-logo.jpeg`,
+    "logo": `${baseUrl}/images/Logos/mardini-logo.png`,
+    "image": ogData.image || `${baseUrl}/images/Logos/mardini-logo.png`,
     "telephone": "+1-754-234-4284",
     "email": "info@mardinilawfirm.com",
     "address": {

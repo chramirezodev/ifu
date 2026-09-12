@@ -43,20 +43,20 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-28 md:h-32">
-          <Link href="/" className="flex-shrink-0" aria-label={t('nav.aria.home')}>
+      <nav className="w-full px-3 sm:px-5 lg:px-6">
+        <div className="flex justify-between items-center gap-3 h-28 md:h-32">
+          <Link href="/" className="min-w-0 flex-1 lg:flex-none lg:basis-[48%] lg:max-w-[620px]" aria-label={t('nav.aria.home')}>
             <Image
-              src="/images/Logos/mardini-logo.jpeg"
+              src="/images/Logos/mardini-logo.png"
               alt={t('nav.logo.alt')}
-              width={420}
-              height={140}
-              className="h-24 md:h-28 w-auto object-contain"
+              width={1024}
+              height={341}
+              className="w-full h-auto max-h-24 md:max-h-28 object-contain object-left"
               priority
             />
           </Link>
 
-          <div className="hidden lg:flex lg:items-center lg:space-x-5">
+          <div className="hidden lg:flex lg:items-center lg:justify-end lg:flex-1 lg:min-w-0 lg:gap-x-3 xl:gap-x-4">
             {navigation.map((item) =>
               item.external ? (
                 <a
@@ -64,7 +64,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-usa-blue text-white hover:bg-usa-blue-dark px-4 py-2 rounded-md text-sm font-semibold transition-colors duration-200 shadow-sm"
+                  className="bg-usa-blue text-white hover:bg-usa-blue-dark px-3 py-2 rounded-md text-xs xl:text-sm font-semibold transition-colors duration-200 shadow-sm whitespace-nowrap"
                 >
                   {t(item.translationKey, { defaultValue: 'PAGA AQUÍ' })}
                 </a>
@@ -72,7 +72,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-gray-900 hover:text-usa-blue px-2 py-2 text-sm font-medium transition-colors duration-200 ${
+                  className={`text-gray-900 hover:text-usa-blue px-1.5 py-2 text-xs xl:text-sm font-medium transition-colors duration-200 whitespace-nowrap ${
                     activeSection === item.label ? 'text-usa-blue' : ''
                   }`}
                 >
@@ -81,7 +81,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
               )
             )}
             
-            <div className="flex items-center space-x-2 ml-2">
+            <div className="flex items-center space-x-2 ml-1 flex-shrink-0">
               <button
                 onClick={() => {
                   i18n.changeLanguage('es');
