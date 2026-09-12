@@ -45,13 +45,13 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
     <header className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
       <nav className="w-full px-3 sm:px-5 lg:px-6">
         <div className="flex justify-between items-center gap-3 h-28 md:h-32">
-          <Link href="/" className="min-w-0 flex-1 lg:flex-none lg:basis-[48%] lg:max-w-[620px]" aria-label={t('nav.aria.home')}>
+          <Link href="/" className="min-w-0 flex-1 lg:flex-none lg:basis-[43%] lg:max-w-[558px]" aria-label={t('nav.aria.home')}>
             <Image
               src="/images/Logos/mardini-logo.png"
               alt={t('nav.logo.alt')}
               width={1024}
               height={341}
-              className="w-full h-auto max-h-24 md:max-h-28 object-contain object-left"
+              className="w-full h-auto max-h-[5.4rem] md:max-h-[6.3rem] object-contain object-left"
               priority
             />
           </Link>
