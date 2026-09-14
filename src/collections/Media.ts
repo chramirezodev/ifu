@@ -22,12 +22,25 @@ export const Media: CollectionConfig = {
       type: 'text',
       required: true,
       localized: true,
+      defaultValue: 'Imagen del sitio',
       admin: {
         description:
-          'Texto breve que describe la foto (ej. “Skyline de Miami”). Mejora SEO y accesibilidad.',
+          'Obligatorio. Ej. “Logo Mardini Law Firm”. Si no lo completa, no podrá guardar.',
       },
     },
   ],
+  hooks: {
+    beforeValidate: [
+      ({ data }) => {
+        if (data && !data.alt) {
+          data.alt = data.filename
+            ? String(data.filename).replace(/\.[^.]+$/, '').replace(/[_-]+/g, ' ')
+            : 'Imagen del sitio'
+        }
+        return data
+      },
+    ],
+  },
   upload: {
     staticDir: 'media',
     mimeTypes: ['image/jpeg', 'image/png', 'image/webp', 'image/gif'],
@@ -37,12 +50,14 @@ export const Media: CollectionConfig = {
         width: 400,
         height: 300,
         position: 'centre',
+        withoutEnlargement: true,
       },
       {
         name: 'card',
         width: 800,
         height: 600,
         position: 'centre',
+        withoutEnlargement: true,
       },
     ],
   },

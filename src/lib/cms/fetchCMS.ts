@@ -163,6 +163,10 @@ export async function fetchCMSData(locale: Locale = 'es'): Promise<CMSData> {
           siteSettings.googleMapsUrl || fallbackCMS.siteSettings.googleMapsUrl,
         mapEmbedUrl:
           siteSettings.mapEmbedUrl || fallbackCMS.siteSettings.mapEmbedUrl,
+        logoUrl: mediaUrl(
+          siteSettings.logo,
+          fallbackCMS.siteSettings.logoUrl,
+        ),
         socialLinks:
           (siteSettings.socialLinks as { platform: string; url: string }[])?.length > 0
             ? (siteSettings.socialLinks as { platform: string; url: string }[])

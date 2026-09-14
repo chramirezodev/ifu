@@ -43,11 +43,11 @@ export const SiteSettings: GlobalConfig = {
             },
             {
               name: 'logo',
-              label: 'Logo',
+              label: 'Logo del sitio (menú y pie de página)',
               type: 'upload',
               relationTo: 'media',
               admin: {
-                description: IMG.logo,
+                description: `${IMG.logo} Se muestra en el menú superior y en el pie de página.`,
               },
             },
           ],

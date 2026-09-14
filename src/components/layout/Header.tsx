@@ -23,6 +23,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   const router = useRouter();
   const { t, i18n } = useTranslation('common');
   const { siteSettings } = useCMS();
+  const logoSrc = siteSettings.logoUrl || '/images/Logos/mardini-logo.png';
 
   const navigation: NavItem[] = [
     { label: 'inicio', href: '#inicio', translationKey: 'nav.home' },
@@ -48,7 +49,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
         <div className="flex justify-between items-center gap-3 h-28 md:h-32">
           <Link href="/" className="min-w-0 flex-1 lg:flex-none lg:basis-[43%] lg:max-w-[558px]" aria-label={t('nav.aria.home')}>
             <Image
-              src="/images/Logos/mardini-logo.png"
+              src={logoSrc}
               alt={t('nav.logo.alt')}
               width={1024}
               height={341}

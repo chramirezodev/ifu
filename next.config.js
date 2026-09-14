@@ -18,6 +18,16 @@ const nextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'ifu.vercel.app',
+        pathname: '/api/media/file/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.vercel.app',
+        pathname: '/api/media/file/**',
+      },
+      {
+        protocol: 'https',
         hostname: '**.public.blob.vercel-storage.com',
       },
     ],

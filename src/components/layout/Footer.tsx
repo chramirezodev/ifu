@@ -8,6 +8,7 @@ const Footer: React.FC = () => {
   const { siteSettings } = useCMS();
   const contactInfo = siteSettings;
   const footerServices = siteSettings.footerServiceLabels;
+  const logoSrc = siteSettings.logoUrl || '/images/Logos/mardini-logo.png';
   const firmInfo = {
     slogan: siteSettings.slogan,
     name: siteSettings.firmName,
@@ -20,8 +21,8 @@ const Footer: React.FC = () => {
           <div className="flex flex-col justify-start items-start">
             <div className="bg-white rounded-md p-3 mb-4 w-full max-w-[280px]">
               <Image 
-                src="/images/Logos/mardini-logo.png"
-                alt="Mardini Law Firm Logo"
+                src={logoSrc}
+                alt={`${firmInfo.name || 'Mardini Law Firm'} Logo`}
                 width={1024}
                 height={341}
                 className="w-full h-auto object-contain"

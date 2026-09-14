@@ -22,6 +22,7 @@ export const fallbackCMS: CMSData = {
       'https://www.google.com/maps/search/?api=1&query=7224+NW+116th+Way,+Parkland,+FL+33076',
     mapEmbedUrl:
       'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3576.8!2d-80.24!3d26.31!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9080e0e0e0e0e%3A0x0!2s7224%20NW%20116th%20Way%2C%20Parkland%2C%20FL%2033076!5e0!3m2!1ses!2sus!4v1700000000000!5m2!1ses!2sus',
+    logoUrl: '/images/Logos/mardini-logo.png',
     socialLinks: [{ platform: 'whatsapp', url: 'https://wa.me/17542344284' }],
     footerServiceLabels: [
       'Representación ante la Corte de Inmigración',

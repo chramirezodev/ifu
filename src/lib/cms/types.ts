@@ -64,6 +64,7 @@ export type CMSSiteSettings = {
   paymentUrl: string
   googleMapsUrl: string
   mapEmbedUrl: string
+  logoUrl: string
   socialLinks: { platform: string; url: string }[]
   footerServiceLabels: string[]
 }
