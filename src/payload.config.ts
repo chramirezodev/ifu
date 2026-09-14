@@ -1,5 +1,7 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
 import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { es } from '@payloadcms/translations/languages/es'
+import { en } from '@payloadcms/translations/languages/en'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
@@ -29,8 +31,16 @@ export default buildConfig({
       baseDir: path.resolve(dirname),
     },
     meta: {
-      titleSuffix: '— Mardini Law Firm CMS',
+      titleSuffix: '— Mardini Law Firm',
+      description: 'Panel para editar textos e imágenes del sitio web',
     },
+    components: {
+      beforeDashboard: ['/components/admin/BeforeDashboard#BeforeDashboard'],
+    },
+  },
+  i18n: {
+    supportedLanguages: { es, en },
+    fallbackLanguage: 'es',
   },
   collections: [Users, Media, Services, Testimonials, Faqs, Posts],
   globals: [
@@ -63,7 +73,7 @@ export default buildConfig({
   },
   upload: {
     limits: {
-      fileSize: 10_000_000,
+      fileSize: 2_500_000,
     },
   },
 })
