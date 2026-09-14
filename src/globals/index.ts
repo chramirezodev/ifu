@@ -1,0 +1,7 @@
+export { SiteSettings } from './SiteSettings'
+export { Seo } from './Seo'
+export { HomeHero } from './HomeHero'
+export { HomeWelcome } from './HomeWelcome'
+export { HomeAbout } from './HomeAbout'
+export { HomeWhyChooseUs } from './HomeWhyChooseUs'
+export { ServicesPage } from './ServicesPage'

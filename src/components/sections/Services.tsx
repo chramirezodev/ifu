@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { getStrapiMedia } from '@/lib/strapi';
 import Image from 'next/image';
+import { useCMS } from '@/context/CMSContext';
 
 // Iconos mejorados con símbolos americanos "stencil style"
 const serviceIcons = {
@@ -331,172 +331,32 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 
 const Services = () => {
   const [isClient, setIsClient] = useState(false);
+  const { services, servicesPage, siteSettings } = useCMS();
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  const defaultServices = [
-    {
-      id: 1,
-      attributes: {
-        title: "Representación ante la Corte de Inmigración",
-        description: "Defensa legal cuando su permanencia en Estados Unidos está en juego.",
-        expandedDescription: "Enfrentar un proceso de remoción puede generar muchas preguntas e incertidumbre. Evaluamos su situación, las posibles defensas y las formas de alivio migratorio que puedan estar disponibles, y lo representamos durante las diferentes etapas de su caso ante la Corte de Inmigración.",
-        slug: "corte-inmigracion",
-        image: {
-          data: {
-            attributes: {
-              url: "/images/statue-of-liberty-267948_1280.jpg"
-            }
-          }
-        }
-      }
+  const displayServices = services.map((service) => ({
+    id: service.id,
+    attributes: {
+      title: service.title,
+      description: service.description,
+      expandedDescription: service.expandedDescription,
+      slug: service.slug,
+      image: {
+        data: {
+          attributes: {
+            url: service.imageUrl || '',
+          },
+        },
+      },
     },
-    {
-      id: 2,
-      attributes: {
-        title: "Asilo Defensivo y Afirmativo",
-        description: "Protección para quienes temen regresar a su país.",
-        expandedDescription: "Si usted ha sufrido persecución o teme regresar a su país, el asilo puede ser una opción de protección en Estados Unidos. Evaluamos las circunstancias de su caso y brindamos representación tanto en solicitudes de asilo afirmativo ante USCIS como en casos de asilo defensivo ante la Corte de Inmigración, con una preparación cuidadosa de su caso y la evidencia que lo respalda.",
-        slug: "asilo",
-        image: {
-          data: {
-            attributes: {
-              url: "/images/brooklyn-bridge-3717553_1280.jpg"
-            }
-          }
-        }
-      }
-    },
-    {
-      id: 3,
-      attributes: {
-        title: "Residencia Permanente / Green Card",
-        description: "Construya su futuro en Estados Unidos.",
-        expandedDescription: "Existen diferentes caminos para obtener la residencia permanente. Evaluamos su elegibilidad y lo orientamos durante cada etapa del proceso, desde la preparación de la solicitud hasta su resolución ante la autoridad migratoria correspondiente.",
-        slug: "residencia",
-        image: {
-          data: {
-            attributes: {
-              url: "/images/skyscraper-3717555_1280 (1).jpg"
-            }
-          }
-        }
-      }
-    },
-    {
-      id: 4,
-      attributes: {
-        title: "Naturalización",
-        description: "Dé el siguiente paso en su camino migratorio.",
-        expandedDescription: "Convertirse en ciudadano estadounidense es una decisión importante. Si usted es residente permanente, evaluamos su elegibilidad y lo representamos durante el proceso de naturalización ante USCIS.",
-        slug: "naturalizacion",
-        image: {
-          data: {
-            attributes: {
-              url: "/images/america-1068986_1280.jpg"
-            }
-          }
-        }
-      }
-    },
-    {
-      id: 5,
-      attributes: {
-        title: "VAWA (Violence Against Women Act)",
-        description: "Protección migratoria para determinadas víctimas de abuso.",
-        expandedDescription: "VAWA permite que ciertos cónyuges, hijos o padres que han sufrido abuso por parte de un ciudadano estadounidense o residente permanente soliciten protección migratoria sin depender del familiar abusador. Evaluamos cada caso de manera confidencial para determinar si cumple con los requisitos establecidos por la ley.",
-        slug: "vawa",
-        image: {
-          data: {
-            attributes: {
-              url: "/images/shot-two-american-us-flags-high-rise-building.jpg"
-            }
-          }
-        }
-      }
-    },
-    {
-      id: 6,
-      attributes: {
-        title: "Visa U",
-        description: "Una opción migratoria para determinadas víctimas de delitos.",
-        expandedDescription: "Si usted ha sido víctima de un delito y ha colaborado con las autoridades en la investigación o el proceso correspondiente, podría ser elegible para una Visa U (Nonimmigrant Visa for Victims of Crimes - Visa de No Inmigrante para Víctimas de Crímenes). Evaluamos cuidadosamente su situación y los requisitos de elegibilidad para determinar las opciones disponibles en su caso.",
-        slug: "visa-u",
-        image: {
-          data: {
-            attributes: {
-              url: "/images/statue-of-liberty-3551121_1280.jpg"
-            }
-          }
-        }
-      }
-    },
-    {
-      id: 7,
-      attributes: {
-        title: "Apelaciones y Mociones",
-        description: "Una decisión adversa no siempre significa el final del proceso.",
-        expandedDescription: "Dependiendo de las circunstancias, una decisión migratoria puede ser objeto de apelación o de una moción para reabrir o reconsiderar el caso. Evaluamos el historial procesal y las opciones legales disponibles para determinar los próximos pasos.",
-        slug: "apelaciones",
-        image: {
-          data: {
-            attributes: {
-              url: "/images/writing-1149962_1920.jpg"
-            }
-          }
-        }
-      }
-    },
-    {
-      id: 8,
-      attributes: {
-        title: "Visas y Procesos Migratorios",
-        description: "Orientación legal para encontrar el camino adecuado.",
-        expandedDescription: "Cada situación migratoria es diferente. Evaluamos sus circunstancias y las alternativas disponibles para determinar qué proceso migratorio puede corresponder a su caso.",
-        slug: "visas",
-        image: {
-          data: {
-            attributes: {
-              url: "/images/luggage-1149289.jpg"
-            }
-          }
-        }
-      }
-    },
-    {
-      id: 9,
-      attributes: {
-        title: "Fianzas de Inmigración / Immigration Bonds",
-        description: "Orientación y representación en procesos de fianza migratoria.",
-        expandedDescription: "Cuando una persona se encuentra detenida por autoridades de inmigración, una fianza puede ser una vía para solicitar su liberación mientras avanza el caso. Evaluamos la situación y las opciones disponibles para orientar a la familia sobre los siguientes pasos.",
-        slug: "fianzas",
-        image: {
-          data: {
-            attributes: {
-              url: "/images/old-bridge-with-ropes-american-flag.jpg"
-            }
-          }
-        }
-      }
-    }
-  ];
+  }));
 
-  const serviceImageBySlug: Record<string, string> = {
-    'corte-inmigracion': '/images/statue-of-liberty-267948_1280.jpg',
-    asilo: '/images/brooklyn-bridge-3717553_1280.jpg',
-    residencia: '/images/skyscraper-3717555_1280 (1).jpg',
-    naturalizacion: '/images/america-1068986_1280.jpg',
-    vawa: '/images/shot-two-american-us-flags-high-rise-building.jpg',
-    'visa-u': '/images/statue-of-liberty-3551121_1280.jpg',
-    apelaciones: '/images/writing-1149962_1920.jpg',
-    visas: '/images/luggage-1149289.jpg',
-    fianzas: '/images/old-bridge-with-ropes-american-flag.jpg',
-  };
-
-  // Catálogo de servicios según el PPT del cliente
-  const displayServices = defaultServices;
+  const serviceImageBySlug: Record<string, string> = Object.fromEntries(
+    services.map((s) => [s.slug, s.imageUrl || '']),
+  );
 
   if (!isClient) {
     return (
@@ -512,7 +372,7 @@ const Services = () => {
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
-            {defaultServices.map((service, index) => (
+            {displayServices.map((service) => (
               <div key={service.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300">
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-3">
@@ -532,7 +392,6 @@ const Services = () => {
 
   return (
     <section id="servicios" className="py-24 bg-white relative overflow-hidden">
-      {/* Elementos decorativos */}
       <div className="absolute top-0 left-0 w-64 h-64 bg-usa-blue/5 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
       <div className="absolute bottom-0 right-0 w-96 h-96 bg-usa-red/5 rounded-full translate-x-1/3 translate-y-1/3"></div>
       <div className="container mx-auto px-4 max-w-6xl relative z-10">
@@ -566,7 +425,7 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            En Mardini Law Firm entendemos que cada proceso migratorio representa el futuro de una persona y su familia. Por eso, brindamos representación legal personalizada y estratégica, basada en las circunstancias particulares de cada caso. Representamos a nuestros clientes ante el Servicio de Ciudadanía e Inmigración de los Estados Unidos (USCIS), las Cortes de Inmigración (EOIR) y la Junta de Apelaciones de Inmigración (BIA), en una amplia variedad de asuntos migratorios. Nuestro compromiso es proteger sus derechos, orientarlo sobre sus opciones legales y acompañarlo durante todo el proceso migratorio.
+            {servicesPage.sectionIntro}
           </motion.p>
         </motion.div>
 
@@ -577,7 +436,7 @@ const Services = () => {
                 serviceImageBySlug[slug] ||
                 service.attributes.image?.data?.attributes?.url ||
                 '/images/statue-of-liberty-1758290_1280.jpg';
-              const image = imageUrl.startsWith('/images/') ? imageUrl : getStrapiMedia(imageUrl);
+              const image = imageUrl;
               const icon = serviceIcons[slug as keyof typeof serviceIcons];
               
               return (
@@ -594,7 +453,6 @@ const Services = () => {
             })}
         </div>
         
-        {/* Sección de contacto rápido */}
         <motion.div 
           className="mt-16 text-center"
           initial={{ opacity: 0, y: 20 }}
@@ -606,7 +464,7 @@ const Services = () => {
             Estamos aquí para ayudarle. En Mardini Law Firm entendemos que las decisiones migratorias pueden cambiar el futuro de una persona y su familia. Permítenos evaluar su caso y brindarle una estrategia legal diseñada para proteger sus derechos y alcanzar sus objetivos.
           </p>
           <motion.a
-            href={`https://wa.me/17542344284?text=${encodeURIComponent('Hola, me gustaría agendar una consulta con Mardini Law Firm.')}`}
+            href={`https://wa.me/${siteSettings.whatsappNumber}?text=${encodeURIComponent(siteSettings.consultationWhatsAppMessage)}`}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center bg-[#25D366] text-white py-3 px-8 rounded-lg font-medium shadow-lg hover:bg-[#1ebe57] transition-all duration-300 hover:shadow-xl"

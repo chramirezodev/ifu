@@ -2,18 +2,25 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import React, { useEffect, useState } from 'react';
+import { useCMS } from '@/context/CMSContext';
 
 interface AboutProps {
-  title: string;
-  content: string;
+  title?: string;
+  content?: string;
   values?: Array<{ title: string; description: string }>;
+  imageUrl?: string;
 }
 
 const DynamicBadges = dynamic(() => Promise.resolve(({ children }: { children: React.ReactNode }) => <>{children}</>), {
   ssr: false,
 });
 
-export default function About({ title, content, values = [] }: AboutProps) {
+export default function About({ title, content, values, imageUrl }: AboutProps) {
+  const { homeAbout } = useCMS();
+  const resolvedTitle = title || homeAbout.title;
+  const resolvedContent = content || homeAbout.content;
+  const resolvedValues = values?.length ? values : homeAbout.values;
+  const resolvedImage = imageUrl || homeAbout.imageUrl || '/images/nosotros.png';
   const [isClient, setIsClient] = useState(false);
   useEffect(() => { setIsClient(true); }, []);
   
@@ -45,7 +52,7 @@ export default function About({ title, content, values = [] }: AboutProps) {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            {title}
+            {resolvedTitle}
           </motion.h2>
           <motion.div 
             className="w-24 h-1 bg-usa-blue mx-auto mb-6"
@@ -67,7 +74,7 @@ export default function About({ title, content, values = [] }: AboutProps) {
           >
             <div className="relative aspect-square">
               <Image
-                src="/images/nosotros.png"
+                src={resolvedImage}
                 alt="Mardini Law Firm — Abogados de inmigración en Estados Unidos"
                 width={500}
                 height={300}
@@ -92,10 +99,10 @@ export default function About({ title, content, values = [] }: AboutProps) {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              {content}
+              {resolvedContent}
             </motion.p>
             
-            {values && values.length > 0 && (
+            {resolvedValues && resolvedValues.length > 0 && (
               <motion.div 
                 className="grid grid-cols-1 md:grid-cols-2 gap-6"
                 initial={{ opacity: 0, y: 20 }}
@@ -103,7 +110,7 @@ export default function About({ title, content, values = [] }: AboutProps) {
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: 0.6 }}
               >
-                {values.map((value, index) => (
+                {resolvedValues.map((value, index) => (
                   <motion.div 
                     key={index} 
                     className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"

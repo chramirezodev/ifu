@@ -10,8 +10,11 @@ import WhyChooseUs from '@/components/sections/WhyChooseUs';
 import SEO from '@/components/common/SEO';
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
+import { useCMS } from '@/context/CMSContext';
+import { fetchCMSData } from '@/lib/cms/fetchCMS';
 
 export default function Home() {
+  const { seo, siteSettings } = useCMS();
   const [news, setNews] = useState<{ title: string; link: string; pubDate: string; contentSnippet: string }[]>([]);
   const [loadingNews, setLoadingNews] = useState(true);
   const [errorNews, setErrorNews] = useState('');
@@ -91,42 +94,19 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Mardini Law Firm — Abogados de Inmigración</title>
-        <meta name="description" content="Representación legal estratégica en inmigración ante USCIS, EOIR y BIA. Roger Mardini, Esq." />
+        <title>{seo.defaultTitle}</title>
+        <meta name="description" content={seo.defaultDescription} />
       </Head>
       <Layout>
         <SEO 
-          title="Mardini Law Firm — Abogados de Inmigración en Estados Unidos"
-          description="Representación legal estratégica en inmigración ante USCIS, EOIR y BIA. Visas, residencia permanente, naturalización, asilo, VAWA y Visa U."
-          keywords="abogado inmigración, immigration attorney, USCIS, EOIR, BIA, green card, naturalización, asilo, VAWA, visa U, Mardini Law Firm"
+          title={seo.defaultTitle}
+          description={seo.defaultDescription}
+          keywords={seo.keywords}
         />
         <main className="flex min-h-screen flex-col items-center justify-between">
           <Hero />
           <Welcome />
-          <About 
-            title="Nosotros"
-            content={
-              "Somos inmigrantes y conocemos los desafíos que se presentan al establecerse en este país. Entendemos que detrás de cada proceso migratorio hay decisiones importantes para usted y su familia. En Mardini Law Firm ofrecemos atención personalizada, comunicación clara y una representación legal cuidadosa en cada etapa del proceso."
-            }
-            values={[
-              {
-                title: "Integridad",
-                description: "Honestidad, transparencia y ética profesional en el manejo de cada caso."
-              },
-              {
-                title: "Compromiso",
-                description: "Cada caso es diferente. Nos tomamos el tiempo para conocer su situación y evaluar las opciones disponibles."
-              },
-              {
-                title: "Excelencia",
-                description: "Analizamos cuidadosamente los hechos, la documentación y las opciones legales antes de definir cómo avanzar."
-              },
-              {
-                title: "Cercanía",
-                description: "Mantenemos una comunicación clara y directa para que usted comprenda qué está ocurriendo con su caso."
-              }
-            ]}
-          />
+          <About />
           <Services />
           <WhyChooseUs />
           <Contact />
@@ -180,7 +160,7 @@ export default function Home() {
                 En Mardini Law Firm entendemos que las decisiones migratorias pueden cambiar el futuro de una persona y su familia. Permítenos evaluar su caso y brindarle una estrategia legal diseñada para proteger sus derechos y alcanzar sus objetivos.
               </p>
               <a
-                href={`https://wa.me/17542344284?text=${encodeURIComponent('Hola, me gustaría agendar una consulta con Mardini Law Firm.')}`}
+                href={`https://wa.me/${siteSettings.whatsappNumber}?text=${encodeURIComponent(siteSettings.consultationWhatsAppMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center bg-[#25D366] text-white py-3 px-8 rounded-lg font-semibold hover:bg-[#1ebe57] transition-colors duration-200 shadow-md"
@@ -199,9 +179,12 @@ export default function Home() {
 }
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  const cms = await fetchCMSData(locale ?? 'es');
   return {
     props: {
       ...(await serverSideTranslations(locale ?? 'es', ['common'])),
+      cms,
     },
+    revalidate: 60,
   };
 };

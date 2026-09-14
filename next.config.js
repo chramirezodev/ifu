@@ -1,3 +1,5 @@
+const { withPayload } = require('@payloadcms/next/withPayload')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -11,33 +13,26 @@ const nextConfig = {
       {
         protocol: 'http',
         hostname: 'localhost',
-        port: '1337',
-        pathname: '/uploads/**',
+        port: '3000',
+        pathname: '/api/media/file/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.public.blob.vercel-storage.com',
       },
     ],
-    domains: ['localhost'],
     unoptimized: true,
   },
   typescript: {
-    // !! ADVERTENCIA !!
-    // Esto es para ignorar errores de TypeScript para implementar correctamente en Vercel
-    // NO lo recomendaría en otros casos
     ignoreBuildErrors: true,
   },
   eslint: {
-    // !! ADVERTENCIA !!
-    // Esto es para ignorar errores de ESLint para implementar correctamente en Vercel
-    // NO lo recomendaría en otros casos
     ignoreDuringBuilds: true,
   },
-  experimental: {
-    // Características experimentales si son necesarias
-  },
-  // Configuración de headers para SEO y seguridad
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: '/((?!admin).*)',
         headers: [
           {
             key: 'X-Content-Type-Options',
@@ -45,7 +40,7 @@ const nextConfig = {
           },
           {
             key: 'X-Frame-Options',
-            value: 'DENY',
+            value: 'SAMEORIGIN',
           },
           {
             key: 'X-XSS-Protection',
@@ -75,18 +70,16 @@ const nextConfig = {
           },
         ],
       },
-    ];
+    ]
   },
-  // Excluir las carpetas del CMS del build
-  webpack: (config, { isServer }) => {
-    // Configuración para excluir directorios específicos
-    config.module.rules.push({
-      test: /[\\/]cms[\\/]/,
-      use: "null-loader",
-    });
-    
-    return config;
+  webpack: (webpackConfig) => {
+    webpackConfig.resolve.extensionAlias = {
+      '.cjs': ['.cts', '.cjs'],
+      '.js': ['.ts', '.tsx', '.js', '.jsx'],
+      '.mjs': ['.mts', '.mjs'],
+    }
+    return webpackConfig
   },
-};
+}
 
-module.exports = nextConfig; 
+module.exports = withPayload(nextConfig, { devBundleServerPackages: false })

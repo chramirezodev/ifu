@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useCMS } from '@/context/CMSContext';
 
 interface FAQItemProps {
   question: string;
@@ -58,24 +59,7 @@ const FAQItem: React.FC<FAQItemProps> = ({ question, answer }) => {
 };
 
 const FAQ = () => {
-  const faqs = [
-    {
-      question: "¿Qué documentos necesito para solicitar una visa?",
-      answer: "Los documentos varían dependiendo del tipo de visa que estés solicitando. Generalmente, necesitarás una solicitud de visa, pasaporte válido, prueba de fondos, fotos tipo visa y documentos específicos según el tipo de visa (como una oferta de trabajo, carta de aceptación de la universidad o evidencia de la relación familiar). Te ayudaré a identificar todos los documentos necesarios para tu caso."
-    },
-    {
-      question: "¿Cuánto tiempo tarda el proceso de solicitud de residencia?",
-      answer: "El tiempo de espera para la residencia permanente varía según tu situación y el tipo de solicitud. En promedio, el proceso puede tardar entre 12 meses y 3 años. Estaré aquí para ayudarte a hacer el seguimiento de tu caso y mantenerte informado/a de cualquier actualización."
-    },
-    {
-      question: "¿Puedo trabajar mientras mi solicitud está en proceso?",
-      answer: "Depende del tipo de solicitud. Si tienes una visa de trabajo o si tu solicitud de residencia incluye un permiso de trabajo, podrás trabajar mientras esperas la aprobación. En algunos casos, podemos solicitar un permiso de trabajo provisional."
-    },
-    {
-      question: "¿Qué sucede si mi solicitud es rechazada?",
-      answer: "Si tu solicitud es rechazada, existen opciones disponibles, como apelar la decisión o presentar una nueva solicitud. Te ayudaré a entender las razones del rechazo y a explorar las mejores opciones para seguir adelante."
-    }
-  ];
+  const { faqs } = useCMS();
 
   // Datos estructurados para FAQ
   const faqStructuredData = {

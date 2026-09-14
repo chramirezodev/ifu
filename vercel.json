@@ -1,37 +1,6 @@
 {
   "version": 2,
   "buildCommand": "npm run build",
-  "installCommand": "npm install",
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
-    },
-    {
-      "src": "cms/package.json",
-      "use": "@vercel/node"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/cms/(.*)",
-      "dest": "cms/src/index.js"
-    },
-    {
-      "src": "/admin",
-      "dest": "cms/src/admin/index.html"
-    },
-    {
-      "src": "/admin/(.*)",
-      "dest": "cms/src/admin/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/$1"
-    }
-  ],
-  "env": {
-    "NODE_ENV": "production",
-    "NEXT_PUBLIC_API_URL": "https://$VERCEL_URL/api/cms"
-  }
-} 
+  "installCommand": "npm install --legacy-peer-deps",
+  "framework": "nextjs"
+}

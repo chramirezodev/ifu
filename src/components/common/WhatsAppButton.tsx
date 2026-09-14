@@ -1,52 +1,61 @@
-import { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import { motion } from 'framer-motion';
-import { contactInfo } from '@/constants';
+import { useState, useEffect } from 'react'
+import { useRouter } from 'next/router'
+import { motion } from 'framer-motion'
+import { useCMS } from '@/context/CMSContext'
 
-type PositionType = 'right' | 'left' | 'bottom';
+type PositionType = 'right' | 'left' | 'bottom'
 
 const WhatsAppButton = ({
-  phoneNumber = contactInfo.whatsappNumber,
-  defaultMessage = contactInfo.whatsappAutoMessage,
-  position = "right" as PositionType,
+  phoneNumber,
+  defaultMessage,
+  position = 'right' as PositionType,
   showIcon = true,
-  className = "",
-  buttonText = "Contáctanos vía WhatsApp"
+  className = '',
+  buttonText = 'Contáctanos vía WhatsApp',
+}: {
+  phoneNumber?: string
+  defaultMessage?: string
+  position?: PositionType
+  showIcon?: boolean
+  className?: string
+  buttonText?: string
 }) => {
-  const router = useRouter();
-  const [message, setMessage] = useState(defaultMessage);
-  
-  // Actualizar mensaje según la página actual
+  const { siteSettings } = useCMS()
+  const resolvedPhone = phoneNumber || siteSettings.whatsappNumber
+  const resolvedMessage = defaultMessage || siteSettings.whatsappAutoMessage
+  const router = useRouter()
+  const [message, setMessage] = useState(resolvedMessage)
+
   useEffect(() => {
-    // Obtener el servicio actual desde la URL si estamos en una página de servicio
-    const serviceSlug = router.query.slug;
-    
+    setMessage(resolvedMessage)
+  }, [resolvedMessage])
+
+  useEffect(() => {
+    const serviceSlug = router.query.slug
+
     if (serviceSlug && router.pathname.includes('/servicios/')) {
-      // Llamar a nuestra API para obtener el mensaje personalizado para este servicio
       fetch(`/api/services/whatsapp-message?slug=${serviceSlug}`)
-        .then(res => res.json())
-        .then(data => {
+        .then((res) => res.json())
+        .then((data) => {
           if (data.message) {
-            setMessage(data.message);
+            setMessage(data.message)
           }
         })
-        .catch(err => {
-          console.error('Error al obtener mensaje personalizado:', err);
-        });
+        .catch((err) => {
+          console.error('Error al obtener mensaje personalizado:', err)
+        })
     }
-  }, [router.query.slug, router.pathname]);
-  
-  // Crear URL de WhatsApp con protección contra phoneNumber indefinido
-  const formattedPhone = phoneNumber ? phoneNumber.replace(/\+/g, '') : contactInfo.whatsappNumber;
-  const whatsappUrl = `https://wa.me/${formattedPhone}?text=${encodeURIComponent(message)}`;
-  
-  // Clases según posición
+  }, [router.query.slug, router.pathname])
+
+  const formattedPhone = resolvedPhone.replace(/\+/g, '')
+  const whatsappUrl = `https://wa.me/${formattedPhone}?text=${encodeURIComponent(message)}`
+
   const positionClasses: Record<PositionType, string> = {
-    'right': 'fixed right-5 bottom-20',
-    'left': 'fixed left-5 bottom-20',
-    'bottom': 'fixed bottom-5 left-1/2 transform -translate-x-1/2'
-  };
-  
+    right: 'fixed right-5 bottom-20',
+    left: 'fixed left-5 bottom-20',
+    bottom: 'fixed bottom-5 left-1/2 transform -translate-x-1/2',
+  }
+
   return (
     <motion.a
       href={whatsappUrl}
@@ -71,7 +80,7 @@ const WhatsAppButton = ({
       )}
       <span className="font-medium">{buttonText}</span>
     </motion.a>
-  );
-};
+  )
+}
 
-export default WhatsAppButton; 
+export default WhatsAppButton

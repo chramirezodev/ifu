@@ -1,10 +1,17 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { contactInfo, footerServices, firmInfo } from '@/constants';
+import { useCMS } from '@/context/CMSContext';
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
+  const { siteSettings } = useCMS();
+  const contactInfo = siteSettings;
+  const footerServices = siteSettings.footerServiceLabels;
+  const firmInfo = {
+    slogan: siteSettings.slogan,
+    name: siteSettings.firmName,
+  };
 
   return (
     <footer className="bg-brand-navy text-white">

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'react-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
-import { contactInfo } from '@/constants';
+import { useCMS } from '@/context/CMSContext';
 
 interface NavItem {
   label: string;
@@ -22,13 +22,14 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
   const { t, i18n } = useTranslation('common');
+  const { siteSettings } = useCMS();
 
   const navigation: NavItem[] = [
     { label: 'inicio', href: '#inicio', translationKey: 'nav.home' },
     { label: 'nosotros', href: '#nosotros', translationKey: 'nav.about' },
     { label: 'servicios', href: '#servicios', translationKey: 'nav.services' },
     { label: 'por-que-elegirnos', href: '#por-que-elegirnos', translationKey: 'nav.choose' },
-    { label: 'paga-aqui', href: contactInfo.paymentUrl, translationKey: 'nav.pay', external: true },
+    { label: 'paga-aqui', href: siteSettings.paymentUrl, translationKey: 'nav.pay', external: true },
     { label: 'contactenos', href: '#contacto', translationKey: 'nav.contact' }
   ];
 

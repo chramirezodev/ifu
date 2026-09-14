@@ -1,0 +1,6 @@
+export { Users } from './Users'
+export { Media } from './Media'
+export { Services } from './Services'
+export { Testimonials } from './Testimonials'
+export { Faqs } from './Faqs'
+export { Posts } from './Posts'

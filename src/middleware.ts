@@ -8,6 +8,18 @@ const defaultLocale = 'es';
 const legalRoutes = ['/politicas', '/aviso-legal'];
 
 export function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname;
+
+  // Payload CMS + APIs + assets: no locale redirect
+  if (
+    pathname.startsWith('/admin') ||
+    pathname.startsWith('/api') ||
+    pathname.startsWith('/media') ||
+    pathname.startsWith('/_next')
+  ) {
+    return NextResponse.next();
+  }
+
   // Obtener la cookie de idioma si existe
   const cookieLocale = request.cookies.get('NEXT_LOCALE')?.value;
   
@@ -17,7 +29,6 @@ export function middleware(request: NextRequest) {
     : defaultLocale;
 
   // Verificar si ya hay un locale en la URL
-  const pathname = request.nextUrl.pathname;
   const pathnameHasLocale = locales.some(
     (loc) => pathname.startsWith(`/${loc}/`) || pathname === `/${loc}`
   );
@@ -38,7 +49,6 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // Skip all internal paths (_next)
-    '/((?!_next|api|favicon.ico|images|locales).*)',
+    '/((?!_next|api|admin|media|favicon.ico|images|locales).*)',
   ],
 }; 

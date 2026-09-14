@@ -26,6 +26,7 @@ yarn-error.log*
 # local env files
 .env*.local
 .env
+.env.vps.local
 
 # vercel
 .vercel
@@ -34,6 +35,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Payload media uploads
+/media
+
 # embedded repositories
 /cms/
 /immigration-for-us/
@@ -41,4 +45,7 @@ next-env.d.ts
 # backups
 /backup_local/
 /backup_ifu_pre_mardini/
- 
+
+# env (allow example)
+.env*
+!.env.example

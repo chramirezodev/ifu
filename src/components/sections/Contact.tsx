@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { contactInfo } from '@/constants';
+import { useCMS } from '@/context/CMSContext';
 import { EmailIcon, PhoneIcon, ClockIcon, FacebookIcon, InstagramIcon, WhatsAppIcon } from '../icons';
 
 interface ContactFormInputs {
@@ -11,27 +11,27 @@ interface ContactFormInputs {
   service?: string;
 }
 
-const contactMethods = [
-  {
-    icon: EmailIcon,
-    title: 'Email',
-    info: contactInfo.email,
-    link: `mailto:${contactInfo.email}`
-  },
-  {
-    icon: PhoneIcon,
-    title: 'Atención al Cliente',
-    info: contactInfo.phone,
-    link: `tel:+${contactInfo.whatsappNumber}`
-  },
-  {
-    icon: ClockIcon,
-    title: 'Horario de atención',
-    info: contactInfo.workHours,
-  }
-];
-
 const Contact = () => {
+  const { siteSettings: contactInfo } = useCMS();
+  const contactMethods = [
+    {
+      icon: EmailIcon,
+      title: 'Email',
+      info: contactInfo.email,
+      link: `mailto:${contactInfo.email}`
+    },
+    {
+      icon: PhoneIcon,
+      title: 'Atención al Cliente',
+      info: contactInfo.phone,
+      link: `tel:+${contactInfo.whatsappNumber}`
+    },
+    {
+      icon: ClockIcon,
+      title: 'Horario de atención',
+      info: contactInfo.workHours,
+    }
+  ];
   const [isMounted, setIsMounted] = useState(false);
   const [isClient, setIsClient] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -347,15 +347,16 @@ const Contact = () => {
               <div className="mt-8 pt-6 border-t border-gray-200">
                 <h4 className="font-semibold text-gray-900 mb-4">Síguenos en redes</h4>
                 <div className="flex gap-4">
-                  {contactInfo.socialMedia.map((social, index) => (
+                  {contactInfo.socialLinks.map((social, index) => (
                     <a 
                       key={index}
-                      href={social.link}
+                      href={social.url}
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="bg-gray-100 hover:bg-usa-blue hover:text-white text-gray-600 p-3 rounded-full transition-colors duration-300"
+                      aria-label={social.platform}
                     >
-                      <social.icon />
+                      <WhatsAppIcon />
                     </a>
                   ))}
                 </div>

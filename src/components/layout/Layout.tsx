@@ -4,6 +4,7 @@ import { useTranslation } from 'next-i18next';
 import Header from './Header';
 import Footer from './Footer';
 import WhatsAppButton from '../WhatsAppButton';
+import { useCMS } from '@/context/CMSContext';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -12,6 +13,7 @@ interface LayoutProps {
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   const router = useRouter();
   const { i18n } = useTranslation();
+  const { siteSettings } = useCMS();
   const [activeSection, setActiveSection] = useState('inicio');
   const [mounted, setMounted] = useState(false);
 
@@ -71,7 +73,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           {children}
         </main>
         <Footer />
-        <WhatsAppButton phoneNumber="+17542344284" />
+        <WhatsAppButton phoneNumber={siteSettings.whatsappNumber} />
       </div>
     );
   }
@@ -83,7 +85,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
       </main>
       <Footer />
-      <WhatsAppButton phoneNumber="+17542344284" />
+      <WhatsAppButton phoneNumber={siteSettings.whatsappNumber} />
     </div>
   );
 };

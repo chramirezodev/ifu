@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import { useCMS } from '@/context/CMSContext';
 
 interface TestimonialType {
-  id: number;
+  id: number | string;
   name: string;
   role: string;
   text: string;
@@ -12,69 +13,6 @@ interface TestimonialType {
   gender?: 'male' | 'female';
   location?: string;
 }
-
-const testimonialsData: TestimonialType[] = [
-  {
-    id: 1,
-    name: 'Mónica A.',
-    role: 'Solicitud de Asilo',
-    text: 'Gracias a Immigration For Us, pude completar mi solicitud de asilo de manera rápida y precisa. El equipo me apoyó en cada paso del proceso y me dio la tranquilidad de que todo estaba bien preparado. Lo logramos. Son los mejores.',
-    avatar: '/images/testimonials/avatar-female.png',
-    rating: 5,
-    gender: 'female',
-    location: 'Orlando, FL'
-  },
-  {
-    id: 2,
-    name: 'Javier F.',
-    role: 'Solicitud de Residencia',
-    text: 'El equipo de Immigration For Us hizo todo el proceso de mi solicitud de residencia mucho más sencillo. Estuvieron siempre atentos a mis dudas y se aseguraron de que todo estuviera en orden antes de enviarlo al USCIS.',
-    avatar: '/images/testimonials/avatar-male.png',
-    rating: 5,
-    gender: 'male',
-    location: 'Miami, FL'
-  },
-  {
-    id: 3,
-    name: 'Wilson Z.',
-    role: 'Green Card',
-    text: 'Gracias a Immigration For Us pude obtener mi Green Card sin problemas. El proceso era confuso para mí, pero me ayudaron a reunir todos los documentos y a llenar los formularios correctamente. ¡Los recomiendo!',
-    avatar: '/images/testimonials/avatar-male.png',
-    rating: 5,
-    gender: 'male',
-    location: 'West Palm Beach, FL'
-  },
-  {
-    id: 4,
-    name: 'María S.',
-    role: 'Residencia Permanente',
-    text: 'Mi familia y yo estábamos muy preocupados por el proceso de residencia, pero Carolina nos guió en cada paso. Gracias a su apoyo, ahora somos residentes permanentes.',
-    avatar: '/images/testimonials/avatar-female.png',
-    rating: 5,
-    gender: 'female',
-    location: 'Boca Ratón, FL'
-  },
-  {
-    id: 5,
-    name: 'Sandra A.',
-    role: 'Trámites Familiares',
-    text: 'Después de meses de incertidumbre y papeleo complicado, con tramites de mis familiares, encontré todo el apoyo y la orientación que necesitaba con Immigration for Us y su equipo. Me brindaron confianza, seriedad, organización y cumplimiento. Valió la pena confiar en ellos y su profesionalismo. Gracias infinitas, los seguiré recomendado 100%',
-    avatar: '/images/testimonials/avatar-female.png',
-    rating: 5,
-    gender: 'female',
-    location: 'Hallandale Beach, FL'
-  },
-  {
-    id: 6,
-    name: 'Natalia V.',
-    role: 'Asesoría de Inmigración',
-    text: 'Quiero expresar mi más sincera recomendación para Carolina Palisa y Roger por su excepcional servicio de asesoría en inmigración. Desde el primer contacto, demostraron un profundo conocimiento, profesionalismo y un genuino interés en ayudarme a encontrar la mejor solución para mi situación. Lo que más valoro es su paciencia y claridad al explicar cada paso del proceso, eliminando cualquier incertidumbre y brindándome la tranquilidad de estar en las mejores manos. Su compromiso y eficiencia hicieron que todo el trámite fuera mucho más sencillo y sin contratiempos.',
-    avatar: '/images/testimonials/avatar-female.png',
-    rating: 5,
-    gender: 'female',
-    location: 'Lincolnton, NC'
-  }
-];
 
 const TestimonialCard: React.FC<{ testimonial: TestimonialType; index: number; isActive: boolean }> = ({ testimonial, index, isActive }) => {
   const getDefaultAvatar = () => {
@@ -221,6 +159,17 @@ const TestimonialCard: React.FC<{ testimonial: TestimonialType; index: number; i
 };
 
 const Testimonials = () => {
+  const { testimonials } = useCMS();
+  const testimonialsData: TestimonialType[] = testimonials.map((t) => ({
+    id: t.id,
+    name: t.name,
+    role: t.role || '',
+    text: t.content,
+    avatar: t.avatarUrl,
+    rating: t.rating,
+    gender: t.gender,
+    location: t.location,
+  }));
   const [activeIndex, setActiveIndex] = useState(0);
   const [isAutoplay, setIsAutoplay] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
