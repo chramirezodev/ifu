@@ -9,7 +9,7 @@ export const Media: CollectionConfig = {
   },
   admin: {
     group: 'Contenido',
-    description: `${IMG.general} Tamaños sugeridos: Hero 1920×1080 · Blog 1200×630 · Avatar 400×400.`,
+    description: `${IMG.general} Tamaños sugeridos: Hero 7680×4320 (o 3840×2160) · Blog 1200×630 · Avatar 400×400.`,
     defaultColumns: ['filename', 'alt', 'updatedAt'],
   },
   access: {

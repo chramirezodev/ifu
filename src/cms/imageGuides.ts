@@ -1,7 +1,7 @@
 /** Guías de imagen para editores no técnicos (aparecen en el admin de Payload). */
 
 export const IMG = {
-  hero: 'Recomendado: 1920×1080 px (horizontal 16:9). JPG o WebP. Peso ideal: menos de 1.5 MB. La foto debe verse nítida en pantallas grandes.',
+  hero: 'Ideal: 7680×4320 px (16:9) o al menos 3840×2160. JPG calidad alta. Puede pesar 3–6 MB; la web la muestra completa sin recortar.',
   about: 'Recomendado: 1000×1000 px (cuadrada) o 1200×900 px. JPG o WebP. Menos de 1 MB.',
   welcomePhoto: 'Recomendado: 800×800 px (retrato cuadrado). JPG o WebP. Fondo limpio. Menos de 800 KB.',
   service: 'Recomendado: 1200×800 px (horizontal). JPG o WebP. Menos de 1 MB.',
