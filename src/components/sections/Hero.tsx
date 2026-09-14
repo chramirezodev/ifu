@@ -8,16 +8,28 @@ import { useCMS } from '@/context/CMSContext'
 const HERO_WIDTH = 7680
 const HERO_HEIGHT = 4320
 
+/** Lockup de marca + eslogan (PNG transparente). */
+const LOCKUP_WIDTH = 2200
+const LOCKUP_HEIGHT = 839
+
 const Hero: React.FC = () => {
   const { t } = useTranslation('common')
   const { homeHero } = useCMS()
-  const src = homeHero.backgroundImageUrl || '/images/hero/miami-skyline.jpg'
+  const bgSrc = homeHero.backgroundImageUrl || '/images/hero/miami-skyline.jpg'
+
+  const brandLabel = [
+    homeHero.brandLine1,
+    homeHero.brandLine2,
+    homeHero.tagline,
+    [homeHero.slogan, homeHero.sloganHighlight].filter(Boolean).join(' '),
+  ]
+    .filter(Boolean)
+    .join(' — ')
 
   return (
     <section id="inicio" className="relative w-full bg-sky-300">
-      {/* h-auto + proporción nativa: se muestra el 100% de la foto, sin object-cover */}
       <Image
-        src={src}
+        src={bgSrc}
         alt="Skyline de Miami — Mardini Law Firm"
         width={HERO_WIDTH}
         height={HERO_HEIGHT}
@@ -27,54 +39,44 @@ const Hero: React.FC = () => {
         sizes="100vw"
       />
 
-      {/* Contraste suave solo para el texto; sin veladura blanca que opaca la imagen */}
+      {/* Contraste mínimo: cielo claro arriba (navy del lockup) y base suave para el eslogan blanco */}
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/25 via-transparent to-black/35"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-black/40"
         aria-hidden="true"
       />
 
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-start px-4 pt-24 sm:pt-28 md:pt-14 lg:pt-16 pb-8 text-center">
+      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 pt-24 sm:pt-28 md:pt-20 pb-10 sm:pb-14">
+        <h1 className="sr-only">{brandLabel || 'Mardini Law Firm'}</h1>
+
         <motion.div
-          className="flex flex-col items-center scale-[0.92] sm:scale-100 origin-top"
-          initial={{ opacity: 0, y: 18 }}
+          className="relative flex w-full max-w-[min(92vw,42rem)] md:max-w-[min(70vw,40rem)] lg:max-w-[44rem] flex-col items-center"
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.85 }}
         >
-          <h1 className="font-serif text-white text-4xl sm:text-5xl md:text-7xl lg:text-8xl tracking-[0.18em] font-semibold drop-shadow-[0_2px_12px_rgba(0,0,0,0.55)]">
-            {homeHero.brandLine1}
-          </h1>
+          {/* Halo local detrás del lockup: hace legible el navy sobre el cielo y el blanco del eslogan */}
+          <div
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[118%] w-[108%] -translate-x-1/2 -translate-y-[48%] rounded-[40%] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.28)_0%,rgba(255,255,255,0.08)_42%,rgba(0,0,0,0.22)_72%,transparent_100%)]"
+            aria-hidden="true"
+          />
 
-          <div className="mt-2 md:mt-3 flex items-center gap-3 w-full max-w-xs sm:max-w-sm md:max-w-md">
-            <span className="flex-1 h-px bg-white/80" />
-            <span className="font-serif text-white/95 text-base sm:text-xl md:text-2xl tracking-[0.25em] whitespace-nowrap drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
-              {homeHero.brandLine2}
-            </span>
-            <span className="flex-1 h-px bg-white/80" />
-          </div>
-
-          <p className="mt-3 md:mt-4 font-sans text-white text-[0.65rem] sm:text-xs md:text-sm tracking-[0.35em] uppercase font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
-            {homeHero.tagline}
-          </p>
-
-          <div className="mt-4 md:mt-5 flex items-center justify-center w-full max-w-xs sm:max-w-sm">
-            <span className="flex-1 h-px bg-white/80" />
-            <span className="mx-2 text-white text-sm leading-none drop-shadow" aria-hidden="true">
-              ◆
-            </span>
-            <span className="flex-1 h-px bg-white/80" />
-          </div>
-
-          <p className="mt-5 md:mt-6 font-sans text-white text-sm sm:text-lg md:text-xl lg:text-2xl tracking-[0.2em] uppercase drop-shadow-[0_2px_10px_rgba(0,0,0,0.55)]">
-            {homeHero.slogan}{' '}
-            <span className="font-bold">{homeHero.sloganHighlight}</span>
-          </p>
+          <Image
+            src="/images/Logos/mardini-hero-lockup.png"
+            alt={brandLabel || 'Mardini Law Firm — Su futuro, nuestra prioridad'}
+            width={LOCKUP_WIDTH}
+            height={LOCKUP_HEIGHT}
+            priority
+            quality={100}
+            sizes="(max-width: 768px) 92vw, (max-width: 1280px) 70vw, 704px"
+            className="relative z-[1] h-auto w-full drop-shadow-[0_2px_3px_rgba(0,0,0,0.35)] drop-shadow-[0_10px_28px_rgba(0,0,0,0.28)]"
+          />
         </motion.div>
 
         <motion.div
-          className="mt-6 sm:mt-10 md:mt-16 lg:mt-20 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
-          initial={{ opacity: 0, y: 20 }}
+          className="mt-7 sm:mt-9 md:mt-11 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
+          initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.25 }}
+          transition={{ duration: 0.7, delay: 0.2 }}
         >
           <a
             href={homeHero.ctaPrimaryHref || '#contacto'}
@@ -120,7 +122,7 @@ const Hero: React.FC = () => {
 
           <a
             href={homeHero.ctaSecondaryHref || '#servicios'}
-            className="inline-flex items-center gap-3 bg-white/15 backdrop-blur-sm border-2 border-white text-white hover:bg-white/25 px-6 sm:px-7 py-3 sm:py-3.5 rounded-md text-sm md:text-base font-semibold tracking-wide transition-colors"
+            className="inline-flex items-center gap-3 bg-white/15 backdrop-blur-sm border-2 border-white text-white hover:bg-white/25 px-6 sm:px-7 py-3 sm:py-3.5 rounded-md text-sm md:text-base font-semibold tracking-wide shadow-md transition-colors"
           >
             <svg
               className="w-5 h-5 flex-shrink-0"
