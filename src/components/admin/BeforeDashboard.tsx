@@ -5,7 +5,7 @@ const cards = [
   {
     href: '/admin/globals/site-settings',
     title: 'Contacto y firma',
-    body: 'Teléfono, WhatsApp, dirección, logo (menú y pie) y enlace de pago.',
+    body: 'Teléfono, WhatsApp, dirección, logo del menú y enlace de pago.',
   },
   {
     href: '/admin/globals/home-hero',

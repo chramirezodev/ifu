@@ -8,7 +8,7 @@ const Footer: React.FC = () => {
   const { siteSettings } = useCMS();
   const contactInfo = siteSettings;
   const footerServices = siteSettings.footerServiceLabels;
-  const logoSrc = siteSettings.logoUrl || '/images/Logos/mardini-logo.png';
+  const logoSrc = '/images/Logos/mardini-logo-footer.png';
   const firmInfo = {
     slogan: siteSettings.slogan,
     name: siteSettings.firmName,
@@ -19,15 +19,13 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 max-w-6xl py-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
           <div className="flex flex-col justify-start items-start">
-            <div className="bg-white rounded-md p-3 mb-4 w-full max-w-[280px]">
-              <Image 
-                src={logoSrc}
-                alt={`${firmInfo.name || 'Mardini Law Firm'} Logo`}
-                width={1024}
-                height={341}
-                className="w-full h-auto object-contain"
-              />
-            </div>
+            <Image
+              src={logoSrc}
+              alt={`${firmInfo.name || 'Mardini Law Firm'} Logo`}
+              width={2000}
+              height={667}
+              className="mb-4 w-full max-w-[280px] h-auto object-contain"
+            />
             <p className="text-gray-300 mb-2 font-semibold text-sm">
               {firmInfo.slogan}
             </p>
