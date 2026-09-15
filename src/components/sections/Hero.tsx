@@ -8,23 +8,17 @@ import { useCMS } from '@/context/CMSContext'
 const HERO_WIDTH = 7680
 const HERO_HEIGHT = 4320
 
-/** Lockup de marca + eslogan (PNG transparente). */
-const LOCKUP_WIDTH = 2200
-const LOCKUP_HEIGHT = 839
-
 const Hero: React.FC = () => {
   const { t } = useTranslation('common')
   const { homeHero } = useCMS()
   const bgSrc = homeHero.backgroundImageUrl || '/images/hero/miami-skyline.jpg'
 
-  const brandLabel = [
-    homeHero.brandLine1,
-    homeHero.brandLine2,
-    homeHero.tagline,
-    [homeHero.slogan, homeHero.sloganHighlight].filter(Boolean).join(' '),
-  ]
-    .filter(Boolean)
-    .join(' — ')
+  const brand1 = homeHero.brandLine1 || 'MARDINI'
+  const brand2 = homeHero.brandLine2 || 'LAW FIRM'
+  const tagline = homeHero.tagline || 'Immigration Attorneys'
+  const slogan =
+    [homeHero.slogan, homeHero.sloganHighlight].filter(Boolean).join(' ') ||
+    'Su futuro, nuestra prioridad'
 
   return (
     <section id="inicio" className="relative w-full bg-sky-300">
@@ -39,44 +33,61 @@ const Hero: React.FC = () => {
         sizes="100vw"
       />
 
-      {/* Contraste mínimo: cielo claro arriba (navy del lockup) y base suave para el eslogan blanco */}
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/15 via-transparent to-black/40"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-brand-navy/50"
         aria-hidden="true"
       />
 
-      <div className="absolute inset-0 z-10 flex flex-col items-center justify-center px-4 pt-24 sm:pt-28 md:pt-20 pb-10 sm:pb-14">
-        <h1 className="sr-only">{brandLabel || 'Mardini Law Firm'}</h1>
-
+      {/* Tipografía real (sin PNG): nítida en cualquier pantalla. Anclada al cielo. */}
+      <div className="absolute inset-0 z-10 flex flex-col items-center px-4 pt-28 sm:pt-32 md:pt-28 lg:pt-32 pb-8">
         <motion.div
-          className="relative flex w-full max-w-[min(92vw,42rem)] md:max-w-[min(70vw,40rem)] lg:max-w-[44rem] flex-col items-center"
-          initial={{ opacity: 0, y: 16 }}
+          className="relative w-full max-w-[36rem] sm:max-w-[40rem] md:max-w-[46rem] text-center"
+          initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.85 }}
+          transition={{ duration: 0.8 }}
         >
-          {/* Halo local detrás del lockup: hace legible el navy sobre el cielo y el blanco del eslogan */}
+          {/* Halo atmosférico (no es tarjeta): separa el lockup del skyline sin caja */}
           <div
-            className="pointer-events-none absolute left-1/2 top-1/2 h-[118%] w-[108%] -translate-x-1/2 -translate-y-[48%] rounded-[40%] bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.28)_0%,rgba(255,255,255,0.08)_42%,rgba(0,0,0,0.22)_72%,transparent_100%)]"
+            className="pointer-events-none absolute left-1/2 top-[42%] h-[130%] w-[120%] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.72)_0%,rgba(255,255,255,0.42)_38%,rgba(13,27,61,0.45)_68%,transparent_82%)]"
             aria-hidden="true"
           />
 
-          <Image
-            src="/images/Logos/mardini-hero-lockup.png"
-            alt={brandLabel || 'Mardini Law Firm — Su futuro, nuestra prioridad'}
-            width={LOCKUP_WIDTH}
-            height={LOCKUP_HEIGHT}
-            priority
-            quality={100}
-            sizes="(max-width: 768px) 92vw, (max-width: 1280px) 70vw, 704px"
-            className="relative z-[1] h-auto w-full drop-shadow-[0_2px_3px_rgba(0,0,0,0.35)] drop-shadow-[0_10px_28px_rgba(0,0,0,0.28)]"
-          />
+          <div className="relative z-[1]">
+            <h1 className="font-serif text-brand-navy text-[2.5rem] leading-none sm:text-5xl md:text-6xl lg:text-[4.35rem] tracking-[0.16em] font-semibold [text-shadow:0_1px_0_rgba(255,255,255,0.9),0_2px_18px_rgba(255,255,255,0.55)]">
+              {brand1}
+            </h1>
+
+            <div className="mt-3 md:mt-4 flex items-center gap-3 w-full max-w-md mx-auto">
+              <span className="flex-1 h-px bg-brand-navy/60" />
+              <span className="font-serif text-[#6B7280] text-sm sm:text-lg md:text-xl tracking-[0.28em] whitespace-nowrap [text-shadow:0_1px_0_rgba(255,255,255,0.85)]">
+                {brand2}
+              </span>
+              <span className="flex-1 h-px bg-brand-navy/60" />
+            </div>
+
+            <p className="mt-3 md:mt-4 font-sans text-brand-navy text-[0.68rem] sm:text-xs md:text-sm tracking-[0.38em] uppercase font-semibold [text-shadow:0_1px_0_rgba(255,255,255,0.85)]">
+              {tagline}
+            </p>
+
+            <div className="mt-4 md:mt-5 flex items-center justify-center w-full max-w-sm mx-auto">
+              <span className="flex-1 h-px bg-brand-navy/50" />
+              <span className="mx-2 text-brand-navy text-sm leading-none" aria-hidden="true">
+                ◆
+              </span>
+              <span className="flex-1 h-px bg-brand-navy/50" />
+            </div>
+
+            <p className="mt-4 md:mt-5 font-sans text-white text-sm sm:text-base md:text-xl tracking-[0.22em] uppercase font-bold [text-shadow:0_2px_8px_rgba(0,0,0,0.65),0_0_2px_rgba(0,0,0,0.8)]">
+              {slogan}
+            </p>
+          </div>
         </motion.div>
 
         <motion.div
-          className="mt-7 sm:mt-9 md:mt-11 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
-          initial={{ opacity: 0, y: 18 }}
+          className="relative z-[1] mt-7 sm:mt-9 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, delay: 0.2 }}
+          transition={{ duration: 0.65, delay: 0.18 }}
         >
           <a
             href={homeHero.ctaPrimaryHref || '#contacto'}
@@ -100,29 +111,15 @@ const Hero: React.FC = () => {
                 strokeLinecap="round"
                 strokeLinejoin="round"
               />
-              <circle
-                cx="6"
-                cy="8"
-                r="2.2"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              />
-              <circle
-                cx="18"
-                cy="8"
-                r="2.2"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-              />
+              <circle cx="6" cy="8" r="2.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
+              <circle cx="18" cy="8" r="2.2" fill="none" stroke="currentColor" strokeWidth="1.5" />
             </svg>
             <span>{homeHero.ctaPrimaryLabel || t('hero.cta.start')} ›</span>
           </a>
 
           <a
             href={homeHero.ctaSecondaryHref || '#servicios'}
-            className="inline-flex items-center gap-3 bg-white/15 backdrop-blur-sm border-2 border-white text-white hover:bg-white/25 px-6 sm:px-7 py-3 sm:py-3.5 rounded-md text-sm md:text-base font-semibold tracking-wide shadow-md transition-colors"
+            className="inline-flex items-center gap-3 bg-white text-brand-navy hover:bg-white/90 border-2 border-white px-6 sm:px-7 py-3 sm:py-3.5 rounded-md text-sm md:text-base font-semibold tracking-wide shadow-lg transition-colors"
           >
             <svg
               className="w-5 h-5 flex-shrink-0"
