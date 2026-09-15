@@ -10,17 +10,22 @@ import { getPayloadClient, mediaUrl } from './payload'
 
 type Locale = 'es' | 'en' | string
 
+/** Next.js getStaticProps no puede serializar `undefined` en JSON. */
+function toStaticProps<T>(value: T): T {
+  return JSON.parse(JSON.stringify(value)) as T
+}
+
 function mapService(doc: any): CMSService {
   return {
     id: doc.id,
     title: doc.title,
     slug: doc.slug,
     description: doc.description,
-    expandedDescription: doc.expandedDescription || undefined,
+    expandedDescription: doc.expandedDescription || '',
     imageUrl: mediaUrl(doc.image, doc.imageUrl || ''),
     iconKey: doc.iconKey || doc.slug,
     order: doc.order ?? 0,
-    whatsappMessage: doc.whatsappMessage || undefined,
+    whatsappMessage: doc.whatsappMessage || '',
   }
 }
 
@@ -28,12 +33,12 @@ function mapTestimonial(doc: any): CMSTestimonial {
   return {
     id: doc.id,
     name: doc.name,
-    role: doc.role || undefined,
+    role: doc.role || '',
     content: doc.content,
     avatarUrl: mediaUrl(doc.avatar, doc.avatarUrl || ''),
     rating: doc.rating ?? 5,
     gender: doc.gender || undefined,
-    location: doc.location || undefined,
+    location: doc.location || '',
     order: doc.order ?? 0,
   }
 }
@@ -43,7 +48,7 @@ function mapFaq(doc: any): CMSFaq {
     id: doc.id,
     question: doc.question,
     answer: doc.answer,
-    category: doc.category || undefined,
+    category: doc.category || '',
     order: doc.order ?? 0,
   }
 }
@@ -62,13 +67,12 @@ function mapPost(doc: any): CMSPost {
     category: doc.category || '',
     readTime: doc.readTime || '',
     imageUrl: mediaUrl(doc.image, doc.imageUrl || ''),
-    seo: doc.seo || undefined,
   }
 }
 
 export async function fetchCMSData(locale: Locale = 'es'): Promise<CMSData> {
   if (!process.env.DATABASE_URI || !process.env.PAYLOAD_SECRET) {
-    return fallbackCMS
+    return toStaticProps(fallbackCMS)
   }
 
   try {
@@ -139,7 +143,7 @@ export async function fetchCMSData(locale: Locale = 'es'): Promise<CMSData> {
     const faqs = faqsRes.docs.map(mapFaq)
     const posts = postsRes.docs.map(mapPost)
 
-    return {
+    return toStaticProps({
       siteSettings: {
         firmName: siteSettings.firmName || fallbackCMS.siteSettings.firmName,
         founder: siteSettings.founder || fallbackCMS.siteSettings.founder,
@@ -258,10 +262,10 @@ export async function fetchCMSData(locale: Locale = 'es'): Promise<CMSData> {
         testimonials.length > 0 ? testimonials : fallbackCMS.testimonials,
       faqs: faqs.length > 0 ? faqs : fallbackCMS.faqs,
       posts: posts.length > 0 ? posts : fallbackCMS.posts,
-    }
+    })
   } catch (error) {
     console.warn('[CMS] Falling back to local content:', error)
-    return fallbackCMS
+    return toStaticProps(fallbackCMS)
   }
 }
 
@@ -272,7 +276,7 @@ export async function fetchPostBySlug(
   const fallback = fallbackCMS.posts.find((p) => p.slug === slug) || null
 
   if (!process.env.DATABASE_URI || !process.env.PAYLOAD_SECRET) {
-    return fallback
+    return fallback ? toStaticProps(fallback) : null
   }
 
   try {
@@ -286,9 +290,9 @@ export async function fetchPostBySlug(
       limit: 1,
       depth: 1,
     })
-    if (result.docs[0]) return mapPost(result.docs[0])
-    return fallback
+    if (result.docs[0]) return toStaticProps(mapPost(result.docs[0]))
+    return fallback ? toStaticProps(fallback) : null
   } catch {
-    return fallback
+    return fallback ? toStaticProps(fallback) : null
   }
 }
