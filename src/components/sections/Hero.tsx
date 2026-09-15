@@ -8,17 +8,22 @@ import { useCMS } from '@/context/CMSContext'
 const HERO_WIDTH = 7680
 const HERO_HEIGHT = 4320
 
+/** Lockup completo transparente (MARDINI + eslogan). */
+const LOCKUP_WIDTH = 2170
+const LOCKUP_HEIGHT = 725
+
 const Hero: React.FC = () => {
   const { t } = useTranslation('common')
   const { homeHero } = useCMS()
   const bgSrc = homeHero.backgroundImageUrl || '/images/hero/miami-skyline.jpg'
 
-  const brand1 = homeHero.brandLine1 || 'MARDINI'
-  const brand2 = homeHero.brandLine2 || 'LAW FIRM'
-  const tagline = homeHero.tagline || 'Immigration Attorneys'
-  const slogan =
+  const brandLabel = [
+    homeHero.brandLine1 || 'MARDINI',
+    homeHero.brandLine2 || 'LAW FIRM',
+    homeHero.tagline || 'Immigration Attorneys',
     [homeHero.slogan, homeHero.sloganHighlight].filter(Boolean).join(' ') ||
-    'Su futuro, nuestra prioridad'
+      'Su futuro, nuestra prioridad',
+  ].join(' — ')
 
   return (
     <section id="inicio" className="relative w-full bg-sky-300">
@@ -34,57 +39,40 @@ const Hero: React.FC = () => {
       />
 
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-brand-navy/50"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-brand-navy/45"
         aria-hidden="true"
       />
 
-      {/* Tipografía real (sin PNG): nítida en cualquier pantalla. Anclada al cielo. */}
+      {/* Lockup anclado al cielo, botones debajo */}
       <div className="absolute inset-0 z-10 flex flex-col items-center px-4 pt-28 sm:pt-32 md:pt-28 lg:pt-32 pb-8">
+        <h1 className="sr-only">{brandLabel}</h1>
+
         <motion.div
-          className="relative w-full max-w-[36rem] sm:max-w-[40rem] md:max-w-[46rem] text-center"
+          className="relative w-full max-w-[min(90vw,34rem)] sm:max-w-[min(82vw,38rem)] md:max-w-[42rem] lg:max-w-[46rem]"
           initial={{ opacity: 0, y: 14 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          {/* Halo atmosférico (no es tarjeta): separa el lockup del skyline sin caja */}
+          {/* Halo suave: el azul/gris del lockup no se pierde en el cielo ni en nubes */}
           <div
-            className="pointer-events-none absolute left-1/2 top-[42%] h-[130%] w-[120%] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.72)_0%,rgba(255,255,255,0.42)_38%,rgba(13,27,61,0.45)_68%,transparent_82%)]"
+            className="pointer-events-none absolute left-1/2 top-1/2 h-[125%] w-[115%] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.55)_0%,rgba(255,255,255,0.22)_45%,rgba(0,0,0,0.18)_70%,transparent_85%)]"
             aria-hidden="true"
           />
 
-          <div className="relative z-[1]">
-            <h1 className="font-serif text-brand-navy text-[2.5rem] leading-none sm:text-5xl md:text-6xl lg:text-[4.35rem] tracking-[0.16em] font-semibold [text-shadow:0_1px_0_rgba(255,255,255,0.9),0_2px_18px_rgba(255,255,255,0.55)]">
-              {brand1}
-            </h1>
-
-            <div className="mt-3 md:mt-4 flex items-center gap-3 w-full max-w-md mx-auto">
-              <span className="flex-1 h-px bg-brand-navy/60" />
-              <span className="font-serif text-[#6B7280] text-sm sm:text-lg md:text-xl tracking-[0.28em] whitespace-nowrap [text-shadow:0_1px_0_rgba(255,255,255,0.85)]">
-                {brand2}
-              </span>
-              <span className="flex-1 h-px bg-brand-navy/60" />
-            </div>
-
-            <p className="mt-3 md:mt-4 font-sans text-brand-navy text-[0.68rem] sm:text-xs md:text-sm tracking-[0.38em] uppercase font-semibold [text-shadow:0_1px_0_rgba(255,255,255,0.85)]">
-              {tagline}
-            </p>
-
-            <div className="mt-4 md:mt-5 flex items-center justify-center w-full max-w-sm mx-auto">
-              <span className="flex-1 h-px bg-brand-navy/50" />
-              <span className="mx-2 text-brand-navy text-sm leading-none" aria-hidden="true">
-                ◆
-              </span>
-              <span className="flex-1 h-px bg-brand-navy/50" />
-            </div>
-
-            <p className="mt-4 md:mt-5 font-sans text-white text-sm sm:text-base md:text-xl tracking-[0.22em] uppercase font-bold [text-shadow:0_2px_8px_rgba(0,0,0,0.65),0_0_2px_rgba(0,0,0,0.8)]">
-              {slogan}
-            </p>
-          </div>
+          <Image
+            src="/images/Logos/mardini-hero-lockup.png"
+            alt={brandLabel}
+            width={LOCKUP_WIDTH}
+            height={LOCKUP_HEIGHT}
+            priority
+            quality={100}
+            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 82vw, 736px"
+            className="relative z-[1] h-auto w-full drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)] drop-shadow-[0_12px_28px_rgba(0,0,0,0.2)]"
+          />
         </motion.div>
 
         <motion.div
-          className="relative z-[1] mt-7 sm:mt-9 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
+          className="relative z-[1] mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.18 }}
