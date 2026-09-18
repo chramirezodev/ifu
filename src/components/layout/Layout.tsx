@@ -69,7 +69,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     return (
       <div className="min-h-screen flex flex-col">
         <Header activeSection="inicio" />
-        <main className="flex-grow pt-28 md:pt-32">
+        <main className="flex-grow pt-14 md:pt-[3.75rem]">
           {children}
         </main>
         <Footer />
@@ -81,7 +81,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header activeSection={activeSection} />
-      <main className="flex-grow pt-28 md:pt-32">
+      <main className="flex-grow pt-14 md:pt-[3.75rem]">
         {children}
       </main>
       <Footer />

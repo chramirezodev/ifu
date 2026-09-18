@@ -8,9 +8,9 @@ import { useCMS } from '@/context/CMSContext'
 const HERO_WIDTH = 7680
 const HERO_HEIGHT = 4320
 
-/** Lockup completo transparente (MARDINI + eslogan). */
-const LOCKUP_WIDTH = 2170
-const LOCKUP_HEIGHT = 725
+/** Lockup del cliente: logo + ◆ + lema (fondo transparente). */
+const LOCKUP_WIDTH = 2000
+const LOCKUP_HEIGHT = 808
 
 const Hero: React.FC = () => {
   const { t } = useTranslation('common')
@@ -26,39 +26,50 @@ const Hero: React.FC = () => {
   ].join(' — ')
 
   return (
-    <section id="inicio" className="relative w-full bg-sky-300">
+    <section
+      id="inicio"
+      className="relative w-full min-h-[85svh] bg-sky-300 md:min-h-0"
+    >
+      {/* Móvil: cover a viewport (sin distorsión). */}
+      <div className="absolute inset-0 md:hidden" aria-hidden="true">
+        <Image
+          src={bgSrc}
+          alt=""
+          fill
+          priority
+          quality={100}
+          sizes="100vw"
+          className="object-cover object-center"
+        />
+      </div>
+
+      {/* Desktop: proporción nativa en flujo. */}
       <Image
         src={bgSrc}
         alt="Skyline de Miami — Mardini Law Firm"
         width={HERO_WIDTH}
         height={HERO_HEIGHT}
-        className="block w-full h-auto"
+        className="hidden h-auto w-full md:block"
         priority
         quality={100}
         sizes="100vw"
       />
 
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-brand-navy/45"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"
         aria-hidden="true"
       />
 
-      {/* Lockup anclado al cielo, botones debajo */}
-      <div className="absolute inset-0 z-10 flex flex-col items-center px-4 pt-28 sm:pt-32 md:pt-28 lg:pt-32 pb-8">
+      {/* Lockup arriba | CTAs abajo (flex, sin solapes en móvil) */}
+      <div className="absolute inset-0 z-10 flex flex-col justify-between px-4 pt-14 pb-8 sm:pt-16 sm:pb-10 md:pt-[4.25rem] md:pb-[18%]">
         <h1 className="sr-only">{brandLabel}</h1>
 
         <motion.div
-          className="relative w-full max-w-[min(90vw,34rem)] sm:max-w-[min(82vw,38rem)] md:max-w-[42rem] lg:max-w-[46rem]"
-          initial={{ opacity: 0, y: 14 }}
+          className="flex w-full justify-center pt-2 sm:pt-4 md:pt-6"
+          initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
         >
-          {/* Halo suave: el azul/gris del lockup no se pierde en el cielo ni en nubes */}
-          <div
-            className="pointer-events-none absolute left-1/2 top-1/2 h-[125%] w-[115%] -translate-x-1/2 -translate-y-1/2 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.55)_0%,rgba(255,255,255,0.22)_45%,rgba(0,0,0,0.18)_70%,transparent_85%)]"
-            aria-hidden="true"
-          />
-
           <Image
             src="/images/Logos/mardini-hero-lockup.png"
             alt={brandLabel}
@@ -66,23 +77,23 @@ const Hero: React.FC = () => {
             height={LOCKUP_HEIGHT}
             priority
             quality={100}
-            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 82vw, 736px"
-            className="relative z-[1] h-auto w-full drop-shadow-[0_2px_6px_rgba(0,0,0,0.25)] drop-shadow-[0_12px_28px_rgba(0,0,0,0.2)]"
+            sizes="(max-width: 640px) 80vw, (max-width: 1024px) 66vw, 592px"
+            className="h-auto w-[min(80vw,28rem)] sm:w-[min(79vw,35rem)] md:w-[min(55vw,37rem)] drop-shadow-[0_1px_2px_rgba(255,255,255,0.35)]"
           />
         </motion.div>
 
         <motion.div
-          className="relative z-[1] mt-6 sm:mt-8 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4"
-          initial={{ opacity: 0, y: 16 }}
+          className="flex w-full flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
+          initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 0.18 }}
+          transition={{ duration: 0.65, delay: 0.12 }}
         >
           <a
             href={homeHero.ctaPrimaryHref || '#contacto'}
-            className="inline-flex items-center gap-3 bg-brand-navy hover:bg-brand-navy-light text-white px-6 sm:px-7 py-3 sm:py-3.5 rounded-md text-sm md:text-base font-semibold tracking-wide shadow-lg transition-colors"
+            className="inline-flex w-full max-w-sm items-center justify-center gap-3 rounded-md bg-brand-navy px-6 py-3 text-sm font-semibold tracking-wide text-white shadow-lg transition-colors hover:bg-brand-navy-light sm:w-auto sm:px-7 sm:py-3.5 md:text-base"
           >
             <svg
-              className="w-5 h-5 flex-shrink-0"
+              className="h-5 w-5 flex-shrink-0"
               viewBox="0 0 24 24"
               fill="currentColor"
               aria-hidden="true"
@@ -107,10 +118,10 @@ const Hero: React.FC = () => {
 
           <a
             href={homeHero.ctaSecondaryHref || '#servicios'}
-            className="inline-flex items-center gap-3 bg-white text-brand-navy hover:bg-white/90 border-2 border-white px-6 sm:px-7 py-3 sm:py-3.5 rounded-md text-sm md:text-base font-semibold tracking-wide shadow-lg transition-colors"
+            className="inline-flex w-full max-w-sm items-center justify-center gap-3 rounded-md border-2 border-white bg-transparent px-6 py-3 text-sm font-semibold tracking-wide text-white shadow-md transition-colors hover:bg-white/15 sm:w-auto sm:px-7 sm:py-3.5 md:text-base"
           >
             <svg
-              className="w-5 h-5 flex-shrink-0"
+              className="h-5 w-5 flex-shrink-0"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"

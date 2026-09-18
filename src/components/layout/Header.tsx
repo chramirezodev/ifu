@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCMS } from '@/context/CMSContext';
 
@@ -46,19 +46,23 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
       <nav className="w-full px-3 sm:px-5 lg:px-6">
-        <div className="flex justify-between items-center gap-3 h-28 md:h-32">
-          <Link href="/" className="min-w-0 flex-1 lg:flex-none lg:basis-[36.5%] lg:max-w-[474px]" aria-label={t('nav.aria.home')}>
+        <div className="flex justify-between items-center gap-3 py-1 min-h-0 leading-none">
+          <Link
+            href="/"
+            className="flex shrink-0 items-center leading-none"
+            aria-label={t('nav.aria.home')}
+          >
             <Image
               src={logoSrc}
               alt={t('nav.logo.alt')}
               width={1024}
               height={341}
-              className="w-full h-auto max-h-[4.6rem] md:max-h-[5.35rem] object-contain object-left"
+              className="h-11 md:h-12 w-auto object-contain object-left block"
               priority
             />
           </Link>
 
-          <div className="hidden lg:flex lg:items-center lg:justify-end lg:flex-1 lg:min-w-0 lg:gap-x-3 xl:gap-x-4">
+          <div className="hidden lg:flex lg:items-center lg:justify-end lg:flex-1 lg:min-w-0 lg:gap-x-2.5 xl:gap-x-3">
             {navigation.map((item) =>
               item.external ? (
                 <a
@@ -66,7 +70,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                   href={item.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-usa-blue text-white hover:bg-usa-blue-dark px-3 py-2 rounded-md text-xs xl:text-sm font-semibold transition-colors duration-200 shadow-sm whitespace-nowrap"
+                  className="bg-usa-blue text-white hover:bg-usa-blue-dark px-2.5 py-1 rounded-md text-xs font-semibold transition-colors duration-200 shadow-sm whitespace-nowrap leading-none"
                 >
                   {t(item.translationKey, { defaultValue: 'PAGA AQUÍ' })}
                 </a>
@@ -74,7 +78,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`text-gray-900 hover:text-usa-blue px-1.5 py-2 text-xs xl:text-sm font-medium transition-colors duration-200 whitespace-nowrap ${
+                  className={`text-gray-900 hover:text-usa-blue px-1 py-1 text-xs font-medium transition-colors duration-200 whitespace-nowrap leading-none ${
                     activeSection === item.label ? 'text-usa-blue' : ''
                   }`}
                 >
