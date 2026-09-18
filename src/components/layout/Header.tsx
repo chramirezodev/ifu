@@ -45,11 +45,11 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
-      <nav className="w-full px-3 sm:px-5 lg:px-6">
-        <div className="flex justify-between items-center gap-3 py-1 min-h-0 leading-none">
+      <nav className="w-full px-3 pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] sm:px-5 lg:px-6">
+        <div className="flex justify-between items-center gap-2 sm:gap-3 py-1.5 min-h-0 leading-none">
           <Link
             href="/"
-            className="flex shrink-0 items-center leading-none"
+            className="flex min-w-0 flex-1 items-center overflow-visible pr-2 lg:flex-none lg:shrink-0"
             aria-label={t('nav.aria.home')}
           >
             <Image
@@ -57,7 +57,9 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
               alt={t('nav.logo.alt')}
               width={1024}
               height={341}
-              className="h-11 md:h-12 w-auto object-contain object-left block"
+              sizes="(max-width: 1023px) 70vw, 240px"
+              className="block h-auto w-auto max-h-9 max-w-[calc(100vw-4.5rem)] object-contain object-left sm:max-h-10 md:max-h-12 md:max-w-[15rem]"
+              style={{ width: 'auto', height: 'auto' }}
               priority
             />
           </Link>
@@ -114,7 +116,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
 
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden inline-flex items-center justify-center p-2 rounded-md text-gray-900 hover:text-usa-blue focus:outline-none"
+            className="lg:hidden inline-flex shrink-0 items-center justify-center p-2 rounded-md text-gray-900 hover:text-usa-blue focus:outline-none"
             aria-expanded={isMenuOpen}
           >
             <span className="sr-only">{isMenuOpen ? t('nav.aria.close') : t('nav.aria.open')}</span>
