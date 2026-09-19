@@ -23,7 +23,9 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   const router = useRouter();
   const { t, i18n } = useTranslation('common');
   const { siteSettings } = useCMS();
-  const logoSrc = siteSettings.logoUrl || '/images/Logos/mardini-logo.png';
+  // Logo de header: asset local completo.
+  // El media del CMS (variante 800×600) llega recortado y corta la M de MARDINI.
+  const logoSrc = '/images/Logos/mardini-logo.png';
 
   const navigation: NavItem[] = [
     { label: 'inicio', href: '#inicio', translationKey: 'nav.home' },
@@ -57,9 +59,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
               alt={t('nav.logo.alt')}
               width={1024}
               height={341}
-              sizes="(max-width: 1023px) 70vw, 240px"
-              className="block h-auto w-auto max-h-9 max-w-[calc(100vw-4.5rem)] object-contain object-left sm:max-h-10 md:max-h-12 md:max-w-[15rem]"
-              style={{ width: 'auto', height: 'auto' }}
+              sizes="(max-width: 1023px) 220px, 240px"
+              className="block h-9 w-auto max-w-[min(220px,calc(100vw-4.5rem))] object-contain object-left sm:h-10 md:h-12 md:max-w-[15rem]"
               priority
             />
           </Link>
