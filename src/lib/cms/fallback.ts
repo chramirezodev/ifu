@@ -66,6 +66,7 @@ export const fallbackCMS: CMSData = {
       'Hoy dedica su práctica al derecho de inmigración, representando a personas y familias ante el Servicio de Ciudadanía e Inmigración de los Estados Unidos (USCIS), las Cortes de Inmigración (EOIR) y la Junta de Apelaciones de Inmigración (BIA).',
       'Como inmigrante, el abogado Roger Mardini conoce de primera mano los retos de comenzar una nueva vida en Estados Unidos y entiende lo importante que puede ser cada decisión durante un proceso migratorio. Por eso, dedica tiempo a conocer cada caso, explicar las opciones con claridad y brindar a cada cliente una representación legal cercana y personalizada.',
     ],
+    photoUrl: '/images/roger-mardini-avatar.png',
   },
   homeAbout: {
     title: 'Nosotros',

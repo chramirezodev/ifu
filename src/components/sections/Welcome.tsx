@@ -12,6 +12,18 @@ const Welcome = () => {
           {homeWelcome.eyebrow}
         </p>
         <h2 className="text-4xl font-serif font-bold mb-6 text-brand-navy">{homeWelcome.name}</h2>
+        {homeWelcome.photoUrl ? (
+          <div className="mb-8 relative mx-auto h-52 w-52 sm:h-60 sm:w-60 overflow-hidden rounded-full shadow-md ring-4 ring-brand-navy/10">
+            <Image
+              src={homeWelcome.photoUrl}
+              alt={homeWelcome.name}
+              fill
+              sizes="240px"
+              className="object-cover object-top"
+              priority
+            />
+          </div>
+        ) : null}
         {homeWelcome.paragraphs.map((paragraph, index) => (
           <p
             key={index}
@@ -22,16 +34,6 @@ const Welcome = () => {
             {paragraph}
           </p>
         ))}
-        {homeWelcome.photoUrl ? (
-          <div className="mt-8 relative mx-auto w-48 h-48 rounded-full overflow-hidden">
-            <Image
-              src={homeWelcome.photoUrl}
-              alt={homeWelcome.name}
-              fill
-              className="object-cover"
-            />
-          </div>
-        ) : null}
       </div>
     </section>
   )

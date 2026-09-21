@@ -75,6 +75,8 @@ export default buildConfig({
     pool: {
       connectionString: process.env.DATABASE_URI || '',
     },
+    // Evita desfasajes de columnas (p. ej. prefix / sizes_*) cuando se activan plugins.
+    push: true,
   }),
   sharp,
   localization: {

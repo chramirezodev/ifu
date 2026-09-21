@@ -6,12 +6,30 @@ export async function getPayloadClient() {
 }
 
 export function mediaUrl(media: unknown, fallback = ''): string {
-  if (!media || typeof media !== 'object') return fallback
-  const m = media as { url?: string }
-  if (m.url) {
-    if (m.url.startsWith('http')) return m.url
-    const base = process.env.NEXT_PUBLIC_SERVER_URL || ''
-    return `${base}${m.url}`
+  const toPath = (url: string) => {
+    if (!url) return ''
+    if (url.startsWith('/')) return url
+    try {
+      const parsed = new URL(url)
+      const base = process.env.NEXT_PUBLIC_SERVER_URL || ''
+      if (base) {
+        const baseHost = new URL(base).host
+        if (parsed.host === baseHost || parsed.host === 'mardinilawfirm.com') {
+          return `${parsed.pathname}${parsed.search}`
+        }
+      }
+      if (parsed.host === 'mardinilawfirm.com' || parsed.host.endsWith('.vercel.app')) {
+        return `${parsed.pathname}${parsed.search}`
+      }
+    } catch {
+      /* keep absolute */
+    }
+    return url
   }
-  return fallback
+
+  if (media && typeof media === 'object') {
+    const m = media as { url?: string }
+    if (m.url) return toPath(m.url)
+  }
+  return toPath(fallback)
 }

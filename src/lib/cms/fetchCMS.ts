@@ -94,17 +94,48 @@ export async function fetchCMSData(locale: Locale = 'es'): Promise<CMSData> {
       faqsRes,
       postsRes,
     ] = await Promise.all([
-      payload.findGlobal({ slug: 'site-settings', locale: loc as 'es' | 'en', fallbackLocale: 'es' }),
-      payload.findGlobal({ slug: 'seo', locale: loc as 'es' | 'en', fallbackLocale: 'es' }),
-      payload.findGlobal({ slug: 'home-hero', locale: loc as 'es' | 'en', fallbackLocale: 'es' }),
-      payload.findGlobal({ slug: 'home-welcome', locale: loc as 'es' | 'en', fallbackLocale: 'es' }),
-      payload.findGlobal({ slug: 'home-about', locale: loc as 'es' | 'en', fallbackLocale: 'es' }),
+      payload.findGlobal({
+        slug: 'site-settings',
+        locale: loc as 'es' | 'en',
+        fallbackLocale: 'es',
+        depth: 1,
+      }),
+      payload.findGlobal({
+        slug: 'seo',
+        locale: loc as 'es' | 'en',
+        fallbackLocale: 'es',
+        depth: 1,
+      }),
+      payload.findGlobal({
+        slug: 'home-hero',
+        locale: loc as 'es' | 'en',
+        fallbackLocale: 'es',
+        depth: 1,
+      }),
+      payload.findGlobal({
+        slug: 'home-welcome',
+        locale: loc as 'es' | 'en',
+        fallbackLocale: 'es',
+        depth: 1,
+      }),
+      payload.findGlobal({
+        slug: 'home-about',
+        locale: loc as 'es' | 'en',
+        fallbackLocale: 'es',
+        depth: 1,
+      }),
       payload.findGlobal({
         slug: 'home-why-choose-us',
         locale: loc as 'es' | 'en',
         fallbackLocale: 'es',
+        depth: 1,
       }),
-      payload.findGlobal({ slug: 'services-page', locale: loc as 'es' | 'en', fallbackLocale: 'es' }),
+      payload.findGlobal({
+        slug: 'services-page',
+        locale: loc as 'es' | 'en',
+        fallbackLocale: 'es',
+        depth: 1,
+      }),
       payload.find({
         collection: 'services',
         locale: loc as 'es' | 'en',
@@ -216,7 +247,12 @@ export async function fetchCMSData(locale: Locale = 'es'): Promise<CMSData> {
           (homeWelcome.paragraphs as { text: string }[])?.length > 0
             ? (homeWelcome.paragraphs as { text: string }[]).map((p) => p.text)
             : fallbackCMS.homeWelcome.paragraphs,
-        photoUrl: mediaUrl(homeWelcome.photo, homeWelcome.photoUrl || ''),
+        photoUrl: homeWelcome.photoUrl
+          ? mediaUrl(null, homeWelcome.photoUrl)
+          : mediaUrl(
+              homeWelcome.photo,
+              fallbackCMS.homeWelcome.photoUrl || '',
+            ),
       },
       homeAbout: {
         title: homeAbout.title || fallbackCMS.homeAbout.title,

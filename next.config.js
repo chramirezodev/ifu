@@ -30,6 +30,11 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**.public.blob.vercel-storage.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'mardinilawfirm.com',
+        pathname: '/api/media/file/**',
+      },
     ],
     unoptimized: true,
   },
