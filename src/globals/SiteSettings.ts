@@ -90,6 +90,10 @@ export const SiteSettings: GlobalConfig = {
               label: 'Mensaje al pedir consulta',
               type: 'textarea',
               localized: true,
+              admin: {
+                description:
+                  'Texto que aparece ya escrito cuando el visitante abre WhatsApp desde la web (botón flotante, pie de página, contacto).',
+              },
             },
             {
               name: 'address',

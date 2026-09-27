@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import WhatsAppLink from '@/components/common/WhatsAppLink';
 
 const Politicas = () => (
   <>
@@ -30,7 +31,7 @@ const Politicas = () => (
         <p className="mb-4">No compartimos su información personal con terceros sin su autorización, salvo en casos necesarios para el cumplimiento de la ley o protección de nuestros derechos.</p>
         <h3 className="text-xl font-semibold mb-2">Contacto</h3>
         <ul className="mb-4">
-          <li>WhatsApp: <a href="https://wa.me/17542344284" className="text-usa-blue underline">+1 (754) 234-4284</a></li>
+          <li>WhatsApp: <WhatsAppLink className="text-usa-blue underline" /></li>
           <li>Email: <a href="mailto:info@mardinilawfirm.com" className="text-usa-blue underline">info@mardinilawfirm.com</a></li>
           <li>Horario de atención: Lunes a Viernes de 8 am a 6 pm ET.</li>
         </ul>

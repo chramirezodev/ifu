@@ -22,7 +22,7 @@ const WhatsAppButton = ({
 }) => {
   const { siteSettings } = useCMS()
   const resolvedPhone = phoneNumber || siteSettings.whatsappNumber
-  const resolvedMessage = defaultMessage || siteSettings.whatsappAutoMessage
+  const resolvedMessage = defaultMessage || siteSettings.consultationWhatsAppMessage
   const router = useRouter()
   const [message, setMessage] = useState(resolvedMessage)
 

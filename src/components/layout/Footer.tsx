@@ -88,7 +88,7 @@ const Footer: React.FC = () => {
 
         <div className="flex justify-center gap-6 mt-8 mb-4">
           <a 
-            href={`https://wa.me/${contactInfo.whatsappNumber}?text=${encodeURIComponent(contactInfo.whatsappAutoMessage)}`} 
+            href={`https://wa.me/${contactInfo.whatsappNumber}?text=${encodeURIComponent(contactInfo.consultationWhatsAppMessage)}`} 
             target="_blank" 
             rel="noopener noreferrer" 
             aria-label="WhatsApp" 

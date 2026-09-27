@@ -3,11 +3,14 @@ import { motion } from 'framer-motion';
 
 interface WhatsAppButtonProps {
   phoneNumber: string;
+  message?: string;
 }
 
-const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ phoneNumber }) => {
+const WhatsAppButton: React.FC<WhatsAppButtonProps> = ({ phoneNumber, message }) => {
   const formattedNumber = phoneNumber.replace(/\D/g, '');
-  const whatsappUrl = `https://wa.me/${formattedNumber}`;
+  const whatsappUrl = message
+    ? `https://wa.me/${formattedNumber}?text=${encodeURIComponent(message)}`
+    : `https://wa.me/${formattedNumber}`;
 
   return (
     <motion.a

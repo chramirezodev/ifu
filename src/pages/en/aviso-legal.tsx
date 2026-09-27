@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
+import WhatsAppLink, { WHATSAPP_MESSAGE_EN } from '@/components/common/WhatsAppLink';
 
 const LegalNoticeEn = () => (
   <>
@@ -29,7 +30,7 @@ const LegalNoticeEn = () => (
         <hr className="my-8" />
         <h2 className="text-2xl font-semibold mb-4 text-usa-blue">Contact</h2>
         <ul className="mb-4">
-          <li>WhatsApp: <a href="https://wa.me/17542344284" className="text-usa-blue underline">+1 (754) 234-4284</a></li>
+          <li>WhatsApp: <WhatsAppLink message={WHATSAPP_MESSAGE_EN} className="text-usa-blue underline" /></li>
           <li>Email: <a href="mailto:info@mardinilawfirm.com" className="text-usa-blue underline">info@mardinilawfirm.com</a></li>
           <li>Location: 7224 NW 116th Way, Parkland, FL 33076</li>
           <li>Business hours: Monday to Friday, 8 am to 6 pm ET.</li>

@@ -3,6 +3,7 @@ import { fallbackCMS } from '@/lib/cms/fallback';
 
 // Fallback local — la fuente de verdad en runtime es Payload (CMSProvider).
 const s = fallbackCMS.siteSettings;
+const whatsappUrl = `https://wa.me/${s.whatsappNumber}?text=${encodeURIComponent(s.consultationWhatsAppMessage)}`;
 
 export const contactInfo = {
   email: s.email,
@@ -40,13 +41,13 @@ export const contactInfo = {
   socialMedia: [
     {
       icon: WhatsAppIcon,
-      link: `https://wa.me/${s.whatsappNumber}`
+      link: whatsappUrl
     }
   ]
 };
 
 export const socialMedia = {
-  whatsapp: `https://wa.me/${s.whatsappNumber}`
+  whatsapp: whatsappUrl
 };
 
 export const firmInfo = {

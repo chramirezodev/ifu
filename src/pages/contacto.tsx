@@ -213,7 +213,7 @@ const ContactoPage = () => {
                       </div>
                       <div className="ml-4">
                         <p className="text-lg font-medium">Teléfono</p>
-                        <a href={`https://wa.me/${contactInfo.whatsappNumber}?text=${encodeURIComponent(contactInfo.whatsappAutoMessage)}`} className="text-usa-blue underline">
+                        <a href={`https://wa.me/${contactInfo.whatsappNumber}?text=${encodeURIComponent(contactInfo.consultationWhatsAppMessage)}`} className="text-usa-blue underline">
                           {contactInfo.whatsapp}
                         </a>
                       </div>

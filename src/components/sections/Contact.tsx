@@ -350,7 +350,11 @@ const Contact = () => {
                   {contactInfo.socialLinks.map((social, index) => (
                     <a 
                       key={index}
-                      href={social.url}
+                      href={
+                        social.platform.toLowerCase() === 'whatsapp' && !social.url.includes('text=')
+                          ? `${social.url}${social.url.includes('?') ? '&' : '?'}text=${encodeURIComponent(contactInfo.consultationWhatsAppMessage)}`
+                          : social.url
+                      }
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="bg-gray-100 hover:bg-usa-blue hover:text-white text-gray-600 p-3 rounded-full transition-colors duration-300"

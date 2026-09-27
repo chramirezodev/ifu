@@ -11,9 +11,10 @@ interface ContactInfoProps {
     workHours: string;
   };
   whatsappNumber: string;
+  whatsappMessage?: string;
 }
 
-const ContactInfo: React.FC<ContactInfoProps> = ({ contactInfo, whatsappNumber }) => {
+const ContactInfo: React.FC<ContactInfoProps> = ({ contactInfo, whatsappNumber, whatsappMessage }) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -38,7 +39,9 @@ const ContactInfo: React.FC<ContactInfoProps> = ({ contactInfo, whatsappNumber }
 
   const contactItems = [
     {
-      href: `https://wa.me/${whatsappNumber}`,
+      href: whatsappMessage
+        ? `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`
+        : `https://wa.me/${whatsappNumber}`,
       text: `WhatsApp: ${contactInfo.whatsapp}`,
       icon: '📱',
       external: true

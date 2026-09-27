@@ -73,7 +73,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           {children}
         </main>
         <Footer />
-        <WhatsAppButton phoneNumber={siteSettings.whatsappNumber} />
+        <WhatsAppButton
+          phoneNumber={siteSettings.whatsappNumber}
+          message={siteSettings.consultationWhatsAppMessage}
+        />
       </div>
     );
   }
@@ -85,7 +88,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         {children}
       </main>
       <Footer />
-      <WhatsAppButton phoneNumber={siteSettings.whatsappNumber} />
+      <WhatsAppButton
+        phoneNumber={siteSettings.whatsappNumber}
+        message={siteSettings.consultationWhatsAppMessage}
+      />
     </div>
   );
 };
