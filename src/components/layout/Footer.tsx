@@ -24,7 +24,7 @@ const Footer: React.FC = () => {
               alt={`${firmInfo.name || 'Mardini Law Firm'} Logo`}
               width={2222}
               height={585}
-              className="mb-4 block h-8 w-auto max-w-[9.5rem] object-contain sm:h-9 sm:max-w-[10.75rem]"
+              className="mb-4 block h-[37px] w-auto max-w-[9.5rem] object-contain sm:h-[41px] sm:max-w-[10.75rem]"
               decoding="async"
             />
             <p className="text-gray-300 mb-2 font-semibold text-sm">

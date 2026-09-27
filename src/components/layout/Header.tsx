@@ -58,7 +58,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
               alt={t('nav.logo.alt')}
               width={2222}
               height={585}
-              className="block h-8 w-auto max-w-[9.5rem] object-contain object-left sm:h-9 sm:max-w-[10.75rem]"
+              className="block h-[37px] w-auto max-w-[9.5rem] object-contain object-left sm:h-[41px] sm:max-w-[10.75rem]"
               decoding="async"
             />
           </Link>
