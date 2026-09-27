@@ -1,28 +1,23 @@
 import React from 'react'
-import Image from 'next/image'
 import { motion } from 'framer-motion'
 import { useTranslation } from 'next-i18next'
 import { useCMS } from '@/context/CMSContext'
 
-/** Proporción nativa de la foto de portada (7680×4320). */
-const HERO_WIDTH = 7680
-const HERO_HEIGHT = 4320
-
-/** Lockup del cliente: logo + ◆ + lema (fondo transparente). */
-const LOCKUP_WIDTH = 2000
-const LOCKUP_HEIGHT = 808
+/** Master 3840×2160 (16:9). Variantes generadas con scripts/build-hero-variants.mjs. */
+const HERO_WIDTH = 3840
+const HERO_HEIGHT = 2160
+const HERO_BASE = '/images/hero/miami-skyline-atardecer'
+const HERO_SRC = `${HERO_BASE}-1920.jpg`
+const HERO_SRCSET = [1280, 1920, 2560, 3840].map((w) => `${HERO_BASE}-${w}.jpg ${w}w`).join(', ')
 
 const Hero: React.FC = () => {
   const { t } = useTranslation('common')
   const { homeHero } = useCMS()
-  const bgSrc = homeHero.backgroundImageUrl || '/images/hero/miami-skyline.jpg'
 
   const brandLabel = [
     homeHero.brandLine1 || 'MARDINI',
     homeHero.brandLine2 || 'LAW FIRM',
     homeHero.tagline || 'Immigration Attorneys',
-    [homeHero.slogan, homeHero.sloganHighlight].filter(Boolean).join(' ') ||
-      'Su futuro, nuestra prioridad',
   ].join(' — ')
 
   return (
@@ -30,63 +25,33 @@ const Hero: React.FC = () => {
       id="inicio"
       className="relative w-full min-h-[85svh] bg-sky-300 md:min-h-0"
     >
-      {/* Móvil: cover a viewport (sin distorsión). */}
-      <div className="absolute inset-0 md:hidden" aria-hidden="true">
-        <Image
-          src={bgSrc}
-          alt=""
-          fill
-          priority
-          quality={100}
-          sizes="100vw"
-          className="object-cover object-center"
-        />
-      </div>
-
-      {/* Desktop: proporción nativa en flujo. */}
-      <Image
-        src={bgSrc}
+      {/* Móvil: cover a viewport; "100vh" limita a ~2x en pantallas 3x para no bajar el 3840. Desktop: proporción nativa en flujo. */}
+      <img
+        src={HERO_SRC}
+        srcSet={HERO_SRCSET}
+        sizes="(min-width: 768px) 100vw, 100vh"
         alt="Skyline de Miami — Mardini Law Firm"
         width={HERO_WIDTH}
         height={HERO_HEIGHT}
-        className="hidden h-auto w-full md:block"
-        priority
-        quality={100}
-        sizes="100vw"
+        fetchPriority="high"
+        decoding="async"
+        className="absolute inset-0 h-full w-full object-cover object-center md:static md:h-auto"
       />
 
+      {/* Velo suave solo abajo para legibilidad de CTAs (sin saturar la foto). */}
       <div
-        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/40"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/10 via-transparent to-black/45"
         aria-hidden="true"
       />
 
-      {/* Lockup arriba | CTAs abajo (flex, sin solapes en móvil) */}
-      <div className="absolute inset-0 z-10 flex flex-col justify-between px-4 pt-14 pb-8 sm:pt-16 sm:pb-10 md:pt-[4.25rem] md:pb-[18%]">
+      <div className="absolute inset-0 z-10 flex flex-col justify-end px-4 pb-10 pt-20 sm:pb-12 md:pb-[14%]">
         <h1 className="sr-only">{brandLabel}</h1>
-
-        <motion.div
-          className="flex w-full justify-center pt-2 sm:pt-4 md:pt-6"
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          <Image
-            src="/images/Logos/mardini-hero-lockup.png"
-            alt={brandLabel}
-            width={LOCKUP_WIDTH}
-            height={LOCKUP_HEIGHT}
-            priority
-            quality={100}
-            sizes="(max-width: 640px) 80vw, (max-width: 1024px) 66vw, 592px"
-            className="h-auto w-[min(80vw,28rem)] sm:w-[min(79vw,35rem)] md:w-[min(55vw,37rem)] drop-shadow-[0_1px_2px_rgba(255,255,255,0.35)]"
-          />
-        </motion.div>
 
         <motion.div
           className="flex w-full flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4"
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.65, delay: 0.12 }}
+          transition={{ duration: 0.65 }}
         >
           <a
             href={homeHero.ctaPrimaryHref || '#contacto'}

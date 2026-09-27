@@ -22,7 +22,7 @@ export const fallbackCMS: CMSData = {
       'https://www.google.com/maps/search/?api=1&query=7224+NW+116th+Way,+Parkland,+FL+33076',
     mapEmbedUrl:
       'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3576.8!2d-80.24!3d26.31!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88d9080e0e0e0e0e%3A0x0!2s7224%20NW%20116th%20Way%2C%20Parkland%2C%20FL%2033076!5e0!3m2!1ses!2sus!4v1700000000000!5m2!1ses!2sus',
-    logoUrl: '/images/Logos/mardini-logo.png',
+    logoUrl: '/images/Logos/mardini-logo-header.svg',
     socialLinks: [{ platform: 'whatsapp', url: 'https://wa.me/17542344284' }],
     footerServiceLabels: [
       'Representación ante la Corte de Inmigración',
@@ -52,7 +52,7 @@ export const fallbackCMS: CMSData = {
     tagline: 'Immigration Attorneys',
     slogan: 'Su futuro,',
     sloganHighlight: 'nuestra prioridad',
-    backgroundImageUrl: '/images/hero/miami-skyline.jpg',
+    backgroundImageUrl: '/images/hero/miami-skyline-atardecer-1920.jpg',
     ctaPrimaryLabel: '',
     ctaPrimaryHref: '#contacto',
     ctaSecondaryLabel: '',
@@ -66,7 +66,7 @@ export const fallbackCMS: CMSData = {
       'Hoy dedica su práctica al derecho de inmigración, representando a personas y familias ante el Servicio de Ciudadanía e Inmigración de los Estados Unidos (USCIS), las Cortes de Inmigración (EOIR) y la Junta de Apelaciones de Inmigración (BIA).',
       'Como inmigrante, el abogado Roger Mardini conoce de primera mano los retos de comenzar una nueva vida en Estados Unidos y entiende lo importante que puede ser cada decisión durante un proceso migratorio. Por eso, dedica tiempo a conocer cada caso, explicar las opciones con claridad y brindar a cada cliente una representación legal cercana y personalizada.',
     ],
-    photoUrl: '/images/roger-mardini-avatar.png',
+    photoUrl: '/images/roger-mardini.png',
   },
   homeAbout: {
     title: 'Nosotros',

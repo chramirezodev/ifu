@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useCMS } from '@/context/CMSContext';
 
 const Footer: React.FC = () => {
@@ -8,6 +7,7 @@ const Footer: React.FC = () => {
   const { siteSettings } = useCMS();
   const contactInfo = siteSettings;
   const footerServices = siteSettings.footerServiceLabels;
+  // Blanco/gris con transparencia (apto para fondo navy del pie).
   const logoSrc = '/images/Logos/mardini-logo-footer.png';
   const firmInfo = {
     slogan: siteSettings.slogan,
@@ -19,12 +19,13 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 max-w-6xl py-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-start">
           <div className="flex flex-col justify-start items-start">
-            <Image
+            <img
               src={logoSrc}
               alt={`${firmInfo.name || 'Mardini Law Firm'} Logo`}
-              width={2000}
-              height={667}
-              className="mb-4 w-full max-w-[280px] h-auto object-contain"
+              width={2222}
+              height={585}
+              className="mb-4 block h-8 w-auto max-w-[9.5rem] object-contain sm:h-9 sm:max-w-[10.75rem]"
+              decoding="async"
             />
             <p className="text-gray-300 mb-2 font-semibold text-sm">
               {firmInfo.slogan}

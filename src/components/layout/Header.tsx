@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -23,9 +22,8 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   const router = useRouter();
   const { t, i18n } = useTranslation('common');
   const { siteSettings } = useCMS();
-  // Logo de header: asset local completo.
-  // El media del CMS (variante 800×600) llega recortado y corta la M de MARDINI.
-  const logoSrc = '/images/Logos/mardini-logo.png';
+  // Logo fino SVG (azul/gris): se escala solo con CSS para no engrosar trazos.
+  const logoSrc = '/images/Logos/mardini-logo-header.svg';
 
   const navigation: NavItem[] = [
     { label: 'inicio', href: '#inicio', translationKey: 'nav.home' },
@@ -48,20 +46,20 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
       <nav className="w-full px-3 pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] sm:px-5 lg:px-6">
-        <div className="flex justify-between items-center gap-2 sm:gap-3 py-1.5 min-h-0 leading-none">
+        <div className="flex justify-between items-center gap-2 sm:gap-3 py-2 min-h-0 leading-none md:py-2.5">
           <Link
             href="/"
             className="flex min-w-0 flex-1 items-center overflow-visible pr-2 lg:flex-none lg:shrink-0"
             aria-label={t('nav.aria.home')}
           >
-            <Image
+            {/* SVG nativo: nítido en Retina; el tamaño crece sin engrosar el diseño */}
+            <img
               src={logoSrc}
               alt={t('nav.logo.alt')}
-              width={1024}
-              height={341}
-              sizes="(max-width: 1023px) 220px, 240px"
-              className="block h-9 w-auto max-w-[min(220px,calc(100vw-4.5rem))] object-contain object-left sm:h-10 md:h-12 md:max-w-[15rem]"
-              priority
+              width={2222}
+              height={585}
+              className="block h-8 w-auto max-w-[9.5rem] object-contain object-left sm:h-9 sm:max-w-[10.75rem]"
+              decoding="async"
             />
           </Link>
 
