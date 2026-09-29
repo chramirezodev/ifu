@@ -30,7 +30,7 @@ const Hero: React.FC = () => {
         src={HERO_SRC}
         srcSet={HERO_SRCSET}
         sizes="(min-width: 768px) 100vw, 100vh"
-        alt="Skyline de Miami — Mardini Law Firm"
+        alt={t('hero.imageAlt')}
         width={HERO_WIDTH}
         height={HERO_HEIGHT}
         fetchPriority="high"

@@ -44,6 +44,25 @@ const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  async redirects() {
+    // El sitio es de una sola página: las rutas antiguas llevan a su sección de la home.
+    // Con `locale: false`, Next compara contra la ruta con el idioma por defecto antepuesto
+    // (`/contacto` llega como `/es/contacto`), por eso las fuentes llevan `/es` explícito.
+    const legacyRoutes = [
+      ['/contacto', '#contacto'],
+      ['/servicios', '#servicios'],
+      ['/testimonios', ''],
+      ['/blog', ''],
+      ['/blog/:slug*', ''],
+    ]
+    return [
+      ...legacyRoutes.flatMap(([source, hash]) => [
+        { source: `/es${source}`, destination: `/${hash}`, permanent: true, locale: false },
+        { source: `/en${source}`, destination: `/en${hash}`, permanent: true, locale: false },
+      ]),
+      { source: '/:locale(es|en)/login', destination: '/admin', permanent: false, locale: false },
+    ]
+  },
   async headers() {
     return [
       {

@@ -1,8 +1,14 @@
 import React from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import WhatsAppLink from '@/components/common/WhatsAppLink';
+import LegalNoticeEn from '@/components/legal/LegalNoticeEn';
 
-const AvisoLegal = () => (
+const AvisoLegal = () => {
+  const { locale } = useRouter();
+  if (locale === 'en') return <LegalNoticeEn />;
+
+  return (
   <>
     <Head>
       <title>Aviso Legal | Mardini Law Firm</title>
@@ -38,6 +44,7 @@ const AvisoLegal = () => (
       </div>
     </main>
   </>
-);
+  );
+};
 
 export default AvisoLegal;

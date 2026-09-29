@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useTranslation } from 'next-i18next';
 import { useCMS } from '@/context/CMSContext';
+
+const MotionLink = motion.create(Link);
 
 // Iconos mejorados con símbolos americanos "stencil style"
 const serviceIcons = {
@@ -174,6 +178,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
   slug,
   icon
 }) => {
+  const { t } = useTranslation('common');
   const [isExpanded, setIsExpanded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -203,7 +208,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
         <div className="relative h-52 w-full overflow-hidden">
           <Image
             src={image}
-            alt={`${title} - Servicio de inmigración profesional en Estados Unidos`}
+            alt={t('services.imageAlt', { title })}
             fill
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className={`object-cover transition-transform duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
@@ -259,14 +264,14 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
               >
                 {isExpanded ? (
                   <>
-                    <span>Ver menos</span>
+                    <span>{t('common.readLess')}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 15l7-7 7 7" />
                     </svg>
                   </>
                 ) : (
                   <>
-                    <span>Ver más</span>
+                    <span>{t('common.readMore')}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                     </svg>
@@ -290,13 +295,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
             </>
           )}
 
-          <motion.a
-            href={`#contacto?service=${slug}`}
+          <MotionLink
+            href={`/servicios/${encodeURIComponent(slug)}`}
             className="inline-flex items-center text-usa-blue hover:text-usa-red font-medium group"
             whileHover={{ x: 4 }}
             transition={{ duration: 0.2 }}
           >
-            <span>Consultar</span>
+            <span>{t('services.consult')}</span>
             <svg
               className="w-5 h-5 ml-2 transform group-hover:translate-x-1 transition-transform"
               fill="none"
@@ -310,7 +315,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
                 d="M17 8l4 4m0 0l-4 4m4-4H3"
               />
             </svg>
-          </motion.a>
+          </MotionLink>
         </div>
                       </div>
       
@@ -330,6 +335,7 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 };
 
 const Services = () => {
+  const { t } = useTranslation('common');
   const [isClient, setIsClient] = useState(false);
   const { services, servicesPage, siteSettings } = useCMS();
 
@@ -364,11 +370,11 @@ const Services = () => {
         <div className="container mx-auto px-4 max-w-6xl relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold mb-4 text-gray-900">
-              Nuestros Servicios
+              {t('services.title')}
             </h2>
             <div className="w-24 h-1 bg-usa-blue mx-auto mb-6" />
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Soluciones Integrales de Inmigración
+              {t('services.subtitle')}
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto">
@@ -409,7 +415,7 @@ const Services = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            Nuestros Servicios
+            {t('services.title')}
           </motion.h2>
           <motion.div 
             className="w-24 h-1 bg-usa-blue mx-auto mb-6"
@@ -461,7 +467,7 @@ const Services = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <p className="text-lg text-gray-600 mb-4 max-w-3xl mx-auto">
-            Estamos aquí para ayudarle. En Mardini Law Firm entendemos que las decisiones migratorias pueden cambiar el futuro de una persona y su familia. Permítenos evaluar su caso y brindarle una estrategia legal diseñada para proteger sus derechos y alcanzar sus objetivos.
+            {t('services.ctaText')}
           </p>
           <motion.a
             href={`https://wa.me/${siteSettings.whatsappNumber}?text=${encodeURIComponent(siteSettings.consultationWhatsAppMessage)}`}
@@ -474,7 +480,7 @@ const Services = () => {
             <svg className="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
               <path d="M20.52 3.48A12.07 12.07 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.16 1.6 5.97L0 24l6.22-1.63A12.07 12.07 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.21-1.25-6.23-3.48-8.52zM12 22c-1.85 0-3.68-.5-5.25-1.44l-.38-.22-3.69.97.99-3.59-.25-.37A9.93 9.93 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.2-7.6c-.28-.14-1.65-.81-1.9-.9-.25-.09-.43-.14-.61.14-.18.28-.7.9-.86 1.08-.16.18-.32.2-.6.07-.28-.14-1.18-.44-2.25-1.4-.83-.74-1.39-1.65-1.55-1.93-.16-.28-.02-.43.12-.57.13-.13.28-.34.42-.51.14-.17.18-.29.28-.48.09-.19.05-.36-.02-.5-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47-.16-.01-.35-.01-.54-.01-.19 0-.5.07-.76.34-.26.27-1 1-.97 2.43.03 1.43 1.03 2.81 1.18 3.01.15.2 2.03 3.1 4.93 4.23.69.3 1.23.48 1.65.61.69.22 1.32.19 1.81.12.55-.08 1.65-.67 1.88-1.32.23-.65.23-1.2.16-1.32-.07-.12-.25-.19-.53-.33z"/>
             </svg>
-            <span>Agende su consulta hoy</span>
+            <span>{t('services.ctaButton')}</span>
           </motion.a>
         </motion.div>
       </div>

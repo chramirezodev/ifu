@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'next-i18next';
 import { useCMS } from '@/context/CMSContext';
 
 interface AboutProps {
@@ -16,6 +17,7 @@ const DynamicBadges = dynamic(() => Promise.resolve(({ children }: { children: R
 });
 
 export default function About({ title, content, values, imageUrl }: AboutProps) {
+  const { t } = useTranslation('common');
   const { homeAbout } = useCMS();
   const resolvedTitle = title || homeAbout.title;
   const resolvedContent = content || homeAbout.content;
@@ -75,7 +77,7 @@ export default function About({ title, content, values, imageUrl }: AboutProps) 
             <div className="relative aspect-square">
               <Image
                 src={resolvedImage}
-                alt="Mardini Law Firm — Abogados de inmigración en Estados Unidos"
+                alt={t('about.imageAlt')}
                 width={500}
                 height={300}
                 className="object-cover w-full h-full rounded-xl shadow-xl"

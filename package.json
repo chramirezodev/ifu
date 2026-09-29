@@ -11,7 +11,8 @@
     "generate:types": "payload generate:types",
     "generate:importmap": "payload generate:importmap",
     "seed": "cross-env SEED_FORCE= NODE_OPTIONS=\"--no-deprecation --require ./scripts/patch-next-env.cjs\" tsx src/scripts/seed.ts",
-    "seed:force": "cross-env SEED_FORCE=1 NODE_OPTIONS=\"--no-deprecation --require ./scripts/patch-next-env.cjs\" tsx src/scripts/seed.ts"
+    "seed:force": "cross-env SEED_FORCE=1 NODE_OPTIONS=\"--no-deprecation --require ./scripts/patch-next-env.cjs\" tsx src/scripts/seed.ts",
+    "seed:en": "cross-env NODE_OPTIONS=\"--no-deprecation --require ./scripts/patch-next-env.cjs\" tsx src/scripts/seed-english.ts"
   },
   "dependencies": {
     "@formatjs/intl-localematcher": "^0.6.1",

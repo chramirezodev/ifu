@@ -8,12 +8,14 @@ import { useCMS } from '@/context/CMSContext';
 
 interface LayoutProps {
   children: React.ReactNode;
+  whatsappMessage?: string;
 }
 
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout: React.FC<LayoutProps> = ({ children, whatsappMessage }) => {
   const router = useRouter();
   const { i18n } = useTranslation();
   const { siteSettings } = useCMS();
+  const resolvedWhatsAppMessage = whatsappMessage || siteSettings.consultationWhatsAppMessage;
   const [activeSection, setActiveSection] = useState('inicio');
   const [mounted, setMounted] = useState(false);
 
@@ -75,7 +77,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <Footer />
         <WhatsAppButton
           phoneNumber={siteSettings.whatsappNumber}
-          message={siteSettings.consultationWhatsAppMessage}
+          message={resolvedWhatsAppMessage}
         />
       </div>
     );
@@ -90,7 +92,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <Footer />
       <WhatsAppButton
         phoneNumber={siteSettings.whatsappNumber}
-        message={siteSettings.consultationWhatsAppMessage}
+        message={resolvedWhatsAppMessage}
       />
     </div>
   );

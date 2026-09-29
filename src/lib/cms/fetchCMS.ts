@@ -1,4 +1,5 @@
 import { fallbackCMS } from './fallback'
+import { fallbackCMSEn } from './fallback.en'
 import type {
   CMSData,
   CMSFaq,
@@ -71,8 +72,9 @@ function mapPost(doc: any): CMSPost {
 }
 
 export async function fetchCMSData(locale: Locale = 'es'): Promise<CMSData> {
+  const fb = locale === 'en' ? fallbackCMSEn : fallbackCMS
   if (!process.env.DATABASE_URI || !process.env.PAYLOAD_SECRET) {
-    return toStaticProps(fallbackCMS)
+    return toStaticProps(fb)
   }
 
   try {
@@ -176,132 +178,132 @@ export async function fetchCMSData(locale: Locale = 'es'): Promise<CMSData> {
 
     return toStaticProps({
       siteSettings: {
-        firmName: siteSettings.firmName || fallbackCMS.siteSettings.firmName,
-        founder: siteSettings.founder || fallbackCMS.siteSettings.founder,
-        tagline: siteSettings.tagline || fallbackCMS.siteSettings.tagline,
-        slogan: siteSettings.slogan || fallbackCMS.siteSettings.slogan,
-        email: siteSettings.email || fallbackCMS.siteSettings.email,
-        phone: siteSettings.phone || fallbackCMS.siteSettings.phone,
+        firmName: siteSettings.firmName || fb.siteSettings.firmName,
+        founder: siteSettings.founder || fb.siteSettings.founder,
+        tagline: siteSettings.tagline || fb.siteSettings.tagline,
+        slogan: siteSettings.slogan || fb.siteSettings.slogan,
+        email: siteSettings.email || fb.siteSettings.email,
+        phone: siteSettings.phone || fb.siteSettings.phone,
         whatsappNumber:
-          siteSettings.whatsappNumber || fallbackCMS.siteSettings.whatsappNumber,
+          siteSettings.whatsappNumber || fb.siteSettings.whatsappNumber,
         whatsappAutoMessage:
           siteSettings.whatsappAutoMessage ||
-          fallbackCMS.siteSettings.whatsappAutoMessage,
+          fb.siteSettings.whatsappAutoMessage,
         consultationWhatsAppMessage:
           siteSettings.consultationWhatsAppMessage ||
-          fallbackCMS.siteSettings.consultationWhatsAppMessage,
-        address: siteSettings.address || fallbackCMS.siteSettings.address,
-        workHours: siteSettings.workHours || fallbackCMS.siteSettings.workHours,
-        website: siteSettings.website || fallbackCMS.siteSettings.website,
-        paymentUrl: siteSettings.paymentUrl || fallbackCMS.siteSettings.paymentUrl,
+          fb.siteSettings.consultationWhatsAppMessage,
+        address: siteSettings.address || fb.siteSettings.address,
+        workHours: siteSettings.workHours || fb.siteSettings.workHours,
+        website: siteSettings.website || fb.siteSettings.website,
+        paymentUrl: siteSettings.paymentUrl || fb.siteSettings.paymentUrl,
         googleMapsUrl:
-          siteSettings.googleMapsUrl || fallbackCMS.siteSettings.googleMapsUrl,
+          siteSettings.googleMapsUrl || fb.siteSettings.googleMapsUrl,
         mapEmbedUrl:
-          siteSettings.mapEmbedUrl || fallbackCMS.siteSettings.mapEmbedUrl,
+          siteSettings.mapEmbedUrl || fb.siteSettings.mapEmbedUrl,
         logoUrl: mediaUrl(
           siteSettings.logo,
-          fallbackCMS.siteSettings.logoUrl,
+          fb.siteSettings.logoUrl,
         ),
         socialLinks:
           (siteSettings.socialLinks as { platform: string; url: string }[])?.length > 0
             ? (siteSettings.socialLinks as { platform: string; url: string }[])
-            : fallbackCMS.siteSettings.socialLinks,
+            : fb.siteSettings.socialLinks,
         footerServiceLabels:
           (siteSettings.footerServiceLabels as { label: string }[])?.length > 0
             ? (siteSettings.footerServiceLabels as { label: string }[]).map((i) => i.label)
-            : fallbackCMS.siteSettings.footerServiceLabels,
+            : fb.siteSettings.footerServiceLabels,
       },
       seo: {
-        siteName: seo.siteName || fallbackCMS.seo.siteName,
-        defaultTitle: seo.defaultTitle || fallbackCMS.seo.defaultTitle,
+        siteName: seo.siteName || fb.seo.siteName,
+        defaultTitle: seo.defaultTitle || fb.seo.defaultTitle,
         defaultDescription:
-          seo.defaultDescription || fallbackCMS.seo.defaultDescription,
-        keywords: seo.keywords || fallbackCMS.seo.keywords,
-        ogImageUrl: mediaUrl(seo.ogImage, seo.ogImageUrl || fallbackCMS.seo.ogImageUrl),
-        twitterHandle: seo.twitterHandle || fallbackCMS.seo.twitterHandle,
+          seo.defaultDescription || fb.seo.defaultDescription,
+        keywords: seo.keywords || fb.seo.keywords,
+        ogImageUrl: mediaUrl(seo.ogImage, seo.ogImageUrl || fb.seo.ogImageUrl),
+        twitterHandle: seo.twitterHandle || fb.seo.twitterHandle,
       },
       homeHero: {
-        brandLine1: homeHero.brandLine1 || fallbackCMS.homeHero.brandLine1,
-        brandLine2: homeHero.brandLine2 || fallbackCMS.homeHero.brandLine2,
-        tagline: homeHero.tagline || fallbackCMS.homeHero.tagline,
-        slogan: homeHero.slogan || fallbackCMS.homeHero.slogan,
+        brandLine1: homeHero.brandLine1 || fb.homeHero.brandLine1,
+        brandLine2: homeHero.brandLine2 || fb.homeHero.brandLine2,
+        tagline: homeHero.tagline || fb.homeHero.tagline,
+        slogan: homeHero.slogan || fb.homeHero.slogan,
         sloganHighlight:
-          homeHero.sloganHighlight || fallbackCMS.homeHero.sloganHighlight,
+          homeHero.sloganHighlight || fb.homeHero.sloganHighlight,
         backgroundImageUrl: mediaUrl(
           homeHero.backgroundImage,
-          homeHero.backgroundImageUrl || fallbackCMS.homeHero.backgroundImageUrl,
+          homeHero.backgroundImageUrl || fb.homeHero.backgroundImageUrl,
         ),
         ctaPrimaryLabel:
-          homeHero.ctaPrimaryLabel || fallbackCMS.homeHero.ctaPrimaryLabel,
+          homeHero.ctaPrimaryLabel || fb.homeHero.ctaPrimaryLabel,
         ctaPrimaryHref:
-          homeHero.ctaPrimaryHref || fallbackCMS.homeHero.ctaPrimaryHref,
+          homeHero.ctaPrimaryHref || fb.homeHero.ctaPrimaryHref,
         ctaSecondaryLabel:
-          homeHero.ctaSecondaryLabel || fallbackCMS.homeHero.ctaSecondaryLabel,
+          homeHero.ctaSecondaryLabel || fb.homeHero.ctaSecondaryLabel,
         ctaSecondaryHref:
-          homeHero.ctaSecondaryHref || fallbackCMS.homeHero.ctaSecondaryHref,
+          homeHero.ctaSecondaryHref || fb.homeHero.ctaSecondaryHref,
       },
       homeWelcome: {
-        eyebrow: homeWelcome.eyebrow || fallbackCMS.homeWelcome.eyebrow,
-        name: homeWelcome.name || fallbackCMS.homeWelcome.name,
+        eyebrow: homeWelcome.eyebrow || fb.homeWelcome.eyebrow,
+        name: homeWelcome.name || fb.homeWelcome.name,
         paragraphs:
           (homeWelcome.paragraphs as { text: string }[])?.length > 0
             ? (homeWelcome.paragraphs as { text: string }[]).map((p) => p.text)
-            : fallbackCMS.homeWelcome.paragraphs,
+            : fb.homeWelcome.paragraphs,
         photoUrl: homeWelcome.photoUrl
           ? mediaUrl(null, homeWelcome.photoUrl)
           : mediaUrl(
               homeWelcome.photo,
-              fallbackCMS.homeWelcome.photoUrl || '',
+              fb.homeWelcome.photoUrl || '',
             ),
       },
       homeAbout: {
-        title: homeAbout.title || fallbackCMS.homeAbout.title,
-        content: homeAbout.content || fallbackCMS.homeAbout.content,
+        title: homeAbout.title || fb.homeAbout.title,
+        content: homeAbout.content || fb.homeAbout.content,
         imageUrl: mediaUrl(
           homeAbout.image,
-          homeAbout.imageUrl || fallbackCMS.homeAbout.imageUrl,
+          homeAbout.imageUrl || fb.homeAbout.imageUrl,
         ),
         values:
           (homeAbout.values as { title: string; description: string }[])?.length > 0
             ? (homeAbout.values as { title: string; description: string }[])
-            : fallbackCMS.homeAbout.values,
+            : fb.homeAbout.values,
       },
       homeWhyChooseUs: {
-        title: homeWhyChooseUs.title || fallbackCMS.homeWhyChooseUs.title,
-        subtitle: homeWhyChooseUs.subtitle || fallbackCMS.homeWhyChooseUs.subtitle,
+        title: homeWhyChooseUs.title || fb.homeWhyChooseUs.title,
+        subtitle: homeWhyChooseUs.subtitle || fb.homeWhyChooseUs.subtitle,
         reasons:
           (homeWhyChooseUs.reasons as CMSData['homeWhyChooseUs']['reasons'])?.length > 0
             ? (homeWhyChooseUs.reasons as CMSData['homeWhyChooseUs']['reasons'])
-            : fallbackCMS.homeWhyChooseUs.reasons,
+            : fb.homeWhyChooseUs.reasons,
         bannerTitle:
-          homeWhyChooseUs.bannerTitle || fallbackCMS.homeWhyChooseUs.bannerTitle,
+          homeWhyChooseUs.bannerTitle || fb.homeWhyChooseUs.bannerTitle,
         bannerSubtitle:
           homeWhyChooseUs.bannerSubtitle ||
-          fallbackCMS.homeWhyChooseUs.bannerSubtitle,
+          fb.homeWhyChooseUs.bannerSubtitle,
         bannerImageUrl: mediaUrl(
           homeWhyChooseUs.bannerImage,
           homeWhyChooseUs.bannerImageUrl ||
-            fallbackCMS.homeWhyChooseUs.bannerImageUrl,
+            fb.homeWhyChooseUs.bannerImageUrl,
         ),
       },
       servicesPage: {
-        heroTitle: servicesPage.heroTitle || fallbackCMS.servicesPage.heroTitle,
+        heroTitle: servicesPage.heroTitle || fb.servicesPage.heroTitle,
         heroSubtitle:
-          servicesPage.heroSubtitle || fallbackCMS.servicesPage.heroSubtitle,
-        ctaLabel: servicesPage.ctaLabel || fallbackCMS.servicesPage.ctaLabel,
-        ctaHref: servicesPage.ctaHref || fallbackCMS.servicesPage.ctaHref,
+          servicesPage.heroSubtitle || fb.servicesPage.heroSubtitle,
+        ctaLabel: servicesPage.ctaLabel || fb.servicesPage.ctaLabel,
+        ctaHref: servicesPage.ctaHref || fb.servicesPage.ctaHref,
         sectionIntro:
-          servicesPage.sectionIntro || fallbackCMS.servicesPage.sectionIntro,
+          servicesPage.sectionIntro || fb.servicesPage.sectionIntro,
       },
-      services: services.length > 0 ? services : fallbackCMS.services,
+      services: services.length > 0 ? services : fb.services,
       testimonials:
-        testimonials.length > 0 ? testimonials : fallbackCMS.testimonials,
-      faqs: faqs.length > 0 ? faqs : fallbackCMS.faqs,
-      posts: posts.length > 0 ? posts : fallbackCMS.posts,
+        testimonials.length > 0 ? testimonials : fb.testimonials,
+      faqs: faqs.length > 0 ? faqs : fb.faqs,
+      posts: posts.length > 0 ? posts : fb.posts,
     })
   } catch (error) {
     console.warn('[CMS] Falling back to local content:', error)
-    return toStaticProps(fallbackCMS)
+    return toStaticProps(fb)
   }
 }
 

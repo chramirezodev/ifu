@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
+import { useTranslation } from 'next-i18next'
 import { useCMS } from '@/context/CMSContext'
 
 interface ReasonCardProps {
@@ -30,6 +31,7 @@ const iconMap: Record<string, React.ReactNode> = {
 }
 
 const ReasonCard: React.FC<ReasonCardProps> = ({ icon, title, description, expandedDescription, index }) => {
+  const { t } = useTranslation('common')
   const [isExpanded, setIsExpanded] = useState(false)
 
   return (
@@ -55,7 +57,7 @@ const ReasonCard: React.FC<ReasonCardProps> = ({ icon, title, description, expan
           onClick={() => setIsExpanded(!isExpanded)}
           className="text-usa-blue hover:text-brand-silver font-medium mt-2 flex items-center text-sm relative z-10 transition-colors duration-300"
         >
-          {isExpanded ? 'Ver menos' : 'Ver más'}
+          {isExpanded ? t('common.readLess') : t('common.readMore')}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className={`ml-1 w-4 h-4 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
@@ -89,6 +91,7 @@ const ReasonCard: React.FC<ReasonCardProps> = ({ icon, title, description, expan
 }
 
 const WhyChooseUs = () => {
+  const { t } = useTranslation('common')
   const { homeWhyChooseUs } = useCMS()
 
   return (
@@ -155,7 +158,7 @@ const WhyChooseUs = () => {
             <div className="relative h-80 lg:h-auto overflow-hidden bg-slate-100">
               <Image
                 src={homeWhyChooseUs.bannerImageUrl || '/images/hero/slide2.jpg'}
-                alt="Equipo de Mardini Law Firm comprometido con su defensa migratoria"
+                alt={t('whyChoose.bannerAlt')}
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -173,17 +176,12 @@ const WhyChooseUs = () => {
             </div>
 
             <div className="p-8 lg:p-12">
-              <h3 className="text-2xl font-bold mb-6 text-gray-900">Tu futuro merece una defensa sólida</h3>
+              <h3 className="text-2xl font-bold mb-6 text-gray-900">{t('whyChoose.heading')}</h3>
               <div className="space-y-4 mb-8">
                 <p className="text-gray-600 text-justify">
-                  Enfrentar un proceso migratorio puede generar incertidumbre, pero no tienes que hacerlo solo. En{' '}
-                  <strong>Mardini Law Firm</strong> encontrarás un equipo comprometido con proteger tus derechos y
-                  representar tus intereses con profesionalismo, preparación y dedicación.
+                  {t('whyChoose.p1Before')} <strong>Mardini Law Firm</strong> {t('whyChoose.p1After')}
                 </p>
-                <p className="text-gray-600 text-justify">
-                  Creemos que detrás de cada caso hay una historia, una familia y un proyecto de vida. Por eso asumimos
-                  cada representación con el compromiso de buscar la mejor solución legal para nuestros clientes.
-                </p>
+                <p className="text-gray-600 text-justify">{t('whyChoose.p2')}</p>
               </div>
               <motion.a
                 href="#contacto"
@@ -191,7 +189,7 @@ const WhyChooseUs = () => {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
               >
-                <span>Habla con un Abogado</span>
+                <span>{t('whyChoose.cta')}</span>
                 <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                 </svg>

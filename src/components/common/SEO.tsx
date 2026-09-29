@@ -46,14 +46,17 @@ const SEO = ({
     keywords: seo.keywords,
     image: seo.ogImageUrl || '/images/Logos/mardini-logo.png',
     twitterHandle: seo.twitterHandle || '@mardinilawfirm',
-    locale: 'es_ES',
   }
 
+  const isEnglish = router.locale === 'en'
   const resolvedTitle = title || defaultMetaTags.title
   const resolvedDescription = description || defaultMetaTags.description
   const resolvedKeywords = keywords || defaultMetaTags.keywords
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://immigrationfor-us.com'
-  const url = `${baseUrl}${router.asPath}`
+  const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || 'https://mardinilawfirm.com').replace(/\/$/, '')
+  const path = router.asPath.split(/[?#]/)[0] || '/'
+  const esUrl = `${baseUrl}${path}`
+  const enUrl = `${baseUrl}/en${path === '/' ? '' : path}`
+  const url = isEnglish ? enUrl : esUrl
   const imagePath = defaultMetaTags.image.startsWith('http')
     ? defaultMetaTags.image
     : `${baseUrl}${defaultMetaTags.image.startsWith('/') ? '' : '/'}${defaultMetaTags.image}`
@@ -101,6 +104,7 @@ const SEO = ({
     },
     serviceType: 'Immigration Law',
     areaServed: 'United States',
+    availableLanguage: ['Spanish', 'English'],
   }
 
   return (
@@ -110,6 +114,9 @@ const SEO = ({
       <meta name="keywords" content={resolvedKeywords} />
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <link rel="canonical" href={url} />
+      <link rel="alternate" hrefLang="es" href={esUrl} />
+      <link rel="alternate" hrefLang="en" href={enUrl} />
+      <link rel="alternate" hrefLang="x-default" href={esUrl} />
       {noindex && <meta name="robots" content="noindex,nofollow" />}
 
       <script
@@ -123,7 +130,8 @@ const SEO = ({
       <meta property="og:url" content={ogData.url} />
       <meta property="og:type" content={ogData.type} />
       {ogData.image && <meta property="og:image" content={ogData.image} />}
-      <meta property="og:locale" content={defaultMetaTags.locale} />
+      <meta property="og:locale" content={isEnglish ? 'en_US' : 'es_US'} />
+      <meta property="og:locale:alternate" content={isEnglish ? 'es_US' : 'en_US'} />
 
       <meta name="twitter:card" content={twitterData.card} />
       <meta name="twitter:site" content={twitterData.site} />

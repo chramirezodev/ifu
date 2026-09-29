@@ -1,8 +1,14 @@
 import React from 'react';
 import Head from 'next/head';
+import { useRouter } from 'next/router';
 import WhatsAppLink from '@/components/common/WhatsAppLink';
+import PoliciesEn from '@/components/legal/PoliciesEn';
 
-const Politicas = () => (
+const Politicas = () => {
+  const { locale } = useRouter();
+  if (locale === 'en') return <PoliciesEn />;
+
+  return (
   <>
     <Head>
       <title>Políticas de Uso y Privacidad | Mardini Law Firm</title>
@@ -39,6 +45,7 @@ const Politicas = () => (
       </div>
     </main>
   </>
-);
+  );
+};
 
 export default Politicas;

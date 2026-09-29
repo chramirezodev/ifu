@@ -25,14 +25,28 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
   // Logo fino SVG (azul/gris): se escala solo con CSS para no engrosar trazos.
   const logoSrc = '/images/Logos/mardini-logo-header.svg';
 
+  // Fuera de la home las anclas deben apuntar a "/", si no quedan como /servicios/x#servicios.
+  const sectionPrefix = router.pathname === '/' ? '' : '/';
+
   const navigation: NavItem[] = [
-    { label: 'inicio', href: '#inicio', translationKey: 'nav.home' },
-    { label: 'nosotros', href: '#nosotros', translationKey: 'nav.about' },
-    { label: 'servicios', href: '#servicios', translationKey: 'nav.services' },
-    { label: 'por-que-elegirnos', href: '#por-que-elegirnos', translationKey: 'nav.choose' },
+    { label: 'inicio', href: `${sectionPrefix}#inicio`, translationKey: 'nav.home' },
+    { label: 'nosotros', href: `${sectionPrefix}#nosotros`, translationKey: 'nav.about' },
+    { label: 'servicios', href: `${sectionPrefix}#servicios`, translationKey: 'nav.services' },
+    { label: 'por-que-elegirnos', href: `${sectionPrefix}#por-que-elegirnos`, translationKey: 'nav.choose' },
     { label: 'paga-aqui', href: siteSettings.paymentUrl, translationKey: 'nav.pay', external: true },
-    { label: 'contactenos', href: '#contacto', translationKey: 'nav.contact' }
+    { label: 'contactenos', href: `${sectionPrefix}#contacto`, translationKey: 'nav.contact' }
   ];
+
+  const currentLocale = router.locale || i18n.language;
+
+  const switchLocale = (locale: 'es' | 'en') => {
+    setIsMenuOpen(false);
+    if (locale === currentLocale) return;
+    router.push(router.asPath.split('#')[0], undefined, { locale });
+  };
+
+  const languageButtonClass = (locale: 'es' | 'en', size: string) =>
+    `${size} font-medium transition-colors duration-200 ${currentLocale === locale ? 'text-usa-blue font-bold' : 'text-gray-500 hover:text-usa-blue'}`;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -45,7 +59,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 bg-white transition-all duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
-      <nav className="w-full px-3 pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] sm:px-5 lg:px-6">
+      <nav aria-label={t('nav.aria.main')} className="w-full px-3 pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))] sm:px-5 lg:px-6">
         <div className="flex justify-between items-center gap-2 sm:gap-3 py-2 min-h-0 leading-none md:py-2.5">
           <Link
             href="/"
@@ -73,7 +87,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                   rel="noopener noreferrer"
                   className="bg-usa-blue text-white hover:bg-usa-blue-dark px-2.5 py-1 rounded-md text-xs font-semibold transition-colors duration-200 shadow-sm whitespace-nowrap leading-none"
                 >
-                  {t(item.translationKey, { defaultValue: 'PAGA AQUÍ' })}
+                  {t(item.translationKey)}
                 </a>
               ) : (
                 <Link
@@ -90,23 +104,23 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
             
             <div className="flex items-center space-x-2 ml-1 flex-shrink-0">
               <button
-                onClick={() => {
-                  i18n.changeLanguage('es');
-                  router.push(router.pathname, router.pathname, { locale: 'es' });
-                }}
-                className={`text-sm font-medium transition-colors duration-200 ${i18n.language === 'es' ? 'text-usa-blue font-bold' : 'text-gray-500 hover:text-usa-blue'}`}
-                aria-label="Cambiar a español"
+                type="button"
+                onClick={() => switchLocale('es')}
+                className={languageButtonClass('es', 'text-sm')}
+                aria-label={t('language.es')}
+                aria-pressed={currentLocale === 'es'}
+                lang="es"
               >
                 ES
               </button>
               <span className="text-gray-300">|</span>
               <button
-                onClick={() => {
-                  i18n.changeLanguage('en');
-                  router.push(router.pathname, router.pathname, { locale: 'en' });
-                }}
-                className={`text-sm font-medium transition-colors duration-200 ${i18n.language === 'en' ? 'text-usa-blue font-bold' : 'text-gray-500 hover:text-usa-blue'}`}
-                aria-label="Change to English"
+                type="button"
+                onClick={() => switchLocale('en')}
+                className={languageButtonClass('en', 'text-sm')}
+                aria-label={t('language.en')}
+                aria-pressed={currentLocale === 'en'}
+                lang="en"
               >
                 EN
               </button>
@@ -163,7 +177,7 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                       className="block mx-3 my-2 px-4 py-3 rounded-md text-base font-semibold text-center bg-usa-blue text-white hover:bg-usa-blue-dark transition-colors duration-200"
                       onClick={() => setIsMenuOpen(false)}
                     >
-                      {t(item.translationKey, { defaultValue: 'PAGA AQUÍ' })}
+                      {t(item.translationKey)}
                     </a>
                   ) : (
                     <Link
@@ -180,17 +194,23 @@ const Header: React.FC<HeaderProps> = ({ activeSection }) => {
                 )}
                 <div className="flex items-center space-x-2 mt-2 px-3">
                   <button
-                    onClick={() => i18n.changeLanguage('es')}
-                    className={`text-base font-medium transition-colors duration-200 ${i18n.language === 'es' ? 'text-usa-blue font-bold' : 'text-gray-500 hover:text-usa-blue'}`}
-                    aria-label="Cambiar a español"
+                    type="button"
+                    onClick={() => switchLocale('es')}
+                    className={languageButtonClass('es', 'text-base')}
+                    aria-label={t('language.es')}
+                    aria-pressed={currentLocale === 'es'}
+                    lang="es"
                   >
                     ES
                   </button>
                   <span className="text-gray-300">|</span>
                   <button
-                    onClick={() => i18n.changeLanguage('en')}
-                    className={`text-base font-medium transition-colors duration-200 ${i18n.language === 'en' ? 'text-usa-blue font-bold' : 'text-gray-500 hover:text-usa-blue'}`}
-                    aria-label="Change to English"
+                    type="button"
+                    onClick={() => switchLocale('en')}
+                    className={languageButtonClass('en', 'text-base')}
+                    aria-label={t('language.en')}
+                    aria-pressed={currentLocale === 'en'}
+                    lang="en"
                   >
                     EN
                   </button>
